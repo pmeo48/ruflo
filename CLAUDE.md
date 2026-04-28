@@ -4,6 +4,23 @@
 > 6,000+ commits, 314 MCP tools, 16 agent roles + custom types, 19 AgentDB controllers.
 > Packages: `@claude-flow/cli@3.5.65`, `claude-flow@3.5.65`, `ruflo@3.5.65`
 
+## Native Claude Code Capabilities (PREFER OVER MCP) — ADR-091
+
+When running inside Claude Code, ALWAYS prefer native tools over MCP equivalents:
+
+| Need | Use This | Not This |
+|------|----------|----------|
+| Periodic tasks | `/loop` with ScheduleWakeup (delay <270s for cache) | `daemon start` |
+| Live monitoring | `Monitor("npx @claude-flow/cli swarm watch --stream")` | Polling `swarm status` |
+| Background workers | `CronCreate("audit", "*/15 * * * *", "...")` | `daemon start --background` |
+| Agent isolation | `Task({ ..., isolation: "worktree" })` | Shared worktree |
+| Multi-agent comms | `TeamCreate` + `SendMessage` | Memory namespace coordination |
+| Cross-session | `PushNotification` + `RemoteTrigger` | No equivalent |
+
+MCP tool responses include hints: `[LOOP_SUGGESTION]`, `[MONITOR_AVAILABLE]`, `[CRON_SUGGESTION]`, `[TEAM_SUGGESTION]`, `[WORKTREE_SUGGESTION]` — follow them. In CI/headless, Ruflo falls back to daemon mode automatically.
+
+---
+
 ## Behavioral Rules (Always Enforced)
 
 - Do what has been asked; nothing more, nothing less

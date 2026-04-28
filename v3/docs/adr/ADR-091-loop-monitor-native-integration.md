@@ -1,6 +1,6 @@
 # ADR-091: Deep Integration of Claude Code Native Capabilities (/loop, Monitor, Cron, Agent Teams)
 
-**Status:** Proposed  
+**Status:** Implemented  
 **Date:** 2026-04-27  
 **Author:** ruflo team  
 **Relates to:** ADR-020 (Headless Workers), ADR-026 (3-Tier Routing), ADR-037 (Autopilot), ADR-085 (Comprehensive Remediation)

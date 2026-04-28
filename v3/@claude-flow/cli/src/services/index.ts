@@ -57,6 +57,29 @@ export {
   type TaskStatus,
 } from './worker-queue.js';
 
+// Event Stream (ADR-091)
+export {
+  createRunId,
+  emitEvent,
+  createEventEmitter,
+  type StreamEvent,
+} from './event-stream.js';
+
+// Runtime Capabilities (ADR-091)
+export {
+  detectCapabilities,
+  getRuntimeTier,
+  getCacheWarmDelay,
+  type RuntimeCapabilities,
+  type RuntimeTier,
+} from './runtime-capabilities.js';
+
+// Loop Worker Runner (ADR-091 Phase 2)
+export {
+  runLoopWorker,
+  type LoopWorkerResult,
+} from './loop-worker-runner.js';
+
 // Re-export types
 export type { default as WorkerDaemonType, DaemonConfig } from './worker-daemon.js';
 export type { default as HeadlessWorkerExecutorType } from './headless-worker-executor.js';

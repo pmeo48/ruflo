@@ -138,6 +138,10 @@ export const swarmTools: MCPTool[] = [
         initializedAt: now,
         config: swarmState.config,
         persisted: true,
+        nativeIntegration: {
+          teamSuggestion: '[TEAM_SUGGESTION] Create a Claude Code team for this swarm: TeamCreate({ team_name: "' + (input.name || 'swarm') + '", description: "Ruflo swarm coordination" })',
+          worktreeNote: '[WORKTREE_SUGGESTION] Spawn file-modifying agents with isolation: "worktree" to prevent conflicts',
+        },
       };
     },
   },
@@ -201,6 +205,9 @@ export const swarmTools: MCPTool[] = [
         createdAt: latest.createdAt,
         updatedAt: latest.updatedAt,
         totalSwarms: swarmIds.length,
+        nativeIntegration: {
+          monitorSuggestion: '[MONITOR_AVAILABLE] For live swarm updates: Monitor("npx @claude-flow/cli swarm watch --stream")',
+        },
       };
     },
   },
@@ -354,6 +361,9 @@ export const swarmTools: MCPTool[] = [
         agentCount: target.agents.length,
         checks,
         checkedAt: new Date().toISOString(),
+        nativeIntegration: {
+          monitorSuggestion: '[MONITOR_AVAILABLE] For continuous health monitoring: Monitor("npx @claude-flow/cli swarm watch --stream --health")',
+        },
       };
     },
   },

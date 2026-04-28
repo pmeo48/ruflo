@@ -69,6 +69,16 @@ const startCommand: Command = {
       }
     }
 
+    // Detect Claude Code runtime — suggest native alternatives
+    if (!isDaemonProcess && (process.env.CLAUDE_CODE || !process.stdin.isTTY)) {
+      if (!quiet) {
+        output.printInfo('[NATIVE_AVAILABLE] Running inside Claude Code. Consider using:');
+        output.writeln('  /loop "Run workers" — for in-session periodic execution');
+        output.writeln('  CronCreate — for persistent background workers');
+        output.writeln('  Proceeding with daemon start as fallback...');
+      }
+    }
+
     // Check if background daemon already running (skip if we ARE the daemon process)
     if (!isDaemonProcess) {
       const bgPid = getBackgroundDaemonPid(projectRoot);
@@ -710,6 +720,58 @@ const enableCommand: Command = {
   },
 };
 
+// Schedule subcommand - suggest native Claude Code alternatives for persistent scheduling
+const scheduleCommand: Command = {
+  name: 'schedule',
+  description: 'Schedule a worker for periodic execution (suggests native Claude Code primitives)',
+  options: [
+    { name: 'worker', short: 'w', type: 'string', description: 'Worker type to schedule', required: true },
+    { name: 'interval', short: 'i', type: 'string', description: 'Interval in minutes (e.g. 15)', required: true },
+  ],
+  examples: [
+    { command: 'claude-flow daemon schedule -w audit -i 30', description: 'Schedule audit worker every 30 minutes' },
+    { command: 'claude-flow daemon schedule -w map -i 5', description: 'Schedule map worker every 5 minutes' },
+  ],
+  action: async (ctx: CommandContext): Promise<CommandResult> => {
+    const worker = ctx.flags.worker as string;
+    const intervalStr = ctx.flags.interval as string;
+
+    if (!worker) {
+      output.printError('Worker type is required. Use --worker or -w flag.');
+      return { success: false, exitCode: 1 };
+    }
+    if (!intervalStr) {
+      output.printError('Interval is required. Use --interval or -i flag.');
+      return { success: false, exitCode: 1 };
+    }
+
+    const minutes = parseInt(intervalStr, 10);
+    if (isNaN(minutes) || minutes < 1 || minutes > 1440) {
+      output.printError('Interval must be a number between 1 and 1440 (minutes).');
+      return { success: false, exitCode: 1 };
+    }
+
+    // Convert minutes to cron expression
+    const cronExpr = minutes < 60
+      ? `*/${minutes} * * * *`
+      : `0 */${Math.floor(minutes / 60)} * * *`;
+
+    output.writeln();
+    output.printBox(
+      [
+        `[CRON_SUGGESTION] To schedule this worker persistently:`,
+        `CronCreate("${worker}-worker", "${cronExpr}", "Run npx @claude-flow/cli hooks worker dispatch --trigger ${worker}")`,
+        ``,
+        `For in-session periodic execution, use:`,
+        `/loop "Run ${worker} worker" (auto-paced with cache-aware delays)`,
+      ].join('\n'),
+      'Schedule Worker'
+    );
+
+    return { success: true };
+  },
+};
+
 // Helper functions for time formatting
 function formatTimeAgo(date: Date): string {
   const seconds = Math.floor((Date.now() - date.getTime()) / 1000);
@@ -740,6 +802,7 @@ export const daemonCommand: Command = {
     statusCommand,
     triggerCommand,
     enableCommand,
+    scheduleCommand,
   ],
   options: [],
   examples: [
@@ -780,11 +843,12 @@ export const daemonCommand: Command = {
     output.writeln();
     output.writeln(output.bold('Subcommands'));
     output.printList([
-      `${output.highlight('start')}   - Start the daemon`,
-      `${output.highlight('stop')}    - Stop the daemon`,
-      `${output.highlight('status')}  - Show daemon status`,
-      `${output.highlight('trigger')} - Manually run a worker`,
-      `${output.highlight('enable')}  - Enable/disable a worker`,
+      `${output.highlight('start')}    - Start the daemon`,
+      `${output.highlight('stop')}     - Stop the daemon`,
+      `${output.highlight('status')}   - Show daemon status`,
+      `${output.highlight('trigger')}  - Manually run a worker`,
+      `${output.highlight('enable')}   - Enable/disable a worker`,
+      `${output.highlight('schedule')} - Schedule periodic worker execution`,
     ]);
 
     output.writeln();

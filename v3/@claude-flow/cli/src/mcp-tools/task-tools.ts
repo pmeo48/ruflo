@@ -119,6 +119,10 @@ export const taskTools: MCPTool[] = [
         createdAt: task.createdAt,
         assignedTo: task.assignedTo,
         tags: task.tags,
+        // ADR-091 Phase 1: Native Claude Code capability suggestions
+        nativeIntegration: {
+          nativeTaskNote: '[TASK_NATIVE] Claude Code has a native task system. Consider TaskCreate({ subject: "...", description: "..." }) for shared visibility across agents.',
+        },
       };
     },
   },
@@ -283,6 +287,10 @@ export const taskTools: MCPTool[] = [
           status: task.status,
           completedAt: task.completedAt,
           result: task.result,
+          // ADR-091 Phase 1: Native Claude Code capability suggestions
+          nativeIntegration: {
+            notifySuggestion: '[NOTIFY_SUGGESTION] For tasks spanning sessions, use PushNotification to alert when complete.',
+          },
         };
       }
 

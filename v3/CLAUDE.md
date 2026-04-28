@@ -2,6 +2,10 @@
 
 This directory contains the V3 monorepo packages. Root CLAUDE.md rules apply here.
 
+## Native Claude Code Integration (ADR-091)
+
+Prefer Claude Code native tools over MCP equivalents when available. See root CLAUDE.md for the full table. Key: `/loop` over daemon, `Monitor` over polling, `CronCreate` over background processes, `isolation: "worktree"` for parallel file-modifying agents. MCP responses include `[LOOP_SUGGESTION]`, `[MONITOR_AVAILABLE]`, etc.
+
 ## Build & Test
 
 ```bash

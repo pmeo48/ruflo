@@ -7,6 +7,7 @@ import type { Command, CommandContext, CommandResult } from '../types.js';
 import { output } from '../output.js';
 import { select, confirm, multiSelect } from '../prompt.js';
 import { callMCPTool, MCPClientError } from '../mcp-client.js';
+import { createRunId, emitEvent } from '../services/event-stream.js';
 import * as fs from 'fs';
 import * as path from 'path';
 
@@ -546,15 +547,79 @@ const startCommand: Command = {
   }
 };
 
+// Shared polling loop used by `status --stream` and `watch`
+function startStatusPoll(
+  swarmId: string | undefined,
+  runId: string,
+  includeHealth: boolean,
+): { stop: () => void } {
+  let prev = '';
+  const tick = () => {
+    const s = getSwarmStatus(swarmId);
+    const key = JSON.stringify(s);
+    if (key !== prev) {
+      prev = key;
+      emitEvent({
+        runId,
+        event: 'swarm_status',
+        agents: s.agents.total,
+        active: s.agents.active,
+        completed: s.tasks.completed,
+        pending: s.tasks.pending,
+        inProgress: s.tasks.inProgress,
+        progress: s.progress,
+        status: s.status,
+      });
+    }
+    if (includeHealth) {
+      emitEvent({
+        runId,
+        event: 'swarm_health',
+        memoryOk: s.hasActiveSwarm,
+        agentsTotal: s.agents.total,
+        agentsActive: s.agents.active,
+        successRate: s.metrics.successRate,
+        avgResponseTime: s.metrics.avgResponseTime,
+        elapsedTime: s.metrics.elapsedTime,
+      });
+    }
+  };
+  // Emit once immediately, then every 2 s
+  tick();
+  const timer = setInterval(tick, 2000);
+  const stop = () => { clearInterval(timer); };
+  return { stop };
+}
+
 // Swarm status
 const statusCommand: Command = {
   name: 'status',
-  description: 'Show swarm status',
+  description: 'Show swarm status. Use --stream for live NDJSON output (pairs with Claude Code Monitor tool)',
+  options: [
+    {
+      name: 'stream',
+      description: 'Continuously emit NDJSON status events to stdout (use with Claude Code Monitor tool for live updates)',
+      type: 'boolean',
+      default: false
+    }
+  ],
   action: async (ctx: CommandContext): Promise<CommandResult> => {
     const swarmId = ctx.args[0];
 
     // Get dynamic status from actual swarm state files
     const status = getSwarmStatus(swarmId);
+
+    // --stream: enter NDJSON polling mode instead of one-shot output
+    if (ctx.flags.stream) {
+      const runId = createRunId();
+      const { stop } = startStatusPoll(swarmId, runId, false);
+      await new Promise<void>((resolve) => {
+        const onSig = () => { stop(); resolve(); };
+        process.once('SIGINT', onSig);
+        process.once('SIGTERM', onSig);
+      });
+      return { success: true };
+    }
 
     if (ctx.flags.format === 'json') {
       output.printJson(status);
@@ -850,11 +915,53 @@ const coordinateCommand: Command = {
   }
 };
 
+// Watch swarm (NDJSON event stream)
+const watchCommand: Command = {
+  name: 'watch',
+  description: 'Stream live swarm status as NDJSON events to stdout',
+  options: [
+    {
+      name: 'health',
+      description: 'Include periodic health-metric events',
+      type: 'boolean',
+      default: false
+    }
+  ],
+  examples: [
+    { command: 'claude-flow swarm watch', description: 'Stream NDJSON status events' },
+    { command: 'claude-flow swarm watch --health', description: 'Include health metrics' }
+  ],
+  action: async (ctx: CommandContext): Promise<CommandResult> => {
+    const swarmId = ctx.args[0];
+    const includeHealth = ctx.flags.health as boolean;
+    const runId = createRunId();
+
+    emitEvent({
+      runId,
+      event: 'watch_start',
+      swarmId: swarmId ?? null,
+      health: includeHealth,
+    });
+
+    const { stop } = startStatusPoll(swarmId, runId, includeHealth);
+
+    // Block until SIGINT / SIGTERM, then clean up
+    await new Promise<void>((resolve) => {
+      const onSig = () => { stop(); resolve(); };
+      process.once('SIGINT', onSig);
+      process.once('SIGTERM', onSig);
+    });
+
+    emitEvent({ runId, event: 'watch_stop' });
+    return { success: true };
+  }
+};
+
 // Main swarm command
 export const swarmCommand: Command = {
   name: 'swarm',
   description: 'Swarm coordination commands',
-  subcommands: [initCommand, startCommand, statusCommand, stopCommand, scaleCommand, coordinateCommand],
+  subcommands: [initCommand, startCommand, statusCommand, stopCommand, scaleCommand, coordinateCommand, watchCommand],
   options: [],
   examples: [
     { command: 'claude-flow swarm init --v3-mode', description: 'Initialize V3 swarm' },
@@ -871,10 +978,11 @@ export const swarmCommand: Command = {
     output.printList([
       `${output.highlight('init')}        - Initialize a new swarm`,
       `${output.highlight('start')}       - Start swarm execution`,
-      `${output.highlight('status')}      - Show swarm status`,
+      `${output.highlight('status')}      - Show swarm status (--stream for live NDJSON)`,
       `${output.highlight('stop')}        - Stop swarm execution`,
       `${output.highlight('scale')}       - Scale swarm agent count`,
-      `${output.highlight('coordinate')}  - V3 15-agent coordination`
+      `${output.highlight('coordinate')}  - V3 15-agent coordination`,
+      `${output.highlight('watch')}       - Stream live NDJSON status events`
     ]);
 
     return { success: true };

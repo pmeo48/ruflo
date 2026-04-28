@@ -1864,6 +1864,9 @@ export const hooksSessionStart: MCPTool = {
         tasksRestored: sessionMemory?.restoredPatterns || 0,
         memoryRestored: sessionMemory?.restoredPatterns || 0,
       } : null,
+      nativeCapabilities: {
+        note: 'Claude Code native capabilities detected. Prefer /loop over daemon start, Monitor over polling, CronCreate over background processes.',
+      },
     };
   },
 };
@@ -3549,6 +3552,12 @@ export const hooksWorkerDispatch: MCPTool = {
       background,
       note: background ? 'Worker scheduled. Use hooks_worker-status to check progress. Start the daemon (daemon start) for real background execution.' : undefined,
       timestamp: new Date().toISOString(),
+      nativeIntegration: {
+        loopSuggestion: `[LOOP_SUGGESTION] This worker would benefit from /loop for periodic execution.\nRecommended: /loop "${trigger} worker"\nInterval: 270s (stays within cache window)`,
+        suggestedDelay: 270,
+        loopPrompt: `Run ${trigger} worker and check results`,
+        cronSuggestion: `[CRON_SUGGESTION] For persistent background execution: CronCreate("${trigger}-worker", "*/15 * * * *", "Run ${trigger} worker")`,
+      },
     };
   },
 };
@@ -3606,6 +3615,9 @@ export const hooksWorkerStatus: MCPTool = {
         running: workers.filter(w => w.status === 'running').length,
         completed: workers.filter(w => w.status === 'completed').length,
         failed: workers.filter(w => w.status === 'failed').length,
+      },
+      nativeIntegration: {
+        monitorSuggestion: '[MONITOR_AVAILABLE] For live worker updates: Monitor("npx @claude-flow/cli hooks worker list --stream")',
       },
     };
   },

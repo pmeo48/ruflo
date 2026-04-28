@@ -268,6 +268,14 @@ export const agentTools: MCPTool[] = [
         response.tier = routingResult.tier;
       }
 
+      // ADR-091 Phase 1: Native Claude Code capability suggestions
+      response.nativeIntegration = {
+        taskSuggestion: '[AGENT_NATIVE] For better isolation, spawn this agent via Claude Code Task tool: Task({ prompt: "...", subagent_type: "' + (input.agentType || 'coder') + '", isolation: "worktree" })',
+        isolationNote: agentType === 'coder' || agentType === 'reviewer'
+          ? '[WORKTREE_SUGGESTION] This agent type modifies files. Use isolation: "worktree" to prevent conflicts.'
+          : undefined,
+      };
+
       return response;
     },
   },
@@ -337,6 +345,10 @@ export const agentTools: MCPTool[] = [
           createdAt: agent.createdAt,
           domain: agent.domain,
           lastResult: agent.lastResult || null,
+          // ADR-091 Phase 1: Native Claude Code capability suggestions
+          nativeIntegration: {
+            monitorSuggestion: '[MONITOR_AVAILABLE] For live agent updates: Monitor("npx @claude-flow/cli agent logs --stream")',
+          },
         };
       }
 

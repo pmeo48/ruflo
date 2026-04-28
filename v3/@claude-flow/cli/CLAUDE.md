@@ -1,5 +1,47 @@
 # Claude Code Configuration - Claude Flow V3
 
+## Native Claude Code Capabilities (PREFER OVER MCP) — ADR-091
+
+When running inside Claude Code, ALWAYS prefer native tools over MCP equivalents:
+
+### Periodic Tasks → /loop (not daemon start)
+When a task needs to repeat, use /loop with ScheduleWakeup:
+- `/loop "Run audit worker"` → repeats with self-paced ScheduleWakeup
+- Cache-aware: delays <270s keep prompt cache warm, >300s cause cache miss
+- Formula: `delay = min(270, provider_cache_ttl * 0.9)`
+
+### Live Monitoring → Monitor (not polling)
+When watching a process, use Monitor instead of repeated `swarm status`:
+- `Monitor("npx @claude-flow/cli swarm watch --stream")`
+- Each event arrives as a notification — no polling needed
+- Events use NDJSON format with `schema: "ruflo.event.v1"`, `runId`, `agentId`
+
+### Background Workers → CronCreate (not daemon)
+For workers that should persist across sessions:
+- `CronCreate("audit", "*/15 * * * *", "Run audit worker")`
+- Managed by Claude Code — no orphan processes, no PID files
+
+### Agent Isolation → worktree
+For agents that modify files in parallel:
+- `Task({ ..., isolation: "worktree" })` — each agent gets its own git worktree
+- ALWAYS use for coder and reviewer agents in multi-agent swarms
+
+### Multi-Agent Coordination → Teams + SendMessage
+For structured multi-agent work:
+- `TeamCreate({ team_name: "feature-dev" })` to create a team
+- `SendMessage({ recipient: "coder-1", content: "Design ready" })` for direct messaging
+- `TaskCreate({ subject: "Implement auth" })` for shared task visibility
+
+### Cross-Session → PushNotification + RemoteTrigger
+For long-running tasks spanning sessions:
+- `PushNotification` to alert when done
+- `RemoteTrigger` to resume work from another session
+
+### Fallback Behavior
+These native capabilities are only available inside Claude Code. In CI/headless environments, Ruflo falls back to daemon mode automatically. MCP tool responses include `[LOOP_SUGGESTION]`, `[MONITOR_AVAILABLE]`, `[CRON_SUGGESTION]`, `[TEAM_SUGGESTION]`, and `[WORKTREE_SUGGESTION]` hints — follow them.
+
+---
+
 ## 🚨 AUTOMATIC SWARM ORCHESTRATION
 
 **When starting work on complex tasks, Claude Code MUST automatically:**
