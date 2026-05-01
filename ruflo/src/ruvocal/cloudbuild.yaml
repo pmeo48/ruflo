@@ -39,6 +39,10 @@ steps:
   # Provider keys come from existing ruv-dev Secret Manager secrets per
   # ADR-029. Only one CPU is allocated; mongo is lightweight when used
   # only for chat session storage.
+  # Deploy with image only — preserves manually configured env vars
+  # (DOTENV_LOCAL with PUBLIC_ORIGIN/OPENAI_BASE_URL/MODELS, OPENAI_API_KEY
+  # secret mapping, etc.). Initial env config must be set out-of-band via
+  # `gcloud run services update` (see ADR-033 deployment notes).
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
     args: [
@@ -52,9 +56,7 @@ steps:
       '--min-instances', '0',
       '--max-instances', '3',
       '--timeout', '300',
-      '--allow-unauthenticated',
-      '--set-env-vars', 'NODE_ENV=production,BODY_SIZE_LIMIT=15728640,INCLUDE_DB=true,MONGODB_URL=mongodb://localhost:27017',
-      '--set-secrets', 'ANTHROPIC_API_KEY=ANTHROPIC_API_KEY:latest,GOOGLE_API_KEY=GOOGLE_AI_API_KEY:latest,OPENROUTER_API_KEY=OPENROUTER_API_KEY:latest'
+      '--allow-unauthenticated'
     ]
 
 substitutions:
