@@ -54,7 +54,9 @@ time npx @claude-flow/cli-core@alpha memory store --key smoke --value test --nam
 ## Documentation
 
 - [ADR-100 — cli-core split](../../docs/adr/ADR-100-cli-core-split-lazy-load.md) — design rationale
+- **[MIGRATION.md](./MIGRATION.md) — concrete diff + env-flag pattern for switching plugin scripts**
 - [Issue #1748](https://github.com/ruvnet/ruflo/issues/1748) — the bug this package addresses
+- [Issue #1760](https://github.com/ruvnet/ruflo/issues/1760) — alpha tracking issue (status, benchmarks, fire-by-fire progress)
 - [Main `@claude-flow/cli` README](../cli/README.md) — full feature list
 
 ## License
