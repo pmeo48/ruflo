@@ -56,10 +56,31 @@ export { JsonMemoryBackend } from './memory/json-backend.js';
 export { runMemoryCommand } from './commands/memory.js';
 
 // Bin entry — runs when invoked as `claude-flow-core <command>`.
-const isMain =
-  import.meta.url === `file://${process.argv[1]}` ||
-  process.argv[1]?.endsWith('cli-core/dist/src/index.js') ||
-  process.argv[1]?.endsWith('cli-core/dist/src/index.js ');
+// Standard ESM main detection: realpath the script path and compare.
+// Earlier alpha tags used a fragile endsWith check that failed when
+// invoked via the npm bin shim (process.argv[1] points at the .bin
+// wrapper, not the underlying dist/src/index.js). Published binaries
+// were silently no-op; this fix makes them work.
+const isMain = (() => {
+  if (!process.argv[1]) return false;
+  try {
+    // Re-import to avoid top-level await in the conditional path
+    const fileURL = `file://${process.argv[1]}`;
+    if (import.meta.url === fileURL) return true;
+    // npm bin-shim case: argv[1] is the .bin/claude-flow-core symlink.
+    // Resolve real path and compare.
+    const { realpathSync } = require('node:fs');
+    const { fileURLToPath } = require('node:url');
+    const argvReal = realpathSync(process.argv[1]);
+    const moduleReal = realpathSync(fileURLToPath(import.meta.url));
+    return argvReal === moduleReal;
+  } catch {
+    // Fallback heuristic — if argv[1] mentions claude-flow-core or our
+    // dist path, assume we're the binary. Better to over-trigger and
+    // serve a usage screen than under-trigger and silently no-op.
+    return /claude-flow-core|cli-core\/dist\//.test(process.argv[1]);
+  }
+})();
 
 if (isMain) {
   const args = process.argv.slice(2);

@@ -82,10 +82,14 @@ export async function runMemoryCommand(argv: string[]): Promise<number> {
   try {
     switch (sub) {
       case 'store': {
-        const [key, ...valueParts] = positional;
-        const valueRaw = asString(flags.value) ?? valueParts.join(' ');
+        // Accept BOTH positional `<key> <value>` AND --key=K --value=V
+        // (drop-in compat with @claude-flow/cli's memory store).
+        const [posKey, ...posValueParts] = positional;
+        const key = asString(flags.key) ?? posKey;
+        const valueRaw = asString(flags.value) ?? posValueParts.join(' ');
         if (!key || !valueRaw) {
           console.error('usage: memory store <key> <value> [--namespace=NS] [--tags=t1,t2] [--ttl=N] [--upsert]');
+          console.error('       memory store --key K --value V [--namespace=NS] ...   (flag form)');
           return 2;
         }
         await backend.store(key, parseValue(valueRaw), {
@@ -102,9 +106,10 @@ export async function runMemoryCommand(argv: string[]): Promise<number> {
 
       case 'retrieve':
       case 'get': {
-        const [key] = positional;
+        const key = asString(flags.key) ?? positional[0];
         if (!key) {
           console.error('usage: memory retrieve <key> [--namespace=NS]');
+          console.error('       memory retrieve --key K [--namespace=NS]   (flag form)');
           return 2;
         }
         const entry = await backend.retrieve(key, { namespace });
@@ -163,9 +168,10 @@ export async function runMemoryCommand(argv: string[]): Promise<number> {
 
       case 'delete':
       case 'rm': {
-        const [key] = positional;
+        const key = asString(flags.key) ?? positional[0];
         if (!key) {
           console.error('usage: memory delete <key> [--namespace=NS]');
+          console.error('       memory delete --key K [--namespace=NS]   (flag form)');
           return 2;
         }
         const ok = await backend.delete(key, { namespace });
