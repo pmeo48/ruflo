@@ -19,3 +19,17 @@ export {
   type EventFilter,
   type EventSubscription,
 } from './event-store.js';
+
+// Hybrid Logical Clock (ADR-101 Component A)
+export {
+  LocalHlc,
+  HlcSkewError,
+  compareHlc,
+  hlcToWallMs,
+  wallMsToHlc,
+  zeroHlc,
+  DEFAULT_MAX_SKEW_MS,
+  type HlcTimestamp,
+  type IHlc,
+  type PhysicalClock,
+} from './hlc.js';
