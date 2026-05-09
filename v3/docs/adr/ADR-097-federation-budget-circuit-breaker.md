@@ -130,12 +130,13 @@ Test surface:
 
 ## Implementation status (2026-05-09)
 
-Phases 1 and 3 (consumer-side) are landed on `main`. Phase 2 (peer state machine) and Phase 4 (doctor + `federation_breaker_status` MCP tool) are deferred.
+Phases 1 and 3 (consumer-side) are landed on `main`. Phase 2 entity layer (state machine on `FederationNode`) lands on `feat/adr-100-promote-097-phase2`. Phase 2 breaker service (cost-tracker → `suspend()` wiring) and Phase 4 (`federation_breaker_status` MCP tool + doctor) remain deferred.
 
 | Phase / Component | Status | Files | Commit(s) |
 |---|---|---|---|
 | **Phase 1** — Budget envelope + hop counter on `federation_send` | Implemented | `v3/@claude-flow/plugin-agent-federation/src/domain/value-objects/federation-budget.ts` (new), `mcp-tools.ts` updated | `7e1cc06df feat(federation): ADR-097 Phase 1 — budget envelope + hop counter (#1723)` |
-| **Phase 2** — Peer state machine (`ACTIVE`/`SUSPENDED`/`EVICTED`) | Deferred | `federation-node.ts` — no `state` field added | — |
+| **Phase 2.a** — Peer state machine value object + entity transitions | Implemented | `domain/value-objects/federation-node-state.ts` (new), `domain/entities/federation-node.ts` (state field + suspend/evict/reactivate), `__tests__/unit/federation-node-state.test.ts` (27 tests) | `feat/adr-100-promote-097-phase2` |
+| **Phase 2.b** — Breaker service: cost-tracker → `suspend()` wiring + outbound short-circuit | Deferred | `application/breaker-service.ts` (planned), `routing-service.ts` (gate on `isActive`) | — |
 | **Phase 3** — Cost-tracker bus event + per-peer rolling aggregation | Consumer-side implemented; upstream emitter deferred | `plugins/ruflo-cost-tracker/scripts/federation.mjs`, `skills/cost-federation/SKILL.md` | `1c0804315 feat(cost-tracker): P6 — ADR-097 Phase 3 federation_spend consumer (v0.14.0)` |
 | **Phase 3 plugin wiring** — federation plugin adopts budget integration + ADR-097 doc | Implemented | `plugins/ruflo-federation/` (v0.2.0), `docs/adrs/0001-federation-contract.md` | `b0168e4a5 feat(ruflo-federation): adopt plugin contract — 3-gate alignment + ADR-097 budget integration + smoke` |
 | **Phase 4** — Doctor + `federation_breaker_status` MCP tool | Deferred | — | — |
@@ -149,8 +150,8 @@ Phases 1 and 3 (consumer-side) are landed on `main`. Phase 2 (peer state machine
 
 ### Deferred
 
-- **Phase 2** — `ACTIVE`/`SUSPENDED`/`EVICTED` state machine in `federation-node.ts`; auto-recovery cooldown; `SUSPENDED → EVICTED` escalation. Depends on upstream Phase 3 spend events to drive the suspension threshold.
-- **Phase 4** — `federation_breaker_status` MCP tool; `ruflo doctor` peer-state output. Blocked on Phase 2.
+- **Phase 2.b** — Breaker service that reads cost-tracker telemetry, evaluates thresholds (24h cost > `peer.costSuspensionUsd` default $5; 1h failure ratio > 50% across ≥10 sends), and calls `node.suspend()`. Outbound short-circuit on `!node.isActive` in `federation_send`. Cooldown/auto-evict tickers are pure functions (`isCooldownElapsed`, `shouldAutoEvict`) already shipped in Phase 2.a — the breaker just wires them.
+- **Phase 4** — `federation_breaker_status` MCP tool; `ruflo doctor` peer-state output. Now unblocked by Phase 2.a (entity exposes `state` + `stateRecord`).
 - **Phase 3 upstream** — `federation_spend` event emission from `federation_send` completion. Consumer side is wired and waiting.
 
 ---

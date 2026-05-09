@@ -1,19 +1,19 @@
 {
   "manifest": {
     "schema": "ruflo-witness/v1",
-    "issuedAt": "2026-05-09T17:17:12.118Z",
-    "gitCommit": "12f2546c0328347e53a8222019d7465233ef80d9",
-    "branch": "main",
+    "issuedAt": "2026-05-09T19:51:01.247Z",
+    "gitCommit": "02eee0bcdc55db1d34cfd947274062ebf5c860c9",
+    "branch": "feat/adr-100-promote-097-phase2",
     "os": "macos",
     "releases": {
-      "ruflo": "3.7.0-alpha.18",
-      "claude-flow": "3.7.0-alpha.18",
-      "@claude-flow/cli": "3.7.0-alpha.18",
+      "ruflo": "3.7.0-alpha.19",
+      "claude-flow": "3.7.0-alpha.19",
+      "@claude-flow/cli": "3.7.0-alpha.19",
       "@claude-flow/memory": "3.0.0-alpha.15"
     },
     "summary": {
-      "totalFixes": 84,
-      "verified": 84,
+      "totalFixes": 85,
+      "verified": 85,
       "missing": 0
     },
     "fixes": [
@@ -117,7 +117,7 @@
         "id": "#1697",
         "desc": "rvf-wasm overrides",
         "file": "package.json",
-        "sha256": "9c9233e068f02511a4c8c310640fc0d3285b449435df5819afa9cc8ac211ff42",
+        "sha256": "6a1a82d940e45b7734ee2ec89908306354b0d7a95e1d22fd6ecde0accefb1c0c",
         "marker": "@ruvector/rvf-wasm",
         "markerVerified": true
       },
@@ -141,7 +141,7 @@
         "id": "#1721",
         "desc": "postinstall copies all dist/src/* siblings",
         "file": "v3/@claude-flow/cli/package.json",
-        "sha256": "b6836a525ba4914a9e9a42116bbdbb56449c3505a203611891e21888cc84ac4b",
+        "sha256": "80ab8c42b3bc9dcc8552625f0353157a57fc688fe23baf7e112293ba9c27e843",
         "marker": "postinstall.cjs",
         "markerVerified": true
       },
@@ -461,7 +461,7 @@
         "id": "#1795",
         "desc": "umbrella package missing cli-core dep (ERR_MODULE_NOT_FOUND)",
         "file": "package.json",
-        "sha256": "9c9233e068f02511a4c8c310640fc0d3285b449435df5819afa9cc8ac211ff42",
+        "sha256": "6a1a82d940e45b7734ee2ec89908306354b0d7a95e1d22fd6ecde0accefb1c0c",
         "marker": "@claude-flow/cli-core",
         "markerVerified": true
       },
@@ -629,7 +629,7 @@
         "id": "#1825",
         "desc": "hotfix: workspace: protocol leak in cli optionalDependencies",
         "file": "v3/@claude-flow/cli/package.json",
-        "sha256": "b6836a525ba4914a9e9a42116bbdbb56449c3505a203611891e21888cc84ac4b",
+        "sha256": "80ab8c42b3bc9dcc8552625f0353157a57fc688fe23baf7e112293ba9c27e843",
         "marker": "\"@claude-flow/memory\": \"^3.0.0-alpha.14\"",
         "markerVerified": true
       },
@@ -688,15 +688,23 @@
         "sha256": "eb93091a71f7459142eee3b9803e9e435110b5fdc5ac0c7d5ee05c79fc5928d7",
         "marker": "protocolVersion = '2024-11-05'",
         "markerVerified": true
+      },
+      {
+        "id": "ADR-097-Phase2a",
+        "desc": "Federation peer state machine entity layer — FederationNode gains state field + suspend/evict/reactivate; canTransition gates all mutations; EVICTED is terminal under breaker flow",
+        "file": "v3/@claude-flow/plugin-agent-federation/dist/domain/entities/federation-node.js",
+        "sha256": "bc347b915de91d4bae4ec3b47ce331013fc25eb1eb60bce62516a41e282f0d10",
+        "marker": "FederationNodeState.ACTIVE",
+        "markerVerified": true
       }
     ]
   },
   "integrity": {
     "manifestHashAlgo": "sha256",
-    "manifestHash": "7ada97559949bf547cd548923042c81896defee610249bbb005696027e1ce20b",
+    "manifestHash": "605c6681b16dac0563331e2ec47564be4755e28b78f0906146bf262b3f198e62",
     "signatureAlgo": "ed25519",
-    "publicKey": "5a8a5961088ed35c02bf481b22520301698061a1bcf9a54e579fbfcc6a332198",
-    "signature": "8245843ab41de389531d82cad973f132bbb10b78a0886b5b67fb70ae0242ef3a1c20659c058d24b8ce3fd05248425777b05813d8c3f6b357bdb32468631d5c0b",
+    "publicKey": "2b9312ce10783f7c460eb9fc302b0fa57b086f399431086de85090e3fd9ecadc",
+    "signature": "4b8c44cba662ba86f7d050f6f6f54eeb327ed4efb36ee170ba028c016440cbd598d5021b30a0393c5cff7bfc8ee96e156f51bce0005fbeb611ecf4f2bf96f503",
     "seedDerivation": "sha256(gitCommit + ':ruflo-witness/v1')"
   }
 }

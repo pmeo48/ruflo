@@ -36,6 +36,12 @@
       "desc": "Shared MCP server returns spec-compliant YYYY-MM-DD string for protocolVersion (companion to #1874-mcp)",
       "file": "v3/@claude-flow/shared/dist/mcp/server.js",
       "marker": "protocolVersion = '2024-11-05'"
+    },
+    {
+      "id": "ADR-097-Phase2a",
+      "desc": "Federation peer state machine entity layer — FederationNode gains state field + suspend/evict/reactivate; canTransition gates all mutations; EVICTED is terminal under breaker flow",
+      "file": "v3/@claude-flow/plugin-agent-federation/dist/domain/entities/federation-node.js",
+      "marker": "FederationNodeState.ACTIVE"
     }
   ]
 }
