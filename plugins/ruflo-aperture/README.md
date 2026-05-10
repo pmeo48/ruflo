@@ -22,6 +22,16 @@ Plugin wrapper for the [`aperture`](../../aperture/) Rust+WASM workspace. Logic 
 | Corpact | `aperture:pane.corpact` | `DataSource::corp_actions()` |
 | Inbox | `aperture:pane.inbox` | in-memory mailbox |
 | Export | `aperture:pane.export` | host-supplied snapshot formatter |
+| Earnings | `aperture:pane.earnings` | `DataSource::earnings_calendar()` |
+| Movers | `aperture:pane.movers` | `DataSource::movers()` |
+| Screen | `aperture:pane.screen` | `DataSource::screener()` |
+| Members | `aperture:pane.members` | `DataSource::index_members()` |
+| IVol | `aperture:pane.ivol` | `DataSource::vol_surface()` |
+| Tech | `aperture:pane.tech` | `DataSource::technicals()` |
+| Corr | `aperture:pane.corr` | `DataSource::correlation_matrix()` |
+| Filings | `aperture:pane.filings` | `DataSource::filings()` |
+| Order | `aperture:pane.order` | in-memory paper blotter |
+| Sentiment | `aperture:pane.sentiment` | `DataSource::sentiment()` |
 
 ## Verbs
 
@@ -43,5 +53,16 @@ Plugin wrapper for the [`aperture`](../../aperture/) Rust+WASM workspace. Logic 
 | `CORPACT` | `pane.corpact` | `CORPACT.RESULT` |
 | `INBOX` / `INBOX.POST` / `INBOX.CLEAR` | `pane.inbox` | `INBOX.RESULT` |
 | `EXPORT` | `pane.export` | `EXPORT.RESULT` |
+| `EARNINGS [window_days]` | `pane.earnings` | `EARNINGS.RESULT` |
+| `MOVERS [scope]` | `pane.movers` | `MOVERS.RESULT` |
+| `SCREEN [criteria]` | `pane.screen` | `SCREEN.RESULT` |
+| `MEMBERS` | `pane.members` | `MEMBERS.RESULT` |
+| `IVOL` | `pane.ivol` | `IVOL.RESULT` |
+| `TECH [indicator]` | `pane.tech` | `TECH.RESULT` |
+| `CORR [symbols]` | `pane.corr` | `CORR.RESULT` |
+| `FILINGS` | `pane.filings` | `FILINGS.RESULT` |
+| `ORDER` | `pane.order` | `ORDER.RESULT` |
+| `BLOTTER` | `pane.order` | `BLOTTER.RESULT` |
+| `SENTIMENT` | `pane.sentiment` | `SENTIMENT.RESULT` |
 | `FOCUS` | broadcast | — (re-anchor) |
 | `QUOTE` / `OHLCV` | `agent.data` | `*.RESULT` |

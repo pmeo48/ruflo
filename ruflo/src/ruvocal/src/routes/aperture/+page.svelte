@@ -18,6 +18,16 @@
 		| "corpact"
 		| "inbox"
 		| "export"
+		| "earnings"
+		| "movers"
+		| "screen"
+		| "members"
+		| "ivol"
+		| "tech"
+		| "corr"
+		| "filings"
+		| "order"
+		| "sentiment"
 		| "system";
 	type ViewLine = { pane: Pane; text: string };
 	type Envelope = {
@@ -73,14 +83,25 @@
 		corpact: [],
 		inbox: [],
 		export: [],
+		earnings: [],
+		movers: [],
+		screen: [],
+		members: [],
+		ivol: [],
+		tech: [],
+		corr: [],
+		filings: [],
+		order: [],
+		sentiment: [],
 		system: [],
 	};
 
 	// Display order across the grid. Grouped by purpose:
-	//   1. Market-info  : quote, chart, news, macro, yields, fx, crypto
-	//   2. Per-symbol   : options, insider, financials, corpact
-	//   3. Portfolio    : watch, risk
-	//   4. Comms/export : oracle, inbox, export
+	//   1. Market-info       : quote, chart
+	//   2. Market discovery  : news, macro, yields, fx, crypto, earnings, movers, screen, members
+	//   3. Per-symbol        : options, insider, financials, corpact, ivol, tech, filings, sentiment
+	//   4. Portfolio + risk  : watch, risk, corr, order
+	//   5. Comms / export    : oracle, inbox, export
 	const PANE_ORDER: { id: Exclude<Pane, "system">; title: string; hint: string }[] = [
 		{ id: "quote", title: "Quote", hint: "AAPL DESC GO" },
 		{ id: "chart", title: "Chart", hint: "AAPL CHART 6M GO" },
@@ -89,12 +110,22 @@
 		{ id: "yields", title: "Yields", hint: "YIELDS US10Y GO" },
 		{ id: "fx", title: "FX", hint: "FX EURUSD GO" },
 		{ id: "crypto", title: "Crypto", hint: "BTC CRYPTO GO" },
+		{ id: "earnings", title: "Earnings", hint: "EARNINGS WEEK GO" },
+		{ id: "movers", title: "Movers", hint: "MOVERS GAINERS GO" },
+		{ id: "screen", title: "Screener", hint: "SCREEN PE<15 GO" },
+		{ id: "members", title: "Members", hint: "SPX MEMBERS GO" },
 		{ id: "options", title: "Options", hint: "AAPL OPTIONS GO" },
 		{ id: "insider", title: "Insider", hint: "AAPL INSIDER GO" },
 		{ id: "financials", title: "Financials", hint: "AAPL FINANCIALS GO" },
 		{ id: "corpact", title: "Corp Actions", hint: "AAPL CORPACT GO" },
+		{ id: "ivol", title: "IVol", hint: "AAPL IVOL GO" },
+		{ id: "tech", title: "Technicals", hint: "AAPL TECH RSI GO" },
+		{ id: "filings", title: "Filings", hint: "AAPL FILINGS 10-K GO" },
+		{ id: "sentiment", title: "Sentiment", hint: "AAPL SENTIMENT GO" },
 		{ id: "watch", title: "Watchlist", hint: "AAPL WATCH GO" },
 		{ id: "risk", title: "Risk", hint: "PORTFOLIO RISK GO" },
+		{ id: "corr", title: "Correlation", hint: "AAPL CORR MSFT GO" },
+		{ id: "order", title: "Order", hint: "AAPL BUY 100 GO" },
 		{ id: "oracle", title: "Oracle", hint: 'ASK "trend?" GO' },
 		{ id: "inbox", title: "Inbox", hint: "INBOX LIST GO" },
 		{ id: "export", title: "Export", hint: "EXPORT CSV GO" },
@@ -267,7 +298,8 @@
 		grid-auto-rows: minmax(8rem, 1fr);
 		grid-auto-flow: row;
 		gap: 0.5rem;
-		min-height: 44rem;
+		/* 26 panes ÷ 4 cols ≈ 7 rows; bump min-height so all rows stay visible. */
+		min-height: 62rem;
 	}
 	@media (max-width: 1100px) {
 		.panes {
@@ -294,6 +326,10 @@
 		font-size: 11px;
 		letter-spacing: 0.05em;
 		text-transform: uppercase;
+		/* Sticky so the title stays visible when the pane body scrolls. */
+		position: sticky;
+		top: 0;
+		z-index: 1;
 	}
 	.pane-body {
 		padding: 0.5rem;

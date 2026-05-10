@@ -219,3 +219,263 @@ fn agent_data_address_falls_back_to_chart_pane() {
     let lines = render_inbound(&env);
     assert_eq!(lines[0].pane, Pane::Chart);
 }
+
+// --- Wave-3 panes ---------------------------------------------------------
+
+#[test]
+fn earnings_result_renders_events_in_earnings_pane() {
+    let env = inbound(
+        "EARNINGS.RESULT",
+        json!({"data": {"window_days": 7, "events": [
+            {"symbol": "AAPL", "date": "2026-07-25", "estimate_eps": 1.62, "fiscal_period": "FY26 Q3"}
+        ]}}),
+        "aperture:pane.earnings",
+    );
+    let lines = render_inbound(&env);
+    assert!(lines.iter().any(|l| l.pane == Pane::Earnings));
+    assert!(lines
+        .iter()
+        .any(|l| l.text.contains("AAPL")
+            && l.text.contains("2026-07-25")
+            && l.text.contains("1.62")));
+}
+
+#[test]
+fn movers_result_renders_gainers_in_movers_pane() {
+    let env = inbound(
+        "MOVERS.RESULT",
+        json!({"data": {"scope": "gainers", "rows": [
+            {"symbol": "ZZZ", "change_pct": 11.42, "last": 7.20}
+        ]}}),
+        "aperture:pane.movers",
+    );
+    let lines = render_inbound(&env);
+    assert!(lines.iter().any(|l| l.pane == Pane::Movers));
+    assert!(lines.iter().any(|l| l.text.contains("gainers")));
+    assert!(lines
+        .iter()
+        .any(|l| l.text.contains("ZZZ") && l.text.contains("+11.42%")));
+}
+
+#[test]
+fn movers_result_renders_active_with_volume() {
+    let env = inbound(
+        "MOVERS.RESULT",
+        json!({"data": {"scope": "active", "rows": [
+            {"symbol": "TSLA", "volume": 124_300_000_u64, "last": 250.12}
+        ]}}),
+        "aperture:pane.movers",
+    );
+    let lines = render_inbound(&env);
+    assert!(lines
+        .iter()
+        .any(|l| l.text.contains("TSLA") && l.text.contains("vol")));
+}
+
+#[test]
+fn screen_result_renders_matches_in_screen_pane() {
+    let env = inbound(
+        "SCREEN.RESULT",
+        json!({"data": {"criteria": "market_cap>1e11", "matches": [
+            {"symbol": "JNJ", "market_cap": 4.02e11, "div_yield": 0.0314, "pe": 24.1}
+        ]}}),
+        "aperture:pane.screen",
+    );
+    let lines = render_inbound(&env);
+    assert!(lines.iter().any(|l| l.pane == Pane::Screen));
+    assert!(lines.iter().any(|l| l.text.contains("market_cap>1e11")));
+    assert!(lines
+        .iter()
+        .any(|l| l.text.contains("JNJ") && l.text.contains("pe 24.10")));
+}
+
+#[test]
+fn members_result_renders_index_members() {
+    let env = inbound(
+        "MEMBERS.RESULT",
+        json!({"symbol": "SPX", "data": {"index": "SPX", "members": [
+            {"symbol": "AAPL", "weight_pct": 7.42, "last": 243.6}
+        ]}}),
+        "aperture:pane.members",
+    );
+    let lines = render_inbound(&env);
+    assert!(lines.iter().any(|l| l.pane == Pane::Members));
+    assert!(lines.iter().any(|l| l.text.contains("SPX")));
+    assert!(lines
+        .iter()
+        .any(|l| l.text.contains("AAPL") && l.text.contains("7.42%")));
+}
+
+#[test]
+fn ivol_result_renders_surface_in_ivol_pane() {
+    let env = inbound(
+        "IVOL.RESULT",
+        json!({"symbol": "AAPL", "data": {
+            "symbol": "AAPL",
+            "underlying_last": 243.6,
+            "rows": [
+                {"expiry": "2026-06-19", "strike": 240.0, "iv": 0.2204},
+                {"expiry": "2026-07-17", "strike": 245.0, "iv": 0.2326},
+            ]
+        }}),
+        "aperture:pane.ivol",
+    );
+    let lines = render_inbound(&env);
+    assert!(lines.iter().any(|l| l.pane == Pane::Ivol));
+    assert!(lines.iter().any(|l| l.text.contains("AAPL @ 243.60")));
+    assert!(lines
+        .iter()
+        .any(|l| l.text.contains("K=240.00") && l.text.contains("IV=0.2204")));
+}
+
+#[test]
+fn tech_result_renders_indicator_value() {
+    let env = inbound(
+        "TECH.RESULT",
+        json!({"symbol": "AAPL", "indicator": "SMA", "data": {
+            "symbol": "AAPL", "indicator": "SMA", "value": 247.85
+        }}),
+        "aperture:pane.tech",
+    );
+    let lines = render_inbound(&env);
+    assert!(lines.iter().any(|l| l.pane == Pane::Tech));
+    assert!(lines
+        .iter()
+        .any(|l| l.text.contains("AAPL")
+            && l.text.contains("SMA")
+            && l.text.contains("247.8500")));
+}
+
+#[test]
+fn corr_result_renders_matrix_in_corr_pane() {
+    let env = inbound(
+        "CORR.RESULT",
+        json!({"data": {
+            "symbols": ["AAPL", "MSFT"],
+            "matrix": [
+                {"symbol": "AAPL", "row": [1.0, 0.42]},
+                {"symbol": "MSFT", "row": [0.42, 1.0]},
+            ]
+        }}),
+        "aperture:pane.corr",
+    );
+    let lines = render_inbound(&env);
+    assert!(lines.iter().any(|l| l.pane == Pane::Corr));
+    assert!(lines.iter().any(|l| l.text.contains("corr [AAPL MSFT]")));
+    assert!(lines
+        .iter()
+        .any(|l| l.text.contains("AAPL") && l.text.contains("0.420")));
+}
+
+#[test]
+fn filings_result_renders_filings_in_filings_pane() {
+    let env = inbound(
+        "FILINGS.RESULT",
+        json!({"symbol": "AAPL", "data": {"symbol": "AAPL", "filings": [
+            {"form": "10-K", "filed_at": "2026-02-12", "fiscal_period": "FY25"},
+            {"form": "8-K", "filed_at": "2026-05-08", "subject": "material event"},
+        ]}}),
+        "aperture:pane.filings",
+    );
+    let lines = render_inbound(&env);
+    assert!(lines.iter().any(|l| l.pane == Pane::Filings));
+    assert!(lines
+        .iter()
+        .any(|l| l.text.contains("10-K") && l.text.contains("FY25")));
+    assert!(lines
+        .iter()
+        .any(|l| l.text.contains("8-K") && l.text.contains("material event")));
+}
+
+#[test]
+fn order_result_renders_single_order() {
+    let env = inbound(
+        "ORDER.RESULT",
+        json!({"order": {
+            "id": 1,
+            "symbol": "AAPL",
+            "side": "BUY",
+            "qty": 10,
+            "type": "MKT",
+            "limit_price": null,
+            "status": "PAPER_FILLED",
+            "ts": "now"
+        }}),
+        "aperture:pane.order",
+    );
+    let lines = render_inbound(&env);
+    assert!(lines.iter().any(|l| l.pane == Pane::Order));
+    assert!(lines.iter().any(|l| {
+        l.text.contains("BUY")
+            && l.text.contains("AAPL")
+            && l.text.contains("qty 10")
+            && l.text.contains("status=PAPER_FILLED")
+    }));
+}
+
+#[test]
+fn order_result_with_error_renders_error_line() {
+    let env = inbound(
+        "ORDER.RESULT",
+        json!({"error": "side must be BUY or SELL"}),
+        "aperture:pane.order",
+    );
+    let lines = render_inbound(&env);
+    assert!(lines
+        .iter()
+        .any(|l| l.pane == Pane::Order && l.text.contains("side must be BUY")));
+}
+
+#[test]
+fn blotter_result_renders_orders_with_count_header() {
+    let env = inbound(
+        "BLOTTER.RESULT",
+        json!({"orders": [
+            {"id": 1, "symbol": "AAPL", "side": "BUY", "qty": 10,
+             "type": "MKT", "limit_price": null, "status": "PAPER_FILLED"},
+            {"id": 2, "symbol": "TSLA", "side": "SELL", "qty": 5,
+             "type": "LMT", "limit_price": 250.0, "status": "PAPER_FILLED"},
+        ]}),
+        "aperture:pane.order",
+    );
+    let lines = render_inbound(&env);
+    assert!(lines.iter().any(|l| l.pane == Pane::Order));
+    assert!(lines.iter().any(|l| l.text.contains("Blotter (n=2)")));
+    assert!(lines
+        .iter()
+        .any(|l| l.text.contains("TSLA") && l.text.contains("LMT") && l.text.contains("250.00")));
+}
+
+#[test]
+fn sentiment_result_renders_label_and_score() {
+    let env = inbound(
+        "SENTIMENT.RESULT",
+        json!({"symbol": "AAPL", "data": {
+            "symbol": "AAPL",
+            "score": 0.421,
+            "label": "bullish",
+            "sources": [
+                {"name": "social-stub", "mentions_24h": 1200},
+                {"name": "news-stub", "mentions_24h": 300},
+            ]
+        }}),
+        "aperture:pane.sentiment",
+    );
+    let lines = render_inbound(&env);
+    assert!(lines.iter().any(|l| l.pane == Pane::Sentiment));
+    assert!(lines
+        .iter()
+        .any(|l| l.text.contains("bullish") && l.text.contains("score 0.421")));
+    assert!(lines
+        .iter()
+        .any(|l| l.text.contains("mentions24h 1200+300")));
+}
+
+#[test]
+fn pane_earnings_address_falls_back_to_earnings_pane() {
+    // Unknown verb but the address points at pane.earnings — should still
+    // route there.
+    let env = inbound("MYSTERY", json!({}), "aperture:pane.earnings");
+    let lines = render_inbound(&env);
+    assert_eq!(lines[0].pane, Pane::Earnings);
+}

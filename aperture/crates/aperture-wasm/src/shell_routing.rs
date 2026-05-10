@@ -38,6 +38,16 @@ pub enum Pane {
     Corpact,
     Inbox,
     Export,
+    Earnings,
+    Movers,
+    Screen,
+    Members,
+    Ivol,
+    Tech,
+    Corr,
+    Filings,
+    Order,
+    Sentiment,
     /// Catch-all for log lines / parse errors that don't belong to a pane.
     System,
 }

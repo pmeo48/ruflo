@@ -50,6 +50,17 @@ Example: `{"id":"01HXY...","type":"direct","from":"aperture:cmdbar","to":"apertu
 | `CORPACT` | cmdbar → `pane.corpact` | `{symbol}` | `CORPACT.RESULT` | corpact pane |
 | `INBOX` / `INBOX.POST` / `INBOX.CLEAR` | cmdbar → `pane.inbox` | `{}` / `{body}` / `{}` | `INBOX.RESULT` | inbox pane |
 | `EXPORT` | host → `pane.export` | `{snapshot, format}` | `EXPORT.RESULT` | export pane |
+| `EARNINGS` | cmdbar → `pane.earnings` | `{window_days?}` | `EARNINGS.RESULT` | earnings pane |
+| `MOVERS` | cmdbar → `pane.movers` | `{scope?}` | `MOVERS.RESULT` | movers pane |
+| `SCREEN` | cmdbar → `pane.screen` | `{criteria?}` | `SCREEN.RESULT` | screen pane |
+| `MEMBERS` | cmdbar → `pane.members` | `{symbol}` | `MEMBERS.RESULT` | members pane |
+| `IVOL` | cmdbar → `pane.ivol` | `{symbol}` | `IVOL.RESULT` | ivol pane |
+| `TECH` | cmdbar → `pane.tech` | `{symbol, indicator?}` | `TECH.RESULT` | tech pane |
+| `CORR` | cmdbar → `pane.corr` | `{symbols: string[]}` | `CORR.RESULT` | corr pane |
+| `FILINGS` | cmdbar → `pane.filings` | `{symbol}` | `FILINGS.RESULT` | filings pane |
+| `ORDER` | cmdbar → `pane.order` | `{symbol, side, qty, type?, limit_price?}` | `ORDER.RESULT` | order pane |
+| `BLOTTER` | cmdbar → `pane.order` | `{}` | `BLOTTER.RESULT` | order pane |
+| `SENTIMENT` | cmdbar → `pane.sentiment` | `{symbol}` | `SENTIMENT.RESULT` | sentiment pane |
 | `QUOTE` | (any) → `agent.data` | `{symbol}` | `QUOTE.RESULT` | data agent |
 | `OHLCV` | `pane.chart` → `agent.data` | `{symbol, range?}` | `OHLCV.RESULT` | data agent |
 | `FOCUS` | cmdbar → `broadcast` | `{symbol}` | `FOCUS.ACK` (only if `requiresAck`) | every pane |
@@ -76,6 +87,17 @@ Example: `{"id":"01HXY...","type":"direct","from":"aperture:cmdbar","to":"apertu
 | `CORPACT.RESULT` | `{symbol, data: {events}}` or `{symbol, error}` |
 | `INBOX.RESULT` | `{messages: [{from, body, ts}]}` |
 | `EXPORT.RESULT` | `{format, body}` or `{error}` |
+| `EARNINGS.RESULT` | `{data: {window_days, events: [{symbol, date, estimate_eps, fiscal_period}]}}` or `{error}` |
+| `MOVERS.RESULT` | `{data: {scope, rows}}` or `{error}` |
+| `SCREEN.RESULT` | `{data: {criteria, matches}}` or `{error}` |
+| `MEMBERS.RESULT` | `{symbol, data: {index, members: [{symbol, weight_pct, last}]}}` or `{symbol, error}` |
+| `IVOL.RESULT` | `{symbol, data: {symbol, underlying_last, rows: [{expiry, strike, iv}]}}` or `{symbol, error}` |
+| `TECH.RESULT` | `{symbol, indicator, data: {symbol, indicator, value, ...}}` or `{symbol, error}` |
+| `CORR.RESULT` | `{data: {symbols, matrix: [{symbol, row: number[]}]}}` or `{error}` |
+| `FILINGS.RESULT` | `{symbol, data: {symbol, filings: [{form, filed_at, fiscal_period?, subject?, url}]}}` or `{symbol, error}` |
+| `ORDER.RESULT` | `{order: {id, symbol, side, qty, type, limit_price?, status, ts}}` or `{error}` |
+| `BLOTTER.RESULT` | `{orders: [{id, symbol, side, qty, type, limit_price?, status, ts}]}` |
+| `SENTIMENT.RESULT` | `{symbol, data: {symbol, score, label, sources: [{name, mentions_24h}]}}` or `{symbol, error}` |
 | `OHLCV.RESULT` | `{symbol, range, candles: [{t,o,h,l,c,v}]}` or `{symbol, error}` |
 | `FOCUS.ACK` | `{symbol}` |
 
@@ -99,6 +121,16 @@ Example: `{"id":"01HXY...","type":"direct","from":"aperture:cmdbar","to":"apertu
 | `aperture:pane.corpact` | `aperture --agent=pane.corpact` | `CORPACT`, `FOCUS` |
 | `aperture:pane.inbox` | `aperture --agent=pane.inbox` | `INBOX`, `INBOX.POST`, `INBOX.CLEAR` |
 | `aperture:pane.export` | `aperture --agent=pane.export` | `EXPORT` |
+| `aperture:pane.earnings` | `aperture --agent=pane.earnings` | `EARNINGS` |
+| `aperture:pane.movers` | `aperture --agent=pane.movers` | `MOVERS` |
+| `aperture:pane.screen` | `aperture --agent=pane.screen` | `SCREEN` |
+| `aperture:pane.members` | `aperture --agent=pane.members` | `MEMBERS`, `FOCUS` |
+| `aperture:pane.ivol` | `aperture --agent=pane.ivol` | `IVOL`, `FOCUS` |
+| `aperture:pane.tech` | `aperture --agent=pane.tech` | `TECH`, `FOCUS` |
+| `aperture:pane.corr` | `aperture --agent=pane.corr` | `CORR` |
+| `aperture:pane.filings` | `aperture --agent=pane.filings` | `FILINGS`, `FOCUS` |
+| `aperture:pane.order` | `aperture --agent=pane.order` | `ORDER`, `BLOTTER` |
+| `aperture:pane.sentiment` | `aperture --agent=pane.sentiment` | `SENTIMENT`, `FOCUS` |
 | `aperture:agent.data` | `aperture --agent=agent.data` | `QUOTE`, `OHLCV` |
 
 ## Topology

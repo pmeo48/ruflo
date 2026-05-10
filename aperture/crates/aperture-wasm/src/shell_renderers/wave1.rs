@@ -1,133 +1,20 @@
-//! Inbound envelope renderers. Split out of `shell_routing` to keep both
-//! files under the 500-line cap.
-//!
-//! For each `<VERB>.RESULT` we know about, [`render_inbound`] produces one
-//! or more [`ViewLine`]s targeted at the right [`Pane`]. Unknown verbs fall
-//! back to address-based pane detection so the host still sees something.
+//! Wave-1 pane renderers (16 verbs): quote, chart, watch, ask, news, macro,
+//! yields, fx, options, insider, financials, crypto, risk, corpact, inbox,
+//! export.
 
-use aperture_swarm::envelope::Envelope;
 use serde_json::Value;
 
+use super::{line, value_to_compact_string};
 use crate::shell_routing::{Pane, ViewLine};
 
-/// Decide which pane an inbound envelope belongs to and produce display
-/// lines. Dispatch is on `payload.verb` first (so `*.RESULT` replies route
-/// deterministically); we fall back to the address only if the verb is
-/// missing or unknown. Errors short-circuit to a single line.
-pub fn render_inbound(env: &Envelope) -> Vec<ViewLine> {
-    let verb = env
-        .payload
-        .get("verb")
-        .and_then(Value::as_str)
-        .unwrap_or("?")
-        .to_string();
-
-    if let Some(err) = env.payload.get("error").and_then(Value::as_str) {
-        let pane = pane_from_verb(&verb).unwrap_or_else(|| pane_from_address(&env.from));
-        return vec![line(pane, format!("{verb}  error: {err}"))];
-    }
-
-    match verb.as_str() {
-        "QUOTE.RESULT" => render_quote(&env.payload),
-        "CHART.RESULT" => render_chart(&env.payload),
-        "WATCH.RESULT" | "UNWATCH.RESULT" | "LIST.RESULT" => render_watch(&env.payload, &verb),
-        "ASK.RESULT" => render_ask(&env.payload),
-        "NEWS.RESULT" => render_news(&env.payload),
-        "MACRO.RESULT" => render_macro(&env.payload),
-        "YIELDS.RESULT" => render_yields(&env.payload),
-        "FX.RESULT" => render_fx(&env.payload),
-        "OPTIONS.RESULT" => render_options(&env.payload),
-        "INSIDER.RESULT" => render_insider(&env.payload),
-        "FINANCIALS.RESULT" => render_financials(&env.payload),
-        "CRYPTO.RESULT" => render_crypto(&env.payload),
-        "RISK.RESULT" => render_risk(&env.payload),
-        "CORPACT.RESULT" => render_corpact(&env.payload),
-        "INBOX.RESULT" => render_inbox(&env.payload),
-        "EXPORT.RESULT" => render_export(&env.payload),
-        _ => {
-            let pane = pane_from_address(&env.from);
-            let payload_str = serde_json::to_string(&env.payload).unwrap_or_default();
-            vec![line(pane, format!("{verb}  {payload_str}"))]
-        }
-    }
-}
-
-fn pane_from_verb(verb: &str) -> Option<Pane> {
-    match verb {
-        "QUOTE.RESULT" => Some(Pane::Quote),
-        "CHART.RESULT" => Some(Pane::Chart),
-        "WATCH.RESULT" | "UNWATCH.RESULT" | "LIST.RESULT" => Some(Pane::Watch),
-        "ASK.RESULT" => Some(Pane::Oracle),
-        "NEWS.RESULT" => Some(Pane::News),
-        "MACRO.RESULT" => Some(Pane::Macro),
-        "YIELDS.RESULT" => Some(Pane::Yields),
-        "FX.RESULT" => Some(Pane::Fx),
-        "OPTIONS.RESULT" => Some(Pane::Options),
-        "INSIDER.RESULT" => Some(Pane::Insider),
-        "FINANCIALS.RESULT" => Some(Pane::Financials),
-        "CRYPTO.RESULT" => Some(Pane::Crypto),
-        "RISK.RESULT" => Some(Pane::Risk),
-        "CORPACT.RESULT" => Some(Pane::Corpact),
-        "INBOX.RESULT" => Some(Pane::Inbox),
-        "EXPORT.RESULT" => Some(Pane::Export),
-        _ => None,
-    }
-}
-
-fn pane_from_address(addr: &str) -> Pane {
-    let lower = addr.to_ascii_lowercase();
-    // Check pane.<id> first so the longest match wins.
-    let table = [
-        ("pane.quote", Pane::Quote),
-        ("pane.chart", Pane::Chart),
-        ("pane.watch", Pane::Watch),
-        ("pane.oracle", Pane::Oracle),
-        ("pane.news", Pane::News),
-        ("pane.macro", Pane::Macro),
-        ("pane.yields", Pane::Yields),
-        ("pane.fx", Pane::Fx),
-        ("pane.options", Pane::Options),
-        ("pane.insider", Pane::Insider),
-        ("pane.financials", Pane::Financials),
-        ("pane.crypto", Pane::Crypto),
-        ("pane.risk", Pane::Risk),
-        ("pane.corpact", Pane::Corpact),
-        ("pane.inbox", Pane::Inbox),
-        ("pane.export", Pane::Export),
-        ("agent.quote", Pane::Quote),
-        ("agent.watch", Pane::Watch),
-        ("agent.oracle", Pane::Oracle),
-        ("agent.data", Pane::Chart),
-    ];
-    for (needle, pane) in table {
-        if lower.contains(needle) {
-            return pane;
-        }
-    }
-    Pane::System
-}
-
-fn line(pane: Pane, text: String) -> ViewLine {
-    ViewLine { pane, text }
-}
-
-fn value_to_compact_string(v: &Value) -> String {
-    match v {
-        Value::String(s) => s.clone(),
-        other => other.to_string(),
-    }
-}
-
-// --- per-verb renderers ----------------------------------------------------
-
-fn render_quote(p: &Value) -> Vec<ViewLine> {
+pub(super) fn render_quote(p: &Value) -> Vec<ViewLine> {
     let sym = p.get("symbol").and_then(Value::as_str).unwrap_or("?");
     let last = p.get("last").and_then(Value::as_f64).unwrap_or(0.0);
     let chg = p.get("change_pct").and_then(Value::as_f64).unwrap_or(0.0);
     vec![line(Pane::Quote, format!("{sym}  {last:.2}  {chg:+.2}%"))]
 }
 
-fn render_chart(p: &Value) -> Vec<ViewLine> {
+pub(super) fn render_chart(p: &Value) -> Vec<ViewLine> {
     let sym = p.get("symbol").and_then(Value::as_str).unwrap_or("?");
     let mut out = vec![line(Pane::Chart, format!("CHART {sym}"))];
     if let Some(rows) = p.get("ascii").and_then(Value::as_array) {
@@ -140,7 +27,7 @@ fn render_chart(p: &Value) -> Vec<ViewLine> {
     out
 }
 
-fn render_watch(p: &Value, verb: &str) -> Vec<ViewLine> {
+pub(super) fn render_watch(p: &Value, verb: &str) -> Vec<ViewLine> {
     let symbols = p
         .get("symbols")
         .and_then(Value::as_array)
@@ -156,12 +43,12 @@ fn render_watch(p: &Value, verb: &str) -> Vec<ViewLine> {
     vec![line(Pane::Watch, names.join(" "))]
 }
 
-fn render_ask(p: &Value) -> Vec<ViewLine> {
+pub(super) fn render_ask(p: &Value) -> Vec<ViewLine> {
     let answer = p.get("answer").and_then(Value::as_str).unwrap_or("(no answer)");
     vec![line(Pane::Oracle, answer.to_string())]
 }
 
-fn render_news(p: &Value) -> Vec<ViewLine> {
+pub(super) fn render_news(p: &Value) -> Vec<ViewLine> {
     let scope = p.get("scope").and_then(Value::as_str).unwrap_or("GLOBAL");
     let mut out = vec![line(Pane::News, format!("NEWS {scope}"))];
     let headlines = p
@@ -176,7 +63,7 @@ fn render_news(p: &Value) -> Vec<ViewLine> {
     out
 }
 
-fn render_macro(p: &Value) -> Vec<ViewLine> {
+pub(super) fn render_macro(p: &Value) -> Vec<ViewLine> {
     let mut out = vec![line(Pane::Macro, "MACRO".to_string())];
     let rows = p.get("rows").and_then(Value::as_array).cloned().unwrap_or_default();
     for r in rows.iter().take(20) {
@@ -190,7 +77,7 @@ fn render_macro(p: &Value) -> Vec<ViewLine> {
     out
 }
 
-fn render_yields(p: &Value) -> Vec<ViewLine> {
+pub(super) fn render_yields(p: &Value) -> Vec<ViewLine> {
     let mut out = vec![line(Pane::Yields, "YIELDS".to_string())];
     let curve = p.get("curve").and_then(Value::as_array).cloned().unwrap_or_default();
     for r in curve.iter().take(20) {
@@ -201,7 +88,7 @@ fn render_yields(p: &Value) -> Vec<ViewLine> {
     out
 }
 
-fn render_fx(p: &Value) -> Vec<ViewLine> {
+pub(super) fn render_fx(p: &Value) -> Vec<ViewLine> {
     let base = p
         .pointer("/data/base")
         .and_then(Value::as_str)
@@ -221,7 +108,7 @@ fn render_fx(p: &Value) -> Vec<ViewLine> {
     out
 }
 
-fn render_options(p: &Value) -> Vec<ViewLine> {
+pub(super) fn render_options(p: &Value) -> Vec<ViewLine> {
     let sym = p.get("symbol").and_then(Value::as_str).unwrap_or("?");
     let mut out = vec![line(Pane::Options, format!("OPTIONS {sym}"))];
     let rows = p
@@ -242,7 +129,7 @@ fn render_options(p: &Value) -> Vec<ViewLine> {
     out
 }
 
-fn render_insider(p: &Value) -> Vec<ViewLine> {
+pub(super) fn render_insider(p: &Value) -> Vec<ViewLine> {
     let sym = p.get("symbol").and_then(Value::as_str).unwrap_or("?");
     let mut out = vec![line(Pane::Insider, format!("INSIDER {sym}"))];
     let trades = p
@@ -262,7 +149,7 @@ fn render_insider(p: &Value) -> Vec<ViewLine> {
     out
 }
 
-fn render_financials(p: &Value) -> Vec<ViewLine> {
+pub(super) fn render_financials(p: &Value) -> Vec<ViewLine> {
     let sym = p.get("symbol").and_then(Value::as_str).unwrap_or("?");
     let mut out = vec![line(Pane::Financials, format!("FINANCIALS {sym}"))];
     if let Some(rev) = p.pointer("/data/income_ttm/revenue").and_then(Value::as_f64) {
@@ -286,7 +173,7 @@ fn render_financials(p: &Value) -> Vec<ViewLine> {
     out
 }
 
-fn render_crypto(p: &Value) -> Vec<ViewLine> {
+pub(super) fn render_crypto(p: &Value) -> Vec<ViewLine> {
     let sym = p.get("symbol").and_then(Value::as_str).unwrap_or("?");
     let last = p.pointer("/data/last").and_then(Value::as_f64).unwrap_or(0.0);
     let vol = p.pointer("/data/vol_24h").and_then(Value::as_f64).unwrap_or(0.0);
@@ -300,7 +187,7 @@ fn render_crypto(p: &Value) -> Vec<ViewLine> {
     ]
 }
 
-fn render_risk(p: &Value) -> Vec<ViewLine> {
+pub(super) fn render_risk(p: &Value) -> Vec<ViewLine> {
     let mut out = vec![line(Pane::Risk, "RISK".to_string())];
     let rows = p
         .pointer("/data/rows")
@@ -319,7 +206,7 @@ fn render_risk(p: &Value) -> Vec<ViewLine> {
     out
 }
 
-fn render_corpact(p: &Value) -> Vec<ViewLine> {
+pub(super) fn render_corpact(p: &Value) -> Vec<ViewLine> {
     let sym = p.get("symbol").and_then(Value::as_str).unwrap_or("?");
     let mut out = vec![line(Pane::Corpact, format!("CORPACT {sym}"))];
     let events = p
@@ -336,7 +223,7 @@ fn render_corpact(p: &Value) -> Vec<ViewLine> {
     out
 }
 
-fn render_inbox(p: &Value) -> Vec<ViewLine> {
+pub(super) fn render_inbox(p: &Value) -> Vec<ViewLine> {
     let mut out = vec![line(Pane::Inbox, "INBOX".to_string())];
     let messages = p
         .get("messages")
@@ -358,7 +245,7 @@ fn render_inbox(p: &Value) -> Vec<ViewLine> {
     out
 }
 
-fn render_export(p: &Value) -> Vec<ViewLine> {
+pub(super) fn render_export(p: &Value) -> Vec<ViewLine> {
     let format = p.get("format").and_then(Value::as_str).unwrap_or("?");
     let body = p.get("body").and_then(Value::as_str).unwrap_or("");
     let mut out = vec![line(Pane::Export, format!("EXPORT format={format}"))];
@@ -367,6 +254,3 @@ fn render_export(p: &Value) -> Vec<ViewLine> {
     }
     out
 }
-
-// Tests for `render_inbound` live in `tests/inbound_rendering.rs` so this
-// file stays under the 500-line cap.
