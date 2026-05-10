@@ -8,16 +8,19 @@ echo "[smoke] cargo test"
 ( cd "$WORKSPACE" && cargo test --workspace --quiet )
 
 echo "[smoke] naming gate"
-# NOTICE.md and this script intentionally name the inspiration repo; everything
-# else must be vendor-neutral.
+# NOTICE.md, this script, and naming_gate.rs intentionally reference the banned
+# tokens (NOTICE documents the inspiration; the gate itself + the in-source test
+# must contain them to test for them). Everything else must be vendor-neutral.
 GATE_RE='b''l''o''o''mberg|b''p''i''p''e|^b''l''p\b|f''i''n''msg'
 if rg -i "$GATE_RE" "$WORKSPACE" "$HERE" \
      --glob '!target/**' --glob '!dist/**' --glob '!*.lock' \
-     --glob '!NOTICE.md' --glob '!scripts/smoke.sh' >/dev/null; then
+     --glob '!NOTICE.md' --glob '!scripts/smoke.sh' \
+     --glob '!**/naming_gate.rs' >/dev/null; then
   echo "naming gate failed: vendor token present" >&2
   rg -i "$GATE_RE" "$WORKSPACE" "$HERE" \
      --glob '!target/**' --glob '!dist/**' --glob '!*.lock' \
-     --glob '!NOTICE.md' --glob '!scripts/smoke.sh' >&2
+     --glob '!NOTICE.md' --glob '!scripts/smoke.sh' \
+     --glob '!**/naming_gate.rs' >&2
   exit 1
 fi
 
