@@ -16,7 +16,16 @@ path = "src/main.rs"
 aperture-core = { path = "../aperture-core" }
 aperture-render = { path = "../aperture-render" }
 aperture-data = { path = "../aperture-data" }
+aperture-swarm = { path = "../aperture-swarm" }
 ratatui = { workspace = true }
 crossterm = { workspace = true }
 tokio = { workspace = true }
 anyhow = { workspace = true }
+serde_json = { workspace = true }
+
+[dev-dependencies]
+# Integration test in `tests/roundtrip_stdio.rs` spawns the binary; needs
+# the `process` feature on tokio. Kept local to avoid touching the
+# workspace-level tokio feature set.
+tokio = { version = "1", features = ["process", "rt-multi-thread", "macros", "io-util", "io-std", "time"] }
+serde_json = { workspace = true }

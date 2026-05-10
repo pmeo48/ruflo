@@ -19,5 +19,17 @@
     "pane-as-agent",
     "ohlcv",
     "watchlist"
+  ],
+  "agents": [
+    "aperture-quote",
+    "aperture-chart",
+    "aperture-watchlist",
+    "aperture-oracle"
+  ],
+  "commands": [
+    "aperture"
+  ],
+  "skills": [
+    "aperture-launch"
   ]
 }

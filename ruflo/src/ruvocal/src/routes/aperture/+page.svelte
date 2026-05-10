@@ -1,19 +1,91 @@
 <script lang="ts">
-	import { onMount } from "svelte";
+	import { onMount, onDestroy } from "svelte";
 
-	let mountEl: HTMLDivElement;
-	let status: "idle" | "loading" | "ready" | "missing" | "error" = "idle";
-	let error: string | null = null;
-	let input = "";
-	let log: string[] = ["Aperture v0.1 — type `HELP GO`"];
+	type Pane = "quote" | "chart" | "watch" | "oracle" | "system";
+	type ViewLine = { pane: Pane; text: string };
+	type Envelope = {
+		id: string;
+		type: string;
+		from: string;
+		to: string;
+		payload: unknown;
+		timestamp: string;
+		priority: string;
+		requiresAck: boolean;
+		ttlMs: number;
+		correlationId?: string;
+	};
+	type ExecuteResult =
+		| { ok: { ast: unknown; outbound: Envelope | null; views: ViewLine[] } }
+		| { err: string };
 
 	type ApertureModule = {
 		default: (input?: unknown) => Promise<unknown> | unknown;
 		start: (mountId: string) => void;
 		parse_line: (line: string) => unknown;
+		App: new () => {
+			execute: (line: string) => unknown;
+			handle_inbound: (envelope_json: string) => unknown;
+		};
 	};
 
+	let status: "idle" | "loading" | "ready" | "missing" | "error" = "idle";
+	let error: string | null = null;
+	let input = "";
+	let log: string[] = ["Aperture v0.1 — type `HELP GO`"];
+
 	let mod: ApertureModule | null = null;
+	let app: InstanceType<ApertureModule["App"]> | null = null;
+
+	// Per-pane render buffer. Keep last 50 lines to avoid unbounded growth.
+	const PANE_LIMIT = 50;
+	let panes: Record<Pane, string[]> = {
+		quote: [],
+		chart: [],
+		watch: [],
+		oracle: [],
+		system: [],
+	};
+
+	function pushPane(pane: Pane, text: string) {
+		const next = [...panes[pane], text];
+		if (next.length > PANE_LIMIT) next.splice(0, next.length - PANE_LIMIT);
+		panes = { ...panes, [pane]: next };
+	}
+
+	function pushViews(views: ViewLine[]) {
+		for (const v of views) {
+			pushPane(v.pane, v.text);
+			if (v.pane === "system") log = [...log, v.text];
+		}
+	}
+
+	function looksLikeEnvelope(v: unknown): v is Envelope {
+		if (!v || typeof v !== "object") return false;
+		const o = v as Record<string, unknown>;
+		return (
+			typeof o.id === "string" &&
+			typeof o.type === "string" &&
+			typeof o.from === "string" &&
+			typeof o.to === "string" &&
+			"payload" in o
+		);
+	}
+
+	function onWindowMessage(ev: MessageEvent) {
+		const data = ev.data;
+		if (!looksLikeEnvelope(data)) return;
+		// Ignore our own outbound echoes — outbound envelopes have
+		// `from === "aperture:cmdbar"`. Inbound replies come from agents.
+		if ((data as Envelope).from === "aperture:cmdbar") return;
+		if (!app) return;
+		try {
+			const out = app.handle_inbound(JSON.stringify(data));
+			if (Array.isArray(out)) pushViews(out as ViewLine[]);
+		} catch (e) {
+			log = [...log, `inbound error: ${e instanceof Error ? e.message : String(e)}`];
+		}
+	}
 
 	onMount(async () => {
 		status = "loading";
@@ -24,6 +96,8 @@
 			await m.default();
 			m.start("aperture-mount");
 			mod = m;
+			app = new m.App();
+			window.addEventListener("message", onWindowMessage);
 			status = "ready";
 		} catch (e) {
 			status = "missing";
@@ -31,15 +105,29 @@
 		}
 	});
 
+	onDestroy(() => {
+		if (typeof window !== "undefined") {
+			window.removeEventListener("message", onWindowMessage);
+		}
+	});
+
 	function execute() {
 		const line = input.trim();
-		if (!line || !mod) return;
+		if (!line || !app) return;
 		log = [...log, `> ${line}`];
 		try {
-			const ast = mod.parse_line(line);
-			log = [...log, `ast: ${JSON.stringify(ast)}`];
-			// Phase B: relay parsed command onto window.postMessage so the host
-			// worker can forward it to ruflo's message-bus.ts.
+			const result = app.execute(line) as ExecuteResult;
+			if ("err" in result) {
+				log = [...log, `error: ${result.err}`];
+			} else {
+				if (Array.isArray(result.ok.views)) pushViews(result.ok.views);
+				if (result.ok.outbound) {
+					// Phase B: emit on window so the host worker can relay to
+					// ruflo's `message-bus.ts`. The relay itself is out of scope
+					// for v0.1.
+					window.postMessage(result.ok.outbound, "*");
+				}
+			}
 		} catch (e) {
 			log = [...log, `error: ${e instanceof Error ? e.message : String(e)}`];
 		}
@@ -68,8 +156,29 @@
 	{/if}
 
 	<section class="panes">
-		<div class="pane" id="aperture-mount" bind:this={mountEl}>
-			<em>(panes mount here once the wasm shell boots)</em>
+		<div class="pane">
+			<div class="pane-title">Quote</div>
+			<div class="pane-body">
+				{#each panes.quote as l, i (i)}<div>{l}</div>{/each}
+			</div>
+		</div>
+		<div class="pane">
+			<div class="pane-title">Chart</div>
+			<div class="pane-body">
+				{#each panes.chart as l, i (i)}<div>{l}</div>{/each}
+			</div>
+		</div>
+		<div class="pane">
+			<div class="pane-title">Watchlist</div>
+			<div class="pane-body">
+				{#each panes.watch as l, i (i)}<div>{l}</div>{/each}
+			</div>
+		</div>
+		<div class="pane">
+			<div class="pane-title">Oracle</div>
+			<div class="pane-body">
+				{#each panes.oracle as l, i (i)}<div>{l}</div>{/each}
+			</div>
 		</div>
 	</section>
 
@@ -99,12 +208,53 @@
 		background: #0b0d10;
 		color: #d6d6d6;
 	}
-	header { display: flex; gap: 0.75rem; align-items: baseline; }
-	header strong { color: #f0f0f0; }
-	header .status { margin-left: auto; opacity: 0.7; }
-	.panes { border: 1px solid #232830; padding: 0.5rem; min-height: 18rem; }
-	.pane { padding: 0.5rem; }
-	.log { border: 1px solid #232830; padding: 0.5rem; max-height: 12rem; overflow-y: auto; }
+	header {
+		display: flex;
+		gap: 0.75rem;
+		align-items: baseline;
+	}
+	header strong {
+		color: #f0f0f0;
+	}
+	header .status {
+		margin-left: auto;
+		opacity: 0.7;
+	}
+	.panes {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		gap: 0.5rem;
+		min-height: 22rem;
+	}
+	.pane {
+		border: 1px solid #232830;
+		display: flex;
+		flex-direction: column;
+		min-height: 0;
+	}
+	.pane-title {
+		padding: 0.25rem 0.5rem;
+		background: #11151a;
+		border-bottom: 1px solid #232830;
+		color: #9ad5ff;
+		font-size: 11px;
+		letter-spacing: 0.05em;
+		text-transform: uppercase;
+	}
+	.pane-body {
+		padding: 0.5rem;
+		overflow-y: auto;
+		flex: 1 1 auto;
+		min-height: 0;
+		font-size: 12px;
+	}
+	.log {
+		border: 1px solid #232830;
+		padding: 0.5rem;
+		max-height: 12rem;
+		overflow-y: auto;
+	}
 	form input {
 		width: 100%;
 		padding: 0.5rem 0.75rem;
@@ -113,6 +263,13 @@
 		color: #f0f0f0;
 		font: inherit;
 	}
-	.missing { border: 1px solid #5b3a00; padding: 0.5rem; background: #1d1303; }
-	.err { color: #ff8a8a; white-space: pre-wrap; }
+	.missing {
+		border: 1px solid #5b3a00;
+		padding: 0.5rem;
+		background: #1d1303;
+	}
+	.err {
+		color: #ff8a8a;
+		white-space: pre-wrap;
+	}
 </style>

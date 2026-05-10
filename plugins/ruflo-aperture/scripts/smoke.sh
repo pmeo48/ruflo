@@ -21,4 +21,14 @@ if rg -i "$GATE_RE" "$WORKSPACE" "$HERE" \
   exit 1
 fi
 
+echo "[smoke] wasm-pack build (optional)"
+if command -v wasm-pack >/dev/null 2>&1; then
+  WASM_OUT="/tmp/aperture-wasm-smoke"
+  rm -rf "$WASM_OUT"
+  ( cd "$WORKSPACE" && wasm-pack build crates/aperture-wasm --target web --out-dir "$WASM_OUT" --dev )
+  echo "[smoke] wasm artifact at $WASM_OUT"
+else
+  echo "[smoke] wasm-pack not found — skipping wasm build (install with: cargo install wasm-pack)"
+fi
+
 echo "[smoke] ok"
