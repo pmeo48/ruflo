@@ -187,27 +187,35 @@ fn render_ascii_chart(candles: &[aperture_data::Candle]) -> Vec<String> {
     }
     let rows = 8usize;
     let cols = candles.len().min(60);
-    let mut grid = vec![vec![' '; cols]; rows];
+    // Flat byte grid: one allocation total instead of `rows + 1` Vecs of chars.
+    // Every cell is ASCII (' ', '|', '*'), so a UTF-8-safe slice is a 1-byte slice.
+    let mut grid = vec![b' '; rows * cols];
+    let scale = |v: f64| -> usize {
+        if hi == lo {
+            rows / 2
+        } else {
+            let n = (v - lo) / (hi - lo);
+            ((1.0 - n) * (rows as f64 - 1.0)).round() as usize
+        }
+    };
     for (x, c) in candles.iter().take(cols).enumerate() {
-        let scale = |v: f64| -> usize {
-            if hi == lo {
-                rows / 2
-            } else {
-                let n = (v - lo) / (hi - lo);
-                ((1.0 - n) * (rows as f64 - 1.0)).round() as usize
-            }
-        };
         let high_y = scale(c.h);
         let low_y = scale(c.l);
         let close_y = scale(c.c);
         for y in high_y..=low_y {
-            grid[y][x] = '|';
+            grid[y * cols + x] = b'|';
         }
         if close_y < rows {
-            grid[close_y][x] = '*';
+            grid[close_y * cols + x] = b'*';
         }
     }
-    let mut out: Vec<String> = grid.into_iter().map(|r| r.into_iter().collect()).collect();
+    let mut out: Vec<String> = (0..rows)
+        .map(|r| {
+            // Safe: all bytes written are ASCII.
+            let row = &grid[r * cols..(r + 1) * cols];
+            std::str::from_utf8(row).expect("ascii").to_owned()
+        })
+        .collect();
     out.push(format!("range hi {:.2}  lo {:.2}", hi, lo));
     out
 }
@@ -244,7 +252,7 @@ fn draw(f: &mut ratatui::Frame, state: &AppState) {
 
     pane(f, left[0], "Quote", &state.quote_lines);
     pane(f, left[1], "Chart", &state.chart_lines);
-    pane(f, right[0], "Watchlist", &watchlist_lines(state));
+    pane(f, right[0], "Watchlist", watchlist_lines(state));
     pane(f, right[1], "Oracle", &state.oracle_lines);
 
     let cmd = Paragraph::new(format!("> {}", state.input))
@@ -252,16 +260,21 @@ fn draw(f: &mut ratatui::Frame, state: &AppState) {
     f.render_widget(cmd, chunks[2]);
 }
 
-fn watchlist_lines(state: &AppState) -> Vec<String> {
+fn watchlist_lines(state: &AppState) -> &[String] {
+    // Lazily constructed once; subsequent draws hand back the same slice.
+    use std::sync::OnceLock;
+    static EMPTY: OnceLock<Vec<String>> = OnceLock::new();
     if state.watchlist.is_empty() {
-        vec!["(empty)".into(), "use `AAPL WATCH GO`".into()]
+        EMPTY.get_or_init(|| vec!["(empty)".into(), "use `AAPL WATCH GO`".into()])
     } else {
-        state.watchlist.clone()
+        &state.watchlist
     }
 }
 
 fn pane(f: &mut ratatui::Frame, area: Rect, title: &str, lines: &[String]) {
-    let body: Vec<Line> = lines.iter().map(|s| Line::from(s.clone())).collect();
+    // Borrow the strings instead of cloning them; `body`'s lifetime is tied
+    // to `lines` and is consumed within this function.
+    let body: Vec<Line> = lines.iter().map(|s| Line::from(s.as_str())).collect();
     let p = Paragraph::new(body).block(Block::default().borders(Borders::ALL).title(title));
     f.render_widget(p, area);
 }

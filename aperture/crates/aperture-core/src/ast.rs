@@ -17,18 +17,31 @@ pub enum Verb {
 
 impl Verb {
     pub fn from_token(s: &str) -> Option<Self> {
-        match s.to_ascii_uppercase().as_str() {
-            "HELP" | "?" => Some(Verb::Help),
-            "CLS" | "CLEAR" => Some(Verb::Cls),
-            "EXIT" | "QUIT" => Some(Verb::Exit),
-            "LIST" | "LS" => Some(Verb::List),
-            "DESC" | "DES" => Some(Verb::Desc),
-            "CHART" | "GP" | "GIP" => Some(Verb::Chart),
-            "WATCH" => Some(Verb::Watch),
-            "UNWATCH" => Some(Verb::Unwatch),
-            "ASK" => Some(Verb::Ask),
-            "CRYPTO" => Some(Verb::Crypto),
-            _ => None,
+        // Match without allocating: ASCII case-insensitive comparisons against
+        // each alias string. Called once per parsed token.
+        let eq = |alias: &str| s.eq_ignore_ascii_case(alias);
+        if eq("HELP") || s == "?" {
+            Some(Verb::Help)
+        } else if eq("CLS") || eq("CLEAR") {
+            Some(Verb::Cls)
+        } else if eq("EXIT") || eq("QUIT") {
+            Some(Verb::Exit)
+        } else if eq("LIST") || eq("LS") {
+            Some(Verb::List)
+        } else if eq("DESC") || eq("DES") {
+            Some(Verb::Desc)
+        } else if eq("CHART") || eq("GP") || eq("GIP") {
+            Some(Verb::Chart)
+        } else if eq("WATCH") {
+            Some(Verb::Watch)
+        } else if eq("UNWATCH") {
+            Some(Verb::Unwatch)
+        } else if eq("ASK") {
+            Some(Verb::Ask)
+        } else if eq("CRYPTO") {
+            Some(Verb::Crypto)
+        } else {
+            None
         }
     }
 
