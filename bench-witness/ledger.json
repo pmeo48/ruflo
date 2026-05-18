@@ -56,8 +56,8 @@
         }
       },
       "contentHash": "8958ef94a2a84be6202f808915a1a00bbd8ec245fc49010909df6f67fe41733a",
-      "signature": "04900d8fbb33d803c721c5344b6b535643b9ea8a8cc73c851a07f891843df515c7fa35bc2bf3386fc5d225400662bdfd804f83d55be12b7eff8840f88cef2b06",
-      "publicKey": "302a300506032b6570032100e8f536147fd2f075c34b30b447d07a0b75e03a88e491f842491b7a222f11a5cb",
+      "signature": "37c87224dd7491623899ef0945afa3ed7b8f024f41ab08e116719d80708a42940aee26ca9882dab492acd19850c7596b00287c01d644739dcb918270ad724c0f",
+      "publicKey": "302a300506032b657003210014dadbcbdff7389ed0c42afb35672c13186fba459680afb6a3c27874542aa010",
       "signatureAlgorithm": "ed25519",
       "prevContentHash": null,
       "sequence": 1
@@ -147,8 +147,8 @@
         }
       },
       "contentHash": "b87db0cd2cbf469265542ca659c48621cb2d81bb63a3c070029a8134cfc016a5",
-      "signature": "97631ba1d8e4a4a32a03628ecec4c6d268bf2abffc805977270ff667798b449cc4bdd65a7e2f41b27372d4d4578478c66b7486986914f67bcc660b0bc5e55c0e",
-      "publicKey": "302a300506032b6570032100e8f536147fd2f075c34b30b447d07a0b75e03a88e491f842491b7a222f11a5cb",
+      "signature": "34c9bbedb691bc4b73c5cecf8df9bda847e4a913f6f2331eddadc4ef7b198e8bc2895318ffc82e64eae5501944b2ca0b393e44d05ed296e8875b69ce9441ae0b",
+      "publicKey": "302a300506032b657003210014dadbcbdff7389ed0c42afb35672c13186fba459680afb6a3c27874542aa010",
       "signatureAlgorithm": "ed25519",
       "prevContentHash": "8958ef94a2a84be6202f808915a1a00bbd8ec245fc49010909df6f67fe41733a",
       "sequence": 2
@@ -226,11 +226,84 @@
         }
       },
       "contentHash": "3e2009dbff5f0a5bd8d0e3139f6cd92f612ec4f23b201572d39ad51704822bde",
-      "signature": "be3b7619913fa4cb0dde08ae5db5ded95e29c8e677543e9d86adb4d845be465140d98532b92c100a9807095e53b6dbcb0fe625158d2bb7256e06a9c0bae9bb02",
-      "publicKey": "302a300506032b6570032100e8f536147fd2f075c34b30b447d07a0b75e03a88e491f842491b7a222f11a5cb",
+      "signature": "0b7ad5a84589b3c12661f65b19580c91cc54e3ac025505ce8620cd0f06e52cbfdb574722a1cbdcc007115cf8111b6f6d6f43fe89296faddeb9be8e1a05d77e07",
+      "publicKey": "302a300506032b657003210014dadbcbdff7389ed0c42afb35672c13186fba459680afb6a3c27874542aa010",
       "signatureAlgorithm": "ed25519",
       "prevContentHash": "b87db0cd2cbf469265542ca659c48621cb2d81bb63a3c070029a8134cfc016a5",
       "sequence": 3
+    },
+    {
+      "benchmark": "rag-router-ablation",
+      "timestamp": "2026-05-18T01:11:02.014Z",
+      "commit": "33c3f740ce1284571bd63b55d165d8e1040d6ac3",
+      "model": "Xenova/all-MiniLM-L6-v2",
+      "corpus": {
+        "id": "2ee25f582b30323502b9270ed47e81ce9bb037f16d2e824083366249f888b81e",
+        "size": 24
+      },
+      "queries": {
+        "id": "62d0ff164eaaacb81d2bc8e7ae54b02c81d7ffa534f76c1235858c1edbe2088a",
+        "count": 7
+      },
+      "results": {
+        "__chain": {
+          "prevContentHash": "3e2009dbff5f0a5bd8d0e3139f6cd92f612ec4f23b201572d39ad51704822bde",
+          "sequence": 4
+        },
+        "originalContentHash": "f3abe567e8f14889db9aa4984cf1528f26955cfa9c81209d1e05315144279a83",
+        "originalSignature": "63d7505d8d49ac222e4fa76f100f7bc450e0003a48efc45efff40bc227c2f4db3259d022ed865757c174ec755f073c1228650e1cb536da0f1e5c7aef1ba6f20a",
+        "originalPublicKey": "302a300506032b6570032100421e927ffd08e184fe5516eee4f97b1ff4760f5dd0514d093485bce3a7bdc7c2",
+        "results": {
+          "plain": {
+            "meanRecallAt5": 0.7166666666666667,
+            "meanNdcgAt5": 0.7577999193649239,
+            "mrr": 0.8571428571428571,
+            "meanLatencyMs": 1.1908094285714286,
+            "totalEmbeds": 7
+          },
+          "mmr": {
+            "meanRecallAt5": 0.5142857142857143,
+            "meanNdcgAt5": 0.5689461947557175,
+            "mrr": 0.8571428571428571,
+            "meanLatencyMs": 1.5057678571428572,
+            "totalEmbeds": 7
+          },
+          "rrf": {
+            "meanRecallAt5": 0.7047619047619048,
+            "meanNdcgAt5": 0.7504451530516424,
+            "mrr": 0.8571428571428571,
+            "meanLatencyMs": 1.9116130000000002,
+            "totalEmbeds": 15
+          },
+          "hyde": {
+            "meanRecallAt5": 0.8071428571428572,
+            "meanNdcgAt5": 0.8786256529608067,
+            "mrr": 1,
+            "meanLatencyMs": 3.1125475714285713,
+            "totalEmbeds": 15
+          },
+          "compound": {
+            "meanRecallAt5": 0.8833333333333334,
+            "meanNdcgAt5": 0.924579086354446,
+            "mrr": 1,
+            "meanLatencyMs": 5.183006,
+            "totalEmbeds": 30
+          },
+          "adaptive": {
+            "meanRecallAt5": 0.8833333333333334,
+            "meanNdcgAt5": 0.9267024109730695,
+            "mrr": 1,
+            "meanLatencyMs": 5.771839285714286,
+            "totalEmbeds": 37
+          }
+        }
+      },
+      "contentHash": "e96537707e609ca410c2c3d71543633edbcf8d90d782e34c81f007cbd1013873",
+      "signature": "4e12c2979ac6adfec612d4ceb13e9ada683badc8b3f636517e203d690af4acf46ba8fcab762ef8d64484d3da2c382b3dd80754f231caade7cb1fa0c8be121a00",
+      "publicKey": "302a300506032b657003210014dadbcbdff7389ed0c42afb35672c13186fba459680afb6a3c27874542aa010",
+      "signatureAlgorithm": "ed25519",
+      "prevContentHash": "3e2009dbff5f0a5bd8d0e3139f6cd92f612ec4f23b201572d39ad51704822bde",
+      "sequence": 4
     }
   ]
 }
