@@ -479,6 +479,55 @@ jobs:
         shell: bash
         run: node scripts/smoke-embeddings-diskann.mjs
 
+  rag-cached-router:
+    # ADR-121 Phase 21 — Cache-aware lazy router benchmark.
+    # Content-addressed embed cache composed with the Phase 20 lazy
+    # router. Production workloads with repeated queries see ~zero
+    # marginal cost on cache hits. Pass criterion: (a) decision
+    # equivalence (cache must be transparent), (b) warm cache strictly
+    # fewer embeds than cold. Witness-signed.
+    name: rag cached router benchmark + witness (#2036, ADR-121 Phase 21)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Build embeddings + CLI
+        run: |
+          cd v3/@claude-flow/embeddings
+          npm install --no-audit --no-fund --legacy-peer-deps
+          npx tsc -p tsconfig.json
+          cd ../cli
+          npm install --no-audit --no-fund --legacy-peer-deps
+          npx tsc --build --force tsconfig.json
+
+      - name: Run cached router benchmark (witness-signed)
+        shell: bash
+        run: node scripts/benchmark-rag-cached-router.mjs
+
+      - name: Verify witness manifest (independent process)
+        shell: bash
+        run: |
+          FILE=$(ls -t bench-witness/rag-cached-router-*.json | head -1)
+          node --input-type=module -e "
+            import fs from 'node:fs';
+            const { verify } = await import('./v3/@claude-flow/embeddings/dist/witness.js');
+            const m = JSON.parse(fs.readFileSync('$FILE', 'utf8'));
+            if (!verify(m.witness)) { console.error('VERIFY FAILED'); process.exit(1); }
+            console.log('Cached router witness verifies OK:', m.witness.contentHash);
+          "
+
+      - name: Upload witness as CI artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rag-cached-router-witness
+          path: bench-witness/rag-cached-router-*.json
+
   rag-lazy-router:
     # ADR-121 Phase 20 — Lazy/short-circuit adaptive router benchmark.
     # Compares the eager (Phase 16) and lazy (Phase 20) routers on the
@@ -596,7 +645,7 @@ jobs:
     # need those jobs to pass — broken benchmark inputs still produce
     # a valid chain; the chain attests "we observed these numbers",
     # not "these numbers are good".)
-    needs: [rag-real-text-benchmark, rag-adaptive-router-benchmark, rag-hybrid-benchmark, rag-router-ablation, rag-lazy-router]
+    needs: [rag-real-text-benchmark, rag-adaptive-router-benchmark, rag-hybrid-benchmark, rag-router-ablation, rag-lazy-router, rag-cached-router]
     if: always()
     steps:
       - name: Checkout code

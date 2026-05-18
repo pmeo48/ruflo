@@ -173,6 +173,18 @@ export {
   type Bm25Hit,
 } from './bm25.js';
 
+// ADR-121 Phase 21 — Content-addressed embed cache (BEYOND SOTA).
+// In-memory LRU cache with sha256-keyed lookups. Composes with the
+// lazy router by wrapping the embed adapter; production workloads
+// with repeated queries see ~zero marginal cost on cache hits.
+export {
+  EmbedCache,
+  wrapWithCache,
+  canonicalizeText,
+  type EmbedCacheOptions,
+  type EmbedCacheStats,
+} from './embed-cache.js';
+
 // ADR-121 Phase 20 — Lazy/short-circuit adaptive router (BEYOND SOTA).
 // Extends Phase 16's adaptive router with incremental feature
 // extraction: embeds query → checks duplicate-density → if signal
