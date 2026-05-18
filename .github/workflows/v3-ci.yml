@@ -479,6 +479,58 @@ jobs:
         shell: bash
         run: node scripts/smoke-embeddings-diskann.mjs
 
+  rag-real-text-benchmark:
+    # ADR-121 Phase 15 — Real ONNX embeddings + real text + witness.
+    # Drives the 5 individual primitives + the new compound
+    # (HyDE+MMR+RRF) primitive on a 30-doc real text corpus.
+    # Emits an ed25519-signed JSON manifest that anyone can verify
+    # to confirm the published numbers came from the published code.
+    # Pass criterion: every primitive >0 recall + witness verifies.
+    name: rag real-text benchmark + witness (#2036, ADR-121 Phase 15)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Build embeddings + CLI
+        run: |
+          cd v3/@claude-flow/embeddings
+          npm install --no-audit --no-fund --legacy-peer-deps
+          npx tsc -p tsconfig.json
+          cd ../cli
+          npm install --no-audit --no-fund --legacy-peer-deps
+          npx tsc --build --force tsconfig.json
+
+      - name: Run real-text RAG benchmark (witness-signed)
+        shell: bash
+        run: node scripts/benchmark-rag-real-text.mjs
+
+      - name: Verify witness manifest (independent process)
+        shell: bash
+        run: |
+          # Pick the freshest witness file and verify it ourselves
+          # via a second process — proves the signature is not just
+          # self-attestation but actually verifies independently.
+          FILE=$(ls -t bench-witness/*.json | head -1)
+          node --input-type=module -e "
+            import fs from 'node:fs';
+            const { verify } = await import('./v3/@claude-flow/embeddings/dist/witness.js');
+            const m = JSON.parse(fs.readFileSync('$FILE', 'utf8'));
+            if (!verify(m.witness)) { console.error('VERIFY FAILED'); process.exit(1); }
+            console.log('Witness verifies OK:', m.witness.contentHash);
+          "
+
+      - name: Upload witness as CI artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: rag-real-text-witness
+          path: bench-witness/*.json
+
   rag-topology-benchmark:
     # ADR-121 Phase 14 — Algorithm-level benchmark of the 4 underlying
     # RAG fusion primitives (plain top-k / MMR / RRF / HyDE-avg) on

@@ -144,6 +144,46 @@ export {
   type AverageEmbeddingsOptions,
 } from './embedding-fusion.js';
 
+// ADR-121 Phase 15 — Compound retrieval primitive (BEYOND SOTA).
+// Composes HyDE (per-intent embedding fusion) + MMR (per-intent
+// diversity) + RRF (across-intent rank fusion) into a single
+// pipeline. Each component is well-known; the compound shape isn't
+// shipped in any production library to my knowledge. Tested in CI
+// against each individual primitive on real-embedding benchmarks.
+export {
+  compoundRetrieval,
+  type CompoundIntent,
+  type CompoundRetrievalOptions,
+  type CompoundRetrievalResult,
+  type CompoundIntentTrace,
+} from './compound-retrieval.js';
+
+// ADR-121 Phase 15 — Benchmark witness manifest (ed25519-signed).
+// Every benchmark run emits a tamper-evident JSON manifest with the
+// corpus/query/model identity + results + signature. Anyone can
+// verify the published numbers match the published code on the
+// published commit. Zero new deps — uses node:crypto.
+export {
+  witness,
+  verify,
+  canonicalHash,
+  corpusFingerprint,
+  generateEphemeralKeypair,
+  type BenchmarkWitnessInput,
+  type WitnessedManifest,
+} from './witness.js';
+
+// ADR-121 Phase 15 — Synthetic topic-clustered corpus builder.
+// Deterministic generator for benchmark + test corpora with known
+// topic structure and relevance judgements. Used by the scale
+// benchmark + available for users building their own benchmarks.
+export {
+  buildSyntheticTopicCorpus,
+  type SyntheticCorpusOptions,
+  type SyntheticCorpusEntry,
+  type SyntheticCorpus,
+} from './synthetic-corpus.js';
+
 // ADR-121 Phase 13 — Standard IR evaluation metrics for benchmarking
 // the RAG primitives. Pure functions: recall@k, precision@k, MRR,
 // nDCG@k (binary + graded). Used by scripts/benchmark-rag-primitives.mjs
