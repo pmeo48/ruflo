@@ -11,12 +11,21 @@
 
 import { readFileSync, existsSync } from 'node:fs';
 import { join, resolve } from 'node:path';
+import { Buffer } from 'node:buffer';
 import type { MCPTool } from './types.js';
 import { validateIdentifier, validateText } from './validate-input.js';
 
-async function loadAgentWasm() {
-  const mod = await import('../ruvector/agent-wasm.js');
-  return mod;
+/**
+ * Memoize the agent-wasm dynamic import so the module is only resolved once.
+ * Subsequent calls return the same settled Promise — V8 resolves a pre-settled
+ * Promise in the same microtask checkpoint, eliminating per-call import overhead.
+ */
+let _agentWasmPromise: Promise<typeof import('../ruvector/agent-wasm.js')> | null = null;
+function loadAgentWasm() {
+  if (!_agentWasmPromise) {
+    _agentWasmPromise = import('../ruvector/agent-wasm.js');
+  }
+  return _agentWasmPromise;
 }
 
 // ── ADR-129 P2 — Destructive-tool gate ──────────────────────────────────────
@@ -453,7 +462,6 @@ export const wasmAgentTools: MCPTool[] = [
           mcpTools: mcpToolDescriptors,
         });
 
-        const { Buffer } = await import('node:buffer');
         const rvfBase64 = Buffer.from(rvfBytes).toString('base64');
 
         const manifest = {
@@ -606,7 +614,6 @@ export const wasmAgentTools: MCPTool[] = [
       try {
         const wasm = await loadAgentWasm();
         const bytes = await wasm.galleryLoadRvf(args.id as string);
-        const { Buffer } = await import('node:buffer');
         return { content: [{ type: 'text', text: JSON.stringify({ id: args.id, rvfBase64: Buffer.from(bytes).toString('base64'), sizeBytes: bytes.length }, null, 2) }] };
       } catch (err) {
         return { content: [{ type: 'text', text: JSON.stringify({ error: String(err) }) }], isError: true };

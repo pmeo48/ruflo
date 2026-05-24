@@ -1,0 +1,36 @@
+{
+  "tag": "mode-b",
+  "capturedAt": "2026-05-24T22:20:43.858Z",
+  "platform": "darwin-arm64",
+  "node_version": "v22.22.1",
+  "model": "claude-haiku-4-5-20251001",
+  "framework": "ruflo",
+  "version": "3.8.0",
+  "trials": 3,
+  "workload": {
+    "tools": 1,
+    "max_tokens": 200,
+    "temperature": 0,
+    "system_prompt": "You are a test agent. You have access to search tools. Always use a tool when asked.",
+    "user_message": "Use tool_00_search to look up 'hello'. Return the tool name you used."
+  },
+  "measurements": {
+    "single_turn_ms": {
+      "all": [
+        null,
+        null,
+        null
+      ],
+      "valid_count": 0,
+      "medianMs": null,
+      "minMs": null,
+      "maxMs": null
+    }
+  },
+  "token_usage": {
+    "total_input": 0,
+    "total_output": 0,
+    "actual_cost_usd": 0
+  },
+  "notes": "Mode B: real Anthropic API call. Single tool (tool_00_search). Latency = wall-clock time for messages.create() to return. Network RTT included."
+}
