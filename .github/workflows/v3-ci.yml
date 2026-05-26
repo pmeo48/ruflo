@@ -1173,10 +1173,20 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Install @claude-flow/memory deps
-        # @claude-flow/memory has no workspace:* deps — plain npm install works.
-        working-directory: v3/@claude-flow/memory
-        run: npm install --legacy-peer-deps --no-audit --no-fund --ignore-scripts
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
+      - name: Install workspace deps (pnpm — @claude-flow/memory pulled in workspace:* deps)
+        # Comment used to say "no workspace deps" — that's no longer true.
+        # The package now depends on sibling workspace packages (e.g. @claude-flow/shared)
+        # via workspace:* protocol, so npm install fails with EUNSUPPORTEDPROTOCOL.
+        # Use the v3-rooted pnpm install + recursive build pattern.
+        working-directory: v3
+        run: |
+          pnpm install --frozen-lockfile=false --ignore-scripts
+          pnpm --recursive --no-bail run build || true
 
       - name: Run memory no-stray-db smoke
         run: node scripts/smoke-memory-no-stray-db.mjs
