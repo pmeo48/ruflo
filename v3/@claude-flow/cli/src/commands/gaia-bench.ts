@@ -167,7 +167,8 @@ const runCommand: Command = {
     const smokeOnly = ctx.flags['smokeOnly'] === true || ctx.flags['smokeOnly'] === 'true' ||
       ctx.flags['smoke-only'] === true || ctx.flags['smoke-only'] === 'true';
     // Parser converts --max-turns → maxTurns, --judge-model → judgeModel
-    const maxTurns = parseInt(String(ctx.flags['maxTurns'] ?? ctx.flags['max-turns'] ?? '8'), 10);
+    // NOTE: default must match DEFAULT_MAX_TURNS in benchmarks/gaia-agent.ts (iter-22 improvement B)
+    const maxTurns = parseInt(String(ctx.flags['maxTurns'] ?? ctx.flags['max-turns'] ?? '12'), 10);
     const judgeModel = String(ctx.flags['judgeModel'] ?? ctx.flags['judge-model'] ?? 'claude-sonnet-4-6');
 
     // Dynamic imports to avoid loading at startup.
