@@ -14,6 +14,7 @@ export interface BotConfig {
   };
   trading: {
     paperMode: boolean;
+    demoMode: boolean;
     initialCapital: number;
     assets: string[];
     scanIntervalMs: number;
@@ -43,6 +44,7 @@ export const config: BotConfig = {
   },
   trading: {
     paperMode:        process.env.PAPER_MODE !== 'false',
+    demoMode:         process.env.DEMO_MODE === 'true',
     initialCapital:   parseFloat(process.env.INITIAL_CAPITAL ?? '10000'),
     assets:           ['bitcoin', 'ethereum'],
     scanIntervalMs:   parseInt(process.env.SCAN_INTERVAL_MS ?? '60000'),

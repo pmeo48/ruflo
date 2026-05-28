@@ -91,7 +91,7 @@ export class MarketScanner {
       const fairValues: FairValue[] = [];
       for (const market of markets) {
         const spot = spotMap.get(market.asset);
-        if (!spot) continue;
+        if (spot == null || spot <= 0) continue;
         const vol = getVolForAsset(market.asset);
         const T   = yearsUntil(market.endDate);
         const fairProb = market.direction === 'above'
@@ -129,6 +129,12 @@ export class MarketScanner {
         lastScan:        new Date().toISOString(),
       };
 
+      // Build tokenId → currentPrice map for position mark-to-market
+      const tokenPriceMap = new Map<string, number>();
+      for (const mkt of markets) {
+        for (const tok of mkt.tokens) tokenPriceMap.set(tok.tokenId, tok.price);
+      }
+
       eventBus.publish({
         type: 'market_scanned',
         timestamp: Date.now(),
@@ -137,12 +143,20 @@ export class MarketScanner {
           mispricingsCount: mispricings.length,
           fairValues:      fairValues.slice(0, 20),
           spotPrices:      Object.fromEntries(spotMap),
+          tokenPrices:     Object.fromEntries(tokenPriceMap),
         },
       });
 
-      if (mispricings.length > 0) {
-        console.log(`[MarketScanner] found ${mispricings.length} mispricing(s) across ${markets.length} markets`);
-      }
+      eventBus.publish({
+        type: 'price_update',
+        timestamp: Date.now(),
+        data: { spotPrices: Object.fromEntries(spotMap), tokenPrices: Object.fromEntries(tokenPriceMap) },
+      });
+
+      const scanMsg = markets.length > 0
+        ? `[MarketScanner] ${markets.length} markets — ${mispricings.length} mispricing(s)`
+        : '[MarketScanner] no markets returned (API or simulator not ready)';
+      if (markets.length > 0 || mispricings.length > 0) console.log(scanMsg);
     } catch (err) {
       const msg = (err as Error).message;
       this.state.errors.push(msg);

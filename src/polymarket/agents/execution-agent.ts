@@ -42,13 +42,19 @@ export class ExecutionAgent {
     };
   }
 
+  private expiryIntervalId?: ReturnType<typeof setInterval>;
+
   start(): void {
     this.state.status = 'running';
     console.log(`[ExecutionAgent] starting in ${config.trading.paperMode ? 'PAPER' : 'LIVE'} mode — capital: $${this.portfolio.initialCapital}`);
     eventBus.on('signal_generated', (event: BotEvent) => this.onSignal(event));
+    eventBus.on('price_update',     (event: BotEvent) => this.onPriceUpdate(event));
+    // Check for expired positions every 30 seconds
+    this.expiryIntervalId = setInterval(() => this.settleExpiredPositions(), 30_000);
   }
 
   stop(): void {
+    if (this.expiryIntervalId) clearInterval(this.expiryIntervalId);
     this.state.status = 'stopped';
   }
 
@@ -58,6 +64,12 @@ export class ExecutionAgent {
   private async onSignal(event: BotEvent): Promise<void> {
     const signal = event.data as Signal;
     await this.executeSignal(signal);
+  }
+
+  private onPriceUpdate(event: BotEvent): void {
+    const { tokenPrices } = event.data as { tokenPrices?: Record<string, number> };
+    if (!tokenPrices) return;
+    this.updatePositionPrices(new Map(Object.entries(tokenPrices)));
   }
 
   async executeSignal(signal: Signal): Promise<Trade | null> {
@@ -131,6 +143,26 @@ export class ExecutionAgent {
     // Real execution requires EIP-712 signed orders — not implemented for safety.
     console.warn('[ExecutionAgent] live trading requires POLYMARKET_PRIVATE_KEY and is not enabled');
     return null;
+  }
+
+  // Auto-close positions whose markets have expired (called on interval)
+  private settleExpiredPositions(): void {
+    const expiredIds = this.polymarket.getExpiredMarketIds();
+    if (expiredIds.length === 0) return;
+
+    for (const pos of this.portfolio.positions.values()) {
+      if (pos.status !== 'open') continue;
+      if (!expiredIds.includes(pos.marketId)) continue;
+
+      const settlement = this.polymarket.settleMarket(pos.marketId);
+      if (settlement === null) continue;
+
+      this.closePosition(pos.id, settlement);
+      console.log(
+        `[ExecutionAgent] settled ${pos.asset} $${pos.question.match(/\$[\d,]+/)?.[0] ?? '?'} ` +
+        `→ ${settlement === 1 ? 'WON' : 'LOST'} PnL=$${pos.realizedPnl.toFixed(2)}`
+      );
+    }
   }
 
   // Update current prices of open positions and compute P&L

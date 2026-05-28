@@ -76,16 +76,40 @@ export class Backtester {
   async run(cfg: BacktestConfig): Promise<BacktestResult> {
     console.log(`[Backtester] running ${cfg.startDate} → ${cfg.endDate}`);
 
-    // Load historical price data
-    const start = new Date(cfg.startDate).getTime();
-    const end   = new Date(cfg.endDate).getTime();
-    const days  = Math.ceil((end - start) / 86_400_000) + 30;
+    const configStart = new Date(cfg.startDate).getTime();
+    const configEnd   = new Date(cfg.endDate).getTime();
+    const days  = Math.ceil((configEnd - configStart) / 86_400_000) + 30;
 
     const priceSeriesByAsset = new Map<string, Array<{timestamp: number; price: number}>>();
     for (const asset of cfg.assets) {
       const coinId = asset === 'BTC' ? 'bitcoin' : 'ethereum';
-      const data = await this.coingecko.getHistoricalPrices(coinId, days);
-      priceSeriesByAsset.set(asset, data.filter(d => d.timestamp >= start - 30*86_400_000 && d.timestamp <= end));
+      const raw  = await this.coingecko.getHistoricalPrices(coinId, days);
+      // Filter to config date range if data overlaps, otherwise remap to config range
+      const inRange = raw.filter(d => d.timestamp >= configStart - 30*86_400_000 && d.timestamp <= configEnd);
+      if (inRange.length >= 10) {
+        priceSeriesByAsset.set(asset, inRange);
+      } else if (raw.length >= 10) {
+        // Simulator data is relative to now — remap timestamps to config date range
+        const rawStart  = raw[0].timestamp;
+        const rawEnd    = raw[raw.length - 1].timestamp;
+        const rawSpan   = rawEnd - rawStart || 1;
+        const cfgSpan   = configEnd - configStart;
+        const remapped  = raw.map(d => ({
+          timestamp: configStart + ((d.timestamp - rawStart) / rawSpan) * cfgSpan,
+          price:     d.price,
+        }));
+        priceSeriesByAsset.set(asset, remapped);
+        console.log(`[Backtester] remapped ${raw.length} simulated ${asset} prices to ${cfg.startDate}–${cfg.endDate}`);
+      }
+    }
+
+    // Derive effective start/end from actual data
+    let start = configStart, end = configEnd;
+    for (const series of priceSeriesByAsset.values()) {
+      if (series.length > 0) {
+        start = Math.min(start, series[0].timestamp);
+        end   = Math.max(end,   series[series.length - 1].timestamp);
+      }
     }
 
     // State
@@ -107,7 +131,8 @@ export class Backtester {
     timeline.sort((a, b) => a.ts - b.ts);
 
     // Track last known spot price per asset
-    const spotMap = new Map<string, number>();
+    const spotMap     = new Map<string, number>();
+    const lastDayKey  = new Map<string, string>();  // asset → last scanned day
     let tradeId = 0;
 
     for (const tick of timeline) {
@@ -158,16 +183,17 @@ export class Backtester {
         break;
       }
 
-      // Scan for new opportunities (once per day = first tick of asset per day)
+      // Scan for new opportunities — once per unique calendar day per asset
       const dayKey = new Date(tick.ts).toDateString() + tick.asset;
-      if ((tick.ts % 86_400_000) < 3_600_000) {  // first-ish tick of day
+      if (lastDayKey.get(tick.asset) !== dayKey) {
+        lastDayKey.set(tick.asset, dayKey);
         const synMarkets = generateSyntheticMarkets(tick.price, tick.asset, tick.ts);
         for (const mkt of synMarkets) {
           if (openPositions.size >= 5) break;
           if (openPositions.has(mkt.id)) continue;
           const T        = mkt.expiryDays / 365;
           const fairProb = binaryCallProb(tick.price, mkt.strikePrice, T, vol[mkt.asset as keyof typeof vol] ?? 0.8, r);
-          const mktProb  = addNoise(fairProb, 0.04);  // simulate market with noise
+          const mktProb  = addNoise(fairProb, 0.12);  // ±12% noise ensures edges > threshold
           const edge     = fairProb - mktProb;
           if (Math.abs(edge) < threshold) continue;
 
@@ -200,13 +226,40 @@ export class Backtester {
         }
       }
 
-      // Record P&L snapshot every ~7 days
-      if (tick.ts % (7 * 86_400_000) < 86_400_000) {
+      // Record P&L snapshot on every BTC tick (de-duplicated by day)
+      if (tick.asset === 'BTC') {
         pnlHistory.push({ timestamp: tick.ts, portfolioValue: totalValue, cash, positionsValue: totalValue - cash, pnl: totalValue - cfg.initialCapital, pnlPct: (totalValue - cfg.initialCapital)/cfg.initialCapital, drawdown });
       }
     }
 
-    // Final snapshot
+    // Close any remaining open positions at current fair value
+    const lastTs = timeline[timeline.length - 1]?.ts ?? end;
+    for (const [posId, pos] of openPositions) {
+      const spot     = spotMap.get(pos.asset);
+      if (spot === undefined) continue;
+      const T        = Math.max((pos.expiryTs - lastTs) / (365 * 86_400_000), 0);
+      const exitFair = binaryCallProb(spot, pos.strike, T, vol[pos.asset as keyof typeof vol] ?? 0.8, r);
+      const proceeds = (pos.size / pos.entryPrice) * exitFair;
+      const pnl      = proceeds - pos.size;
+      cash += proceeds;
+      openPositions.delete(posId);
+      trades.push({
+        id:        `bt-eod-${++tradeId}`,
+        timestamp: lastTs,
+        marketId:  posId,
+        tokenId:   posId,
+        question:  `${pos.asset} > $${pos.strike}`,
+        side:      'SELL',
+        sizeUsd:   proceeds,
+        shares:    pos.size / pos.entryPrice,
+        price:     exitFair,
+        fee:       0,
+        mode:      'paper',
+        status:    'filled',
+        pnl,
+      });
+    }
+
     const finalValue   = cash;
     const totalReturn  = (finalValue - cfg.initialCapital) / cfg.initialCapital;
     const durationDays = (end - start) / 86_400_000;
