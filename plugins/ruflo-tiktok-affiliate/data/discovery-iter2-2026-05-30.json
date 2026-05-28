@@ -1,0 +1,140 @@
+{
+  "discovery_run": {
+    "timestamp": "2026-05-30T00:00:00Z",
+    "iteration": 2,
+    "campaign_id": "CAMP-20260528-001",
+    "source": "web-intelligence-aggregation",
+    "data_sources": [
+      "TheIndustry.beauty — Beauty tech soars 400% on TikTok Shop amid red light therapy boom (Feb 2026)",
+      "HIME SAMA TikTok Shop storefront (shop.tiktok.com/us/k/hime-sama-led-face-light-therapy-mask)",
+      "Dashboardly.io — TikTok Shop Affiliate Commissions 2026",
+      "Accio.com — Top TikTok Shop Products 2026 Updated Guide",
+      "himesama.com retail pricing reference",
+      "Nekteck TikTok Shop product page (tiktok.com/shop/pdp/nekteck-neck-back-massager-lms-801)",
+      "Short Form Nation — TikTok Shop Affiliate Marketing Complete 2026 Guide"
+    ],
+    "note_on_iteration": "Iteration 2 adds 2 new products to scout for fresh content pipeline. Existing scaled products (Nira Ionic Infuser, MAEFU EMS Belt) receive new content variants; LumiGlow receives a creative rebuild.",
+    "niches_scanned": ["beauty", "fitness"],
+    "commission_threshold": 0.15,
+    "total_new_products": 2,
+    "iteration_1_carry_forward": {
+      "scale": ["REAL-FIT-001 (Nira Infuser) — 2 new variants", "REAL-FIT-002 (EMS Belt) — 2 new variants"],
+      "rebuild": ["REAL-HOM-003 (LumiGlow Lamp) — 1 rebuilt variant"],
+      "paused": ["LIVE-FIT-001 (Cholesterol Supplement)", "LIVE-HOM-001 (Homeika Vacuum)"]
+    }
+  },
+  "new_products": [
+    {
+      "product_id": "NEW-BEA-001",
+      "name": "HIME SAMA 7-Color LED Light Therapy Face Mask",
+      "brand": "HIME SAMA",
+      "niche": "beauty",
+      "sub_category": "skincare / LED therapy devices",
+      "price_usd": 89.99,
+      "commission_rate": 0.18,
+      "commission_per_sale": 16.20,
+      "trend_velocity": 0.82,
+      "review_score": 4.1,
+      "affiliate_count_estimate": 800,
+      "potential_score": 0.4726,
+      "tier": "hot",
+      "score_breakdown": {
+        "commission_component": 0.0630,
+        "trend_component": 0.2460,
+        "review_component": 0.1640,
+        "scarcity_component": 0.0900,
+        "total": 0.4726
+      },
+      "monthly_gmv_estimate": "$25M+ in LED beauty device category on TikTok Shop (400% YoY growth, Feb 2026)",
+      "creator_network": "230,000+ influencer users with dedicated TikTok Shop storefront",
+      "live_shopping_pct": 26,
+      "trend_direction": "explosive",
+      "trending_reason": "Red light therapy masks are the #1 growth subcategory in TikTok Shop's Facial Beauty Device category, up 400% YoY per TheIndustry.beauty (Feb 2026). HIME SAMA has 230,000+ influencer users and a dedicated TikTok Shop storefront. 26% of purchases happen via LIVE Shopping. Concern-led skincare search behavior (#skintok, #acne, #antiaging) drives sustained algorithmic discovery. 7-color masks address acne, wrinkles, and pigmentation — broad appeal across skin concerns.",
+      "content_angles": [
+        "Dermatology-price comparison: 'This costs $500+ in a clinic. This mask is $90.'",
+        "7-color explanation: each color targets a different skin concern — curiosity hook",
+        "Morning routine transformation: before-and-after with consistent 4-week use",
+        "Science explainer: why red light at 630-660nm penetrates dermis layer"
+      ],
+      "recommended_format": "transformation + science explainer hybrid",
+      "posting_schedule": "Tue/Thu/Sat 7-9AM or 7-9PM EST (beauty niche peak)",
+      "public_product_url": "https://shop.tiktok.com/us/k/hime-sama-led-face-light-therapy-mask",
+      "affiliate_link": "REQUIRES_CREATOR_LOGIN",
+      "data_confidence": "high — brand TikTok Shop storefront confirmed, pricing from official site, commission rate from category benchmarks",
+      "iteration_2_priority": "primary new addition — test 2 variants"
+    },
+    {
+      "product_id": "NEW-FIT-001",
+      "name": "Nekteck Shiatsu Neck & Back Massager with Heat (LMS-801)",
+      "brand": "Nekteck",
+      "niche": "fitness",
+      "sub_category": "recovery / pain relief / wellness",
+      "price_usd": 44.99,
+      "commission_rate": 0.15,
+      "commission_per_sale": 6.75,
+      "trend_velocity": 0.60,
+      "review_score": 4.3,
+      "affiliate_count_estimate": 650,
+      "potential_score": 0.5058,
+      "tier": "hot",
+      "score_breakdown": {
+        "commission_component": 0.0525,
+        "trend_component": 0.1800,
+        "review_component": 0.1720,
+        "scarcity_component": 0.1013,
+        "total": 0.5058
+      },
+      "monthly_gmv_estimate": "10,800+ confirmed units sold on TikTok Shop; recovery/wellness category within broader #Wellness trend (billions of platform views)",
+      "confirmed_sales_units": 10800,
+      "trend_direction": "stable_high",
+      "trending_reason": "Nekteck LMS-801 holds the #1 TikTok neck massager position with 10,800+ confirmed units sold. 8-node shiatsu with infrared heat, 15-min auto-shutoff, and 1-year warranty create reliable review-content hooks. Recovery and pain-relief tools align with the #Wellness and self-care creator trend (billions of views). Price point ($39-$55 on TikTok Shop) is in the low-friction impulse-buy zone. Accio.com gives recovery tools a 'Go' market verdict for 2026.",
+      "content_angles": [
+        "Work-from-home neck pain relatable hook: 'I've had a headache every day for 3 years. This is why.'",
+        "5PM ritual content: 'What I do every day at 5PM to decompress from screens'",
+        "Gift content: 'The only thing I got my dad that he actually uses'",
+        "ASMR-adjacent: sounds + visual of the kneading nodes in action"
+      ],
+      "recommended_format": "problem-solution (pain point → relief reveal)",
+      "posting_schedule": "Mon/Wed/Fri 7-9PM EST (fitness/wellness niche evening window)",
+      "public_product_url": "https://www.tiktok.com/shop/pdp/nekteck-neck-and-back-massager-with-heat-model-lms-801-wireless-comfort/1729404610250642058",
+      "affiliate_link": "REQUIRES_CREATOR_LOGIN",
+      "data_confidence": "high — product page URL confirmed on TikTok Shop, unit sales figure from listing data, commission rate from category benchmarks",
+      "iteration_2_priority": "secondary new addition — test 2 variants"
+    }
+  ],
+  "iteration_2_portfolio": {
+    "total_active_products": 5,
+    "new_this_iteration": 2,
+    "carried_forward": 3,
+    "total_content_variants_planned": 9,
+    "variant_breakdown": {
+      "Nira Ionic Infuser": "2 new variants (B: loss-aversion, C: visual transformation)",
+      "MAEFU EMS Belt": "2 new variants (C: duration-of-effort, D: skeptic-to-believer)",
+      "LumiGlow Sunset Lamp": "1 rebuilt variant (B: social-embarrassment before-state)",
+      "HIME SAMA LED Mask": "2 new variants (A: dermatology-price, B: 7-color science)",
+      "Nekteck Shiatsu Massager": "2 new variants (A: work-from-home pain, B: 5PM ritual)"
+    },
+    "post_schedule": {
+      "2026-06-01_Mon": "HIME SAMA LED Mask — Variant A (dermatology price comparison)",
+      "2026-06-02_Tue": "Nira Infuser — Variant B (loss-aversion)",
+      "2026-06-03_Wed": "Nekteck Massager — Variant A (WFH neck pain)",
+      "2026-06-04_Thu": "EMS Belt — Variant C (duration of effort)",
+      "2026-06-05_Fri": "LumiGlow Lamp — Rebuilt Variant B (social embarrassment)",
+      "2026-06-06_Sat": "HIME SAMA LED Mask — Variant B (7-color science)",
+      "2026-06-08_Mon": "Nira Infuser — Variant C (visual transformation)",
+      "2026-06-09_Tue": "Nekteck Massager — Variant B (5PM ritual)",
+      "2026-06-10_Wed": "EMS Belt — Variant D (skeptic-to-believer)"
+    },
+    "gmv_target_iteration_2": "$18,000",
+    "commission_target_iteration_2": "$2,400",
+    "kpi_review_date": "2026-06-15"
+  },
+  "market_benchmarks_2026": {
+    "beauty_led_devices_yoy_growth_pct": 400,
+    "beauty_live_shopping_pct": 26,
+    "wellness_recovery_market_verdict": "Go",
+    "avg_commission_beauty_pct": "15-30",
+    "avg_commission_wellness_pct": "10-20",
+    "platform_total_gmv_usd": 23400000000
+  }
+}
