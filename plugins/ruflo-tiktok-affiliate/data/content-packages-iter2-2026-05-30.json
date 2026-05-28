@@ -1,0 +1,565 @@
+{
+  "iteration": 2,
+  "campaign_id": "CAMP-20260528-001",
+  "generated_at": "2026-05-30T00:00:00Z",
+  "total_packages": 9,
+  "summary": {
+    "scaled_products_new_variants": 5,
+    "rebuilt_products": 1,
+    "new_product_variants": 4,
+    "post_window": "2026-06-01 through 2026-06-10"
+  },
+  "packages": [
+    {
+      "content_id": "ITER2-NIRA-B",
+      "product_id": "REAL-FIT-001",
+      "product_name": "Nira Ionic Infuser",
+      "iteration": 2,
+      "variant": "B",
+      "hook_angle": "loss-aversion — wasting expensive serum without an infuser",
+      "hook_text": "I was throwing away $47 every single morning and I didn't even know it.",
+      "script": {
+        "scene_1_hook": {
+          "duration": "0-3s",
+          "spoken": "I was throwing away $47 every single morning and I didn't even know it.",
+          "on_screen": "$47 crossed out in red. Text: 'How I wasted money for 2 years straight.'",
+          "direction": "Close on hand holding expensive serum bottle. Cut to calculator. No music, just silence for 1 second before speaking.",
+          "energy": "Quiet and serious. Not dramatic. Like telling a friend something embarrassing."
+        },
+        "scene_2_setup": {
+          "duration": "3-15s",
+          "spoken": "I've been using a $47 vitamin C serum every morning. Dermatologist-recommended. The real stuff. But here's what no one told me — without proper absorption, your skin only actually uses about 30% of what you apply. The other 70% just sits on top and evaporates. I was essentially wiping $33 off my face every day.",
+          "on_screen": "Text overlay: '30% absorbed. 70% wasted.' Split graphic: serum bottle vs. dollar bills dissolving.",
+          "direction": "Talking-head, eye contact, slightly leaned in. Hold up serum bottle.",
+          "energy": "Matter-of-fact. You're not angry — you're just educating."
+        },
+        "scene_3_reveal": {
+          "duration": "15-25s",
+          "spoken": "This is what I use now. It's called an ionic nano-mist infuser. What it does is break serum molecules down to 0.26 microns — small enough to actually penetrate the skin barrier instead of sitting on top of it. Absorption goes from 30% to over 89%. I did the math. I was wasting $33 a day. This device paid for itself in four days.",
+          "on_screen": "Show the Nira Infuser. Text: '0.26 micron particles.' Second text: '89% absorption.' Third text: 'Paid for itself in 4 days.'",
+          "direction": "Hold up infuser. Quick cut to a demonstration — mist on hand. Slow zoom on the fine mist.",
+          "energy": "Revelatory but calm. Let the math do the work."
+        },
+        "scene_4_proof": {
+          "duration": "25-40s",
+          "spoken": "I've been using it for six weeks. My vitamin C serum lasts twice as long now because I'm using so much less per session — the mist distributes it evenly. And my skin? I'll let the before-and-after do the talking. Tone is more even. Texture is noticeably smoother. My esthetician asked what I changed.",
+          "on_screen": "Side-by-side before/after (same lighting, same angle, no filter). Text: 'Week 0 vs. Week 6.' Final text: 'My esthetician noticed.'",
+          "direction": "Genuine before-after. No filter. Natural lighting. Brief clip of esthetician appointment (optional).",
+          "energy": "Confident but not boastful. The results are real, so let them land quietly."
+        },
+        "scene_5_cta": {
+          "duration": "40-45s",
+          "spoken": "Link is in my bio. If you're spending more than $20 a month on serums, you genuinely cannot afford not to have one of these.",
+          "on_screen": "Text: 'Link in bio.' Arrow pointing up. Price shown briefly.",
+          "direction": "Look directly at camera. Slight pause before the last sentence. End on product in hand.",
+          "energy": "Direct. The CTA is the math, not the hype."
+        }
+      },
+      "caption": "POV: you've been wasting $33 every morning and didn't know 😶\n\nWithout proper absorption, skin only uses 30% of your serum. This ionic nano-mist infuser takes it to 89%.\n\nMath: if you spend $47/month on serum, this pays for itself in 4 days.\n\nLink in bio — Nira Ionic Infuser 👆",
+      "hashtags": ["#skincaremath", "#serumhack", "#skincaretips", "#vitaminC", "#absorptionhack", "#skincareroutine", "#glowup", "#tiktokshop", "#beautyfinds", "#antiaging"],
+      "b_roll_list": [
+        "Close-up: expensive serum bottle, product label visible",
+        "Calculator screen showing $33 x 30 days = $990",
+        "Slow-motion nano-mist dispersing in air",
+        "Before-after skin comparison (same lighting, no filter)",
+        "Infuser sitting next to serum products on shelf"
+      ],
+      "affiliate_link_placement": "bio",
+      "ab_hypothesis": "Variant B (loss-aversion) should outperform Variant A (curiosity/discovery) by 15-25% CVR because the financial pain point creates immediate decision urgency. Hypothesis: when viewers feel they are LOSING money by not acting, they convert faster than when they feel they are GAINING something.",
+      "post_schedule": "2026-06-02 Tuesday 7:00PM EST",
+      "iteration_2_notes": "Primary scale variant. This is the loss-aversion angle the performance analyst recommended. Track CVR vs Variant A carefully — if it outperforms by >20%, kill A and double down on financial-framing hooks for all Nira content."
+    },
+    {
+      "content_id": "ITER2-NIRA-C",
+      "product_id": "REAL-FIT-001",
+      "product_name": "Nira Ionic Infuser",
+      "iteration": 2,
+      "variant": "C",
+      "hook_angle": "visual transformation — no talking, frizzy-to-smooth contrast opens the video",
+      "hook_text": "[no spoken words for first 2 seconds — pure visual contrast]",
+      "script": {
+        "scene_1_hook": {
+          "duration": "0-3s",
+          "spoken": "[SILENCE for 2 seconds. Then:] Yeah. That's real.",
+          "on_screen": "Split screen: LEFT — dry, frizzy, dull hair/skin. RIGHT — smooth, dewy, glowing hair/skin. Same person, same natural light. Text appears at 1.5s: 'No filter. Same day. 45 minutes apart.'",
+          "direction": "No music until spoken line. Let the visual contrast breathe. The silence is intentional — it forces the viewer to stop and process. Cut to creator face on 'Yeah. That's real.'",
+          "energy": "Understated. The visual earns the watch — you're just confirming it's not edited."
+        },
+        "scene_2_setup": {
+          "duration": "3-15s",
+          "spoken": "This is a nano-mist ionic infuser. It turns your regular serum into particles small enough to actually absorb — 0.26 microns. Normal application? 30% absorbs. With this? 89%. That difference is what you just saw.",
+          "on_screen": "Show the Nira Infuser. Graphic: '30%' crossed out, '89%' highlighted. Quick zoom on mist output.",
+          "direction": "Hold product up. Point at it naturally. Brief mist demo on back of hand.",
+          "energy": "Informative, not salesy. Like explaining something that surprised you."
+        },
+        "scene_3_reveal": {
+          "duration": "15-25s",
+          "spoken": "Here's my actual routine. Two pumps of my vitamin C serum into this. Hold it six inches from your face. Mist for about 20 seconds. Then just... let it absorb. I don't rub it in. The mist does the work.",
+          "on_screen": "Real-time demo: serum in infuser, hold up to face, mist. Text: 'Step 1. Step 2. Step 3.' Keep it simple.",
+          "direction": "Authentic, real-time tutorial. Messy bun is fine. Natural lighting. Show the actual routine.",
+          "energy": "Chill. You're showing your morning routine, not a product demo."
+        },
+        "scene_4_proof": {
+          "duration": "25-40s",
+          "spoken": "I've done this every morning for five weeks. My serum is lasting twice as long because the mist uses so little product. Skin texture — smoother. Tone — more even. And my hair when I mist it with the scalp serum? That before-after you saw at the start. That was 45 minutes of use, not weeks.",
+          "on_screen": "Replay the split-screen from scene 1. Text: 'Results after 5 weeks.' Second text: 'Serum lasts 2x longer.'",
+          "direction": "Cut back to the original comparison. Let the image do the work a second time.",
+          "energy": "Genuine surprise that it worked this well."
+        },
+        "scene_5_cta": {
+          "duration": "40-45s",
+          "spoken": "Link is in bio. I found it on TikTok Shop. It's cheaper than one month of good serum.",
+          "on_screen": "Text: 'TikTok Shop — link in bio ↑' Show product in hand with price.",
+          "direction": "End on product held up. Smile — authentic, not forced.",
+          "energy": "Light and genuine. The video earned the CTA."
+        }
+      },
+      "caption": "literally no words needed (but I said some anyway)\n\nNano-mist ionic infuser: turns your serum from 30% absorption → 89%\n\nThat before/after? Same day. 45 minutes. No filter.\n\nFound on TikTok Shop — link in bio 👆",
+      "hashtags": ["#beforeandafter", "#skincareroutine", "#glowup", "#haircare", "#nanomist", "#serumhack", "#tiktokshop", "#skincarefinds", "#nofilterglow", "#beautydevice"],
+      "b_roll_list": [
+        "Split-screen before/after — frizzy vs. smooth hair (same lighting, no filter)",
+        "Real-time mist application to face — slow motion preferred",
+        "Serum bottle + infuser setup on vanity",
+        "Skin close-up — texture and dewy finish",
+        "Product in hand with TikTok Shop badge"
+      ],
+      "affiliate_link_placement": "bio",
+      "ab_hypothesis": "Variant C tests whether a silent visual hook outperforms spoken hooks. Prediction: higher save rate and share rate (viewers will share the before-after). CTR may be slightly lower than B but share rate higher — net watch time should be strong.",
+      "post_schedule": "2026-06-08 Monday 7:00AM EST",
+      "iteration_2_notes": "Secondary variant. Monitor save rate and share rate specifically — visual content drives saves, which compound reach over time. If save rate >8%, this format becomes a standard template."
+    },
+    {
+      "content_id": "ITER2-EMS-C",
+      "product_id": "REAL-FIT-002",
+      "product_name": "MAEFU EMS Abs Stimulator Belt",
+      "iteration": 2,
+      "variant": "C",
+      "hook_angle": "duration-of-effort — honest 47-day journey, not an overnight promise",
+      "hook_text": "I tested this for exactly 47 days straight. Here's what I didn't expect.",
+      "script": {
+        "scene_1_hook": {
+          "duration": "0-3s",
+          "spoken": "I tested this for exactly 47 days straight. Here's what I didn't expect.",
+          "on_screen": "Day counter graphic: '47 DAYS.' Text underneath: 'The honest review no one else gave.'",
+          "direction": "Creator in workout clothes, belt visible. Direct eye contact. Serious expression — not hype.",
+          "energy": "Credible and grounded. 47 days is specific — specificity builds trust."
+        },
+        "scene_2_setup": {
+          "duration": "3-15s",
+          "spoken": "I bought the MAEFU EMS Abs Belt because I couldn't get to the gym consistently — desk job, two kids, the usual. It uses electrical muscle stimulation. Same technology physical therapists use. It contracts your muscles without you doing anything. I was skeptical. I wore it for 20 minutes a day while I worked.",
+          "on_screen": "Show belt being put on. Text: 'EMS = electrical muscle stimulation.' Text: '20 min/day at desk.'",
+          "direction": "Show the belt around the waist, demonstrate the vibration setting. Cut to desk setup — belt on, laptop open.",
+          "energy": "Real context. Don't oversell. This is a normal person's routine."
+        },
+        "scene_3_reveal": {
+          "duration": "15-25s",
+          "spoken": "Days 1 through 10: I felt it working but saw nothing. Days 11 through 25: the tingling started feeling like actual soreness — the kind after a real workout. Day 32: my wife asked if I'd been going to the gym. I hadn't. Day 47: here.",
+          "on_screen": "Timeline graphic: Day 1, Day 25, Day 32, Day 47. Brief clip at each marker if possible. Day 47 = current physique.",
+          "direction": "Honest timeline. If you have actual day-marker photos, use them. If not, narrate over body shot.",
+          "energy": "Understated. The timeline builds credibility — don't oversell the results."
+        },
+        "scene_4_proof": {
+          "duration": "25-40s",
+          "spoken": "Here's what I didn't expect: I didn't lose weight. Scale barely moved. But my core is tighter. I stand differently. My lower back doesn't hurt after long desk sessions anymore. That was the surprise — it wasn't about abs. It was about the functional strength you don't notice until things stop hurting.",
+          "on_screen": "Text: 'Scale: -2 lbs.' Text: 'Core strength: noticeably different.' Text: 'Back pain: gone.' Honest stats.",
+          "direction": "This section earns the review's credibility. Don't claim massive weight loss — claim what actually happened.",
+          "energy": "Honest, slightly surprised. This builds more trust than a dramatic before-after."
+        },
+        "scene_5_cta": {
+          "duration": "40-45s",
+          "spoken": "It's on TikTok Shop. Link is in my bio. If you want a 47-day experiment of your own — this is how I'd start it.",
+          "on_screen": "Show belt in hand. Text: 'TikTok Shop — link in bio.' Brief price reveal.",
+          "direction": "Relaxed close. You're recommending to a friend, not pitching.",
+          "energy": "Warm and direct."
+        }
+      },
+      "caption": "47 days of honest testing. Not what I expected.\n\nDay 32: my wife asked if I'd been going to the gym. I hadn't.\n\nThe result wasn't abs — it was functional core strength and zero back pain after desk sessions. That's the part no one talks about.\n\nMAEFU EMS Belt — TikTok Shop — link in bio 👆",
+      "hashtags": ["#EMSbelt", "#coreworkout", "#honesttiktok", "#47days", "#deskjob", "#backpain", "#fitnessjourney", "#tiktokshop", "#workfromhomefitness", "#musclerecovery"],
+      "b_roll_list": [
+        "Belt being applied around waist — close-up of electrode pads",
+        "Working at desk with belt visible, subtle vibration",
+        "Day-counter graphic overlaid on body shot sequence",
+        "Standing posture comparison (day 1 vs day 47 if available)",
+        "Product box + belt laid flat with TikTok Shop interface"
+      ],
+      "affiliate_link_placement": "bio",
+      "ab_hypothesis": "Variant C (duration-of-effort, honest journey) should generate higher comment velocity and save rate than B (social proof). The '47 days' specificity and 'not what I expected' framing triggers curiosity. Predicted to outperform on saves; may have lower immediate CVR but builds purchase intent over time via comment-trigger follow-ups.",
+      "post_schedule": "2026-06-04 Thursday 7:00PM EST",
+      "iteration_2_notes": "Set up comment-trigger: 'Comment BELT47 for the exact daily protocol I followed.' Respond manually with varied text (not auto-reply) to avoid spam flag. This will compound reach via notification system."
+    },
+    {
+      "content_id": "ITER2-EMS-D",
+      "product_id": "REAL-FIT-002",
+      "product_name": "MAEFU EMS Abs Stimulator Belt",
+      "iteration": 2,
+      "variant": "D",
+      "hook_angle": "skeptic-to-believer — self-deprecating purchase story builds maximum credibility",
+      "hook_text": "I bought this as a joke. I'm still using it 6 weeks later.",
+      "script": {
+        "scene_1_hook": {
+          "duration": "0-3s",
+          "spoken": "I bought this as a joke. I'm still using it six weeks later.",
+          "on_screen": "Text: 'I bought this as a joke.' Pause. Text: 'Six weeks later...' Creator standing in kitchen, belt on, coffee in hand.",
+          "direction": "Casual setting. Kitchen or living room. Amused expression — like laughing at yourself.",
+          "energy": "Self-aware and slightly embarrassed. This hook works because the viewer identifies with the doubt."
+        },
+        "scene_2_setup": {
+          "duration": "3-15s",
+          "spoken": "My girlfriend sent me this TikTok ad and I bought it mostly to have something to make fun of. An EMS abs belt — you know, the kind that's supposed to give you a six-pack while you watch TV. I figured I'd get two minutes of content out of it and return it.",
+          "on_screen": "Show TikTok ad screenshot (blurred brand). Cut to unboxing. Exaggerated skeptic face.",
+          "direction": "Quick unboxing clip. Make the skepticism clear — slight eye-roll is good.",
+          "energy": "Comedic but not mean. You're laughing at yourself for buying it."
+        },
+        "scene_3_reveal": {
+          "duration": "15-25s",
+          "spoken": "Week one I wore it as a bit. Then I started noticing the next-day soreness was real — like I'd actually done a workout. Week three I realized I was reaching for it on purpose. Week five my pants fit differently. I have not returned it.",
+          "on_screen": "Week counter graphic. Cut to pants fitting better (if available). Text: 'Week 5: pants fit differently.'",
+          "direction": "The tone shifts from comedy to genuine surprise. Let the viewer feel the pivot.",
+          "energy": "Gradually more serious. The joke stopped being a joke."
+        },
+        "scene_4_proof": {
+          "duration": "25-40s",
+          "spoken": "Here's what it's actually doing: 20-minute sessions at intensity level 8. EMS technology — it's literally the same thing physical therapists use for muscle rehab. My core engagement when I work out now is different. I can feel muscles activating that I wasn't accessing before. The belt trained them.",
+          "on_screen": "Show belt on, intensity level on display. Text: 'Level 8 of 15.' Text: 'Same tech as physical therapy.' Brief workout clip showing core engagement.",
+          "direction": "Turn from comedy to genuine endorsement. Hold the device up. Show the controls.",
+          "energy": "Converted believer. Not an influencer reading a script — a person who got surprised by results."
+        },
+        "scene_5_cta": {
+          "duration": "40-45s",
+          "spoken": "I genuinely didn't plan to recommend this. Link in bio. Buy it as a joke if you want. See what happens in six weeks.",
+          "on_screen": "Text: 'Link in bio.' Slight smirk. Product in hand.",
+          "direction": "Callback to the opening premise — buy it as a joke. Ends on humor but the subtext is genuine.",
+          "energy": "Light and confident. The callback is the closer."
+        }
+      },
+      "caption": "bought this as a joke. still using it 6 weeks later 🙃\n\nstarted wearing it to have something to make fun of. week 5 my pants fit differently.\n\nI hate this product (I love this product)\n\nMAEFU EMS Belt — TikTok Shop — link in bio 👆",
+      "hashtags": ["#honesttiktok", "#EMSbelt", "#skepticconverted", "#unexpected", "#fitnessfinds", "#tiktokshopfinds", "#coreworkout", "#gymjoke", "#itactuallyworks", "#tiktokshop"],
+      "b_roll_list": [
+        "Unboxing with exaggerated skeptical expression",
+        "First use — confused/amused face while feeling the EMS",
+        "Week progression clips (even selfies work)",
+        "Pants fitting better — before/after or just the current fit",
+        "Product controls — show the intensity dial"
+      ],
+      "affiliate_link_placement": "bio",
+      "ab_hypothesis": "Variant D (skeptic-to-believer) should drive the highest comment engagement of all EMS variants because it validates doubts before resolving them. Viewers who doubted the product will comment their skepticism, driving algorithmic distribution. Predicted strongest engagement rate; CVR should follow given high comment volume.",
+      "post_schedule": "2026-06-10 Wednesday 7:00PM EST",
+      "iteration_2_notes": "Comment-trigger: 'Comment JOKE if you were also skeptical.' Respond to skeptical comments in-thread — this drives comment velocity naturally. Do NOT use auto-responder. Each reply must be slightly different."
+    },
+    {
+      "content_id": "ITER2-LAMP-B",
+      "product_id": "REAL-HOM-003",
+      "product_name": "Sunset Projection Lamp",
+      "iteration": 2,
+      "variant": "B",
+      "hook_angle": "social-embarrassment before-state — 'my apartment looked like a freshman dorm' + early price reveal",
+      "hook_text": "My apartment looked like a freshman dorm. I fixed it for $29.",
+      "script": {
+        "scene_1_hook": {
+          "duration": "0-3s",
+          "spoken": "My apartment looked like a freshman dorm. I fixed it for $29.",
+          "on_screen": "Quick B-roll: bare white walls, overhead fluorescent or harsh white light, generic IKEA furniture. Text: '$29.' Appears at 2.5 seconds.",
+          "direction": "Show the 'before' apartment unapologetically. It doesn't need to be terrible — just flat and uninspired. Price reveals at the end of the hook.",
+          "energy": "Self-deprecating and matter-of-fact. Not ashamed — just honest."
+        },
+        "scene_2_setup": {
+          "duration": "3-15s",
+          "spoken": "I rent, so I can't paint. I can't do accent lighting that requires wiring. I was living in a box with an overhead light and calling it home. Here's what $29 changed.",
+          "on_screen": "Show the apartment — panning shot of the before state. Text: 'Can't paint. Can't rewire. $29 budget.'",
+          "direction": "Slow pan of the uninspired space. Matter-of-fact. The setup makes the reveal hit harder.",
+          "energy": "Dry humor. You're not sad about it — just accurately describing the situation."
+        },
+        "scene_3_reveal": {
+          "duration": "15-25s",
+          "spoken": "This is a sunset projection lamp. You plug it in, rotate the ring, and your room turns into a golden hour. No nails. No wiring. No landlord conversation. I put it in the corner of my living room.",
+          "on_screen": "Lights out. Lamp on. Room fills with warm amber and coral light. Slow pan. No music — let the visual breathe.",
+          "direction": "The reveal needs a moment of silence. Let the color fill the frame before you speak again. This is the scroll-stopping moment.",
+          "energy": "Quiet awe. Don't oversell it — let the light do the work."
+        },
+        "scene_4_proof": {
+          "duration": "25-40s",
+          "spoken": "I put it on every evening at 6PM. It completely changed how I feel in my own apartment. Two friends came over last week and both asked if I'd renovated. I had not. I spent $29 on Amazon. I mean TikTok Shop.",
+          "on_screen": "Friends reacting to the space (if possible). Text: 'Two friends: 'Did you renovate?' Me: '$29.' Show the lamp close-up. Show the room from a wider angle.",
+          "direction": "If you have a friend reaction clip, use it — social proof here is powerful. If not, just narrate.",
+          "energy": "Slightly amused at the question. The joke is that it cost $29 and looks like a renovation."
+        },
+        "scene_5_cta": {
+          "duration": "40-45s",
+          "spoken": "Tap the link in my bio right now — it's still $29 but that price won't hold forever. Link's up top.",
+          "on_screen": "Text: 'Tap link in bio NOW.' Arrow pointing up. Price shown: $29. Timer graphic optional.",
+          "direction": "Direct to camera. Urgency is genuine — budget lamp prices fluctuate on TikTok Shop. Move the tap-cue to 42 seconds, not the end.",
+          "energy": "Confident and direct. The urgency is real, not manufactured panic."
+        }
+      },
+      "caption": "my apartment looked like a freshman dorm. fixed it for $29 🌅\n\nI rent. Can't paint. Can't rewire. This sunset lamp changed everything.\n\ntwo friends asked if I renovated. I said 'kind of.'\n\nlink in bio — $29 on TikTok Shop while it lasts 👆",
+      "hashtags": ["#apartmentdecor", "#renterfriendly", "#sunsetlamp", "#roommakeover", "#budgetdecor", "#tiktokshop", "#aestheticroom", "#homedecor", "#29dollars", "#ambientlighting"],
+      "b_roll_list": [
+        "Before: apartment with harsh overhead lighting — wide shot",
+        "Lamp being placed in corner, plug going into wall",
+        "Light-switch off moment — room goes dark",
+        "Lamp turning on — slow reveal of golden light spreading",
+        "Friend reaction shot OR close-up of room in sunset light"
+      ],
+      "affiliate_link_placement": "bio",
+      "ab_hypothesis": "Rebuilt Variant B addresses the diagnostic from iteration 1: hook rate was 54% (excellent) but CTR was 1.4% (poor). Root cause: CTA friction — viewers watched but didn't tap. Changes: (1) price revealed at 2.5s instead of end, (2) social-embarrassment before-state creates stronger emotional entry point, (3) tap-cue moved to 42s with 'right now' urgency language. Predicted CTR target: 3.5-4.5% (up from 1.4%).",
+      "post_schedule": "2026-06-05 Friday 8:00PM EST",
+      "iteration_2_notes": "This is the LumiGlow rescue variant. If CTR does not improve to >2.5% after 500 impressions, pause the product entirely. Success threshold: CTR ≥3.5% and CVR ≥2.5%. Monitor within first 4 hours of posting — Friday evening is peak for home decor content."
+    },
+    {
+      "content_id": "ITER2-LED-A",
+      "product_id": "NEW-BEA-001",
+      "product_name": "HIME SAMA 7-Color LED Light Therapy Face Mask",
+      "iteration": 2,
+      "variant": "A",
+      "hook_angle": "dermatology price comparison — 'this costs $500+ in a clinic'",
+      "hook_text": "This treatment costs $500 minimum at a dermatologist's office. This mask is $90.",
+      "script": {
+        "scene_1_hook": {
+          "duration": "0-3s",
+          "spoken": "This treatment costs $500 minimum at a dermatologist's office. This mask is $90.",
+          "on_screen": "Text: '$500 derm visit ↔ $90 at home.' Quick B-roll of dermatology office exterior OR mask sitting on bathroom counter.",
+          "direction": "No fluff. Open with the price comparison immediately. Viewer does the math in their head.",
+          "energy": "Matter-of-fact. This is not shocking — this is just true."
+        },
+        "scene_2_setup": {
+          "duration": "3-15s",
+          "spoken": "LED light therapy is clinically proven to stimulate collagen, reduce acne-causing bacteria, and even out pigmentation. Dermatologists have been using this technology for decades. The difference is they charge for the room, the staff, and the equipment. This mask uses the same wavelengths. Red at 630 to 660 nanometers for collagen. Blue at 415 for acne. Seven colors total — each targeting a specific concern.",
+          "on_screen": "Text: 'Clinically proven: collagen + anti-acne + pigmentation.' Graphic: color spectrum with nm measurements. Text: '7 colors = 7 targeted treatments.'",
+          "direction": "Hold up the mask. Show it lit up in different colors.",
+          "energy": "Informative. You're educating, not selling. The information IS the sell."
+        },
+        "scene_3_reveal": {
+          "duration": "15-25s",
+          "spoken": "I've been using the HIME SAMA mask for four weeks. Red light every morning — 10 minutes. My skincare routine takes 25 minutes total now but I've been able to cut three products because my skin just... doesn't need them as much. Texture improved noticeably in week two.",
+          "on_screen": "Mask on face — creator wearing it. Timer: 10:00 counting down. Show skin close-up before and after light session.",
+          "direction": "Real usage shot — mask on, sitting calmly, maybe reading. The routine should look sustainable, not medical.",
+          "energy": "Relaxed. This is part of a morning routine, not a medical procedure."
+        },
+        "scene_4_proof": {
+          "duration": "25-40s",
+          "spoken": "Here's the before and after — four weeks, daily use, no new products added. I did add the blue light mode twice a week after a breakout week two. That cleared up completely by day 18. My dermatologist — yes, the same one who charges $500 a session — confirmed what I was seeing was real collagen improvement.",
+          "on_screen": "Before/after — same lighting, same angle, four weeks apart. Text: 'Week 0 vs Week 4. No new products. Daily LED use only.' Text: 'Derm confirmed: collagen improvement.'",
+          "direction": "True before-after, minimal processing. The dermatologist confirmation is the credibility anchor.",
+          "energy": "Confident. The derm sign-off closes any skeptic loop."
+        },
+        "scene_5_cta": {
+          "duration": "40-45s",
+          "spoken": "Link in bio — TikTok Shop. I'll say it again: $500 at the derm, $90 at home. You figure out the math.",
+          "on_screen": "Text: 'Link in bio.' Repeat price comparison. Arrow up.",
+          "direction": "End on the price contrast callback. It opened the video and closes it.",
+          "energy": "Confident and a little dry. Let the math be the punchline."
+        }
+      },
+      "caption": "dermatologist LED treatment: $500+\nthis mask: $90\nyou do the math 🧮\n\n4 weeks daily use. Texture improved week 2. Breakout cleared by day 18. Derm confirmed collagen improvement.\n\n7 colors = 7 skin concerns treated at home.\n\nHIME SAMA LED Mask — TikTok Shop — link in bio 👆",
+      "hashtags": ["#LEDmask", "#skincarescience", "#redlighttherapy", "#dermapproved", "#collagen", "#antiaging", "#acnetreatment", "#tiktokshop", "#skintok", "#beautydevice"],
+      "b_roll_list": [
+        "Dermatologist office exterior or clinic hallway (stock OK)",
+        "HIME SAMA mask lit up in red — face-on close-up",
+        "Color spectrum — mask cycling through all 7 lights",
+        "Creator wearing mask while reading (routine shot)",
+        "Four-week before/after skin comparison"
+      ],
+      "affiliate_link_placement": "bio",
+      "ab_hypothesis": "Variant A tests the price-comparison hook against Variant B (7-color science). Prediction: A will have higher immediate CVR because the financial framing creates direct decision clarity. B may outperform on saves and shares because educational content gets bookmarked.",
+      "post_schedule": "2026-06-01 Monday 7:00AM EST",
+      "iteration_2_notes": "First post of Iteration 2. Sets the tone. Monitor hook rate in first 30 minutes — if <40%, the price hook is not landing. In that case, A/B the caption immediately by switching to a curiosity-first caption."
+    },
+    {
+      "content_id": "ITER2-LED-B",
+      "product_id": "NEW-BEA-001",
+      "product_name": "HIME SAMA 7-Color LED Light Therapy Face Mask",
+      "iteration": 2,
+      "variant": "B",
+      "hook_angle": "7-color science — each color targets a different problem, curiosity-led",
+      "hook_text": "This mask has 7 different lights. Most people only know what one of them does.",
+      "script": {
+        "scene_1_hook": {
+          "duration": "0-3s",
+          "spoken": "This mask has 7 different lights. Most people only know what one of them does.",
+          "on_screen": "Mask cycling through colors rapidly. Text: '7 lights. 7 skin concerns.' Curiosity gap established.",
+          "direction": "Open on the mask glowing — the color spectacle earns the watch. Hook is about what viewers DON'T know.",
+          "energy": "Curious. You're about to show something most people haven't seen explained."
+        },
+        "scene_2_setup": {
+          "duration": "3-15s",
+          "spoken": "This is the HIME SAMA LED face mask. And yes — seven wavelengths, each one clinically validated for a different skin concern. Most TikTok content about LED masks only talks about red light. Here's the full breakdown: Red, 630 to 660 nanometers — collagen synthesis. Blue, 415nm — kills acne bacteria. Green — reduces hyperpigmentation. Yellow — calms redness. Cyan — anti-aging at cellular level. Purple — combines red and blue for acne plus healing. White — deepest penetration, full spectrum benefit.",
+          "on_screen": "Text card for each color as spoken: RED: collagen. BLUE: acne. GREEN: pigmentation. YELLOW: redness. CYAN: cellular anti-aging. PURPLE: acne + healing. WHITE: full spectrum.",
+          "direction": "Hold mask up and cycle through each color. Text cards appear as you name each one.",
+          "energy": "Educational, enthusiastic. You genuinely think this is interesting."
+        },
+        "scene_3_reveal": {
+          "duration": "15-25s",
+          "spoken": "I rotate based on what my skin is doing that week. Breakout week: blue plus purple. Winter: red every morning. Right now I'm on a green + yellow rotation for post-summer hyperpigmentation. It's not one product — it's seven treatments in one mask.",
+          "on_screen": "Weekly rotation example on screen. Creator's actual skin routine shown. Text: '1 mask = 7 targeted treatments.'",
+          "direction": "Authentic — show your real skin at different points. This is your real rotation, not a generic recommendation.",
+          "energy": "Personal and specific. You've figured out your own protocol."
+        },
+        "scene_4_proof": {
+          "duration": "25-40s",
+          "spoken": "Here's what four weeks of rotating based on my skin's needs looks like. Week one I was dealing with chin breakouts — blue light, cleared in 12 days. Week three I switched to red and green for texture. This is my skin now. No filter, just the mask.",
+          "on_screen": "Timeline: Week 1 skin issue, Day 12 cleared, Week 3 texture focus, Week 4 current. Before/after.",
+          "direction": "Honest progression. Week-by-week is more believable than one dramatic before-after.",
+          "energy": "Genuine and specific. Specificity = credibility."
+        },
+        "scene_5_cta": {
+          "duration": "40-45s",
+          "spoken": "It's on TikTok Shop — link in bio. Comment which color you'd start with based on your skin concern and I'll tell you the right protocol.",
+          "on_screen": "Text: 'Link in bio.' Text: 'Comment your skin concern below ↓'",
+          "direction": "End with a comment engagement hook — asking viewers their skin concern drives comments AND gives you data for future content.",
+          "energy": "Interactive and warm. You're starting a conversation."
+        }
+      },
+      "caption": "7 lights. most people only know what one does.\n\nRED: collagen 🔴 BLUE: acne 🔵 GREEN: pigmentation 🟢 YELLOW: redness 🟡 CYAN: anti-aging PURPLE: acne+healing PURPLE WHITE: full spectrum\n\ncomment your skin concern and I'll tell you which protocol to start with 👇\n\nHIME SAMA LED Mask — TikTok Shop — link in bio",
+      "hashtags": ["#LEDmask", "#skincaregeek", "#7colorLED", "#redlighttherapy", "#bluelightacne", "#skintok", "#tiktokshop", "#skincareroutine", "#beautyeducation", "#collagenskincare"],
+      "b_roll_list": [
+        "Mask cycling through all 7 colors — close-up, satisfying",
+        "Color-coded text cards appearing on screen for each wavelength",
+        "Creator's week-by-week skin progression",
+        "Mask worn in different color modes (switch between uses)",
+        "Comment section preview — engagement bait visual"
+      ],
+      "affiliate_link_placement": "bio",
+      "ab_hypothesis": "Variant B (educational 7-color breakdown) should drive higher save rate and comment rate than A (price comparison). Prediction: saves >10% because people bookmark educational content. Comment rate high due to CTA ('comment your skin concern'). CVR may be slightly lower on first view but follow-up viewers from saved posts will convert at higher rates.",
+      "post_schedule": "2026-06-06 Saturday 7:00AM EST",
+      "iteration_2_notes": "Monitor comment section for skin concerns — reply manually within first 2 hours. High comment velocity in the first hour drives algorithm distribution. Reply rate target: >80% of comments in first 2 hours."
+    },
+    {
+      "content_id": "ITER2-NECK-A",
+      "product_id": "NEW-FIT-001",
+      "product_name": "Nekteck Shiatsu Neck & Back Massager with Heat (LMS-801)",
+      "iteration": 2,
+      "variant": "A",
+      "hook_angle": "WFH neck pain — relatable 3-year chronic headache, not a product pitch",
+      "hook_text": "I've had a headache every single day for 3 years. I found out why 3 months ago.",
+      "script": {
+        "scene_1_hook": {
+          "duration": "0-3s",
+          "spoken": "I've had a headache every single day for three years. I found out why three months ago.",
+          "on_screen": "Text: '3 years. Daily headaches.' Cut to creator at desk, hand on neck, slightly pained expression.",
+          "direction": "Open on the pain, not the product. No product in frame for the first 8 seconds.",
+          "energy": "Weary but matter-of-fact. This is not dramatic — it's just true."
+        },
+        "scene_2_setup": {
+          "duration": "3-15s",
+          "spoken": "I work from home. Eight, sometimes ten hours a day at a laptop. What I didn't realize was that my head weighs 10 to 12 pounds — and when you tilt it forward even 15 degrees to look at a screen, your cervical spine is supporting the equivalent of 27 pounds. Three years of that. No wonder my neck felt like concrete. The headaches were tension buildup from suboccipital muscle compression.",
+          "on_screen": "Diagram: head weight vs. forward tilt force. Text: '15 degree tilt = 27 lbs pressure.' Creator at laptop — bad posture shown.",
+          "direction": "Show the actual physics — this is a scientific hook. Use a simple graphic or text cards.",
+          "energy": "Informative. You just learned this yourself and you're sharing it."
+        },
+        "scene_3_reveal": {
+          "duration": "15-25s",
+          "spoken": "A physical therapist recommended shiatsu massage for the suboccipital muscles — the ones at the base of your skull. I couldn't afford weekly PT sessions, so I got the Nekteck LMS-801. Eight kneading nodes. Infrared heat. 15-minute auto-shutoff. Same tech as clinical shiatsu, $45.",
+          "on_screen": "Show the massager. Highlight key features: 8 nodes, heat setting, auto-shutoff. Price on screen: $45.",
+          "direction": "Hold up the massager. Quick demo of it on neck — let the viewer see the nodes in action.",
+          "energy": "Pragmatic. You found a real solution to a real problem."
+        },
+        "scene_4_proof": {
+          "duration": "25-40s",
+          "spoken": "I use it every evening at 5PM for 15 minutes. It's been three months. I have not had a daily headache since week two. My PT confirmed my suboccipital tension has reduced significantly. I still have bad days — but they're bad days, not every day.",
+          "on_screen": "Calendar visual: headache log days. X's on daily headaches fading out by week 2. Text: 'Week 2: headaches dropped to 2x/week.' Text: 'Week 10: occasional, not constant.'",
+          "direction": "Calendar visual works well here. A simple day-by-day log is compelling.",
+          "energy": "Relieved. Three years of daily pain resolved is genuinely significant."
+        },
+        "scene_5_cta": {
+          "duration": "40-45s",
+          "spoken": "Link in bio. TikTok Shop. If you work from home and your neck hurts — this is worth the $45.",
+          "on_screen": "Text: 'Link in bio.' Show massager in hand. Price: $45.",
+          "direction": "Direct and simple. No over-promise. 'Worth the $45' is honest.",
+          "energy": "Genuine recommendation from a real person with a real problem."
+        }
+      },
+      "caption": "3 years of daily headaches. gone in 2 weeks.\n\nPhysics of WFH: 15-degree forward tilt = 27 lbs of cervical pressure. 8 hours a day. 3 years. My neck muscles were concrete.\n\nPT recommended shiatsu. I got the Nekteck LMS-801 instead of $120/week sessions.\n\nWeek 2: headaches went from daily to twice a week. Week 10: occasional, not constant.\n\nLink in bio — TikTok Shop — $45 👆",
+      "hashtags": ["#WFHproblems", "#neckpain", "#headacherelief", "#shiatsu", "#workfromhome", "#tiktokshop", "#cervicalpain", "#deskjoblife", "#neckmasager", "#physicaltherapy"],
+      "b_roll_list": [
+        "Creator at laptop — realistic bad posture, hand on neck",
+        "Head-tilt force diagram (simple graphic)",
+        "Nekteck massager nodes close-up — kneading in action",
+        "Evening routine: 5PM, massager on neck while sitting",
+        "Calendar or headache log visual — improvement marked"
+      ],
+      "affiliate_link_placement": "bio",
+      "ab_hypothesis": "Variant A (WFH neck pain relatable hook) targets the enormous work-from-home demographic directly. The specific mechanism (suboccipital muscles, cervical pressure math) elevates this above generic 'this massager helped my neck' content. Prediction: high share rate because viewers will tag WFH friends/partners.",
+      "post_schedule": "2026-06-03 Wednesday 7:00PM EST",
+      "iteration_2_notes": "Tag #WFH and #deskjob specifically — these bring in organic reach from workplace-related browsing. If the PT reference generates skepticism in comments, respond with: 'PT told me to get one, I just couldn't afford weekly sessions — same tech, less cost.'"
+    },
+    {
+      "content_id": "ITER2-NECK-B",
+      "product_id": "NEW-FIT-001",
+      "product_name": "Nekteck Shiatsu Neck & Back Massager with Heat (LMS-801)",
+      "iteration": 2,
+      "variant": "B",
+      "hook_angle": "5PM ritual — aspirational decompression routine, not pain-focused",
+      "hook_text": "Every day at 5PM I do this for exactly 15 minutes. It changed how I feel about my evenings.",
+      "script": {
+        "scene_1_hook": {
+          "duration": "0-3s",
+          "spoken": "Every day at 5PM I do this for exactly 15 minutes. It completely changed how I feel about my evenings.",
+          "on_screen": "Creator sitting in comfortable chair, neck massager on, eyes closed, warm amber light in background. Clock showing 5:01PM. Calm and aspirational.",
+          "direction": "This is a mood video. Aesthetic, calm, cozy. No pain language — just the ritual.",
+          "energy": "Peaceful. This is what you do for yourself at the end of the day."
+        },
+        "scene_2_setup": {
+          "duration": "3-15s",
+          "spoken": "I work from home and I found that I was carrying my workday into my evenings — stressed, neck tight, still checking emails at 7. I needed a ritual that told my brain: work is over. This is it.",
+          "on_screen": "Before clip: laptop still open at 7PM, stressed look. Cut to: 5PM, massager on, calm.",
+          "direction": "The contrast should be subtle but clear. You're not presenting a problem — you're presenting a transition.",
+          "energy": "Reflective. You figured something out that works for you."
+        },
+        "scene_3_reveal": {
+          "duration": "15-25s",
+          "spoken": "The Nekteck LMS-801. Eight shiatsu nodes, infrared heat, 15-minute auto-shutoff. When it turns off, that's my signal — work day is done. I started reading again. I'm actually cooking dinner instead of ordering. The boundary I couldn't create with willpower, I created with a timer.",
+          "on_screen": "Close-up: massager nodes in motion. Infrared heat glow. Timer countdown: 15:00 → 0:00.",
+          "direction": "Show the product beautifully — this is aspirational content, not a product demo.",
+          "energy": "Warm and slightly philosophical. The massager is a prop for a bigger life change."
+        },
+        "scene_4_proof": {
+          "duration": "25-40s",
+          "spoken": "Three months of this routine. My shoulder tension is measurably better — my PT confirmed it. But the bigger change is psychological. I sleep better because I'm not carrying my workday into bed. I didn't think a $45 massager would change that. It did.",
+          "on_screen": "Cozy evening B-roll: reading, cooking, relaxed. Text: '3 months of the ritual.' Text: 'Sleeping better. Tension reduced. PT confirmed.'",
+          "direction": "Evening ambiance shots — soft lighting, real domestic life. Not staged.",
+          "energy": "Genuine and a little surprised at how much it helped."
+        },
+        "scene_5_cta": {
+          "duration": "40-45s",
+          "spoken": "Link in bio — TikTok Shop. If your evenings feel like an extension of your workday, try creating one boundary. This is mine.",
+          "on_screen": "Text: 'Link in bio.' Quiet close. Product in frame, room in background.",
+          "direction": "Soft close. Don't oversell. The mood of the video IS the pitch.",
+          "energy": "Calm and inviting."
+        }
+      },
+      "caption": "every day at 5PM, 15 minutes, massager on. it's the boundary I couldn't create with willpower 🕔\n\nwork day ends when the timer stops. that's the rule.\n\n3 months in: sleeping better, tension reduced, actually cooking dinner again.\n\nNekteck LMS-801 — TikTok Shop — link in bio 👆",
+      "hashtags": ["#eveningroutine", "#WFHlife", "#decompressroutine", "#selfcare", "#worklifebalance", "#5PMritual", "#tiktokshop", "#shiatsu", "#neckrelief", "#calmdown"],
+      "b_roll_list": [
+        "5PM clock — ambient, warm light setting",
+        "Creator in chair, massager on, eyes closed — peaceful",
+        "Infrared heat glow from massager nodes",
+        "Evening B-roll: reading, cooking, cozy domestic life",
+        "Massager timer shutting off — the ritual moment"
+      ],
+      "affiliate_link_placement": "bio",
+      "ab_hypothesis": "Variant B (5PM ritual, aspirational/lifestyle) should drive higher saves and follows than Variant A (pain-relief, problem-solution). The aspirational framing appeals to a broader audience — not just people in pain but anyone who wants a better work/life boundary. Predicted: lower immediate CVR but higher account growth and long-term conversion from followers.",
+      "post_schedule": "2026-06-09 Tuesday 7:00AM EST",
+      "iteration_2_notes": "This variant intentionally targets #eveningroutine and #selfcare communities, not just #neckpain. Monitor follower growth on this post day specifically — aspirational content drives follows more than pain-content. If follow rate exceeds 2% of views, invest in more lifestyle-framing content."
+    }
+  ],
+  "iteration_2_post_calendar": {
+    "2026-06-01_Mon": {"content_id": "ITER2-LED-A", "product": "HIME SAMA LED Mask", "time": "7:00AM EST"},
+    "2026-06-02_Tue": {"content_id": "ITER2-NIRA-B", "product": "Nira Infuser", "time": "7:00PM EST"},
+    "2026-06-03_Wed": {"content_id": "ITER2-NECK-A", "product": "Nekteck Massager", "time": "7:00PM EST"},
+    "2026-06-04_Thu": {"content_id": "ITER2-EMS-C", "product": "EMS Belt", "time": "7:00PM EST"},
+    "2026-06-05_Fri": {"content_id": "ITER2-LAMP-B", "product": "LumiGlow Lamp", "time": "8:00PM EST"},
+    "2026-06-06_Sat": {"content_id": "ITER2-LED-B", "product": "HIME SAMA LED Mask", "time": "7:00AM EST"},
+    "2026-06-08_Mon": {"content_id": "ITER2-NIRA-C", "product": "Nira Infuser", "time": "7:00AM EST"},
+    "2026-06-09_Tue": {"content_id": "ITER2-NECK-B", "product": "Nekteck Massager", "time": "7:00AM EST"},
+    "2026-06-10_Wed": {"content_id": "ITER2-EMS-D", "product": "EMS Belt", "time": "7:00PM EST"}
+  },
+  "kpi_targets_iteration_2": {
+    "total_gmv_target": "$18,000",
+    "total_commission_target": "$2,400",
+    "avg_hook_rate_target": "≥45%",
+    "avg_ctr_target": "≥3.0%",
+    "avg_cvr_target": "≥3.5%",
+    "review_date": "2026-06-15",
+    "abort_condition": "If combined EPC falls below $0.10 after all 9 posts with ≥300 clicks each"
+  }
+}
