@@ -1,0 +1,409 @@
+{
+  "generation_run": {
+    "timestamp": "2026-05-28T00:00:00Z",
+    "iteration": 2,
+    "agent": "content-creator",
+    "source": "performance-analyst-iter1-results",
+    "products": [
+      {
+        "product_id": "REAL-FIT-001",
+        "name": "Nira Ionic Infuser",
+        "iter1_decision": "SCALE",
+        "iter1_winner": "Variant A",
+        "iter1_epc": 1.465,
+        "iter1_cvr": 0.048,
+        "new_variants": ["B", "C"]
+      },
+      {
+        "product_id": "REAL-FIT-002",
+        "name": "MAEFU EMS Abs Belt",
+        "iter1_decision": "SCALE Variant B",
+        "iter1_winner": "Variant B (social proof)",
+        "new_variants": ["C", "D"]
+      },
+      {
+        "product_id": "REAL-HOM-003",
+        "name": "LumiGlow Sunset Lamp",
+        "iter1_decision": "PAUSE/REBUILD",
+        "iter1_problem": "Hook rate 54-55% but CTR 1.4% — CTA friction",
+        "new_variants": ["B"]
+      }
+    ]
+  },
+  "packages": [
+    {
+      "content_id": "ITER2-REAL-FIT-001-B",
+      "product_id": "REAL-FIT-001",
+      "product_name": "Nira Ionic Infuser",
+      "iteration": 2,
+      "variant": "B",
+      "hook_angle": "loss-aversion / mistake framing — expensive serums being absorbed at 30% without a nanomist infuser first",
+      "hook_text": "The $47 mistake I almost kept making every morning",
+      "script": {
+        "scene_1_hook": {
+          "duration": "0-3s",
+          "spoken": "I've been throwing away forty-seven dollars every single morning and I didn't even know it.",
+          "on_screen": "POV: you've been doing your skincare routine completely wrong",
+          "direction": "Tight face shot, bathroom counter behind you slightly out of focus. Hold up a serum bottle at chin level so it's in frame with your face. Look directly into lens — expression is flat dread, like you just read your bank statement.",
+          "energy": "Quiet alarm. Not panicked — more like the specific horror of realizing a slow, expensive mistake."
+        },
+        "scene_2_setup": {
+          "duration": "3-15s",
+          "spoken": "So I've been spending like forty to fifty dollars a month on quality serums — hyaluronic acid, vitamin C, the good stuff — and I was applying them to dry skin the way every tutorial told me to. Turns out your skin can only absorb about 30 percent of active ingredients that way. Thirty. The other seventy percent just sits on the surface and evaporates. I literally could have just poured two-thirds of every bottle down the drain and gotten the same result.",
+          "on_screen": "Dry application absorption: ~30% (hold 2s) → 70% just... evaporates",
+          "direction": "Cut to medium shot at bathroom counter, natural window light. Line up the serums you actually use in a row — 3 or 4 bottles. Pick one up, flip it over to show the price on the bottom or hold up the receipt on your phone. Let the number land before moving on.",
+          "energy": "Conversational but building momentum. Slight pause after 'thirty.' Let the math do the work — don't rush through it."
+        },
+        "scene_3_reveal": {
+          "duration": "15-25s",
+          "spoken": "The fix is something called nanomist infusion. You prep your skin with an ionic mist first — the Nira Ionic Infuser uses nano-sized water particles that actually open the pathways in your skin — and then you apply your serum on top. Absorption goes from 30 percent up to 89 percent. That means the same serum I was already buying works nearly three times better. I'm not buying anything new — I'm finally getting what I was already paying for.",
+          "on_screen": "With Nira Infuser: 89% absorption (hold 2s) → same serums, 3x more effective",
+          "direction": "Hold the Nira Infuser clearly in frame — demonstrate the mist on the back of your hand first, then your face. Show the mist cloud in good lighting. Cut to close-up of the device face-on so viewers can see the product clearly.",
+          "energy": "The relief of a genuine solution. Pick up energy here — this is the payoff of the problem you built."
+        },
+        "scene_4_proof": {
+          "duration": "25-40s",
+          "spoken": "I've been using this for three weeks now and honestly the difference I'm noticing isn't from a new product — it's from the same products I already had. My skin looks more plump by midmorning instead of tight. The vitamin C serum I was about to ditch because 'it wasn't working'? It's working now. I just wasn't letting it actually absorb. Three weeks. Same products. The only thing that changed was this.",
+          "on_screen": "Week 1 vs Week 3 skin close-up (if footage available, otherwise: text overlay 'same serums, finally absorbing') → hold up Nira Infuser",
+          "direction": "Face close-up in good natural light. If you have before/after photos or phone camera screenshots, cut to them here briefly — even low-quality phone shots work, they feel authentic. Return to medium shot for the last line, holding the device.",
+          "energy": "Genuine, slightly amazed. Not hype — more 'I feel kind of stupid it took me this long.'"
+        },
+        "scene_5_cta": {
+          "duration": "40-45s",
+          "spoken": "Link is in my bio. If you're spending real money on serums and not doing this first, you're just wasting it.",
+          "on_screen": "link in bio → stop wasting your serum budget",
+          "direction": "Direct to lens, medium close-up. Hold the Nira Infuser next to your face. Point toward bio with one finger. No elaborate gestures — keep it clean and direct.",
+          "energy": "Calm urgency. The last line is a quiet gut-punch, not a shout. Let it land and cut."
+        }
+      },
+      "caption": "I've been spending $40-50/month on serums and absorbing 30% of them.\n\nDry application = 70% of your serum just evaporating off your face.\n\nNanomist infusion before application → 89% absorption. Same serums. Same budget. Finally getting what I was paying for.\n\nLink in bio. This pays for itself in one month of not wasting serum.",
+      "hashtags": [
+        "#skincaremistakes",
+        "#serumabsorption",
+        "#NiraInfuser",
+        "#skincaretips",
+        "#skincarescience",
+        "#glassskin",
+        "#hyaluronicacid",
+        "#skincareproducts",
+        "#tiktokmademebuyit",
+        "#beautyhacks",
+        "#skincareroutine",
+        "#affordableskincare"
+      ],
+      "b_roll_list": [
+        "Row of expensive serums on counter — tight shot, labels visible",
+        "Serum being applied to DRY hand — then wiped off showing minimal absorption",
+        "Nira Infuser mist in action — backlit so mist cloud is visible",
+        "Nira Infuser mist applied to face — close-up, eyes closed, micro-droplets catching light",
+        "Same serums applied AFTER mist — skin visibly damp/plump",
+        "Before/after split screen or side-by-side of skin texture (week 1 vs week 3)",
+        "Holding up phone showing serum price or receipt receipt"
+      ],
+      "affiliate_link_placement": "bio",
+      "ab_hypothesis": "Loss-aversion framing ('wasting $47') will outperform Variant A's educational hook on CTR-to-purchase because financial regret activates faster purchase decisions than aspiration. Expect higher direct bio-link clicks and faster conversion within 24h window. Watch CPM — this hook may appeal to slightly older demographic (25-35) vs Variant A.",
+      "post_schedule": "Thursday 7:00 PM EST — loss-aversion content performs well mid-week when purchase intent peaks. Avoid Monday (too early in week) and Sunday (low purchase intent).",
+      "iteration_2_notes": "Built directly from Iter1 SCALE decision. Variant A proved the product converts; Variant B tests whether regret/loss framing converts faster than curiosity framing. Key metric to watch: time-to-first-purchase after posting. If Variant B purchases cluster in the first 4 hours more than Variant A did, loss-aversion hypothesis confirmed."
+    },
+    {
+      "content_id": "ITER2-REAL-FIT-001-C",
+      "product_id": "REAL-FIT-001",
+      "product_name": "Nira Ionic Infuser",
+      "iteration": 2,
+      "variant": "C",
+      "hook_angle": "transformation / before-after — pure visual contrast, no talking in first 3 seconds",
+      "hook_text": "literally no words needed",
+      "script": {
+        "scene_1_hook": {
+          "duration": "0-3s",
+          "spoken": "[SILENCE — no spoken words for first 3 seconds]",
+          "on_screen": "Split-screen or hard cut: LEFT = frizzy, dull, uneven skin texture (before) | RIGHT = smooth, plump, lit-from-within skin (after) — NO text overlay for first 2 seconds, then: 'same person. 3 weeks.'",
+          "direction": "This scene lives or dies on the visual. Shoot the 'before' in harsh overhead bathroom fluorescent light — unflattering angle slightly from above, no filter. Shoot the 'after' in soft window light from the side, same angle. The lighting difference is part of the transformation story but keep framing consistent so the skin change reads clearly. Edit as a clean side-by-side or hard 1-second cut between the two. No music drop — let the visual hit in silence, then bring in a subtle beat on the text reveal at 2s.",
+          "energy": "Zero. Silence and contrast do all the work. The restraint IS the hook."
+        },
+        "scene_2_setup": {
+          "duration": "3-15s",
+          "spoken": "Okay I'll explain. Left side is me three weeks ago — same routine I'd been doing for two years. Right side is me now. The only thing I changed is this. I added a two-minute step before I apply anything.",
+          "on_screen": "Hold up Nira Ionic Infuser | '2 minute step' text fade-in",
+          "direction": "Cut from the before/after to a clean medium shot — face framed well, soft natural light. Hold the Nira Infuser up next to your face without introducing it by name yet. Let curiosity build. Speak at a casual, slightly curious pace — like you're explaining something to a friend over FaceTime, not presenting to a camera.",
+          "energy": "Calm and conversational. The before/after hooked them; now you're delivering the explanation they earned."
+        },
+        "scene_3_reveal": {
+          "duration": "15-25s",
+          "spoken": "This is the Nira Ionic Infuser. It's a nanomist device — you use it before you apply any serum or moisturizer. The ionic mist actually primes your skin so it can absorb up to 89 percent of what you put on top. Without it, you're absorbing about 30 percent. I know that sounds like marketing language but I can see the difference in my skin texture, my pore appearance, even how my makeup sits — and it was visible within the first week.",
+          "on_screen": "Close-up of Nira Infuser misting | '89% absorption vs 30%' graphic | skin close-up after misting (micro-droplets visible)",
+          "direction": "Demonstrate the device on your face or hand so the mist is visible — backlight it if possible so the mist cloud shows clearly. Cut to a close-up of your skin after misting, before serum application — the slightly dewy primed look. Return to medium face shot for the last line.",
+          "energy": "Honest and slightly in disbelief — the kind of energy you have when something works better than expected and you want to tell everyone but don't want to sound like an ad."
+        },
+        "scene_4_proof": {
+          "duration": "25-40s",
+          "spoken": "The before photo — that's on a day I was actively trying to look presentable. Not a bad skin day, just... normal. After three weeks with this added before my serum, my skin texture has genuinely smoothed out. The dry patches I used to get around my nose are gone. I'm going through less product because it's actually doing something now. And I stopped wearing foundation most days because I don't feel like I need to cover anything.",
+          "on_screen": "Return to before/after split | highlight specific areas — nose area, texture zone | 'less product, more results' text",
+          "direction": "Cut back to the before/after visual from the hook. Circle or arrow-point specific areas of improvement if you're using editing tools. If not, hold a finger near the screen while the split-screen plays. Then return to medium face shot — no makeup or minimal, so skin reads clearly.",
+          "energy": "Matter-of-fact. Don't sell — report. The specifics (dry patches, foundation skip) are what make this feel real."
+        },
+        "scene_5_cta": {
+          "duration": "40-45s",
+          "spoken": "Link in bio — it's from TikTok Shop so shipping's fast. I'll also pin the exact routine order in the comments.",
+          "on_screen": "link in bio | 'pinning routine order in comments ⬇'",
+          "direction": "Direct to lens, clean medium shot. Point down toward comments. Relaxed close — no high-energy sales push, it would break the tone of the whole video.",
+          "energy": "Warm and helpful. You're giving them something extra (the pinned routine comment) which gives a reason to engage with comments — boosting algorithm reach."
+        }
+      },
+      "caption": "literally no words needed for the first 2 seconds\n\nbut fine, i'll explain:\n\n→ left side: my skin 3 weeks ago. same routine i'd been doing for 2 years.\n→ right side: same person after adding one 2-minute step before serums\n\nNira Ionic Infuser. nanomist that primes your skin so it actually absorbs what you put on it (89% vs 30% without it)\n\ndry patches gone. texture smoothed. stopped wearing foundation most days.\n\nlink in bio — pinning the full routine order in comments",
+      "hashtags": [
+        "#skincaretransformation",
+        "#beforeandafter",
+        "#NiraInfuser",
+        "#skincareroutine",
+        "#glasskin",
+        "#skintexture",
+        "#skincarethatworks",
+        "#nanomist",
+        "#skincarescience",
+        "#tiktokmademebuyit",
+        "#nodfilter",
+        "#skincareresults"
+      ],
+      "b_roll_list": [
+        "Before skin close-up — harsh fluorescent overhead, unflattering angle, no filter (shoot deliberately unflattering)",
+        "After skin close-up — same angle, soft window light, no makeup or very minimal",
+        "Side-by-side comparison edit — cut between the two at matching angles",
+        "Nira Infuser mist cloud — backlit so mist particles visible",
+        "Serum application on primed skin — skin visibly dewy and receptive",
+        "Close-up of nose/texture zone before and after",
+        "Foundation/concealer sitting untouched on counter (implication: not needed today)"
+      ],
+      "affiliate_link_placement": "bio",
+      "ab_hypothesis": "Visual-first hooks (no speaking, pure before/after contrast) have a higher 3-second retention rate on TikTok than verbal hooks because the algorithm rewards visual thumb-stoppers and users don't have to process language to decide to keep watching. Hypothesis: Variant C will achieve a higher hook rate (>65%) than Variant B, but potentially lower CTR-to-purchase because the emotional driver is aspirational vs regret-based. Net EPC may be comparable or lower — test determines whether hook rate or conversion intent matters more for this product.",
+      "post_schedule": "Saturday 11:00 AM EST — transformation content peaks on weekend mornings when users are relaxed and browse longer. Higher share rate on Saturdays for skincare before/after content.",
+      "iteration_2_notes": "This variant deliberately uses silence as a hook differentiator — most competitors open with speaking. The before shot must be genuinely unflattering or the contrast won't land. Do not soften the 'before' with flattering lighting. The comment strategy (pinning routine order) is a deliberate engagement signal to the algorithm and gives viewers a reason to click comments, increasing overall engagement rate which feeds distribution."
+    },
+    {
+      "content_id": "ITER2-REAL-FIT-002-C",
+      "product_id": "REAL-FIT-002",
+      "product_name": "MAEFU EMS Abs Belt",
+      "iteration": 2,
+      "variant": "C",
+      "hook_angle": "duration-of-effort — honest 47-day journey, focus on what was unexpected, not just results",
+      "hook_text": "I tested this for exactly 47 days straight. Here's what I didn't expect.",
+      "script": {
+        "scene_1_hook": {
+          "duration": "0-3s",
+          "spoken": "I tested this EMS ab belt for forty-seven days straight. I kept a log. And the thing I didn't expect — it wasn't what I thought it would be.",
+          "on_screen": "Day counter graphic: 'DAY 47' — or handwritten journal page with dates | 'what I didn't expect' text fade-in at 2.5s",
+          "direction": "Open on a close-up of a physical notebook or your phone's notes app with actual dated entries — real documentation signals credibility. Then cut to your face, medium shot, direct to lens. Hold up the EMS belt so it's visible in frame but don't introduce it formally yet. Expression: calm, a little wry, like you're about to tell a story that surprised you.",
+          "energy": "Measured curiosity. This is someone who took this seriously and is reporting back. Not hype — documentation energy."
+        },
+        "scene_2_setup": {
+          "duration": "3-15s",
+          "spoken": "So I started this because I wanted visible ab definition without spending an hour at the gym every day — I'm realistic, I'm not trying to become an athlete. I put the MAEFU EMS belt on for 20 minutes a day while I was doing other things. Working, watching TV, making dinner. I committed to 47 days because that's what the research says about muscle adaptation — you need six to eight weeks to see if something is actually changing your baseline. Day one, the contractions felt weird. Like your muscles firing without you deciding to fire them. Day seven, I barely noticed it anymore.",
+          "on_screen": "EMS belt on waist, shirt lifted to show it in position | '20 min/day' text | Day 1 note entry | Day 7 note entry",
+          "direction": "Show the belt actually strapped on and operating — the pulsing light or the contraction effect if visible. Cut to quick clips of wearing it while doing something mundane: sitting at a laptop, standing in a kitchen. Make it look like real life, not a photoshoot. Cut back to face for the narration wrap-up.",
+          "energy": "Honest and slightly self-deprecating on the 'I'm not trying to become an athlete' line. People need permission to want modest, realistic goals."
+        },
+        "scene_3_reveal": {
+          "duration": "15-25s",
+          "spoken": "Here's what I expected: abs. Here's what I didn't expect: my posture changed first. By week three, I was sitting differently. More upright without thinking about it. My lower back stopped aching by the end of long work days. The ab definition came — it was there by week six — but the posture shift happened faster and honestly felt like a bigger quality-of-life change. I didn't see that coming.",
+          "on_screen": "Week 3 posture note entry | Side-by-side seated posture if available | Week 6 results close-up | Journal log showing the progression",
+          "direction": "Cut to a side-view comparison if you have footage or photos — sitting slouched (before, week 1) vs naturally upright (week 3-4). Even a simple phone photo works. If no footage, use the journal close-up and describe it verbally — the specificity of 'lower back stopped aching' is enough without visual proof. Then cut to a brief mid-section reveal at week 6.",
+          "energy": "Genuine surprise. The posture discovery should sound like you're realizing it again as you say it — not a rehearsed talking point."
+        },
+        "scene_4_proof": {
+          "duration": "25-40s",
+          "spoken": "Day 47 results: ab definition — yes, visible, more than I had before, especially when I actually engage the muscles. But the honest scorecard is: posture improved noticeably by week 3, back discomfort essentially gone by week 4, ab definition visible and consistent by week 6. I still use it. I'm on day 63 now. Not because I have to — because the 20 minutes has become part of my day and I notice when I skip it. That's the thing nobody tells you. The habit forms faster than the abs do.",
+          "on_screen": "Honest scorecard graphic: Posture ✓ Week 3 | Back pain ✓ Week 4 | Ab definition ✓ Week 6 | 'still using it — Day 63'",
+          "direction": "Face shot — direct, calm, a little tired in a credible way. Hold up the belt again at the end. If you have a Day 1 vs Day 47 mid-section photo, this is the place to show it — hold your phone up and show the photo to the camera rather than editing it in, which feels more genuine.",
+          "energy": "Honest debrief energy. The 'habit forms faster than the abs do' line should land quietly — it's the most emotionally true thing in the video and it's the line people will screenshot."
+        },
+        "scene_5_cta": {
+          "duration": "40-45s",
+          "spoken": "Link is in my bio — TikTok Shop, ships fast. If you're thinking about it, 47 days isn't as long as it sounds. It really isn't.",
+          "on_screen": "link in bio | '47 days → worth it'",
+          "direction": "Medium shot, direct to lens. Hold the belt in one hand casually. The last line should be delivered slowly and with finality — a genuine reassurance, not a sell.",
+          "energy": "Warm, assured. The CTA is almost secondary to the emotional close — let the 47-day reassurance be the final note."
+        }
+      },
+      "caption": "I tested the MAEFU EMS abs belt for exactly 47 days. Kept a log. Here's the honest scorecard:\n\n→ Posture improved: Week 3 (didn't expect this)\n→ Back discomfort gone: Week 4\n→ Visible ab definition: Week 6\n\nI'm on Day 63 now. Still using it — not because I have to, because I notice when I skip it.\n\nThe habit forms faster than the abs do. No one tells you that.\n\nLink in bio (TikTok Shop). 47 days is not as long as it sounds.",
+      "hashtags": [
+        "#EMSbelt",
+        "#abworkout",
+        "#MAEFUbelt",
+        "#47daychallenge",
+        "#absjourney",
+        "#honesttiktok",
+        "#fitnesstiktok",
+        "#EMS",
+        "#coreworkout",
+        "#postureimprovement",
+        "#tiktokmademebuyit",
+        "#realresults",
+        "#fitnesstransformation"
+      ],
+      "b_roll_list": [
+        "Physical notebook or phone notes app with dated daily entries (close-up, legible)",
+        "EMS belt strapped on and operating — pulsing or contracting visible",
+        "Wearing belt during mundane activity: at laptop, in kitchen, watching TV",
+        "Day 1 note entry close-up",
+        "Side-by-side posture comparison: slouched (Day 1) vs upright (Day 21)",
+        "Mid-section before/after — Day 1 vs Day 47 (phone photo held up to camera)",
+        "Honest scorecard graphic overlay with checkmarks and week numbers",
+        "Belt held casually in hand for CTA shot"
+      ],
+      "affiliate_link_placement": "bio",
+      "ab_hypothesis": "Duration-of-effort hooks ('I tested this for exactly 47 days') signal investment and credibility, which should convert higher-intent buyers who are already researching EMS belts but haven't committed. Hypothesis: lower hook rate than Variant B's social proof opener, but higher conversion rate per click because viewers who make it through the 47-day story are pre-sold on the product before they hit the CTA. Watch the CTR-to-purchase ratio vs Variant B rather than raw views.",
+      "post_schedule": "Tuesday 6:00 PM EST — fitness content peaks early-week when motivation is high and purchase intent for fitness products is strongest. Avoid Friday/Saturday.",
+      "iteration_2_notes": "Addresses Iter1 insight: Variant B (social proof) won, suggesting this audience responds to external validation and real experience over feature claims. Variant C doubles down on real experience but shifts from '47,000 people bought this' to 'I personally tracked this for 47 days.' The number 47 is specific enough to feel real without sounding manufactured. The posture subplot is the genuine differentiator — most EMS content focuses only on abs, so the posture discovery creates shareability and makes the content feel like genuine discovery rather than a product pitch."
+    },
+    {
+      "content_id": "ITER2-REAL-FIT-002-D",
+      "product_id": "REAL-FIT-002",
+      "product_name": "MAEFU EMS Abs Belt",
+      "iteration": 2,
+      "variant": "D",
+      "hook_angle": "skeptic-to-believer — self-deprecating, credibility through admitted doubt, still using 6 weeks later",
+      "hook_text": "I bought this as a joke. I'm still using it 6 weeks later.",
+      "script": {
+        "scene_1_hook": {
+          "duration": "0-3s",
+          "spoken": "I bought this EMS ab belt as an actual joke. Like — I bought it to make fun of it. I'm still using it six weeks later.",
+          "on_screen": "Text flash: 'bought it as a joke' → pause → 'still using it 6 weeks later'",
+          "direction": "Tight face shot, slightly smirking — the specific expression of someone who is mildly embarrassed to be proven wrong. Direct to lens. No product in frame yet — just your face and the confession. The smirk should feel warm and self-aware, not performative.",
+          "energy": "Wry, self-deprecating, genuinely amused at yourself. The hook works because it signals: this person had no reason to like this product and they like it anyway. That's the most trustworthy possible opener."
+        },
+        "scene_2_setup": {
+          "duration": "3-15s",
+          "spoken": "So my roommate got one of these and I was being kind of obnoxious about it — like, making jokes about her 'electric ab machine' and whether she was going to hook it up to the wall. She ignored me completely. Three weeks later she had visible definition I genuinely hadn't noticed building. And I had been standing next to her every day. So I bought one. I told myself it was to prove it didn't work. I knew what I was doing.",
+          "on_screen": "Hold up the MAEFU EMS belt with an exaggerated serious expression | the words 'to prove it didn't work' text overlay",
+          "direction": "Medium shot, seated — casual setting, couch or kitchen counter, not a gym. Introduce the product here by holding it up. Hold it the way you'd hold something you're mildly suspicious of — inspect it a bit, turn it over. The gesture underscores the skeptic narrative.",
+          "energy": "Storytelling pace. Slow down at 'I knew what I was doing' — it's the comedic beat and the honest admission. Give it a half-second of silence after."
+        },
+        "scene_3_reveal": {
+          "duration": "15-25s",
+          "spoken": "Week one: okay, the contractions are genuinely weird. It's your muscles firing without you doing anything. I spent the first few sessions just making faces at it. Week three: I stopped thinking about it. I put it on, did other things, 20 minutes later it was done. Week five: I noticed my posture had changed. I was sitting differently in meetings — more upright without trying. And the ab definition my roommate had? I was starting to see it in myself.",
+          "on_screen": "Week-by-week text progression | face-making at the device (brief, comedic) | mid-section shot at week 5",
+          "direction": "Cut to quick comic beat of you reacting to the EMS sensation in week 1 — exaggerated expression, hold the belt away from you like it surprised you. Then cut back to face for the week 3 and 5 narration. End this scene with a brief mid-section reveal if comfortable — the contrast to 'I bought this as a joke' makes the result land harder.",
+          "energy": "Storytelling with momentum. The week 1 comedic beat is a release valve — use it. The transition to 'week five' should feel like the tone shift where you stop making jokes because the thing is actually working."
+        },
+        "scene_4_proof": {
+          "duration": "25-40s",
+          "spoken": "Six weeks in: I have not told my roommate she was right. I will not be doing that. But I'm on my second month. I use it five days a week, 20 minutes while I work. My lower back doesn't hurt anymore after long sitting days — that was the thing I wasn't expecting. The ab definition is real and visible. And the thing that gets me is that I was so ready to return this and write a snarky review and instead I'm on the TikTok Shop page looking at whether they make other products. So here we are.",
+          "on_screen": "'I have not told my roommate she was right' | Month 2 usage log | Back pain callout | TikTok Shop page screenshot",
+          "direction": "Face shot, medium close-up. This is the funniest and most honest stretch of the video — let it breathe. The 'I have not told my roommate she was right' line should get a small smile and a pause. Deliver the product specifics (back pain, definition) casually, like they're footnotes to the main story. End on the TikTok Shop page admission — it's the perfect credibility signal and genuine conversion hook.",
+          "energy": "Dry humor with genuine warmth underneath. The specifics ground it. Don't play for laughs — the humor lands because you're being honest, not because you're performing."
+        },
+        "scene_5_cta": {
+          "duration": "40-45s",
+          "spoken": "Link's in my bio. I'm not going to tell you it's amazing — I told you I bought it to make fun of it. Draw your own conclusions.",
+          "on_screen": "link in bio | 'draw your own conclusions'",
+          "direction": "Direct to lens, slight smile. Arms crossed or leaning back slightly — casual, not selling. The CTA deliberately withholds enthusiasm, which for this variant is the right call. The restraint is the sell.",
+          "energy": "Deadpan with warmth. The best version of this CTA sounds like you genuinely don't care if they buy it — which is why they will."
+        }
+      },
+      "caption": "I bought this EMS ab belt to make fun of it.\n\nmy roommate had been using one for 3 weeks and I was being insufferable about the 'electric ab machine.'\n\nthen I noticed her results. so I bought one 'to prove it didn't work.'\n\n6 weeks later:\n→ ab definition: visible ✓\n→ back pain from sitting all day: gone ✓\n→ have I told my roommate she was right: absolutely not\n\nlink in bio. draw your own conclusions.",
+      "hashtags": [
+        "#EMSbelt",
+        "#skeptic",
+        "#MAEFUbelt",
+        "#abworkout",
+        "#itactuallyworks",
+        "#fitnesshumor",
+        "#honestreviews",
+        "#tiktokmademebuyit",
+        "#absdefinition",
+        "#EMSworkout",
+        "#coretraining",
+        "#realreview"
+      ],
+      "b_roll_list": [
+        "EMS belt being held up with skeptical/suspicious expression",
+        "Week 1: exaggerated reaction face to EMS sensation (comedic)",
+        "EMS belt operating while sitting at laptop — mundane, normal",
+        "Week 5/6 mid-section reveal if available",
+        "TikTok Shop product page on phone screen (genuine scroll)",
+        "Back-of-phone showing 'month 2' usage or timer",
+        "Raised-eyebrow 'fine, it works' face — the signature expression for the CTA"
+      ],
+      "affiliate_link_placement": "bio",
+      "ab_hypothesis": "Skeptic-to-believer format generates higher share and comment rates than straightforward testimonials because viewers who also doubted the product feel seen and are more likely to share ('this is literally me'). Hypothesis: Variant D will have a higher comment rate and share rate than Variant C, with comparable or slightly lower immediate CVR — but stronger 48-72 hour tail as shares drive new viewers into the funnel. Watch for the 'my roommate' comment pattern — replies from people tagging their own skeptical friends are strong long-tail signals.",
+      "post_schedule": "Wednesday 8:00 PM EST — humor-forward content performs best mid-week evening when users are winding down and in a more receptive, social mood. The 'relatable skeptic' format also benefits from high comment volume, which Wednesday-evening timing supports.",
+      "iteration_2_notes": "The roommate subplot is the structural heart of this variant — it gives the skepticism a human context and the 'I haven't told her she was right' line is a genuine shareability hook. The CTA restraint ('draw your own conclusions') is intentional and should not be changed to something more enthusiastic — the deadpan close is what makes the whole video feel trustworthy rather than promotional. If editors want to adjust, they should only add specificity, not enthusiasm."
+    },
+    {
+      "content_id": "ITER2-REAL-HOM-003-B",
+      "product_id": "REAL-HOM-003",
+      "product_name": "LumiGlow Sunset Lamp",
+      "iteration": 2,
+      "variant": "B",
+      "hook_angle": "social-embarrassment before-state with early price reveal at 8-12s and tap-cue moved to 35s",
+      "hook_text": "My apartment looked like a freshman dorm. I fixed it for $29.",
+      "script": {
+        "scene_1_hook": {
+          "duration": "0-3s",
+          "spoken": "My apartment looked exactly like a freshman dorm room and I had been living here for three years.",
+          "on_screen": "Wide shot of the 'before' apartment corner — harsh overhead white light, visible mess or visual clutter, maybe a basic desk lamp casting flat unflattering light. No filter. Then cut to face — direct, slightly embarrassed.",
+          "direction": "Open on the space, not your face. The 'before' room shot is the hook — harsh overhead light, no warmth, the kind of space that looks like a waiting room. This should be genuinely a bit cringe-inducing. One second of space, then cut to your face for the confession. The space shot must be real and unfiltered — staged 'bad' lighting people can tell is fake.",
+          "energy": "Embarrassed but owning it. The hook works because it's universal — most people have that one area of their home they're a little ashamed of. The '3 years' detail makes it funnier and more relatable."
+        },
+        "scene_2_setup": {
+          "duration": "3-15s",
+          "spoken": "I had the standard setup: a floor lamp from whatever big box store, overhead light that made everything look like a hospital waiting room, and I'd been meaning to 'fix the vibe' of my space for two years. Every time someone came over I'd apologize for the lighting. At some point that becomes a personality trait. I found this on TikTok Shop for twenty-nine dollars and I thought, worst case, I'm out less than a dinner out.",
+          "on_screen": "Quick pan of the 'before' room — overhead light, generic lamp | '$29 on TikTok Shop' text appears at 8-10s mark (EARLY price reveal per rebuild notes)",
+          "direction": "Walk-through or slow pan of the 'before' space — show the actual overhead light, the flat generic lamp. Keep the camera handheld and casual. The price reveal text ('$29 on TikTok Shop') should appear on screen around the 8-10 second mark while you're still talking about finding it — not saved for later. This is the rebuild's key change: remove price friction early so viewers know the investment before they invest more time.",
+          "energy": "Self-aware and slightly rueful. The 'I'd apologize for the lighting' line gets a small laugh — deliver it with a half-smile. The '$29' should be said casually, like it's almost an afterthought, which underscores how cheap the fix was."
+        },
+        "scene_3_reveal": {
+          "duration": "15-25s",
+          "spoken": "This is the LumiGlow Sunset Lamp. It's got fifteen brightness levels, the color goes from warm amber all the way to this deep peachy-orange gradient. It's not a ring light — it doesn't go on your face, it goes in the corner of your room and it changes the entire color temperature of the space. I turned it on for the first time and just stood there for a minute. The room looked like a place where a person with taste lives.",
+          "on_screen": "LumiGlow lamp unboxing or first power-on moment — in a dark or dim room so the color impact is visible | Room before (overhead light) vs room after (lamp on, overhead off) — dramatic shift | 'a place where a person with taste lives' text",
+          "direction": "The reveal should be cinematic: turn off overhead light, turn on the LumiGlow, and let the camera adjust to the new color temperature. If you can shoot this in portrait with the lamp filling the background, the gradient glow will be immediately impressive. Show the color controls briefly. The 'stood there for a minute' moment should feel true — give it a beat of silence before describing what you saw.",
+          "energy": "Genuine wonder with dry humor at the end. 'A place where a person with taste lives' gets a beat of silence before and after — it's the comedic and emotional peak of the video."
+        },
+        "scene_4_proof": {
+          "duration": "25-40s",
+          "spoken": "Here's the before — overhead on, generic lamp on. And here's after — same room, LumiGlow on, overhead off. I did not move anything. I did not buy anything else. I did not clean — which you can probably tell. Same exact space. The only thing that changed is the light source. People who come over now don't know what I changed. They just say the apartment feels different. One friend asked if I'd repainted. I said yes.",
+          "on_screen": "Real-time toggle or hard cut between before (overhead) and after (lamp) in the same room corner | 'didn't move anything. didn't clean.' text | 'friend asked if I repainted. I said yes.' text",
+          "direction": "This is the money shot. Film the before/after toggle in a single continuous shot if possible — have someone flip the overhead while you control the lamp, or use a smart plug. The cut should be jarring and impressive. Use the same camera position for both so the only variable is the light. The 'I said yes' close is a genuine laugh line — deliver it flat.",
+          "energy": "Let the visual do the work during the toggle. Narration should feel secondary — you're basically just providing captions to an already-compelling visual. Dry and factual until the 'I said yes' punchline."
+        },
+        "scene_5_cta": {
+          "duration": "40-45s",
+          "spoken": "Tap the link in my bio right now — it's twenty-nine dollars and the price has been going up. I've seen it at thirty-four on other platforms. It's on TikTok Shop so it ships fast.",
+          "on_screen": "TAP LINK IN BIO → RIGHT NOW ← at 35s mark | '$29 TikTok Shop' | 'price going up — seen at $34 elsewhere'",
+          "direction": "Direct to lens, medium shot. The LumiGlow should be on and visible in the background casting its glow — it's a passive demonstration during the CTA. Point upward toward bio. The 'RIGHT NOW' tap-cue appears on screen at 35s, which is the rebuilt timing per the performance analyst's note. Deliver with calm urgency — not frantic, but direct.",
+          "energy": "Direct and honest urgency. The price comparison ($29 vs $34 elsewhere) is real context, not manufactured scarcity — deliver it factually. The CTA should feel like a friend telling you to grab something before it goes up, not an infomercial."
+        }
+      },
+      "caption": "My apartment looked like a freshman dorm for three years.\n\nFixed it for $29.\n\nThe LumiGlow Sunset Lamp:\n→ 15 brightness levels\n→ amber to deep peachy-orange gradient\n→ changes the entire mood of a room\n→ $29 on TikTok Shop (seen it at $34 elsewhere, grab it now)\n\nI didn't move anything. Didn't buy anything else. Didn't clean.\n\nSame room. One light source changed.\n\nA friend asked if I'd repainted. I said yes.\n\nTap the link in bio — ships fast.",
+      "hashtags": [
+        "#sunsetlamp",
+        "#apartmentdecor",
+        "#LumiGlow",
+        "#roommakeover",
+        "#homedecortiktok",
+        "#amberlighting",
+        "#cozyhome",
+        "#tiktokmademebuyit",
+        "#roomtransformation",
+        "#lightinghack",
+        "#affordabledecor",
+        "#dormroomvibes",
+        "#homedecor"
+      ],
+      "b_roll_list": [
+        "Before: wide room corner shot, overhead fluorescent/white light, no filter, genuinely unflattering",
+        "Generic floor lamp in situ — show it looking sad and utilitarian",
+        "LumiGlow lamp unboxing — keep casual and genuine, no production setup",
+        "LumiGlow first power-on in a dim room — let camera adjust to the color",
+        "Overhead-off/lamp-on toggle in the same room position — the money shot",
+        "Close-up of LumiGlow color gradient at different brightness settings",
+        "Room corner after — lamp as the hero, overhead completely off",
+        "Phone showing TikTok Shop listing with $29 price (brief, 1 second)"
+      ],
+      "affiliate_link_placement": "bio",
+      "ab_hypothesis": "Rebuilt Variant B directly addresses the Iter1 failure mode: high hook rate but 1.4% CTR indicating viewers were interested but not converting. Root cause was CTA friction — price revealed too late and tap-cue too late for impulse purchase behavior. Hypothesis: early price reveal at 8-12s will pre-qualify viewers (those for whom $29 is too much leave early, reducing wasted views; those who stay are price-qualified and more likely to convert). Tap-cue at 35s targets the pre-CTA engagement window before viewer drop-off. Expected improvement: CTR from 1.4% to 2.5%+.",
+      "post_schedule": "Friday 7:00 PM EST — home decor content peaks on Friday evenings when people are thinking about the weekend and their living spaces. Purchase intent for lifestyle/home items is highest Friday-Saturday. The $29 price point benefits from weekend browsing impulse.",
+      "iteration_2_notes": "Three specific changes from Iter1 Variant A based on performance analyst: (1) Social-embarrassment before-state replaces neutral 'this lamp is cool' opener — the dorm room embarrassment creates emotional stakes that the previous hook lacked. (2) Price reveal moved from end to 8-12s mark — viewers who are price-sensitive leave early, leaving a more qualified audience; viewers who stay know the investment and are pre-sold on value. (3) Tap-cue 'RIGHT NOW' moved to 35s (on-screen text) from 42s — this catches viewers before they mentally disengage from the video. The 'I said yes' to the repaint question is a genuine shareability hook — it's unexpected, funny, and quotable. Do not cut this line."
+    }
+  ]
+}
