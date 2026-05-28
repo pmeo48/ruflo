@@ -1,0 +1,49 @@
+{
+  "productId": "002",
+  "etsyListingId": null,
+  "state": "draft",
+  "createdAt": "2026-05-28T00:00:00.000Z",
+  "title": "AI for Complete Beginners Guide | Plain English AI Tutorial PDF 52 Pages Instant Download",
+  "description": "AI feels overwhelming — until you have the right starting point. This 52-page plain-English guide walks you through AI from zero, no tech background needed.\n\nYou get 52 pages covering ChatGPT, Midjourney, Claude, and Gemini — with step-by-step walkthroughs, real examples, and a beginner action plan.\n\nLearn to use AI to save time at work, spark creativity, and automate repetitive tasks in your first week.\n\nInstant delivery after purchase — download immediately and start reading today.\n\nFiles included: PDF (mobile-friendly, printable), quick-start checklist.\n\nClick Add to Cart and start your AI journey today.",
+  "price": 12.99,
+  "quantity": 999,
+  "tags": [
+    "ai for beginners",
+    "chatgpt beginner guide",
+    "ai tutorial pdf",
+    "learn ai",
+    "artificial intel guide",
+    "digital download",
+    "ai tools beginner",
+    "chatgpt guide",
+    "beginner tech guide",
+    "ai starter kit",
+    "ai cheat sheet",
+    "instant download",
+    "ai 2024 guide"
+  ],
+  "materials": ["digital download", "PDF", "instant download"],
+  "category": "Craft Supplies & Tools > Patterns & How To > Tutorials & Instructional",
+  "primaryImage": "covers/002-cover.png",
+  "additionalImages": ["covers/002-mockup-1.png", "covers/002-mockup-2.png"],
+  "whoMade": "i_did",
+  "whenMade": "made_to_order",
+  "isSupply": false,
+  "type": "download",
+  "seoAnalysis": {
+    "primaryKeyword": "ai for complete beginners",
+    "secondaryKeywords": ["chatgpt beginner guide", "learn ai pdf", "artificial intelligence tutorial", "ai starter kit"],
+    "titleKeywordPosition": 1,
+    "estimatedMonthlySearches": 0,
+    "competitionScore": 0,
+    "optimizationScore": 0
+  },
+  "pricingStrategy": {
+    "basePrice": 12.99,
+    "launchPrice": 9.99,
+    "bundleDiscount": 0,
+    "competitorAvgPrice": 11.00,
+    "priceJustification": "Premium over competitor average justified by 52-page depth, multi-tool coverage, and plain-English accessibility. Beginner guides command higher prices due to breadth of value delivered. Launch price drives social proof."
+  },
+  "bundle": null
+}

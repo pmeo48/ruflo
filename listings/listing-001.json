@@ -1,0 +1,49 @@
+{
+  "productId": "001",
+  "etsyListingId": null,
+  "state": "draft",
+  "createdAt": "2026-05-28T00:00:00.000Z",
+  "title": "ChatGPT Prompts for Entrepreneurs | 500 Business AI Prompts PDF Instant Download",
+  "description": "Struggling to use AI effectively in your business? These 500 done-for-you ChatGPT prompts are ready to copy and paste right now.\n\nYou get 500 categorized prompts across marketing, sales, operations, finance, and content creation — organized into 25 business categories.\n\nSave 10+ hours per week on writing, planning, and brainstorming. Generate client proposals, social posts, email campaigns, and business plans in minutes.\n\nInstant delivery to your inbox after purchase — no waiting, no shipping.\n\nFiles included: PDF (printable), plain-text prompt list for easy copying.\n\nAdd to cart and start using AI like a pro today.",
+  "price": 9.99,
+  "quantity": 999,
+  "tags": [
+    "chatgpt prompts",
+    "ai prompts",
+    "entrepreneur gift",
+    "business prompts",
+    "chatgpt for business",
+    "ai tools",
+    "digital download",
+    "prompt pack pdf",
+    "chatgpt templates",
+    "small business ai",
+    "startup prompts",
+    "ai productivity",
+    "instant download"
+  ],
+  "materials": ["digital download", "PDF", "instant download"],
+  "category": "Craft Supplies & Tools > Patterns & How To > Tutorials & Instructional",
+  "primaryImage": "covers/001-cover.png",
+  "additionalImages": ["covers/001-mockup-1.png", "covers/001-mockup-2.png"],
+  "whoMade": "i_did",
+  "whenMade": "made_to_order",
+  "isSupply": false,
+  "type": "download",
+  "seoAnalysis": {
+    "primaryKeyword": "chatgpt prompts for entrepreneurs",
+    "secondaryKeywords": ["business ai prompts", "chatgpt for business", "entrepreneur ai tools", "prompt pack pdf"],
+    "titleKeywordPosition": 1,
+    "estimatedMonthlySearches": 0,
+    "competitionScore": 0,
+    "optimizationScore": 0
+  },
+  "pricingStrategy": {
+    "basePrice": 9.99,
+    "launchPrice": 7.99,
+    "bundleDiscount": 0,
+    "competitorAvgPrice": 8.50,
+    "priceJustification": "Priced slightly above competitor average to signal premium quality. 500 prompts vs. typical 100-200 prompt packs justifies higher value positioning. Launch price of $7.99 drives early reviews."
+  },
+  "bundle": null
+}

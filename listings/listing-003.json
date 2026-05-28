@@ -1,0 +1,49 @@
+{
+  "productId": "003",
+  "etsyListingId": null,
+  "state": "draft",
+  "createdAt": "2026-05-28T00:00:00.000Z",
+  "title": "Build Your First AI Agent This Weekend | No-Code AI Automation Guide PDF Instant Download",
+  "description": "You don't need to code to build AI agents. This weekend-project guide shows you exactly how to build your first working AI agent using free no-code tools.\n\nYou get a 60-page step-by-step tutorial covering n8n, Make.com, and Zapier — with 5 pre-built agent templates you can deploy in hours, not weeks.\n\nAutomate emails, research, content creation, and lead generation without writing a single line of code.\n\nInstant delivery after purchase — start building this weekend.\n\nFiles included: PDF guide, 5 workflow templates (JSON), quick-start checklist.\n\nAdd to cart and build your first AI agent today.",
+  "price": 14.99,
+  "quantity": 999,
+  "tags": [
+    "ai agent tutorial",
+    "build ai agent",
+    "no code ai",
+    "n8n tutorial",
+    "automation guide",
+    "chatgpt automation",
+    "ai workflow",
+    "digital download",
+    "ai beginner guide",
+    "make.com tutorial",
+    "zapier ai guide",
+    "instant download",
+    "ai project guide"
+  ],
+  "materials": ["digital download", "PDF", "instant download"],
+  "category": "Craft Supplies & Tools > Patterns & How To > Tutorials & Instructional",
+  "primaryImage": "covers/003-cover.png",
+  "additionalImages": ["covers/003-mockup-1.png", "covers/003-mockup-2.png"],
+  "whoMade": "i_did",
+  "whenMade": "made_to_order",
+  "isSupply": false,
+  "type": "download",
+  "seoAnalysis": {
+    "primaryKeyword": "build ai agent no code",
+    "secondaryKeywords": ["n8n tutorial pdf", "ai automation guide", "make.com ai workflow", "zapier ai tutorial"],
+    "titleKeywordPosition": 1,
+    "estimatedMonthlySearches": 0,
+    "competitionScore": 0,
+    "optimizationScore": 0
+  },
+  "pricingStrategy": {
+    "basePrice": 14.99,
+    "launchPrice": 11.99,
+    "bundleDiscount": 0,
+    "competitorAvgPrice": 12.50,
+    "priceJustification": "Highest price tier justified by technical complexity, included workflow templates, and direct ROI potential (automation saves hours weekly). Buyer perception of high value for actionable, results-oriented technical guide."
+  },
+  "bundle": null
+}
