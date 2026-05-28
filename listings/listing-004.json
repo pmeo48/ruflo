@@ -1,0 +1,49 @@
+{
+  "productId": "004",
+  "etsyListingId": null,
+  "state": "draft",
+  "createdAt": "2026-05-28T00:00:00.000Z",
+  "title": "AI Daily Life Toolkit | 30 Day AI Challenge PDF with Prompts and Templates Instant Download",
+  "description": "Ready to actually use AI every single day? This 30-day challenge gives you one AI task per day — each takes under 15 minutes and delivers real results.\n\nYou get 30 daily challenges, 120+ prompts, 4 printable habit-tracker sheets, and a weekly review template — all in one organized PDF.\n\nBuild an AI habit that sticks, save time on daily tasks, and discover which AI tools actually fit your life.\n\nInstant delivery after purchase — start Day 1 today.\n\nFiles included: PDF (printable, 48 pages), 4 habit-tracker sheets, prompt cheat sheet.\n\nAdd to cart and take the 30-day challenge.",
+  "price": 8.99,
+  "quantity": 999,
+  "tags": [
+    "30 day ai challenge",
+    "ai daily routine",
+    "chatgpt challenge",
+    "ai productivity",
+    "digital planner pdf",
+    "ai habit tracker",
+    "productivity download",
+    "chatgpt daily prompts",
+    "ai lifestyle guide",
+    "digital download",
+    "instant download",
+    "ai challenge pdf",
+    "productivity system"
+  ],
+  "materials": ["digital download", "PDF", "instant download"],
+  "category": "Paper & Party Supplies > Paper > Stationery",
+  "primaryImage": "covers/004-cover.png",
+  "additionalImages": ["covers/004-mockup-1.png", "covers/004-mockup-2.png"],
+  "whoMade": "i_did",
+  "whenMade": "made_to_order",
+  "isSupply": false,
+  "type": "download",
+  "seoAnalysis": {
+    "primaryKeyword": "30 day ai challenge pdf",
+    "secondaryKeywords": ["ai daily routine planner", "chatgpt daily prompts", "ai habit tracker", "ai productivity system"],
+    "titleKeywordPosition": 1,
+    "estimatedMonthlySearches": 0,
+    "competitionScore": 0,
+    "optimizationScore": 0
+  },
+  "pricingStrategy": {
+    "basePrice": 8.99,
+    "launchPrice": 6.99,
+    "bundleDiscount": 0,
+    "competitorAvgPrice": 7.50,
+    "priceJustification": "Mid-tier pricing suits broad consumer audience. Challenge format creates perceived value of structured program. Printable habit trackers add tangible product feel to digital download, justifying price above bare prompt packs."
+  },
+  "bundle": null
+}

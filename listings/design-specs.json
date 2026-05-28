@@ -1,0 +1,751 @@
+{
+  "brandIdentity": {
+    "shopName": "AI Tools Hub",
+    "tagline": "Practical AI for Real People",
+    "colorSystem": {
+      "primary": "#0F172A",
+      "secondary": "#6366F1",
+      "accent": "#10B981",
+      "warning": "#F59E0B",
+      "white": "#FFFFFF",
+      "lightGray": "#F8FAFC",
+      "darkGray": "#1E293B",
+      "niches": {
+        "entrepreneurs": { "bg": "#1F2937", "accent": "#F59E0B", "label": "Gold on Dark Slate" },
+        "beginners": { "bg": "#065F46", "accent": "#34D399", "label": "Emerald on Forest" },
+        "ai-tools": { "bg": "#0F172A", "accent": "#6366F1", "label": "Indigo on Midnight" },
+        "productivity": { "bg": "#1E293B", "accent": "#10B981", "label": "Teal on Slate" },
+        "social-media": { "bg": "#4F46E5", "accent": "#EC4899", "label": "Pink on Indigo" },
+        "insurance": { "bg": "#1E3A5F", "accent": "#3B82F6", "label": "Blue on Navy" },
+        "automation": { "bg": "#312E81", "accent": "#A78BFA", "label": "Violet on Deep Indigo" },
+        "notion": { "bg": "#1A1A1A", "accent": "#FFFFFF", "label": "White on Black" }
+      }
+    },
+    "typography": {
+      "headingFont": "Inter Bold",
+      "bodyFont": "Inter Regular",
+      "accentFont": "Poppins SemiBold",
+      "alternatives": ["Montserrat", "Nunito", "Lato"]
+    },
+    "logoMark": {
+      "symbol": "⚡",
+      "concept": "Lightning bolt representing AI speed and power",
+      "alternates": ["🤖", "✦", "◆"]
+    }
+  },
+  "products": [
+    {
+      "productId": "001",
+      "productName": "500 ChatGPT Prompts for Entrepreneurs",
+      "niche": "entrepreneurs",
+      "coverSpec": {
+        "title": "500 ChatGPT Prompts",
+        "subtitle": "FOR ENTREPRENEURS",
+        "tagline": "Ready-to-Use AI Prompts for Every Business Situation",
+        "backgroundColor": "#1F2937",
+        "accentColor": "#F59E0B",
+        "textColor": "#FFFFFF",
+        "font": "Montserrat Bold",
+        "icon": "💡 lightbulb emoji, large and centered above title, or a stylized rocket SVG",
+        "layout": "bold-centered",
+        "dimensions": "2000x2000px",
+        "dpi": 300,
+        "elements": [
+          "Large '500' numeral in #F59E0B at 240pt — most dominant element on page",
+          "Main title 'ChatGPT Prompts' in white Montserrat Bold at 72pt, 2 lines max",
+          "Subtitle 'FOR ENTREPRENEURS' in #F59E0B letter-spaced at 28pt",
+          "Horizontal gold divider line (3px, 600px wide) between icon and title",
+          "Rounded badge top-right corner: 'INSTANT DOWNLOAD' in dark text on gold pill",
+          "Bottom bar (full width, 80px high): dark #111827 background with 'AI Tools Hub' in #F59E0B 18pt left-aligned",
+          "Tagline text below subtitle in light gray #9CA3AF at 22pt"
+        ],
+        "canvaInstructions": "1. Open Canva, create new design 2000x2000px. 2. Fill background with #1F2937. 3. Add text element: type '500', set font to Montserrat ExtraBold, size 240pt, color #F59E0B — center horizontally at Y=30% from top. 4. Below '500', add text 'ChatGPT Prompts' in Montserrat Bold 72pt white, center-aligned. 5. Add 'FOR ENTREPRENEURS' in Montserrat SemiBold 28pt color #F59E0B, letter spacing +200, below title. 6. Add a horizontal line element: color #F59E0B, width 600px, 3px height — place between icon and title. 7. Add rounded rectangle badge top-right: #F59E0B fill, dark text 'INSTANT DOWNLOAD' 16pt. 8. Add a full-width rectangle at bottom: height 80px, fill #111827. Inside it, add 'AI Tools Hub' left-aligned 18pt #F59E0B. 9. Optionally add a large lightbulb emoji or rocket at top center above '500' at 120pt. Export as JPG 2000x2000 at 300 DPI."
+      },
+      "mockupSpecs": [
+        {
+          "type": "ipad-flatlay",
+          "description": "iPad Pro on white marble surface with product cover displayed on screen. Gold ballpoint pen placed diagonally at lower right of iPad. Small green succulent plant in upper-left corner of frame. Soft overhead lighting.",
+          "backgroundColor": "#FFFFFF",
+          "props": ["iPad Pro (space gray or silver)", "gold ballpoint pen", "small succulent plant"],
+          "lighting": "soft natural light from upper-left, minimal shadows",
+          "angle": "overhead flat lay, 90-degree top-down shot",
+          "canvaSearch": "iPad flatlay mockup digital download white marble",
+          "placementNote": "Product cover should fill iPad screen exactly — no bezels visible if possible"
+        },
+        {
+          "type": "laptop-lifestyle",
+          "description": "MacBook Pro on a clean wooden desk with product PDF open on screen. Ceramic coffee mug to the left, spiral notebook open beside the laptop. Warm ambient office lighting. Entrepreneur workspace feel.",
+          "backgroundColor": "#F5F0EB",
+          "props": ["MacBook Pro 14-inch", "ceramic coffee mug (white or neutral)", "spiral notebook open to blank page", "wooden desk surface"],
+          "lighting": "warm tungsten light from right side, slight warm tones",
+          "angle": "three-quarter front angle, slight elevation",
+          "canvaSearch": "MacBook Pro desk mockup digital product entrepreneur workspace",
+          "placementNote": "Product cover displayed in browser or PDF reader — show top 60% of cover in screen"
+        },
+        {
+          "type": "printed-pages-fan",
+          "description": "Three printed A4 pages fanned out on a light oak wood surface. Front page shows the product cover, second page shows a category list, third page shows a sample prompt. Clean white pages with crisp printing.",
+          "backgroundColor": "#FAF7F4",
+          "props": ["3 printed A4 sheets", "light oak wooden surface"],
+          "lighting": "bright overhead daylight, minimal shadow",
+          "angle": "45-degree angle, overhead slightly tilted",
+          "canvaSearch": "printed pages mockup flat lay document fan",
+          "placementNote": "Arrange sheets in fan pattern: front cover on top-left, interior pages overlapping to the right"
+        }
+      ]
+    },
+    {
+      "productId": "002",
+      "productName": "AI for Complete Beginners Guide",
+      "niche": "beginners",
+      "coverSpec": {
+        "title": "AI for Complete Beginners",
+        "subtitle": "THE PLAIN-ENGLISH GUIDE",
+        "tagline": "ChatGPT, Claude, Midjourney & More — Step by Step",
+        "backgroundColor": "#065F46",
+        "accentColor": "#34D399",
+        "textColor": "#FFFFFF",
+        "font": "Poppins SemiBold",
+        "icon": "🧠 brain with sparkles emoji, or a simple brain outline with lightning bolt — large and centered",
+        "layout": "top-heavy with large icon",
+        "dimensions": "2000x2000px",
+        "dpi": 300,
+        "elements": [
+          "Large brain emoji or sparkle icon at top-center, 180pt",
+          "Title 'AI for Complete Beginners' in white Poppins Bold 68pt, 2 lines, center-aligned",
+          "Subtitle 'THE PLAIN-ENGLISH GUIDE' in #34D399 emerald, letter-spaced 24pt",
+          "Horizontal emerald divider line between title and tagline",
+          "Pill badge: 'NO TECH BACKGROUND NEEDED' on dark green pill, positioned below subtitle",
+          "Tagline in light mint #A7F3D0 at 20pt italic",
+          "Page count badge: '52 PAGES' in rounded square — emerald fill, white text — bottom-right",
+          "Bottom bar: #022C22 (very dark green) with 'AI Tools Hub' in #34D399 18pt left-aligned"
+        ],
+        "canvaInstructions": "1. Create 2000x2000px canvas in Canva. 2. Set background color #065F46 (deep forest green). 3. Add brain emoji or sparkle emoji 🧠✨ at top-center, 180pt, vertically centered at Y=22%. 4. Add 'AI for Complete Beginners' in Poppins Bold 68pt white, center-aligned at Y=42%. 5. Add 'THE PLAIN-ENGLISH GUIDE' in Poppins SemiBold 26pt #34D399 (emerald), letter spacing +150, below title. 6. Add horizontal line in #34D399, 700px wide, 2px height between subtitle and tagline. 7. Add rounded pill badge: background #022C22, text 'NO TECH BACKGROUND NEEDED' in #34D399 14pt — place below divider line. 8. Add tagline text in #A7F3D0 (light mint) 20pt italic. 9. Bottom-right: rounded square badge with '52 PAGES' in white on #34D399 background. 10. Bottom bar 80px: #022C22 background, 'AI Tools Hub' in #34D399 18pt left-aligned. Export JPG 300 DPI."
+      },
+      "mockupSpecs": [
+        {
+          "type": "phone-and-tablet-pair",
+          "description": "Samsung Galaxy tablet and iPhone showing the product on screen, placed on a light grey linen surface. Small potted plant and a cup of tea in background. Approachable, non-intimidating beginner feel.",
+          "backgroundColor": "#F1F5F1",
+          "props": ["tablet (any brand — landscape)", "smartphone (portrait)", "potted plant", "tea cup with saucer"],
+          "lighting": "bright natural daylight, overhead with slight warmth",
+          "angle": "overhead flat lay, slight 10-degree tilt of devices",
+          "canvaSearch": "tablet phone mockup flatlay beginner learning digital product",
+          "placementNote": "Tablet shows cover on screen; phone shows an interior page with prompt list"
+        },
+        {
+          "type": "reading-lifestyle",
+          "description": "Person's hands holding a printed version of the guide on a couch. Cozy setting, warm throw blanket visible in background. Shows the guide is accessible and easy to read.",
+          "backgroundColor": "#EAE4DC",
+          "props": ["printed spiral-bound book prop", "cozy couch setting", "warm throw blanket"],
+          "lighting": "warm indoor lamp light from upper right",
+          "angle": "eye-level, slight upward tilt of hands",
+          "canvaSearch": "hands holding book cozy reading mockup lifestyle digital product",
+          "placementNote": "Hands should be relaxed, not tense — shows ease of use"
+        },
+        {
+          "type": "desk-study-setup",
+          "description": "Open laptop on a bright white desk showing the guide, with highlighted notes and a green pen placed beside the laptop. Shows active learning and study.",
+          "backgroundColor": "#FFFFFF",
+          "props": ["laptop open", "green felt-tip pen", "notebook with handwritten notes", "white desk"],
+          "lighting": "bright, clean overhead white light",
+          "angle": "three-quarter overhead at 45 degrees",
+          "canvaSearch": "laptop desk study setup clean white mockup digital guide",
+          "placementNote": "Highlight 2-3 lines on notebook as if user is taking notes from the guide on screen"
+        }
+      ]
+    },
+    {
+      "productId": "003",
+      "productName": "Build Your First AI Agent in a Weekend",
+      "niche": "ai-tools",
+      "coverSpec": {
+        "title": "Build Your First AI Agent",
+        "subtitle": "IN A WEEKEND",
+        "tagline": "No Coding Required — Step-by-Step Project Guide",
+        "backgroundColor": "#0F172A",
+        "accentColor": "#6366F1",
+        "textColor": "#FFFFFF",
+        "font": "Inter Bold",
+        "icon": "🤖 robot face emoji or circuit board SVG, centered upper section",
+        "layout": "tech-dark-cinematic",
+        "dimensions": "2000x2000px",
+        "dpi": 300,
+        "elements": [
+          "Robot emoji or circuit icon in indigo at top-center, 160pt",
+          "Title 'Build Your First AI Agent' in white Inter Bold 64pt, 2 lines",
+          "Subtitle 'IN A WEEKEND' in #6366F1 indigo, ExtraBold 42pt, high-contrast",
+          "Horizontal indigo glow line (simulate with thick line + lighter inner line) between icon and title",
+          "Badge top-right: 'WEEKEND PROJECT' in white on #4338CA deep indigo pill",
+          "Subtle grid/dot pattern overlay on background (low opacity ~15%) to suggest tech",
+          "Tagline in #818CF8 (lighter indigo) 20pt below subtitle",
+          "Bottom bar: #020617 (near-black) with 'AI Tools Hub' in #6366F1 18pt left-aligned"
+        ],
+        "canvaInstructions": "1. Create 2000x2000px canvas, background #0F172A (midnight navy). 2. Add a dot grid pattern element (Canva Elements > Grids > dots) at ~15% opacity over the entire background. 3. Add robot emoji 🤖 at top-center 160pt, or find a circuit board icon from Canva Elements. 4. Add 'Build Your First AI Agent' in Inter Bold 64pt white, center-aligned. 5. Below title add 'IN A WEEKEND' in Inter ExtraBold 42pt #6366F1 (indigo). 6. Add divider: use two stacked lines — one 4px #6366F1 and one 1px #A5B4FC immediately below — to simulate a glow effect; width 650px. 7. Add rounded pill badge top-right: background #4338CA, text 'WEEKEND PROJECT' white 15pt. 8. Add tagline in #818CF8 20pt italic. 9. Bottom bar 80px: #020617 background, 'AI Tools Hub' in #6366F1 18pt. Export JPG 300 DPI."
+      },
+      "mockupSpecs": [
+        {
+          "type": "dual-monitor-dev-desk",
+          "description": "Dark-themed developer desk with a monitor showing the product cover and a keyboard in frame. Blue LED ambient lighting from the left. Shows this is a serious technical project guide.",
+          "backgroundColor": "#0D1117",
+          "props": ["27-inch monitor", "mechanical keyboard", "blue ambient LED strip (background)", "dark desk surface"],
+          "lighting": "dark room with blue LED accent light from left side",
+          "angle": "three-quarter from front-left, slight elevation",
+          "canvaSearch": "dark developer desk setup monitor mockup blue LED ambient",
+          "placementNote": "Cover should fill the center of the monitor screen; keyboard partially in foreground for depth"
+        },
+        {
+          "type": "ipad-code-context",
+          "description": "iPad on a dark slate surface showing the product guide. Beside it, a spiral notebook with handwritten 'AI Agent Blueprint' notes and a few arrows/diagrams. USB-C cable coiled nearby for tech feel.",
+          "backgroundColor": "#1C1C1E",
+          "props": ["iPad (dark mode)", "spiral notebook with diagrams", "USB-C cable", "dark slate surface"],
+          "lighting": "cool desk lamp from upper-right",
+          "angle": "overhead flat lay, slight diagonal tilt",
+          "canvaSearch": "iPad dark mockup developer notes flatlay tech",
+          "placementNote": "Notebook text should be too small to read clearly but visible as structured notes"
+        },
+        {
+          "type": "laptop-terminal-lifestyle",
+          "description": "Laptop open showing the product, with a terminal/code window visible in a second application. Coffee in a dark matte mug beside it. Minimal desk. Night-build session feel.",
+          "backgroundColor": "#111827",
+          "props": ["MacBook or dark laptop", "dark matte coffee mug", "minimal dark desk"],
+          "lighting": "screen glow as primary light source, warm desk lamp in far background",
+          "angle": "front-facing, slight elevation showing keyboard and screen",
+          "canvaSearch": "laptop night coding setup dark mockup developer lifestyle",
+          "placementNote": "Product guide takes up left 60% of screen; right panel shows a blurred terminal for context"
+        }
+      ]
+    },
+    {
+      "productId": "004",
+      "productName": "30-Day AI Productivity Challenge",
+      "niche": "productivity",
+      "coverSpec": {
+        "title": "30-Day AI Productivity Challenge",
+        "subtitle": "ONE AI TASK EVERY DAY",
+        "tagline": "Build Powerful AI Habits in Just One Month",
+        "backgroundColor": "#1E293B",
+        "accentColor": "#10B981",
+        "textColor": "#FFFFFF",
+        "font": "Inter Bold",
+        "icon": "✅ checkmark or calendar grid icon with teal highlight",
+        "layout": "number-dominant with calendar motif",
+        "dimensions": "2000x2000px",
+        "dpi": 300,
+        "elements": [
+          "Massive '30' numeral in #10B981 teal at 260pt — dominant visual anchor",
+          "Text 'DAY' immediately above '30' in white Inter Light 36pt letter-spaced",
+          "Horizontal teal divider line under '30', 500px wide",
+          "Title 'AI Productivity Challenge' in white Inter Bold 56pt below divider",
+          "Subtitle 'ONE AI TASK EVERY DAY' in #10B981 24pt letter-spaced",
+          "Small calendar grid icon (5x6 dots representing 30 days) above the '30' or as a corner decoration",
+          "Badge: 'INSTANT DOWNLOAD' in teal pill top-right",
+          "Tagline in #94A3B8 slate gray 20pt italic",
+          "Bottom bar: #0F172A near-black with 'AI Tools Hub' in #10B981 18pt"
+        ],
+        "canvaInstructions": "1. Create 2000x2000px canvas, background #1E293B (slate). 2. Place the text 'DAY' in Inter Light 36pt white at top center, letter spacing +300. 3. Directly below 'DAY', place '30' in Inter ExtraBold 260pt #10B981 (teal) — this should dominate the upper half of the canvas. 4. Add horizontal line #10B981, 500px wide, 3px height immediately below '30'. 5. Add 'AI Productivity Challenge' in Inter Bold 56pt white below the divider. 6. Add 'ONE AI TASK EVERY DAY' in Inter SemiBold 24pt #10B981, letter spacing +200. 7. Add a 5x6 dot grid (30 dots) using Canva's shapes or a calendar icon from Elements — place top-left or as background texture at 20% opacity. 8. Add 'INSTANT DOWNLOAD' pill badge top-right: #10B981 fill, dark #0F172A text. 9. Add tagline in #94A3B8 20pt italic. 10. Bottom bar 80px: #0F172A, 'AI Tools Hub' in #10B981. Export JPG 300 DPI."
+      },
+      "mockupSpecs": [
+        {
+          "type": "planner-desk-flatlay",
+          "description": "Product printout placed on a desk next to an open paper planner showing a monthly calendar view. Teal highlighter, a pen, and a cup of coffee in the frame. Shows daily habit and planning context.",
+          "backgroundColor": "#F0FDF4",
+          "props": ["printed A4 product sheet", "paper monthly planner open", "teal highlighter", "ballpoint pen", "coffee cup"],
+          "lighting": "bright natural daylight from window on left",
+          "angle": "overhead flat lay, 90-degree top-down",
+          "canvaSearch": "planner flatlay productivity desk mockup calendar pen",
+          "placementNote": "Product sheet and planner should be side by side with slight overlap; highlighter diagonal"
+        },
+        {
+          "type": "phone-habit-tracker",
+          "description": "Smartphone showing the product in a habit-tracking app context. Beside it, a small succulent and a wooden 'Day 1' block prop. Bright clean desk. Motivational and achievable feel.",
+          "backgroundColor": "#ECFDF5",
+          "props": ["smartphone", "wooden letter blocks spelling 'DAY 1'", "small succulent", "white desk"],
+          "lighting": "bright overhead soft light, minimal shadows",
+          "angle": "overhead flat lay",
+          "canvaSearch": "phone flatlay habit tracker blocks minimal desk mockup",
+          "placementNote": "Wooden blocks should spell 'DAY 1' to reinforce the challenge concept"
+        },
+        {
+          "type": "laptop-checklist-setup",
+          "description": "Laptop open showing the challenge PDF on screen. Beside it, a printed checklist partially completed with green checkmarks. A glass of water and notebook complete the productive workspace.",
+          "backgroundColor": "#F8FAFC",
+          "props": ["laptop open", "partially completed printed checklist", "glass of water", "spiral notebook"],
+          "lighting": "clean bright office light overhead",
+          "angle": "three-quarter from above at 60 degrees",
+          "canvaSearch": "laptop checklist desk mockup productivity workspace clean",
+          "placementNote": "Print a simple day-numbered checklist (Day 1-30) and mark off Days 1-7 with teal checkmarks for realism"
+        }
+      ]
+    },
+    {
+      "productId": "005",
+      "productName": "AI Cheat Sheet Bundle — 7 Quick Reference Sheets",
+      "niche": "ai-tools",
+      "coverSpec": {
+        "title": "AI Cheat Sheet Bundle",
+        "subtitle": "7 QUICK REFERENCE SHEETS",
+        "tagline": "ChatGPT, Claude, Gemini, Midjourney & More",
+        "backgroundColor": "#312E81",
+        "accentColor": "#A78BFA",
+        "textColor": "#FFFFFF",
+        "font": "Poppins Bold",
+        "icon": "⚡ lightning bolt emoji, large — or a stylized stacked pages icon",
+        "layout": "stacked-badge-heavy",
+        "dimensions": "2000x2000px",
+        "dpi": 300,
+        "elements": [
+          "Lightning bolt ⚡ icon in violet #A78BFA at 160pt — top center",
+          "Large '7' numeral in #A78BFA at 180pt, followed by 'SHEETS' in white 60pt on same baseline",
+          "Title 'AI Cheat Sheet Bundle' in white Poppins Bold 64pt",
+          "Subtitle '7 QUICK REFERENCE SHEETS' in #A78BFA 24pt letter-spaced",
+          "Horizontal violet divider line, 600px wide",
+          "Row of 7 small pill badges listing each tool: ChatGPT | Claude | Gemini | Midjourney | Perplexity | Copilot | Notion AI",
+          "Tagline in #C4B5FD (lighter violet) 18pt",
+          "Bottom bar: #1E1B4B very dark indigo with 'AI Tools Hub' in #A78BFA 18pt"
+        ],
+        "canvaInstructions": "1. Create 2000x2000px canvas, background #312E81 (deep indigo). 2. Place ⚡ lightning bolt emoji at top-center, 160pt. 3. Below icon, add '7 SHEETS' where '7' is in Poppins ExtraBold 180pt #A78BFA and 'SHEETS' is white Poppins Bold 60pt on the same text baseline — kern tightly. 4. Add divider line #A78BFA 600px wide, 3px. 5. Add 'AI Cheat Sheet Bundle' in Poppins Bold 64pt white, center-aligned. 6. Add '7 QUICK REFERENCE SHEETS' in Poppins SemiBold 24pt #A78BFA letter-spaced +150. 7. Add a horizontal row of 7 small rounded badges (40px height) in #1E1B4B, each containing one tool name in #A78BFA 12pt: ChatGPT, Claude, Gemini, Midjourney, Perplexity, Copilot, Notion AI. Space them evenly in a row. 8. Add tagline in #C4B5FD 18pt. 9. Bottom bar 80px: #1E1B4B background, 'AI Tools Hub' in #A78BFA. Export JPG 300 DPI."
+      },
+      "mockupSpecs": [
+        {
+          "type": "fanned-sheets-flatlay",
+          "description": "7 printed cheat sheets fanned out in a wide arc on a dark purple-tinted desk surface. Each sheet is visibly distinct. The bundle cover sheet is on top. Dramatic top-down shot with soft directional lighting.",
+          "backgroundColor": "#1E1B4B",
+          "props": ["7 printed A4 sheets fanned in arc", "dark purple or charcoal desk surface"],
+          "lighting": "directional soft light from upper-left, creating subtle depth shadows on fan edges",
+          "angle": "overhead flat lay 90 degrees, slightly dramatic",
+          "canvaSearch": "multiple pages fan mockup flatlay bundle digital product dark",
+          "placementNote": "Each sheet shows a different color header to distinguish: ChatGPT=indigo, Claude=violet, Gemini=blue, etc."
+        },
+        {
+          "type": "ipad-split-preview",
+          "description": "iPad in landscape mode on a dark desk, showing two cheat sheets side-by-side in a PDF viewer. Second cheat sheet partially visible on the right. Styled purple LED desk lamp in background.",
+          "backgroundColor": "#1C1917",
+          "props": ["iPad Pro in landscape mode", "dark desk surface", "purple LED desk lamp"],
+          "lighting": "purple ambient light from lamp plus cool screen light",
+          "angle": "slight three-quarter overhead",
+          "canvaSearch": "iPad landscape mockup dark desk digital download reference sheet",
+          "placementNote": "Show 2 cheat sheets side by side — tablet landscape view simulates the reference use case"
+        },
+        {
+          "type": "printed-pinboard",
+          "description": "Two cheat sheets pinned to a cork board with violet push-pins, and a third sheet on a clipboard below. MacBook partially visible at bottom of frame. Shows the reference use-case in a work environment.",
+          "backgroundColor": "#F5F0E8",
+          "props": ["cork board", "violet push-pins", "clipboard", "2 pinned printed sheets", "1 sheet on clipboard"],
+          "lighting": "warm office light, overhead",
+          "angle": "straight-on front-facing shot of board",
+          "canvaSearch": "cork board pinned notes mockup office reference workspace",
+          "placementNote": "One sheet should be pinned at a slight angle for natural realism"
+        }
+      ]
+    },
+    {
+      "productId": "006",
+      "productName": "AI Prompts for Insurance Agents",
+      "niche": "insurance",
+      "coverSpec": {
+        "title": "AI Prompts for Insurance Agents",
+        "subtitle": "200+ DONE-FOR-YOU SCRIPTS",
+        "tagline": "Prospects, Follow-Ups, Renewals & Client Communication",
+        "backgroundColor": "#1E3A5F",
+        "accentColor": "#3B82F6",
+        "textColor": "#FFFFFF",
+        "font": "Inter Bold",
+        "icon": "🛡️ shield icon or briefcase — professional, serious — or a handshake outline",
+        "layout": "professional-corporate",
+        "dimensions": "2000x2000px",
+        "dpi": 300,
+        "elements": [
+          "Shield icon 🛡️ in #3B82F6 blue at 140pt — top-center, conveys trust and protection",
+          "Title 'AI Prompts for Insurance Agents' in white Inter Bold 60pt, 2 lines",
+          "Subtitle '200+ DONE-FOR-YOU SCRIPTS' in #3B82F6 28pt ExtraBold",
+          "Thin professional divider line in #3B82F6 500px wide",
+          "Four category badges in a 2x2 grid: 'Prospecting' | 'Follow-Ups' | 'Renewals' | 'Client Comms' — dark navy pills with blue text",
+          "Professional tagline in #93C5FD light blue 20pt",
+          "Bottom bar: #0C1F35 very dark navy with 'AI Tools Hub' in #3B82F6 18pt",
+          "Subtle diagonal blueprint line pattern at 8% opacity background texture"
+        ],
+        "canvaInstructions": "1. Create 2000x2000px canvas, background #1E3A5F (navy). 2. Add a very subtle diagonal line grid pattern (Canva Elements > Patterns) at 8% opacity for blueprint texture. 3. Place shield emoji 🛡️ at top-center 140pt, or find a clean shield SVG in Canva Elements. 4. Add 'AI Prompts for' in Inter Regular 38pt white, center-aligned. 5. Below that, 'Insurance Agents' in Inter ExtraBold 70pt white. 6. Add '200+ DONE-FOR-YOU SCRIPTS' in Inter Bold 28pt #3B82F6 below title. 7. Add horizontal line #3B82F6, 500px wide, 2px. 8. Add 4 small rounded pills in a row or 2x2 grid: background #0C1F35, text in #93C5FD — contents: Prospecting, Follow-Ups, Renewals, Client Comms — 14pt each. 9. Tagline in #93C5FD 20pt italic. 10. Bottom bar 80px: #0C1F35, 'AI Tools Hub' in #3B82F6. Export JPG 300 DPI."
+      },
+      "mockupSpecs": [
+        {
+          "type": "professional-desk-laptop",
+          "description": "MacBook on a polished dark wood executive desk showing the product. A navy business card holder, fountain pen, and a glass of water complete the professional insurance agent office aesthetic.",
+          "backgroundColor": "#2C3E50",
+          "props": ["MacBook Pro", "dark wood desk", "business card holder", "fountain pen", "glass of water"],
+          "lighting": "professional office lighting, warm overhead with a window light source to the right",
+          "angle": "three-quarter front view, slight elevation",
+          "canvaSearch": "MacBook executive desk professional office mockup business",
+          "placementNote": "Product should be displayed at full screen — no other browser tabs or windows visible"
+        },
+        {
+          "type": "printed-in-binder",
+          "description": "Product pages shown inside a navy professional binder, open to the cover page. Binder is on a dark wood desk next to a cup of coffee and a phone showing a calendar. Corporate, professional feel.",
+          "backgroundColor": "#1A2A3A",
+          "props": ["navy 3-ring binder open", "dark wood desk surface", "coffee cup", "phone showing calendar"],
+          "lighting": "clean warm office light",
+          "angle": "overhead flat lay at 45 degrees",
+          "canvaSearch": "binder open professional document mockup corporate desk",
+          "placementNote": "Binder rings visible on left side — shows this is a working reference document"
+        },
+        {
+          "type": "ipad-client-meeting",
+          "description": "iPad on a conference table showing the prompt scripts on screen. Two chairs visible at the edge of frame, a pen, and a notepad with handwritten notes. Simulates using the scripts in a client meeting.",
+          "backgroundColor": "#F0F4F8",
+          "props": ["iPad Pro", "conference table", "two chairs (edge of frame)", "pen", "notepad with notes"],
+          "lighting": "bright meeting room overhead fluorescent-style light, clean and corporate",
+          "angle": "slight three-quarter overhead looking down at table",
+          "canvaSearch": "iPad conference table meeting room mockup business professional",
+          "placementNote": "Notepad should have 3-4 lines of handwritten 'client notes' for realism"
+        }
+      ]
+    },
+    {
+      "productId": "007",
+      "productName": "300 AI Prompts for Social Media Content",
+      "niche": "social-media",
+      "coverSpec": {
+        "title": "300 AI Prompts for Social Media",
+        "subtitle": "CONTENT THAT ACTUALLY CONVERTS",
+        "tagline": "Instagram, TikTok, LinkedIn, Twitter & More",
+        "backgroundColor": "#4F46E5",
+        "accentColor": "#EC4899",
+        "textColor": "#FFFFFF",
+        "font": "Poppins Bold",
+        "icon": "📱 phone with social icons collage or ✨ sparkle stars around the '300' number",
+        "layout": "energetic-vibrant",
+        "dimensions": "2000x2000px",
+        "dpi": 300,
+        "elements": [
+          "Large '300' in #EC4899 pink at 220pt — high energy, dominant",
+          "'PROMPTS' in white Poppins ExtraBold 80pt immediately below '300' on same visual unit",
+          "Title 'for Social Media' in white 48pt below",
+          "Horizontal gradient bar from #6366F1 to #EC4899 (left to right), 650px wide, 4px",
+          "Row of social platform emoji or icons: 📸 🎵 💼 🐦 — styled in a horizontal strip",
+          "Subtitle 'CONTENT THAT ACTUALLY CONVERTS' in white 22pt letter-spaced",
+          "Energetic star/sparkle scatter in pink at 30% opacity as background decoration",
+          "Pill badge: 'FOR CREATORS & BRANDS' in dark indigo on pink pill",
+          "Bottom bar: #312E81 deep indigo with 'AI Tools Hub' in #EC4899 18pt"
+        ],
+        "canvaInstructions": "1. Create 2000x2000px canvas, background #4F46E5 (indigo). 2. Add pink sparkle/star decoration elements from Canva at 30% opacity scattered in background. 3. Place '300' in Poppins ExtraBold 220pt #EC4899 (hot pink) at vertical center ~35% from top. 4. Directly below '300', add 'PROMPTS' in Poppins ExtraBold 80pt white — very tight spacing to '300'. 5. Add 'for Social Media' in Poppins Bold 48pt white below. 6. Add gradient line: use two overlapping colored line segments to fake indigo-to-pink gradient, 650px wide, 4px high. 7. Add a horizontal row of 4 social icons: 📸 🎵 💼 🐦 at 60pt each, spaced 80px apart, below the gradient line. 8. Add 'CONTENT THAT ACTUALLY CONVERTS' in white Poppins SemiBold 22pt letter-spacing +150. 9. Pill badge bottom: #1E1B4B background, #EC4899 text 'FOR CREATORS & BRANDS' 14pt. 10. Bottom bar 80px: #312E81, 'AI Tools Hub' in #EC4899. Export JPG 300 DPI."
+      },
+      "mockupSpecs": [
+        {
+          "type": "phone-content-creator-desk",
+          "description": "iPhone with product cover on screen, placed on a colorful flat lay with ring light visible in background, a small tripod, and colorful sticky notes around it. Shows the content creator workspace vibe.",
+          "backgroundColor": "#FDF4FF",
+          "props": ["iPhone (edge-to-edge display)", "small ring light in background", "mini tripod", "colorful sticky notes", "pink highlighter"],
+          "lighting": "ring light as key light, bright and even — content creator style",
+          "angle": "overhead flat lay with ring light visible as prop",
+          "canvaSearch": "iPhone flatlay content creator ring light sticky notes mockup",
+          "placementNote": "Sticky notes should have short content ideas scrawled on them for narrative realism"
+        },
+        {
+          "type": "tablet-grid-preview",
+          "description": "iPad in portrait mode showing a social media content grid preview inside an Instagram-style layout. Product cover visible in one of the grid cells. Pink/purple color scheme throughout. High-energy, aspirational.",
+          "backgroundColor": "#EEF2FF",
+          "props": ["iPad in portrait mode", "white marble surface"],
+          "lighting": "bright clean overhead natural light",
+          "angle": "slight three-quarter overhead",
+          "canvaSearch": "iPad portrait Instagram grid mockup social media content creator",
+          "placementNote": "Mock an Instagram-style grid layout on iPad screen — one cell shows product cover, others show placeholder content tiles"
+        },
+        {
+          "type": "laptop-social-scheduling",
+          "description": "Laptop open to a social media scheduling tool (blurred for neutrality) with product PDF open in a second window. Hot pink wireless mouse beside it, energy drink in background. Hustle culture, aspirational.",
+          "backgroundColor": "#FAF0FE",
+          "props": ["laptop open", "hot pink wireless mouse", "energy drink can", "colorful pens"],
+          "lighting": "bright room light, slight purple tint from laptop glow",
+          "angle": "three-quarter view from above-right",
+          "canvaSearch": "laptop social media scheduling content creator desk pink mockup",
+          "placementNote": "Product PDF in left panel — right panel blurred scheduling tool for context without endorsing any platform"
+        }
+      ]
+    },
+    {
+      "productId": "008",
+      "productName": "No-Code AI Automation Playbook",
+      "niche": "automation",
+      "coverSpec": {
+        "title": "No-Code AI Automation Playbook",
+        "subtitle": "AUTOMATE YOUR WORK IN HOURS",
+        "tagline": "Zapier, Make.com, n8n & AI — Zero Coding Required",
+        "backgroundColor": "#312E81",
+        "accentColor": "#A78BFA",
+        "textColor": "#FFFFFF",
+        "font": "Inter Bold",
+        "icon": "⚙️ gear with connecting arrows icon, or a flow diagram shape — shows automation workflow",
+        "layout": "flow-diagram-tech",
+        "dimensions": "2000x2000px",
+        "dpi": 300,
+        "elements": [
+          "Simple flow diagram: 3 boxes connected by arrows (Trigger → AI → Action) in violet/white at 20% opacity as background visual",
+          "Gear emoji ⚙️ or flow arrows icon in violet #A78BFA at 140pt top-center",
+          "Title 'No-Code AI Automation Playbook' in white Inter Bold 58pt, 2 lines",
+          "Subtitle 'AUTOMATE YOUR WORK IN HOURS' in #A78BFA 26pt Bold letter-spaced",
+          "Horizontal violet divider line 580px wide",
+          "Tool badges row: Zapier | Make.com | n8n | AI — rounded pills in #1E1B4B with #A78BFA text",
+          "Badge: 'NO CODING REQUIRED' in white on violet, top-right corner",
+          "Tagline in #C4B5FD 20pt italic",
+          "Bottom bar: #1E1B4B with 'AI Tools Hub' in #A78BFA 18pt"
+        ],
+        "canvaInstructions": "1. Create 2000x2000px canvas, background #312E81 (deep indigo). 2. Create a subtle background workflow diagram: add 3 rounded rectangles (50% opacity, no fill just outline in #A78BFA) connected by right-pointing arrows — place at center-background. Labels in the boxes: 'Trigger', 'AI', 'Action'. Scale to fill ~80% canvas width. Set entire diagram to 15% opacity. 3. Place ⚙️ gear emoji at top-center 140pt, color tint #A78BFA. 4. Add 'No-Code AI' in Inter Bold 64pt white. 5. Add 'Automation Playbook' in Inter Bold 58pt white — slightly smaller to fit. 6. Add 'AUTOMATE YOUR WORK IN HOURS' in Inter Bold 26pt #A78BFA, letter-spacing +120. 7. Add horizontal line #A78BFA 580px wide, 3px. 8. Add 4 pill badges in a row: Zapier, Make.com, n8n, AI — background #1E1B4B, text #A78BFA, 14pt. 9. Top-right pill: #A78BFA background, white text 'NO CODING REQUIRED'. 10. Bottom bar 80px: #1E1B4B, 'AI Tools Hub' #A78BFA. Export JPG 300 DPI."
+      },
+      "mockupSpecs": [
+        {
+          "type": "dual-screen-automation",
+          "description": "Wide-screen monitor showing a workflow automation canvas (Zapier/Make-style interface blurred) with the product PDF in a sidebar. Keyboard and mouse in foreground. Purple desk mat. Shows the product in active use context.",
+          "backgroundColor": "#1A1625",
+          "props": ["widescreen monitor", "mechanical keyboard", "mouse", "purple desk mat"],
+          "lighting": "screen glow as primary, cool desk lamp secondary",
+          "angle": "straight-on front view, slight elevation",
+          "canvaSearch": "widescreen monitor desk automation setup mockup dark purple",
+          "placementNote": "Left 70% of screen shows blurred automation workflow diagram; right 30% sidebar shows product cover"
+        },
+        {
+          "type": "tablet-workflow-diagram",
+          "description": "iPad Pro on a desk showing the playbook open to an automation workflow diagram page. Sticky notes with workflow steps written on them placed around the iPad. A stylus pen on the surface.",
+          "backgroundColor": "#1E1B4B",
+          "props": ["iPad Pro with Apple Pencil/stylus", "5 sticky notes with workflow steps", "dark desk surface"],
+          "lighting": "cool white desk light from above",
+          "angle": "overhead flat lay, slight tilt",
+          "canvaSearch": "iPad stylus workflow planning flatlay dark desk mockup",
+          "placementNote": "Sticky notes should read: 'Email comes in', 'AI categorizes', 'Sends reply', 'Logs to sheet', 'Notify Slack'"
+        },
+        {
+          "type": "laptop-before-after",
+          "description": "Laptop showing product PDF on screen. On left of laptop, a printed 'Before' sticky note with manual tasks listed. On right, an 'After' note showing automated version. Shows the transformation value prop.",
+          "backgroundColor": "#F5F3FF",
+          "props": ["laptop open", "2 sticky notes labeled BEFORE and AFTER", "pen", "white desk"],
+          "lighting": "bright natural light, clean and modern",
+          "angle": "overhead flat lay at 60 degrees",
+          "canvaSearch": "laptop before after comparison notes mockup productivity desk",
+          "placementNote": "BEFORE note (yellow): handwritten manual tasks list. AFTER note (purple): same tasks crossed out, replaced with 'AUTOMATED'"
+        }
+      ]
+    },
+    {
+      "productId": "009",
+      "productName": "AI-Powered Morning Routine System",
+      "niche": "productivity",
+      "coverSpec": {
+        "title": "AI-Powered Morning Routine System",
+        "subtitle": "45-MINUTE FLOW FOR PEAK PERFORMANCE",
+        "tagline": "Plan, Prioritize & Execute Your Day with AI",
+        "backgroundColor": "#292524",
+        "accentColor": "#F97316",
+        "textColor": "#FFFFFF",
+        "font": "Poppins SemiBold",
+        "icon": "🌅 sunrise emoji or sun rising over horizon — warm, energizing visual",
+        "layout": "warm-sunrise-energy",
+        "dimensions": "2000x2000px",
+        "dpi": 300,
+        "elements": [
+          "Sunrise emoji 🌅 or gradient sun arc graphic in orange-to-amber at top-center, 160pt",
+          "Warm orange horizontal gradient strip below icon (left: #F97316, right: #F59E0B) 2000px wide 8px",
+          "Title 'AI-Powered Morning Routine System' in white Poppins Bold 58pt, up to 3 lines",
+          "Large badge: '45 MIN' in orange #F97316 Poppins ExtraBold 80pt — highly visible",
+          "Text 'daily flow' below '45 MIN' in white Poppins Light 28pt",
+          "Subtitle '45-MINUTE FLOW FOR PEAK PERFORMANCE' in #FED7AA (warm peach) 22pt",
+          "Three icon-label pairs in a row: ☀️ Plan | 🎯 Focus | ✅ Win — white text 16pt",
+          "Badge: 'INCLUDES AI PROMPTS' in orange pill, positioned near subtitle",
+          "Bottom bar: #1C1917 near-black charcoal with 'AI Tools Hub' in #F97316 18pt"
+        ],
+        "canvaInstructions": "1. Create 2000x2000px canvas, background #292524 (warm dark charcoal). 2. Place sunrise emoji 🌅 at top-center, 160pt. 3. Add a horizontal gradient strip: use a rectangle 2000px wide x 8px tall, with orange gradient left-to-right (#F97316 to #F59E0B) — position just below the emoji. 4. Add '45 MIN' in Poppins ExtraBold 80pt #F97316 — place prominently, vertically centered around 40% from top. 5. Below '45 MIN', add 'daily flow' in Poppins Light 28pt white. 6. Add 'AI-Powered Morning Routine System' in Poppins Bold 56pt white, 3 lines max, above '45 MIN' or restructure to: icon at top, title below, '45 MIN' large below title. 7. Add subtitle '45-MINUTE FLOW FOR PEAK PERFORMANCE' in Poppins Medium 22pt #FED7AA. 8. Add 3 icon-text pairs in a row: ☀️ Plan | 🎯 Focus | ✅ Win in white 16pt, horizontally spaced evenly. 9. Add 'INCLUDES AI PROMPTS' pill: #F97316 background, white text 14pt. 10. Bottom bar 80px: #1C1917, 'AI Tools Hub' in #F97316. Export JPG 300 DPI."
+      },
+      "mockupSpecs": [
+        {
+          "type": "morning-journal-flatlay",
+          "description": "Product printout laid on a bright white surface next to an open leather journal, a pen, and a steaming coffee mug. Natural morning sunlight streaming from the left. Very warm, aspirational, peaceful morning vibe.",
+          "backgroundColor": "#FFFBF5",
+          "props": ["printed A4 product sheet", "tan leather journal open", "ballpoint pen", "steaming coffee mug (ceramic)"],
+          "lighting": "warm golden morning sunlight from far left, very soft shadows",
+          "angle": "overhead flat lay 90 degrees, natural organic arrangement",
+          "canvaSearch": "morning flatlay journal coffee notebook pen natural light mockup",
+          "placementNote": "Let natural-looking warm light blow out slightly on the left edge — reinforces morning sunrise theme"
+        },
+        {
+          "type": "phone-morning-setup",
+          "description": "iPhone on a bedside table showing the routine on screen. Small alarm clock, a glass of water, and sunglasses beside it. Warm early morning light from a window. Shows the product as part of a real morning routine.",
+          "backgroundColor": "#FFF7ED",
+          "props": ["iPhone with warm screen display", "small analog alarm clock", "glass of water", "sunglasses"],
+          "lighting": "warm, slightly orange early morning window light from the right",
+          "angle": "slight overhead looking down from 45 degrees",
+          "canvaSearch": "phone bedside morning routine setup warm light mockup lifestyle",
+          "placementNote": "Alarm clock should show 6:00 AM to reinforce morning theme"
+        },
+        {
+          "type": "tablet-kitchen-counter",
+          "description": "iPad on a kitchen counter showing the morning routine. A bowl of oats, a small espresso cup, and fresh fruit beside it. Shows a healthy, productive morning ritual in a home kitchen environment.",
+          "backgroundColor": "#FEF9EE",
+          "props": ["iPad on stand or propped up", "bowl of oats", "espresso cup", "small orange or banana"],
+          "lighting": "bright morning kitchen light, slightly cool-white with warm accents",
+          "angle": "three-quarter front view, eye level of counter",
+          "canvaSearch": "iPad kitchen counter morning healthy lifestyle mockup",
+          "placementNote": "Product routine is visible on screen — showing Day 1 morning protocol or prompt list"
+        }
+      ]
+    },
+    {
+      "productId": "010",
+      "productName": "Notion AI Productivity Bundle — 5 Templates",
+      "niche": "notion",
+      "coverSpec": {
+        "title": "Notion AI Productivity Bundle",
+        "subtitle": "5 READY-TO-USE TEMPLATES",
+        "tagline": "Second Brain, Project Tracker, Daily Planner & More",
+        "backgroundColor": "#1A1A1A",
+        "accentColor": "#FFFFFF",
+        "textColor": "#FFFFFF",
+        "font": "Inter Bold",
+        "icon": "◻️ Notion-style page/block icon — clean and minimal, no emojis",
+        "layout": "notion-minimal-clean",
+        "dimensions": "2000x2000px",
+        "dpi": 300,
+        "elements": [
+          "Clean white square outline icon (Notion-style page with folded corner) at top-center — SVG preferred, 120px",
+          "Large '5' in white at 200pt — very clean, dominant",
+          "Text 'TEMPLATES' in white Inter Light 60pt immediately to the right of or below '5'",
+          "Thin horizontal white divider line, 500px wide, 1px (Notion's minimal aesthetic)",
+          "Title 'Notion AI Productivity Bundle' in white Inter Bold 56pt",
+          "Subtitle '5 READY-TO-USE TEMPLATES' in gray #A3A3A3 24pt",
+          "Five template name badges in a column or grid: Second Brain | Project Tracker | Daily Planner | Meeting Notes | Goal Setting",
+          "Minimal tagline in #737373 20pt",
+          "Bottom bar: #0A0A0A pure black with 'AI Tools Hub' in white 18pt",
+          "Entire design uses ONLY black, white, and grays — NO color accents — Notion-pure aesthetic"
+        ],
+        "canvaInstructions": "1. Create 2000x2000px canvas, background #1A1A1A (near black). 2. Add a Notion-style page icon: find a simple document/page outline SVG in Canva Elements — color it white. Place top-center at about 100px tall. 3. Add '5' in Inter ExtraBold 200pt white — position at upper-center below icon. 4. Add 'TEMPLATES' in Inter Light 60pt white, either on the same baseline as '5' or directly below. 5. Add horizontal rule: white line 500px wide, 1px height (Notion uses very thin rules). 6. Add 'Notion AI Productivity Bundle' in Inter Bold 56pt white. 7. Add '5 READY-TO-USE TEMPLATES' in Inter Regular 24pt #A3A3A3 (gray). 8. Add 5 template names in a column of small pill badges: background #2A2A2A (very dark gray), text #FFFFFF 13pt — Second Brain, Project Tracker, Daily Planner, Meeting Notes, Goal Setting. 9. Tagline in #737373 20pt. 10. Bottom bar 80px: #0A0A0A, 'AI Tools Hub' in white. NO COLOR — only black, white, dark gray. Export JPG 300 DPI."
+      },
+      "mockupSpecs": [
+        {
+          "type": "ipad-notion-screen",
+          "description": "iPad Pro on a clean white desk showing a Notion-style template interface. Beside it, a minimal black pen and a white ceramic cup. Entire composition is monochromatic — white, black, light gray only. Matches Notion's clean aesthetic.",
+          "backgroundColor": "#FFFFFF",
+          "props": ["iPad Pro", "black minimal pen", "white ceramic cup", "clean white desk"],
+          "lighting": "clean bright overhead natural light, no warmth — cool and clinical to match Notion's aesthetic",
+          "angle": "overhead flat lay, perfectly 90 degrees",
+          "canvaSearch": "iPad flatlay white minimal clean desk mockup digital product notion",
+          "placementNote": "Everything in frame should be white, black, or gray — no color props whatsoever"
+        },
+        {
+          "type": "macbook-template-preview",
+          "description": "MacBook on a white desk showing the Notion templates in action — a dark-mode Notion interface on screen. Small desk plant (black pot) and minimal notepad are the only props. Monochromatic, editorial feel.",
+          "backgroundColor": "#F5F5F5",
+          "props": ["MacBook (dark mode on screen)", "small plant in black pot", "white notepad", "white desk"],
+          "lighting": "even bright natural daylight, no shadows",
+          "angle": "three-quarter front view, slight elevation",
+          "canvaSearch": "MacBook white desk minimal clean Notion dark mode mockup",
+          "placementNote": "Notion dark mode interface visible on screen — shows Second Brain template layout if possible"
+        },
+        {
+          "type": "printed-templates-black-white",
+          "description": "Three printed template sheets in black-and-white on a white marble surface. Fanned slightly. A black fountain pen placed diagonally across the top sheet. Minimal, editorial, magazine-style shot.",
+          "backgroundColor": "#FAFAFA",
+          "props": ["3 printed A4 sheets (B&W)", "white marble surface", "black fountain pen"],
+          "lighting": "harsh directional light from one side creating clean sharp shadows — editorial style",
+          "angle": "slight elevated overhead, 75 degrees",
+          "canvaSearch": "printed sheets black white minimal editorial flatlay pen marble mockup",
+          "placementNote": "Sheets should be printed with visible Notion-style block layouts — headers, checkboxes, databases"
+        }
+      ]
+    }
+  ],
+  "globalDesignRules": {
+    "consistency": [
+      "All covers 2000x2000px at 300 DPI — no exceptions",
+      "Shop name 'AI Tools Hub' must appear in the bottom-left corner of every cover",
+      "Every cover must have a horizontal accent bar or divider line separating title from subtitle",
+      "All text must pass WCAG AA contrast ratio — minimum 4.5:1 ratio between text and background",
+      "No more than 3 font families per cover — same font in different weights counts as one family",
+      "Every cover must include at least one visually dominant number or quantity (500, 30, 7, 5, etc.)",
+      "All primary covers use brand dark backgrounds — no white primary covers",
+      "Accent colors must come from the niche color system defined in brandIdentity.colorSystem.niches",
+      "Every cover includes a single clear primary icon or visual anchor centered in the upper 40% of the canvas",
+      "Bottom bar height fixed at 80px across all products for visual consistency"
+    ],
+    "etsyImageRequirements": {
+      "primaryImage": "2000x2000px JPG, square format, product cover — required first image slot",
+      "secondaryImages": [
+        "Device mockup (iPad or MacBook with product on screen)",
+        "Lifestyle flatlay showing product in real use context",
+        "Close-up preview of 2-3 interior pages or template sections"
+      ],
+      "recommendedImageOrder": [
+        "Slot 1: Product cover (2000x2000px square)",
+        "Slot 2: Best device mockup (iPad or laptop flatlay)",
+        "Slot 3: Lifestyle context shot",
+        "Slot 4: Interior page preview — shows content quality",
+        "Slot 5 (optional): Before/after or use case infographic"
+      ],
+      "maxImages": 10,
+      "minResolution": "2000x2000px",
+      "format": "JPG preferred (smaller file size), PNG accepted for transparency needs",
+      "aspectRatioNote": "Etsy displays primary images as squares — crop all images to 1:1 ratio before uploading",
+      "fileNamingConvention": "{productId}-cover.jpg | {productId}-mockup-1.jpg | {productId}-mockup-2.jpg"
+    },
+    "coverDontDo": [
+      "No clip art or low-resolution stock icons — use emoji or high-quality SVG only",
+      "No white or light backgrounds on primary cover — use brand dark colors from the niche palette",
+      "No more than 6 words in the main headline title line",
+      "Never use Comic Sans, Times New Roman, Papyrus, or Courier as a design font",
+      "No clashing gradient combinations — if using gradients, stay within the same color temperature",
+      "Do not use more than 3 different font weights in one design",
+      "No centered text blocks longer than 4 lines — readability suffers at small thumbnail sizes",
+      "No images or photography on the primary cover — icon/emoji/shape elements only",
+      "Never omit the shop name from the bottom bar",
+      "Do not use neon or fluorescent colors on dark backgrounds — use the approved niche accent colors only"
+    ],
+    "thumbnailOptimization": {
+      "note": "Etsy search results show covers at approximately 170x135px — design must read clearly at this size",
+      "rules": [
+        "Primary number or quantity (500, 30, etc.) must be readable at thumbnail size — minimum 240pt on 2000px canvas",
+        "Main title must be readable at 2 lines maximum on thumbnail — avoid 3+ line titles where possible",
+        "High contrast is critical — test your cover by scaling it down to 200px wide before exporting",
+        "Avoid fine details, thin lines under 2px, or small text under 16pt for anything that must be read at thumbnail"
+      ]
+    },
+    "mockupProductionTips": {
+      "freeWorkflow": [
+        "Step 1: Create cover in Canva (free), export as 2000x2000px JPG",
+        "Step 2: Find device mockup template in Canva (search 'iPad mockup flat lay') or Smartmockups free tier",
+        "Step 3: Drop your cover into the smart object / device screen",
+        "Step 4: Add props as described in each product mockupSpecs",
+        "Step 5: Export mockup at 2000x2000px, crop to square if needed"
+      ],
+      "mockupSourceSites": [
+        "Canva.com — Free device mockup templates (search 'iPad flatlay', 'MacBook mockup')",
+        "Smartmockups.com — Free tier with limited but quality device mockups",
+        "Mockupworld.co — Free PSD mockups downloadable (requires Photoshop or GIMP)",
+        "Ls.graphics — High quality free and paid device scene mockups",
+        "Pixeden.com — Free mockup resources for digital products"
+      ],
+      "propsourceTips": [
+        "For flatlay props: photograph your own desk items on a white or marble surface using phone camera",
+        "Unsplash.com — Free high-resolution lifestyle and desk photography for background use",
+        "Pexels.com — Free stock photos for workspace and desk setups",
+        "Use Canva's 'Mockup' feature (Creator plan) for automatic smart object replacement"
+      ]
+    },
+    "recommendedFreeTools": [
+      "Canva (canva.com) — Free tier sufficient for all covers and most mockups; search 'digital product cover'",
+      "Adobe Express (express.adobe.com) — Free tier with good templates and brand kit",
+      "GIMP (gimp.org) — Free open-source Photoshop alternative for PSD mockup editing",
+      "Inkscape (inkscape.org) — Free SVG editor for creating custom icons",
+      "Unsplash (unsplash.com) — Free high-quality photos for mockup backgrounds and lifestyle props",
+      "Pexels (pexels.com) — Free stock photography for desk and lifestyle mockup contexts",
+      "Remove.bg (remove.bg) — Free background removal for product transparency needs",
+      "Squoosh (squoosh.app) — Free image compression to meet Etsy file size requirements"
+    ],
+    "qualityChecklist": [
+      "Cover reads clearly when scaled to 200px wide (thumbnail test)",
+      "Shop name visible in bottom-left corner",
+      "Accent color matches the product's niche palette",
+      "All text contrast passes 4.5:1 ratio",
+      "Primary cover exported as JPG at 2000x2000px",
+      "At least 2 mockup images created per product",
+      "Interior page preview image created showing actual content",
+      "All images renamed using convention: {productId}-cover.jpg, {productId}-mockup-1.jpg, etc.",
+      "No personal information, watermarks, or third-party logos in final export"
+    ]
+  }
+}

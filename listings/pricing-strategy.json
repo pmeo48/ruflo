@@ -1,0 +1,220 @@
+{
+  "pricingPhilosophy": "Psychological .99 pricing throughout. Compare-at prices set at ~2x to signal value and enable discount positioning. Digital products have zero marginal cost — margin optimization is the primary lever.",
+  "etsyFeeStructure": {
+    "listingFee": 0.20,
+    "listingRenewalFee": 0.20,
+    "transactionFeePercent": 6.5,
+    "paymentProcessingFeePercent": 3.0,
+    "paymentProcessingFlat": 0.25,
+    "offSiteAdsFeePercent": 15.0,
+    "offSiteAdsNote": "Only applies if Etsy runs offsite ads and sale results; opt-out available if under $10k annual revenue",
+    "totalFeeEstimatePercent": "~9.7% (transaction + payment processing) plus $0.45 fixed per sale"
+  },
+  "products": [
+    {
+      "productId": "001",
+      "title": "500 ChatGPT Prompts for Entrepreneurs",
+      "price": 9.99,
+      "compareAtPrice": 19.99,
+      "etsyFees": {
+        "listing": 0.20,
+        "transaction": 0.65,
+        "paymentProcessing": 0.55,
+        "total": 1.40
+      },
+      "netRevenue": 8.59,
+      "marginPercent": 86,
+      "annualTarget": { "units": 150, "revenue": 1498.50, "net": 1288.50 }
+    },
+    {
+      "productId": "002",
+      "title": "AI for Complete Beginners Guide",
+      "price": 12.99,
+      "compareAtPrice": 24.99,
+      "etsyFees": {
+        "listing": 0.20,
+        "transaction": 0.84,
+        "paymentProcessing": 0.64,
+        "total": 1.68
+      },
+      "netRevenue": 11.31,
+      "marginPercent": 87,
+      "annualTarget": { "units": 200, "revenue": 2598.00, "net": 2262.00 }
+    },
+    {
+      "productId": "003",
+      "title": "Build Your First AI Agent in a Weekend",
+      "price": 14.99,
+      "compareAtPrice": 29.99,
+      "etsyFees": {
+        "listing": 0.20,
+        "transaction": 0.97,
+        "paymentProcessing": 0.70,
+        "total": 1.87
+      },
+      "netRevenue": 13.12,
+      "marginPercent": 88,
+      "annualTarget": { "units": 120, "revenue": 1798.80, "net": 1574.40 }
+    },
+    {
+      "productId": "004",
+      "title": "AI Daily Life Toolkit: 30-Day Challenge",
+      "price": 8.99,
+      "compareAtPrice": 16.99,
+      "etsyFees": {
+        "listing": 0.20,
+        "transaction": 0.58,
+        "paymentProcessing": 0.52,
+        "total": 1.30
+      },
+      "netRevenue": 7.69,
+      "marginPercent": 86,
+      "annualTarget": { "units": 180, "revenue": 1618.20, "net": 1384.20 }
+    },
+    {
+      "productId": "005",
+      "title": "Ultimate AI Cheat Sheet Bundle",
+      "price": 6.99,
+      "compareAtPrice": 12.99,
+      "etsyFees": {
+        "listing": 0.20,
+        "transaction": 0.45,
+        "paymentProcessing": 0.46,
+        "total": 1.11
+      },
+      "netRevenue": 5.88,
+      "marginPercent": 84,
+      "annualTarget": { "units": 250, "revenue": 1747.50, "net": 1470.00 }
+    },
+    {
+      "productId": "006",
+      "title": "AI for Insurance Agents Complete Guide",
+      "price": 14.99,
+      "compareAtPrice": 29.99,
+      "etsyFees": {
+        "listing": 0.20,
+        "transaction": 0.97,
+        "paymentProcessing": 0.70,
+        "total": 1.87
+      },
+      "netRevenue": 13.12,
+      "marginPercent": 88,
+      "annualTarget": { "units": 80, "revenue": 1199.20, "net": 1049.60 }
+    },
+    {
+      "productId": "007",
+      "title": "300 Prompts for Social Media Managers",
+      "price": 7.99,
+      "compareAtPrice": 14.99,
+      "etsyFees": {
+        "listing": 0.20,
+        "transaction": 0.52,
+        "paymentProcessing": 0.49,
+        "total": 1.21
+      },
+      "netRevenue": 6.78,
+      "marginPercent": 85,
+      "annualTarget": { "units": 200, "revenue": 1598.00, "net": 1356.00 }
+    },
+    {
+      "productId": "008",
+      "title": "No-Code AI Automation Guide",
+      "price": 12.99,
+      "compareAtPrice": 24.99,
+      "etsyFees": {
+        "listing": 0.20,
+        "transaction": 0.84,
+        "paymentProcessing": 0.64,
+        "total": 1.68
+      },
+      "netRevenue": 11.31,
+      "marginPercent": 87,
+      "annualTarget": { "units": 150, "revenue": 1948.50, "net": 1696.50 }
+    },
+    {
+      "productId": "009",
+      "title": "AI Morning Routine Productivity System",
+      "price": 6.99,
+      "compareAtPrice": 12.99,
+      "etsyFees": {
+        "listing": 0.20,
+        "transaction": 0.45,
+        "paymentProcessing": 0.46,
+        "total": 1.11
+      },
+      "netRevenue": 5.88,
+      "marginPercent": 84,
+      "annualTarget": { "units": 220, "revenue": 1537.80, "net": 1293.60 }
+    },
+    {
+      "productId": "010",
+      "title": "Notion AI Productivity Bundle",
+      "price": 11.99,
+      "compareAtPrice": 22.99,
+      "etsyFees": {
+        "listing": 0.20,
+        "transaction": 0.78,
+        "paymentProcessing": 0.61,
+        "total": 1.59
+      },
+      "netRevenue": 10.40,
+      "marginPercent": 87,
+      "annualTarget": { "units": 175, "revenue": 2098.25, "net": 1820.00 }
+    }
+  ],
+  "bundlePricing": [
+    {
+      "bundleId": "bundle-001",
+      "name": "AI Starter Bundle",
+      "price": 19.99,
+      "individualTotal": 28.97,
+      "etsyFees": { "listing": 0.20, "transaction": 1.30, "paymentProcessing": 0.85, "total": 2.35 },
+      "netRevenue": 17.64,
+      "annualTarget": { "units": 60, "revenue": 1199.40, "net": 1058.40 }
+    },
+    {
+      "bundleId": "bundle-002",
+      "name": "AI Entrepreneur Power Pack",
+      "price": 27.99,
+      "individualTotal": 41.96,
+      "etsyFees": { "listing": 0.20, "transaction": 1.82, "paymentProcessing": 1.09, "total": 3.11 },
+      "netRevenue": 24.88,
+      "annualTarget": { "units": 50, "revenue": 1399.50, "net": 1244.00 }
+    },
+    {
+      "bundleId": "bundle-003",
+      "name": "AI Content Creator Bundle",
+      "price": 21.99,
+      "individualTotal": 32.97,
+      "etsyFees": { "listing": 0.20, "transaction": 1.43, "paymentProcessing": 0.91, "total": 2.54 },
+      "netRevenue": 19.45,
+      "annualTarget": { "units": 40, "revenue": 879.60, "net": 778.00 }
+    },
+    {
+      "bundleId": "bundle-004",
+      "name": "Complete AI Business Library",
+      "price": 59.99,
+      "individualTotal": 107.90,
+      "etsyFees": { "listing": 0.20, "transaction": 3.90, "paymentProcessing": 2.05, "total": 6.15 },
+      "netRevenue": 53.84,
+      "annualTarget": { "units": 25, "revenue": 1499.75, "net": 1346.00 }
+    }
+  ],
+  "revenueProjection": {
+    "year1": {
+      "individualProductsNet": 15194.80,
+      "bundlesNet": 4426.40,
+      "totalNet": 19621.20,
+      "totalGross": 21544.05,
+      "averageOrderValue": 9.85,
+      "note": "Year 1 projections assume 6-month ramp period; full velocity in months 7-12"
+    },
+    "pricingLevers": [
+      "Run Etsy sales at 20-30% off during peak periods (Q4, back-to-school) — Etsy promotes sale listings",
+      "Offer coupon codes to email subscribers for repeat purchases",
+      "Test price increases on best sellers after 100+ reviews; +$1-2 at high review counts rarely hurts conversion",
+      "Bundle upsells in thank-you messages: 'You bought X — save 30% on bundle Y'",
+      "Use compare-at prices consistently — they display as strikethrough on Etsy and increase click-through"
+    ]
+  }
+}

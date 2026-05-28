@@ -1,0 +1,102 @@
+{
+  "bundles": [
+    {
+      "id": "bundle-001",
+      "name": "AI Starter Bundle",
+      "description": "Everything a complete beginner needs to go from zero to confident AI user in 30 days.",
+      "products": [
+        { "productId": "002", "title": "AI for Complete Beginners Guide", "individualPrice": 12.99 },
+        { "productId": "004", "title": "AI Daily Life Toolkit: 30-Day Challenge", "individualPrice": 8.99 },
+        { "productId": "005", "title": "Ultimate AI Cheat Sheet Bundle", "individualPrice": 6.99 }
+      ],
+      "individualTotal": 28.97,
+      "bundlePrice": 19.99,
+      "savings": 8.98,
+      "savingsPercent": 31,
+      "compareAtPrice": 28.97,
+      "targetAudience": "complete beginners, non-technical users",
+      "primaryKeyword": "ai for beginners bundle",
+      "etsyTitle": "AI Starter Bundle | Beginner Guide + 30-Day Challenge + Cheat Sheets | ChatGPT PDF Bundle",
+      "status": "draft"
+    },
+    {
+      "id": "bundle-002",
+      "name": "AI Entrepreneur Power Pack",
+      "description": "The complete AI toolkit for entrepreneurs, freelancers, and solopreneurs who want to automate, create, and grow faster.",
+      "products": [
+        { "productId": "001", "title": "500 ChatGPT Prompts for Entrepreneurs", "individualPrice": 9.99 },
+        { "productId": "008", "title": "No-Code AI Automation Guide", "individualPrice": 12.99 },
+        { "productId": "009", "title": "AI Morning Routine Productivity System", "individualPrice": 6.99 },
+        { "productId": "010", "title": "Notion AI Productivity Bundle", "individualPrice": 11.99 }
+      ],
+      "individualTotal": 41.96,
+      "bundlePrice": 27.99,
+      "savings": 13.97,
+      "savingsPercent": 33,
+      "compareAtPrice": 41.96,
+      "targetAudience": "entrepreneurs, freelancers, solopreneurs, business owners",
+      "primaryKeyword": "chatgpt prompts entrepreneurs bundle",
+      "etsyTitle": "AI Entrepreneur Bundle | 500 Prompts + Automation Guide + Notion Templates + Morning System PDF",
+      "status": "draft"
+    },
+    {
+      "id": "bundle-003",
+      "name": "AI Content Creator Bundle",
+      "description": "Everything a content creator, social media manager, or agency needs to use AI for content at scale.",
+      "products": [
+        { "productId": "007", "title": "300 Prompts for Social Media Managers", "individualPrice": 7.99 },
+        { "productId": "001", "title": "500 ChatGPT Prompts for Entrepreneurs", "individualPrice": 9.99 },
+        { "productId": "003", "title": "Build Your First AI Agent in a Weekend", "individualPrice": 14.99 }
+      ],
+      "individualTotal": 32.97,
+      "bundlePrice": 21.99,
+      "savings": 10.98,
+      "savingsPercent": 33,
+      "compareAtPrice": 32.97,
+      "targetAudience": "content creators, social media managers, agencies, marketers",
+      "primaryKeyword": "social media prompts bundle",
+      "etsyTitle": "AI Content Creator Bundle | 300 Social Media Prompts + 500 ChatGPT Prompts + AI Agent Guide PDF",
+      "status": "draft"
+    },
+    {
+      "id": "bundle-004",
+      "name": "Complete AI Business Library",
+      "description": "All 10 products — the complete AI productivity and business library for professionals who want every tool, template, and guide.",
+      "products": [
+        { "productId": "001", "title": "500 ChatGPT Prompts for Entrepreneurs", "individualPrice": 9.99 },
+        { "productId": "002", "title": "AI for Complete Beginners Guide", "individualPrice": 12.99 },
+        { "productId": "003", "title": "Build Your First AI Agent in a Weekend", "individualPrice": 14.99 },
+        { "productId": "004", "title": "AI Daily Life Toolkit: 30-Day Challenge", "individualPrice": 8.99 },
+        { "productId": "005", "title": "Ultimate AI Cheat Sheet Bundle", "individualPrice": 6.99 },
+        { "productId": "006", "title": "AI for Insurance Agents Complete Guide", "individualPrice": 14.99 },
+        { "productId": "007", "title": "300 Prompts for Social Media Managers", "individualPrice": 7.99 },
+        { "productId": "008", "title": "No-Code AI Automation Guide", "individualPrice": 12.99 },
+        { "productId": "009", "title": "AI Morning Routine Productivity System", "individualPrice": 6.99 },
+        { "productId": "010", "title": "Notion AI Productivity Bundle", "individualPrice": 11.99 }
+      ],
+      "individualTotal": 107.90,
+      "bundlePrice": 59.99,
+      "savings": 47.91,
+      "savingsPercent": 44,
+      "compareAtPrice": 107.90,
+      "targetAudience": "serious professionals, AI enthusiasts, agencies, power users",
+      "primaryKeyword": "ai productivity bundle complete",
+      "etsyTitle": "Complete AI Business Library | All 10 Guides + Templates + Prompt Packs | Ultimate AI PDF Bundle",
+      "status": "draft"
+    }
+  ],
+  "bundleStrategy": {
+    "notes": [
+      "Bundles anchor perceived value — individual totals shown as compareAtPrice create urgency",
+      "33% savings is the sweet spot: meaningful discount without margin destruction",
+      "Bundle 004 (Complete Library) at $59.99 targets power buyers; effective per-product cost is $6.00",
+      "Each bundle has a distinct audience to prevent cannibalization",
+      "List bundles separately on Etsy as additional listings — they perform best as standalone items"
+    ],
+    "etsyFeePerBundle": {
+      "listingFee": 0.20,
+      "transactionFeePercent": 6.5,
+      "example": "Bundle 004 at $59.99: $0.20 listing + $3.90 transaction = $4.10 Etsy fees, $55.89 net"
+    }
+  }
+}

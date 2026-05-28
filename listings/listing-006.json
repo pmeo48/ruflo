@@ -1,0 +1,49 @@
+{
+  "productId": "006",
+  "etsyListingId": null,
+  "state": "draft",
+  "createdAt": "2026-05-28T00:00:00.000Z",
+  "title": "AI for Insurance Agents Complete Guide | ChatGPT for Insurance PDF 44 Pages Instant Download",
+  "description": "Insurance agents who use AI are closing more policies in less time. This 44-page guide shows you exactly how to integrate ChatGPT into your daily workflow.\n\nYou get 44 pages covering AI-powered prospecting scripts, policy explanation templates, follow-up sequences, objection handlers, and 80+ insurance-specific ChatGPT prompts.\n\nWrite proposals in 10 minutes, personalize client communications at scale, and free up 5+ hours per week for selling.\n\nInstant delivery after purchase — start using it before your next client call.\n\nFiles included: PDF (44 pages), prompt library (plain text), email template pack.\n\nAdd to cart and give your practice an AI advantage.",
+  "price": 14.99,
+  "quantity": 999,
+  "tags": [
+    "insurance agent tools",
+    "ai for insurance",
+    "chatgpt insurance",
+    "insurance productivity",
+    "ai agent guide",
+    "insurance marketing ai",
+    "digital download",
+    "insurance business tools",
+    "chatgpt for agents",
+    "ai sales scripts",
+    "instant download",
+    "insurance prompts",
+    "professional development"
+  ],
+  "materials": ["digital download", "PDF", "instant download"],
+  "category": "Craft Supplies & Tools > Patterns & How To > Tutorials & Instructional",
+  "primaryImage": "covers/006-cover.png",
+  "additionalImages": ["covers/006-mockup-1.png", "covers/006-mockup-2.png"],
+  "whoMade": "i_did",
+  "whenMade": "made_to_order",
+  "isSupply": false,
+  "type": "download",
+  "seoAnalysis": {
+    "primaryKeyword": "ai for insurance agents",
+    "secondaryKeywords": ["chatgpt insurance scripts", "insurance agent productivity", "ai insurance prompts", "insurance sales ai"],
+    "titleKeywordPosition": 1,
+    "estimatedMonthlySearches": 0,
+    "competitionScore": 0,
+    "optimizationScore": 0
+  },
+  "pricingStrategy": {
+    "basePrice": 14.99,
+    "launchPrice": 11.99,
+    "bundleDiscount": 0,
+    "competitorAvgPrice": 13.00,
+    "priceJustification": "Niche professional audience commands premium pricing. Insurance agents have high income and clear ROI mindset — $14.99 is trivial versus one closed policy. Low competition in this vertical justifies top-tier price point."
+  },
+  "bundle": null
+}

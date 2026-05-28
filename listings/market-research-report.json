@@ -1,0 +1,529 @@
+{
+  "generatedAt": "2026-05-28T00:00:00.000Z",
+  "topNiches": [
+    {
+      "name": "ChatGPT Prompts for Business",
+      "opportunityScore": 92,
+      "estimatedMonthlySearches": 45000,
+      "competitionLevel": "medium",
+      "avgPrice": 7.99,
+      "priceRange": { "low": 2.99, "high": 19.99 },
+      "topKeywords": ["chatgpt prompts", "ai prompts", "chatgpt for business", "ai tools", "prompt pack"],
+      "bestProductTypes": ["prompt-pack", "cheat-sheet"],
+      "growthTrend": "rising",
+      "notes": "High demand, moderate competition. Bundles outperform singles. Business-focused prompts (copywriting, email, marketing) convert best. Buyers respond to exact prompt counts in title (e.g. '500 ChatGPT Prompts')."
+    },
+    {
+      "name": "AI Tools for Productivity",
+      "opportunityScore": 88,
+      "estimatedMonthlySearches": 38000,
+      "competitionLevel": "medium",
+      "avgPrice": 9.99,
+      "priceRange": { "low": 4.99, "high": 24.99 },
+      "topKeywords": ["ai productivity tools", "ai workflow guide", "chatgpt productivity", "ai tools list", "work smarter with ai"],
+      "bestProductTypes": ["beginner-guide", "cheat-sheet-bundle", "prompt-pack"],
+      "growthTrend": "rising",
+      "notes": "Buyers want actionable step-by-step guides. Guides that include screenshots or tool comparisons see higher review counts. Workflow automation content performs particularly well for remote workers and freelancers."
+    },
+    {
+      "name": "Productivity Planners (Digital)",
+      "opportunityScore": 85,
+      "estimatedMonthlySearches": 62000,
+      "competitionLevel": "high",
+      "avgPrice": 6.49,
+      "priceRange": { "low": 1.99, "high": 14.99 },
+      "topKeywords": ["digital planner", "productivity planner printable", "daily planner pdf", "weekly planner digital", "adhd planner"],
+      "bestProductTypes": ["planner", "worksheet-bundle"],
+      "growthTrend": "stable",
+      "notes": "Evergreen category but very crowded. Differentiate with niche audiences: ADHD planners, teacher planners, fitness planners. GoodNotes and Notability compatibility in listing titles increases conversions. Bundles with multiple planner templates significantly outperform single items."
+    },
+    {
+      "name": "Digital Guides for Beginners (AI & Tech)",
+      "opportunityScore": 90,
+      "estimatedMonthlySearches": 28000,
+      "competitionLevel": "low",
+      "avgPrice": 8.99,
+      "priceRange": { "low": 3.99, "high": 17.99 },
+      "topKeywords": ["ai for beginners guide", "chatgpt for beginners", "how to use ai", "tech guide for beginners", "ai starter guide"],
+      "bestProductTypes": ["beginner-guide", "cheat-sheet"],
+      "growthTrend": "rising",
+      "notes": "Enormous underserved market — non-tech adults 40+ looking for friendly AI introductions. Plain-English guides with no jargon perform best. Guides addressing specific fears ('AI is overwhelming') have strong emotional hooks. This niche is low-competition with high conversion potential."
+    },
+    {
+      "name": "AI Guide for Insurance Professionals",
+      "opportunityScore": 87,
+      "estimatedMonthlySearches": 8500,
+      "competitionLevel": "very-low",
+      "avgPrice": 14.99,
+      "priceRange": { "low": 9.99, "high": 29.99 },
+      "topKeywords": ["ai for insurance agents", "chatgpt insurance prompts", "insurance ai tools", "insurance agent productivity", "ai insurance guide"],
+      "bestProductTypes": ["profession-guide", "prompt-pack"],
+      "growthTrend": "rising",
+      "notes": "Insurance professionals are actively looking for AI adoption resources. Very low competition on Etsy makes this a high-opportunity niche. Include prompts for claims summaries, client emails, policy explanations. Profession-specific guides command premium prices ($12-30). Agents buying for their entire office = higher perceived value."
+    },
+    {
+      "name": "AI Guide for Real Estate Agents",
+      "opportunityScore": 89,
+      "estimatedMonthlySearches": 12000,
+      "competitionLevel": "low",
+      "avgPrice": 12.99,
+      "priceRange": { "low": 7.99, "high": 24.99 },
+      "topKeywords": ["chatgpt for realtors", "ai real estate prompts", "real estate agent ai tools", "chatgpt real estate guide", "realtor productivity"],
+      "bestProductTypes": ["profession-guide", "prompt-pack", "cheat-sheet"],
+      "growthTrend": "rising",
+      "notes": "Realtors are tech-forward but time-strapped. Prompts for listing descriptions, buyer emails, open house follow-ups, and social captions are top use cases. Bundle with a 'Real Estate Agent AI Toolkit' framing to justify $15-25 price points. Profession-specific prompt packs convert significantly better than generic packs."
+    },
+    {
+      "name": "AI Tools for Teachers & Educators",
+      "opportunityScore": 91,
+      "estimatedMonthlySearches": 22000,
+      "competitionLevel": "low-medium",
+      "avgPrice": 7.99,
+      "priceRange": { "low": 3.99, "high": 19.99 },
+      "topKeywords": ["chatgpt for teachers", "ai for educators", "teacher ai prompts", "ai lesson plan prompts", "chatgpt education guide"],
+      "bestProductTypes": ["prompt-pack", "beginner-guide", "worksheet-bundle"],
+      "growthTrend": "rising",
+      "notes": "Teachers are one of the highest-volume Etsy buyers. AI prompts for lesson plans, report card comments, parent emails, and rubric creation are top demand areas. Combine prompt packs with editable templates for maximum value. Seasonal relevance (back-to-school) boosts visibility. Community word-of-mouth in teacher Facebook groups drives repeat sales."
+    },
+    {
+      "name": "Social Media Templates & Captions (AI-Powered)",
+      "opportunityScore": 83,
+      "estimatedMonthlySearches": 41000,
+      "competitionLevel": "high",
+      "avgPrice": 8.49,
+      "priceRange": { "low": 2.99, "high": 22.99 },
+      "topKeywords": ["social media template canva", "instagram caption prompts", "social media content planner", "canva social media bundle", "chatgpt social media prompts"],
+      "bestProductTypes": ["template-bundle", "prompt-pack", "content-calendar"],
+      "growthTrend": "stable",
+      "notes": "High volume but competitive. AI-themed angle (ChatGPT captions generator, AI content calendar) adds differentiation. Niche-specific bundles (coaches, realtors, restaurants) outperform generic ones. Canva template bundles with bonus ChatGPT captions prompt sheet is a strong combo product that commands $10-20."
+    },
+    {
+      "name": "Morning Routine & Habit Tracker Bundles",
+      "opportunityScore": 80,
+      "estimatedMonthlySearches": 29000,
+      "competitionLevel": "medium",
+      "avgPrice": 5.99,
+      "priceRange": { "low": 1.99, "high": 12.99 },
+      "topKeywords": ["morning routine printable", "habit tracker pdf", "morning routine checklist", "daily habits tracker", "30 day habit challenge"],
+      "bestProductTypes": ["worksheet-bundle", "30-day-challenge", "planner"],
+      "growthTrend": "stable",
+      "notes": "Evergreen wellness niche with strong New Year and January spikes. AI-enhanced versions (e.g., 'AI-Optimized Morning Routine') adding novelty. Bundles pairing habit tracker + journal pages + weekly review sheet perform best. Low price point; volume strategy works well here."
+    },
+    {
+      "name": "Notion Templates for Productivity",
+      "opportunityScore": 84,
+      "estimatedMonthlySearches": 19000,
+      "competitionLevel": "medium",
+      "avgPrice": 11.99,
+      "priceRange": { "low": 4.99, "high": 34.99 },
+      "topKeywords": ["notion template", "notion productivity template", "notion dashboard", "notion life os", "notion second brain"],
+      "bestProductTypes": ["notion-template", "mega-bundle"],
+      "growthTrend": "rising",
+      "notes": "Notion user base growing 30%+ YoY. Premium templates ($20-35) for 'Life OS' or 'Second Brain' systems perform extremely well with power users. Beginner-friendly templates also convert well at $5-12. AI integration templates (Notion + AI workflow) are an emerging premium sub-niche. Buyers who purchase one template often return for more."
+    }
+  ],
+  "hotKeywords": [
+    { "keyword": "chatgpt prompts", "estimatedMonthlySearches": 45000, "competitionLevel": "high", "trend": "rising" },
+    { "keyword": "digital planner", "estimatedMonthlySearches": 62000, "competitionLevel": "very-high", "trend": "stable" },
+    { "keyword": "ai prompts", "estimatedMonthlySearches": 38000, "competitionLevel": "medium", "trend": "rising" },
+    { "keyword": "notion template", "estimatedMonthlySearches": 19000, "competitionLevel": "medium", "trend": "rising" },
+    { "keyword": "productivity planner printable", "estimatedMonthlySearches": 31000, "competitionLevel": "high", "trend": "stable" },
+    { "keyword": "chatgpt for beginners", "estimatedMonthlySearches": 22000, "competitionLevel": "low", "trend": "rising" },
+    { "keyword": "ai tools guide", "estimatedMonthlySearches": 17000, "competitionLevel": "low", "trend": "rising" },
+    { "keyword": "prompt pack", "estimatedMonthlySearches": 28000, "competitionLevel": "medium", "trend": "rising" },
+    { "keyword": "canva social media template", "estimatedMonthlySearches": 41000, "competitionLevel": "very-high", "trend": "stable" },
+    { "keyword": "chatgpt for teachers", "estimatedMonthlySearches": 22000, "competitionLevel": "low-medium", "trend": "rising" },
+    { "keyword": "habit tracker printable", "estimatedMonthlySearches": 29000, "competitionLevel": "high", "trend": "stable" },
+    { "keyword": "ai for realtors", "estimatedMonthlySearches": 9500, "competitionLevel": "low", "trend": "rising" },
+    { "keyword": "business prompt pack", "estimatedMonthlySearches": 14000, "competitionLevel": "medium", "trend": "rising" },
+    { "keyword": "morning routine checklist", "estimatedMonthlySearches": 18000, "competitionLevel": "medium", "trend": "stable" },
+    { "keyword": "chatgpt marketing prompts", "estimatedMonthlySearches": 16000, "competitionLevel": "medium", "trend": "rising" },
+    { "keyword": "ai second brain notion", "estimatedMonthlySearches": 8200, "competitionLevel": "low", "trend": "rising" },
+    { "keyword": "social media content calendar", "estimatedMonthlySearches": 24000, "competitionLevel": "high", "trend": "stable" },
+    { "keyword": "chatgpt email prompts", "estimatedMonthlySearches": 13000, "competitionLevel": "low-medium", "trend": "rising" },
+    { "keyword": "ai copywriting prompts", "estimatedMonthlySearches": 11000, "competitionLevel": "medium", "trend": "rising" },
+    { "keyword": "teacher ai tools", "estimatedMonthlySearches": 15000, "competitionLevel": "low", "trend": "rising" },
+    { "keyword": "ai workflow automation guide", "estimatedMonthlySearches": 9800, "competitionLevel": "low", "trend": "rising" },
+    { "keyword": "digital download bundle", "estimatedMonthlySearches": 35000, "competitionLevel": "very-high", "trend": "stable" },
+    { "keyword": "chatgpt cheat sheet", "estimatedMonthlySearches": 20000, "competitionLevel": "medium", "trend": "rising" },
+    { "keyword": "ai for small business", "estimatedMonthlySearches": 12500, "competitionLevel": "low", "trend": "rising" },
+    { "keyword": "weekly planner printable", "estimatedMonthlySearches": 27000, "competitionLevel": "high", "trend": "stable" },
+    { "keyword": "notion second brain", "estimatedMonthlySearches": 11000, "competitionLevel": "medium", "trend": "rising" },
+    { "keyword": "30 day challenge printable", "estimatedMonthlySearches": 14500, "competitionLevel": "medium", "trend": "stable" },
+    { "keyword": "chatgpt healthcare prompts", "estimatedMonthlySearches": 6800, "competitionLevel": "very-low", "trend": "rising" },
+    { "keyword": "ai legal guide", "estimatedMonthlySearches": 5200, "competitionLevel": "very-low", "trend": "rising" },
+    { "keyword": "insurance agent ai tools", "estimatedMonthlySearches": 4900, "competitionLevel": "very-low", "trend": "rising" }
+  ],
+  "decliningSectors": [
+    {
+      "name": "Generic Printable Wall Art",
+      "reason": "Market has become extremely saturated with thousands of identical listings from print-on-demand sellers. Buyers have shifted to physical art or more personalized options. Margins are thin and discoverability is near zero for new entrants.",
+      "peakYear": 2022,
+      "currentTrend": "declining",
+      "recommendedAction": "Avoid unless highly niche-specific (e.g., custom AI-generated art for specific professions). Consider pivoting to functional printables instead."
+    },
+    {
+      "name": "Basic Resume Templates",
+      "reason": "Canva and LinkedIn now provide free, high-quality resume templates. AI resume builders (Kickresume, Resume.io) have commoditized this space. Etsy buyers are unwilling to pay for what they can get free elsewhere.",
+      "peakYear": 2021,
+      "currentTrend": "declining",
+      "recommendedAction": "Shift to AI-optimized resume prompts or ATS cheat sheets instead of template design. Add ChatGPT resume writing prompts as a differentiator."
+    },
+    {
+      "name": "Generic Motivational Quotes Printables",
+      "reason": "Pinterest and Instagram provide free alternatives. Buyers rarely purchase motivational quote prints anymore. Low differentiation, zero exclusivity, and heavy competition from print-on-demand stores.",
+      "peakYear": 2020,
+      "currentTrend": "declining",
+      "recommendedAction": "Avoid. If pursuing inspirational content, pivot to branded journaling prompts or AI-generated affirmation systems with practical frameworks."
+    },
+    {
+      "name": "Basic Excel / Google Sheets Budgeting Templates",
+      "reason": "Free alternatives (Google Sheets templates, Mint, YNAB free tier, bank apps) have eroded this market. Buyers increasingly expect app-based budgeting, not manual spreadsheets.",
+      "peakYear": 2021,
+      "currentTrend": "declining",
+      "recommendedAction": "Pivot to AI-powered financial planning guides or ChatGPT prompts for budgeting conversations. The education angle (teach finance concepts) is more viable than the tool angle."
+    },
+    {
+      "name": "COVID-Era Remote Work Productivity Packs",
+      "reason": "The remote work transition period is over. Content specifically about 'working from home setup guides' or 'remote team communication templates' have lost relevance as hybrid work normalized. Buyers moved on.",
+      "peakYear": 2021,
+      "currentTrend": "declining",
+      "recommendedAction": "Rebrand to AI-enhanced hybrid work productivity if maintaining. Focus on async collaboration with AI tools rather than physical workspace optimization."
+    }
+  ],
+  "emergingOpportunities": [
+    {
+      "name": "AI Prompts for Healthcare Workers",
+      "opportunityScore": 88,
+      "estimatedMonthlySearches": 6800,
+      "competitionLevel": "very-low",
+      "avgPrice": 14.99,
+      "growthTrend": "rising",
+      "whyNow": "Nurses, doctors, and medical admin staff are actively exploring AI tools for documentation, patient notes, and administrative work. Almost no competition on Etsy. High willingness to pay for profession-specific tools.",
+      "suggestedProducts": ["SOAP note prompts", "patient communication templates", "medical documentation AI guide", "healthcare admin ChatGPT pack"]
+    },
+    {
+      "name": "AI Guide for Legal Professionals",
+      "opportunityScore": 85,
+      "estimatedMonthlySearches": 5200,
+      "competitionLevel": "very-low",
+      "avgPrice": 19.99,
+      "growthTrend": "rising",
+      "whyNow": "Law firms adopting AI for document review, contract drafting, and client communication. Paralegals and solo practitioners especially receptive. High income = high willingness to pay. Nearly untapped on Etsy.",
+      "suggestedProducts": ["legal contract review prompts", "client intake email templates", "legal research AI guide", "paralegal AI toolkit"]
+    },
+    {
+      "name": "AI Tools for Etsy Sellers",
+      "opportunityScore": 91,
+      "estimatedMonthlySearches": 11000,
+      "competitionLevel": "low",
+      "avgPrice": 9.99,
+      "growthTrend": "rising",
+      "whyNow": "Meta: Etsy sellers want to use AI to grow their Etsy shops. Prompts for product descriptions, SEO optimization, listing titles, shop announcements, and customer service replies are high-demand. Highly targeted audience already on the platform.",
+      "suggestedProducts": ["ChatGPT prompts for Etsy sellers", "Etsy SEO AI guide", "product description prompt pack", "Etsy shop growth AI toolkit"]
+    },
+    {
+      "name": "Notion + AI Integration Templates",
+      "opportunityScore": 86,
+      "estimatedMonthlySearches": 8200,
+      "competitionLevel": "low",
+      "avgPrice": 17.99,
+      "growthTrend": "rising",
+      "whyNow": "Notion's AI features are expanding. Users want templates pre-built with AI workflow integrations (AI writing areas, prompt libraries embedded in dashboards). Commands premium prices as it merges two hot categories.",
+      "suggestedProducts": ["Notion AI second brain template", "Notion AI prompt library dashboard", "Notion + ChatGPT workflow system"]
+    },
+    {
+      "name": "AI for Content Creators & YouTubers",
+      "opportunityScore": 84,
+      "estimatedMonthlySearches": 14000,
+      "competitionLevel": "low-medium",
+      "avgPrice": 10.99,
+      "growthTrend": "rising",
+      "whyNow": "YouTubers, podcasters, and TikTok creators are seeking AI tools for scripting, thumbnail ideas, and content repurposing. Creator economy is massive and growing. Highly engaged, community-driven buyers who share purchases.",
+      "suggestedProducts": ["YouTube script prompts", "content repurposing AI guide", "social media caption prompt pack", "creator AI workflow bundle"]
+    },
+    {
+      "name": "AI Automation Guides (Zapier, Make, n8n)",
+      "opportunityScore": 82,
+      "estimatedMonthlySearches": 9800,
+      "competitionLevel": "very-low",
+      "avgPrice": 12.99,
+      "growthTrend": "rising",
+      "whyNow": "No-code automation is exploding. Small business owners want to automate repetitive tasks but need step-by-step beginner guides. Zapier/Make/n8n workflow guides with real use cases have virtually no competition on Etsy.",
+      "suggestedProducts": ["Zapier beginner guide", "automation workflows for small business", "n8n starter guide PDF", "top 50 AI automations guide"]
+    },
+    {
+      "name": "Solopreneur & Freelancer AI Toolkits",
+      "opportunityScore": 89,
+      "estimatedMonthlySearches": 16000,
+      "competitionLevel": "low",
+      "avgPrice": 11.99,
+      "growthTrend": "rising",
+      "whyNow": "70M+ freelancers in the US alone. Solopreneurs are eager to replace VA costs with AI. Practical prompt packs for client proposals, invoicing language, deliverable descriptions, and onboarding emails are underserved.",
+      "suggestedProducts": ["freelancer AI prompt pack", "solopreneur AI toolkit", "client onboarding prompts", "freelance business AI guide"]
+    },
+    {
+      "name": "AI-Enhanced Journal & Reflection Prompts",
+      "opportunityScore": 79,
+      "estimatedMonthlySearches": 12000,
+      "competitionLevel": "low",
+      "avgPrice": 6.99,
+      "growthTrend": "rising",
+      "whyNow": "Journaling is a massive wellness niche on Etsy. Adding an 'AI-enhanced' angle — prompts generated or curated with AI themes (asking ChatGPT for self-reflection, using AI for goal setting) — adds novelty to an established product category.",
+      "suggestedProducts": ["AI-inspired journal prompts", "ChatGPT self-reflection prompts", "morning journaling AI bundle", "100 AI journal prompts PDF"]
+    }
+  ],
+  "competitorInsights": [
+    {
+      "category": "ChatGPT Prompts",
+      "topSellers": [
+        {
+          "shopName": "PromptPalette",
+          "listingTitle": "1000+ ChatGPT Prompts Bundle | Business, Marketing, Social Media, Writing AI Prompts Pack",
+          "estimatedPrice": 9.99,
+          "estimatedReviewCount": 4200,
+          "starRating": 4.9,
+          "whatMakesThemStandOut": "Huge quantity (1000+) prominently in title drives clicks. Well-organized PDF with table of contents. Regular updates marketed as free to buyers. High photo quality showing prompt categories. Over 4k reviews creates massive social proof that dominates search results.",
+          "weaknesses": "Generic and not profession-specific. No editable format. Some prompts outdated for GPT-4o."
+        },
+        {
+          "shopName": "AITemplateHub",
+          "listingTitle": "ChatGPT Prompts for Business | 500 AI Prompts for Entrepreneurs | Email Marketing Writing Prompts",
+          "estimatedPrice": 7.99,
+          "estimatedReviewCount": 2800,
+          "starRating": 4.8,
+          "whatMakesThemStandOut": "Clear business focus with entrepreneur angle. Excellent listing photos with mock phone/laptop screens. Bonus cheat sheet included. Strong keyword optimization with multiple use cases in title. Active social media driving external traffic to listings.",
+          "weaknesses": "Some overlap with competitor packs. No video demonstration of product value."
+        },
+        {
+          "shopName": "CreativeAIShop",
+          "listingTitle": "ChatGPT Prompts for Social Media | 300 Instagram Twitter LinkedIn Caption Prompts for Content Creators",
+          "estimatedPrice": 5.99,
+          "estimatedReviewCount": 1950,
+          "starRating": 4.9,
+          "whatMakesThemStandOut": "Niche-specific (social media only) with platform names in title for SEO. Low price point drives volume. Beautifully designed PDF with platform-specific sections. Bonus 30-day content calendar. Perfect for content creator segment.",
+          "weaknesses": "Low price limits revenue per sale. Platform-specific focus limits total addressable market."
+        },
+        {
+          "shopName": "SmartPromptCo",
+          "listingTitle": "ChatGPT Mega Bundle | 2000 AI Prompts | Business + Marketing + Writing + SEO + Social Media",
+          "estimatedPrice": 14.99,
+          "estimatedReviewCount": 1400,
+          "starRating": 4.7,
+          "whatMakesThemStandOut": "Premium mega-bundle positioning at higher price. Multiple categories bundled = perceived massive value. Strong listing video showing the PDF structure. Frequently updated and promotes updates as a selling point. Higher price signals quality.",
+          "weaknesses": "Quality inconsistent across 2000 prompts. Overwhelming volume can deter casual buyers."
+        },
+        {
+          "shopName": "DigitalAIMarket",
+          "listingTitle": "ChatGPT Prompts for Email Marketing | 200 AI Email Prompts | Newsletter Subject Lines Sales Copywriting",
+          "estimatedPrice": 4.99,
+          "estimatedReviewCount": 890,
+          "starRating": 4.8,
+          "whatMakesThemStandOut": "Hyper-specific niche (email marketing only) with strong keyword coverage. Very affordable entry price. Simple, clean PDF design. Quick-start guide included. Good for buyers who feel overwhelmed by giant packs and want targeted help.",
+          "weaknesses": "Single-use case limits repeat purchase potential from same buyer. Low price ceiling."
+        }
+      ]
+    },
+    {
+      "category": "AI Guides for Beginners",
+      "topSellers": [
+        {
+          "shopName": "TechSimplified",
+          "listingTitle": "ChatGPT for Beginners Guide | How to Use AI 2025 | Step-by-Step AI Starter Guide PDF 30 Pages",
+          "estimatedPrice": 7.99,
+          "estimatedReviewCount": 1650,
+          "starRating": 4.9,
+          "whatMakesThemStandOut": "Explicitly targets non-technical audience with 'for beginners' language. Page count (30 pages) reassures buyers of value. 2025 date adds freshness signal. Clean, approachable listing photos. Empathetic language in description addressing tech anxiety.",
+          "weaknesses": "No profession-specific version upsell. Static guide in a fast-changing field needs frequent updates."
+        },
+        {
+          "shopName": "EasyAIGuides",
+          "listingTitle": "AI Tools for Everyone | Beginner's Complete Guide to ChatGPT, Midjourney & AI Apps | Instant Download",
+          "estimatedPrice": 9.99,
+          "estimatedReviewCount": 1120,
+          "starRating": 4.8,
+          "whatMakesThemStandOut": "Multi-tool coverage (ChatGPT + Midjourney) adds breadth. 'For Everyone' positioning is inclusive. Strong cover page design on listing photos. Includes tool comparison table which buyers mention repeatedly in reviews. Good for gift-givers.",
+          "weaknesses": "Broad focus means less depth per tool. Midjourney coverage may go stale."
+        },
+        {
+          "shopName": "GrandmaLearnsAI",
+          "listingTitle": "AI for Seniors | ChatGPT Made Simple | Easy AI Guide for Older Adults Non-Tech Users Printable PDF",
+          "estimatedPrice": 8.99,
+          "estimatedReviewCount": 780,
+          "starRating": 5.0,
+          "whatMakesThemStandOut": "Brilliant demographic targeting — explicitly for seniors/older adults, a massive and underserved group. Perfect 5-star rating is unusual and notable. Gift-friendly (bought by adult children for parents). Extremely large font in product sample images. Purchased as gifts frequently which drives gifting occasion traffic.",
+          "weaknesses": "Small total addressable market relative to general beginners guide. Must avoid tech jargon entirely or risk negative reviews."
+        },
+        {
+          "shopName": "WorkSmartWithAI",
+          "listingTitle": "AI Tools for Work | Beginner Guide to Using ChatGPT at Your Job | Productivity AI Starter Pack",
+          "estimatedPrice": 11.99,
+          "estimatedReviewCount": 620,
+          "starRating": 4.8,
+          "whatMakesThemStandOut": "Work-focused positioning commands higher price. Included use cases (meetings, emails, reports, research) give concrete value. Strong bundle value: guide + prompt sheet + tool checklist. Corporate buyers may purchase multiple for team members.",
+          "weaknesses": "Higher price reduces impulse purchase rate. Needs to compete on quality with free YouTube content."
+        },
+        {
+          "shopName": "AIStarterKit",
+          "listingTitle": "Complete AI Starter Kit | ChatGPT Guide + 100 Prompts + Cheat Sheet | Beginner Bundle Digital Download",
+          "estimatedPrice": 12.99,
+          "estimatedReviewCount": 510,
+          "starRating": 4.9,
+          "whatMakesThemStandOut": "Bundle positioning ('kit') commands premium. Three components clearly listed in title (guide + prompts + cheat sheet). Strong perceived value at $13 for three items. Kit framing suggests cohesive learning journey. Good for buyers who want a complete starting point.",
+          "weaknesses": "More complex product to maintain (3 components to update). Higher price may reduce search-to-click rate."
+        }
+      ]
+    },
+    {
+      "category": "Productivity Digital Downloads",
+      "topSellers": [
+        {
+          "shopName": "PlannerPerfection",
+          "listingTitle": "Ultimate Digital Planner 2026 | GoodNotes Notability Compatible | Daily Weekly Monthly Undated PDF",
+          "estimatedPrice": 12.99,
+          "estimatedReviewCount": 8400,
+          "starRating": 4.9,
+          "whatMakesThemStandOut": "Massive social proof (8400+ reviews). GoodNotes/Notability compatibility explicitly called out in title — critical SEO for iPad planner buyers. Undated format means buyers can start any time without feeling they missed the year. Multiple views (daily/weekly/monthly) justify price. One of the top sellers in the entire Etsy digital downloads category.",
+          "weaknesses": "Very high competition to enter this sub-niche. Requires hyperlinks to be fully functional. Large file support needed."
+        },
+        {
+          "shopName": "NotionNinja",
+          "listingTitle": "Notion Life OS Template | Second Brain Productivity System | Personal Dashboard Goals Habits Projects",
+          "estimatedPrice": 22.99,
+          "estimatedReviewCount": 3100,
+          "starRating": 4.8,
+          "whatMakesThemStandOut": "Premium price justified by 'system' framing rather than just 'template.' Second Brain positioning resonates with Notion power users. Comprehensive scope (goals + habits + projects) in single dashboard. Strong listing video demo. Buyers feel they are getting a whole productivity philosophy not just a file.",
+          "weaknesses": "High complexity means more support requests. Requires Notion account (free barrier). May not convert casual buyers."
+        },
+        {
+          "shopName": "FocusFlowShop",
+          "listingTitle": "ADHD Planner Printable | Daily Routine Planner for Adults with ADHD | Brain Dump To-Do List PDF Bundle",
+          "estimatedPrice": 7.99,
+          "estimatedReviewCount": 2300,
+          "starRating": 4.9,
+          "whatMakesThemStandOut": "ADHD-specific niche with strong community of engaged buyers who share recommendations. High emotional resonance — buyers feel understood. Includes brain dump page which is a unique differentiator. Extremely loyal customer base with high repeat purchase and referral rates. Featured in ADHD newsletters and communities.",
+          "weaknesses": "Niche audience has specific needs — must get the UX right or get poor reviews. Medical disclaimers needed."
+        },
+        {
+          "shopName": "TeacherPlannerHub",
+          "listingTitle": "Teacher Planner 2025-2026 Printable | Lesson Plan Template Weekly Schedule Classroom Management Bundle",
+          "estimatedPrice": 9.99,
+          "estimatedReviewCount": 5600,
+          "starRating": 4.9,
+          "whatMakesThemStandOut": "Academic year dating drives huge back-to-school seasonal spikes. Teacher community shares Etsy finds extensively. Comprehensive scope (lesson plan + schedule + classroom management) justifies bundle price. Teachers buy annually for each new school year — strong repeat purchase signal.",
+          "weaknesses": "Seasonal demand peaks limit year-round revenue. Must update dates each year."
+        },
+        {
+          "shopName": "ProductivityPro",
+          "listingTitle": "90 Day Goal Planner Printable | 90 Day Challenge Tracker | Quarterly Goal Setting Worksheet Bundle PDF",
+          "estimatedPrice": 5.99,
+          "estimatedReviewCount": 1890,
+          "starRating": 4.8,
+          "whatMakesThemStandOut": "90-day framing is highly motivational and aligns with popular goal-setting frameworks (12 Week Year). Purchased heavily in January, April, and September (quarterly starts). Simple, clean design. Low price drives volume. Challenge framing adds accountability hook that buyers respond to emotionally.",
+          "weaknesses": "Evergreen but competes with hundreds of nearly identical products. Price ceiling is low."
+        }
+      ]
+    }
+  ],
+  "weeklyActionPlan": [
+    {
+      "day": "Monday",
+      "action": "Launch 2 new profession-specific AI prompt packs",
+      "details": "Publish 'AI Prompts for Insurance Agents' (150 prompts, $14.99) and 'ChatGPT for Real Estate Agents' (200 prompts, $12.99). Use keyword research from this report for titles and tags. Include 5 high-quality listing photos using Canva mockups. Set up promoted listings at $0.20-0.30 CPC to seed early traffic.",
+      "estimatedImpact": "high",
+      "priority": 1
+    },
+    {
+      "day": "Tuesday",
+      "action": "Optimize existing listings for AI keyword trends",
+      "details": "Review all current listings and update titles, tags, and descriptions to include trending keywords from this report (e.g., 'ai prompts 2026', 'chatgpt guide', specific profession names). Etsy's algorithm rewards fresh keyword updates. Aim to update at least 5-8 listings. Add 'instant download' and 'digital download' to all titles if missing.",
+      "estimatedImpact": "medium",
+      "priority": 2
+    },
+    {
+      "day": "Wednesday",
+      "action": "Create a mega-bundle listing combining 3-5 existing products",
+      "details": "Package your top-performing individual products into a 'Complete AI Toolkit Bundle' or 'AI Starter Kit.' Price at 30-40% discount vs individual items but higher total. Bundles consistently outperform individual listings in Etsy's algorithm because of higher revenue per transaction. This is your highest-leverage pricing lever this week.",
+      "estimatedImpact": "high",
+      "priority": 1
+    },
+    {
+      "day": "Thursday",
+      "action": "Set up Pinterest boards for each product category",
+      "details": "Create 5 Pinterest boards: 'AI Prompts for Business', 'ChatGPT Beginner Guides', 'Productivity Planners', 'AI for Teachers', 'Notion Templates.' Pin each Etsy listing at least once using vertical 2:3 ratio images. Pinterest drives long-tail Etsy traffic for 12+ months per pin. This is a compounding investment.",
+      "estimatedImpact": "medium",
+      "priority": 3
+    },
+    {
+      "day": "Friday",
+      "action": "Research and list 3 emerging opportunity products",
+      "details": "Based on this report's emerging opportunities section, create draft listings for: (1) 'AI Guide for Healthcare Workers' ($14.99), (2) 'AI Tools for Etsy Sellers' ($9.99), and (3) 'Freelancer AI Prompt Pack' ($11.99). Even draft listings start accumulating Etsy SEO signals. Publish at minimum 1 of the 3 before end of day.",
+      "estimatedImpact": "high",
+      "priority": 1
+    },
+    {
+      "day": "Saturday",
+      "action": "Analyze top competitor listings and extract differentiators",
+      "details": "Spend 1 hour reviewing the top 5 sellers in your main categories on Etsy. Note their exact title structures, photo styles, and review language. Read the 5-star reviews to identify the exact language buyers use when they love a product — then mirror that language in your own listing descriptions. This is free buyer psychology research.",
+      "estimatedImpact": "medium",
+      "priority": 2
+    },
+    {
+      "day": "Sunday",
+      "action": "Plan next week's content and engage with niche communities",
+      "details": "Join 2-3 Facebook groups where your target buyers hang out (AI tools for teachers groups, Etsy sellers groups, productivity enthusiasts). Engage authentically — answer questions about AI tools without pitching. Build credibility that drives organic traffic. Also: plan next week's listings (aim for 3-5 new digital products per week to grow catalog velocity).",
+      "estimatedImpact": "medium",
+      "priority": 3
+    }
+  ],
+  "pricingBenchmarks": {
+    "prompt-pack-small": {
+      "description": "Small prompt pack (50-100 prompts), single-topic PDF",
+      "recommendedPrice": 4.99,
+      "priceRange": { "low": 2.99, "high": 7.99 },
+      "notes": "Entry price point. Good for building review count quickly. Consider using as loss leader."
+    },
+    "prompt-pack-large": {
+      "description": "Large prompt pack (300-500 prompts), multi-topic or profession-specific PDF",
+      "recommendedPrice": 9.99,
+      "priceRange": { "low": 6.99, "high": 14.99 },
+      "notes": "Sweet spot for conversion rate vs revenue. Profession-specific packs can push toward $14.99. Always include prompt count in title."
+    },
+    "beginner-guide": {
+      "description": "Beginner-friendly guide (20-30 pages), step-by-step AI or productivity topic",
+      "recommendedPrice": 7.99,
+      "priceRange": { "low": 4.99, "high": 12.99 },
+      "notes": "Page count and visual quality matter. Include 'beginner' or 'for beginners' in title. Buyers respond to empathetic framing."
+    },
+    "profession-guide": {
+      "description": "Profession-specific guide (40+ pages) targeting a single career audience",
+      "recommendedPrice": 14.99,
+      "priceRange": { "low": 9.99, "high": 24.99 },
+      "notes": "Premium pricing justified by specificity. Real estate, legal, and healthcare can hit $20-25. Insurance and teachers average $12-16. Perceived ROI for professional buyers is very high."
+    },
+    "cheat-sheet-bundle": {
+      "description": "Cheat sheet bundle (3-10 single-page reference cards), printable or digital",
+      "recommendedPrice": 5.99,
+      "priceRange": { "low": 2.99, "high": 9.99 },
+      "notes": "Impulse purchase category. Low price, high volume potential. Bundle 5+ sheets for the 'bundle' label. Great as an add-on upsell to larger guide purchases."
+    },
+    "30-day-challenge": {
+      "description": "30-day challenge or habit tracker with daily prompts and tracking system",
+      "recommendedPrice": 6.99,
+      "priceRange": { "low": 3.99, "high": 12.99 },
+      "notes": "Seasonal spikes in January, September, and spring. AI-themed 30-day challenges are novel and command slightly higher prices. Include both printable and digital (GoodNotes) versions for max reach."
+    },
+    "mega-bundle": {
+      "description": "Mega bundle containing 5 or more full products (guides + prompts + templates + cheat sheets)",
+      "recommendedPrice": 24.99,
+      "priceRange": { "low": 16.99, "high": 39.99 },
+      "notes": "Highest revenue per transaction. Clearly itemize components in title and description. Use 'VALUE: $75' framing to show individual item prices. Bundles rank well in Etsy search due to higher transaction value. Best for Black Friday and seasonal promotions."
+    },
+    "notion-template": {
+      "description": "Notion template — single dashboard or Life OS system",
+      "recommendedPrice": 14.99,
+      "priceRange": { "low": 6.99, "high": 34.99 },
+      "notes": "Simple templates: $7-12. Full Life OS / Second Brain systems: $20-35. AI-integrated Notion templates can command $15-25. Include demo video in listing for premium templates. Buyers expect Notion templates to 'just work' — thorough setup instructions are critical to avoiding bad reviews."
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "productId": "007",
+  "etsyListingId": null,
+  "state": "draft",
+  "createdAt": "2026-05-28T00:00:00.000Z",
+  "title": "300 Social Media ChatGPT Prompts | Complete AI Content Creation Pack for Social Media Managers",
+  "description": "Content block is real — and it's costing you clients. These 300 done-for-you ChatGPT prompts eliminate blank-page paralysis for every platform and post type.\n\nYou get 300 prompts organized by platform (Instagram, LinkedIn, TikTok, Facebook, Pinterest, Twitter/X), post type, and industry — plus a 30-day content calendar template.\n\nCreate a month of content in an afternoon, maintain consistent posting schedules, and deliver better results for clients faster.\n\nInstant delivery after purchase — start posting today.\n\nFiles included: PDF prompt pack, 30-day content calendar (printable), platform-specific quick reference card.\n\nAdd to cart and never stare at a blank screen again.",
+  "price": 7.99,
+  "quantity": 999,
+  "tags": [
+    "social media prompts",
+    "chatgpt social media",
+    "content creation prompts",
+    "social media manager",
+    "ai content prompts",
+    "instagram prompts",
+    "linkedin prompts",
+    "digital download",
+    "social media tools",
+    "ai marketing prompts",
+    "content calendar ai",
+    "instant download",
+    "social media pdf"
+  ],
+  "materials": ["digital download", "PDF", "instant download"],
+  "category": "Craft Supplies & Tools > Patterns & How To > Tutorials & Instructional",
+  "primaryImage": "covers/007-cover.png",
+  "additionalImages": ["covers/007-mockup-1.png", "covers/007-mockup-2.png"],
+  "whoMade": "i_did",
+  "whenMade": "made_to_order",
+  "isSupply": false,
+  "type": "download",
+  "seoAnalysis": {
+    "primaryKeyword": "social media chatgpt prompts",
+    "secondaryKeywords": ["ai content creation prompts", "instagram chatgpt prompts", "social media manager tools", "content calendar ai"],
+    "titleKeywordPosition": 1,
+    "estimatedMonthlySearches": 0,
+    "competitionScore": 0,
+    "optimizationScore": 0
+  },
+  "pricingStrategy": {
+    "basePrice": 7.99,
+    "launchPrice": 5.99,
+    "bundleDiscount": 0,
+    "competitorAvgPrice": 7.00,
+    "priceJustification": "Competitive pricing targets both freelance social media managers and business owners. 300 prompts plus content calendar template package justifies pricing above single-platform prompt sets. High search volume niche benefits from mid-range impulse buy price."
+  },
+  "bundle": null
+}

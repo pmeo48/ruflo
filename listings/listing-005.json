@@ -1,0 +1,49 @@
+{
+  "productId": "005",
+  "etsyListingId": null,
+  "state": "draft",
+  "createdAt": "2026-05-28T00:00:00.000Z",
+  "title": "Ultimate AI Cheat Sheet Bundle | 7 Printable AI Reference Cards PDF Instant Download",
+  "description": "Stop Googling AI tips mid-task. These 7 printable cheat sheets put every essential command, prompt formula, and keyboard shortcut at your fingertips.\n\nYou get 7 reference cards covering ChatGPT, Claude, Midjourney, Gemini, Copilot, AI prompting formulas, and an AI tools comparison — printable at 8.5x11 or A4.\n\nSpeed up your AI workflow, avoid rookie mistakes, and always know the best prompt structure to use.\n\nInstant delivery after purchase — print and hang at your desk today.\n\nFiles included: 7 PDF cheat sheets (print-ready, high resolution).\n\nAdd to cart and master AI faster.",
+  "price": 6.99,
+  "quantity": 999,
+  "tags": [
+    "ai cheat sheet",
+    "chatgpt cheat sheet",
+    "ai reference card",
+    "printable ai guide",
+    "midjourney cheat sheet",
+    "claude ai guide",
+    "ai tools reference",
+    "digital download",
+    "instant download",
+    "printable pdf",
+    "ai quick guide",
+    "ai prompt cheat sheet",
+    "digital wall art"
+  ],
+  "materials": ["digital download", "PDF", "instant download"],
+  "category": "Paper & Party Supplies > Paper > Stationery",
+  "primaryImage": "covers/005-cover.png",
+  "additionalImages": ["covers/005-mockup-1.png", "covers/005-mockup-2.png"],
+  "whoMade": "i_did",
+  "whenMade": "made_to_order",
+  "isSupply": false,
+  "type": "download",
+  "seoAnalysis": {
+    "primaryKeyword": "ai cheat sheet printable",
+    "secondaryKeywords": ["chatgpt cheat sheet pdf", "midjourney reference card", "ai tools quick reference", "claude ai cheat sheet"],
+    "titleKeywordPosition": 1,
+    "estimatedMonthlySearches": 0,
+    "competitionScore": 0,
+    "optimizationScore": 0
+  },
+  "pricingStrategy": {
+    "basePrice": 6.99,
+    "launchPrice": 4.99,
+    "bundleDiscount": 0,
+    "competitorAvgPrice": 5.50,
+    "priceJustification": "Entry-level price point maximizes volume and impulse purchases. Seven-card bundle vs. single cheat sheets justifies premium over $4.99 single-card competitors. Low friction for first-time Etsy AI buyers, ideal for review generation."
+  },
+  "bundle": null
+}

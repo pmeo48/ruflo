@@ -1,0 +1,49 @@
+{
+  "productId": "008",
+  "etsyListingId": null,
+  "state": "draft",
+  "createdAt": "2026-05-28T00:00:00.000Z",
+  "title": "No-Code AI Automation Guide | Build AI Workflows Without Coding PDF Tutorial Instant Download",
+  "description": "Automation used to require a developer. Not anymore. This guide shows you how to build powerful AI automations using Zapier, Make.com, and n8n — without writing any code.\n\nYou get a 56-page tutorial, 8 ready-to-import workflow templates, and a tools comparison matrix covering 12 no-code platforms — all updated for 2026.\n\nAutomate lead capture, email responses, report generation, and social posting in a single afternoon.\n\nInstant delivery after purchase — import your first workflow today.\n\nFiles included: PDF guide (56 pages), 8 workflow templates (JSON), no-code tools comparison PDF.\n\nAdd to cart and start automating today.",
+  "price": 12.99,
+  "quantity": 999,
+  "tags": [
+    "no code automation",
+    "ai automation guide",
+    "zapier ai tutorial",
+    "make.com guide",
+    "n8n tutorial",
+    "workflow automation",
+    "digital download",
+    "no code tools",
+    "ai workflow pdf",
+    "automation for beginners",
+    "instant download",
+    "business automation",
+    "ai tools guide"
+  ],
+  "materials": ["digital download", "PDF", "instant download"],
+  "category": "Craft Supplies & Tools > Patterns & How To > Tutorials & Instructional",
+  "primaryImage": "covers/008-cover.png",
+  "additionalImages": ["covers/008-mockup-1.png", "covers/008-mockup-2.png"],
+  "whoMade": "i_did",
+  "whenMade": "made_to_order",
+  "isSupply": false,
+  "type": "download",
+  "seoAnalysis": {
+    "primaryKeyword": "no code ai automation guide",
+    "secondaryKeywords": ["zapier ai tutorial pdf", "make.com automation guide", "n8n no code workflow", "business automation pdf"],
+    "titleKeywordPosition": 1,
+    "estimatedMonthlySearches": 0,
+    "competitionScore": 0,
+    "optimizationScore": 0
+  },
+  "pricingStrategy": {
+    "basePrice": 12.99,
+    "launchPrice": 9.99,
+    "bundleDiscount": 0,
+    "competitorAvgPrice": 11.50,
+    "priceJustification": "Technical automation guides command above-average pricing due to direct business ROI. Included workflow templates (importable JSON) add concrete value beyond PDF-only products. Multi-platform coverage (Zapier, Make, n8n) differentiates from single-tool tutorials."
+  },
+  "bundle": null
+}
