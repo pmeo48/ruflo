@@ -1,0 +1,223 @@
+{
+  "generation_run": {
+    "timestamp": "2026-05-28T00:00:00Z",
+    "products": ["LIVE-FIT-001", "LIVE-BEA-001", "LIVE-HOM-003"],
+    "iteration": 2,
+    "source": "verified-live-products-web-intelligence"
+  },
+  "packages": [
+    {
+      "content_id": "REAL-FIT-001-A",
+      "product_id": "LIVE-FIT-001",
+      "product_name": "Toplux Magnesium Complex",
+      "variant": "A",
+      "format": "ugc-review-transformation",
+      "post_window": "Tuesday 7:00 PM EST",
+      "cta_style": "comment-trigger",
+      "cta_trigger_word": "MAG",
+      "selected_hook": "I genuinely thought I was just a bad sleeper. Turns out I was deficient in something 80% of adults are low in.",
+      "hook_type": "pain-point-misattribution",
+      "all_hooks": {
+        "A_pain_point": "I genuinely thought I was just a bad sleeper. Turns out I was deficient in something 80% of adults are low in.",
+        "B_desire": "What if the reason you wake up exhausted after 8 hours isn't your sleep — it's what your body is missing during it?",
+        "C_social_proof": "4,870 creators are talking about this supplement and I ignored it for three months. I finally tried it.",
+        "D_curiosity": "Why does magnesium glycinate hit different than the kind you find at CVS? I looked it up.",
+        "E_transformation": "Before and after — not my body, my mornings. Six weeks on one $14 supplement."
+      },
+      "script": {
+        "hook": {
+          "timing": "0:00-0:03",
+          "spoken": "I genuinely thought I was just a bad sleeper.",
+          "on_screen": "POV: you've accepted bad sleep as your personality",
+          "direction": "Tight face shot, handheld, slightly under-lit like early morning. Direct to lens. No makeup or minimal — authenticity signal. Phone propped on pillow or held at chin level.",
+          "energy": "Flat, tired, confessional. Zero performance."
+        },
+        "setup": {
+          "timing": "0:03-0:15",
+          "spoken": "Like I had done everything — sleep mask, no screens, I even bought one of those $200 sunrise alarm clocks. Still waking up at 3am, still exhausted by 2pm every day. And someone in my comments finally said something I hadn't considered: they asked if I was taking magnesium. I thought — that's for like, muscle cramps.",
+          "on_screen": "tried everything | list: sleep mask ✓ / no screens ✓ / $200 alarm clock ✓ / still exhausted ✓",
+          "direction": "Cut to medium shot, sitting at desk or kitchen counter, natural window light from one side. Relaxed, maybe holding a coffee mug but not drinking.",
+          "energy": "Slightly self-deprecating. Smile at the alarm clock part."
+        },
+        "reveal": {
+          "timing": "0:15-0:27",
+          "spoken": "Turns out around 80% of adults in the US are low in magnesium and most of them have no idea because the symptoms just... look like regular life stress. Bad sleep, anxiety that won't quit, muscle tension, afternoon crashes. I found the Toplux Magnesium Complex and it's a full-spectrum formula — glycinate, malate, and taurate — which apparently matters a lot compared to the cheap oxide form.",
+          "on_screen": "80% of adults are deficient (hold 2s) → glycinate = sleep / malate = energy / taurate = stress",
+          "direction": "Cut to close-up of Toplux bottle held in frame — natural light, no ring light. Rotate slowly showing front label then ingredient panel.",
+          "energy": "Genuine discovery tone. Slightly faster — sharing something learned, not reading ad copy."
+        },
+        "proof": {
+          "timing": "0:27-0:42",
+          "spoken": "I'm four weeks in. I don't want to overstate it — I'm not a doctor and this isn't medical advice — but I fall asleep faster, I stopped waking up at 3am, and the 2pm wall is basically gone. It's $14. Fourteen dollars. I spent more than that on the sleep podcast subscription that did nothing. The link is in my bio — I'll also drop it in the comments so you can actually find it.",
+          "on_screen": "week 4 update → $14.05 on TikTok Shop → link in bio + comments",
+          "direction": "Back to face — medium close-up, elbows on surface. Hold the bottle next to your face at the end. Natural, not posed.",
+          "energy": "Earnest and slightly amused by the price. Let '$14' land with a small pause."
+        },
+        "cta": {
+          "timing": "0:42-0:48",
+          "spoken": "Comment 'MAG' below and I'll send you the direct link. Takes two seconds to find on TikTok Shop.",
+          "on_screen": "Comment MAG ⬇ for the link",
+          "direction": "Pull back to medium shot. Point naturally down toward comments. Smile.",
+          "energy": "Warm, direct, low-pressure."
+        }
+      },
+      "caption": "I thought I was just wired to sleep badly. Nope — I was just deficient in the thing 80% of adults are low in.\nFour weeks on Toplux Magnesium Complex and I actually wake up rested. The 2pm crash is gone.\nIt's $14. I'm unreasonably annoyed it took me this long to try it.\nComment MAG and I'll drop the TikTok Shop link right in the thread.",
+      "hashtags": "#magnesiumdeficiency #sleepoptimization #magnesiumglycinate #wellnesstiktok #stressrecovery #supplementsthatwork #healthtok #sleephacks #tiktokmademebuyit #affordablewellness",
+      "broll": [
+        "Alarm clock at 3:17 AM: Low-angle nightstand, dim warm glow, clock face visible",
+        "Bottle close-up on wooden surface: Macro, natural side window light, rotate front then ingredient panel",
+        "Morning coffee + product overhead: White/marble surface, coffee pouring, Toplux bottle slightly OOF right of frame",
+        "Capsules in palm: Tight shot, two capsules shaken out slowly",
+        "Alert in morning light: Creator at window in natural light — contrast to exhausted open"
+      ],
+      "affiliate_placement": "Pin comment immediately: 'TikTok Shop link is here → [affiliate link] — this is my affiliate link, I earn a commission if you buy.' Update bio link before posting. Pinned comment drives 60-70% of affiliate clicks on this CTA format.",
+      "ab_test_recommendation": "A/B test Hook A (selected) vs Hook E (transformation — 6 weeks, $14 supplement). A wins on stop-rate; E may win on CTR-to-purchase. Run consecutive weeks, same time slot.",
+      "performance_watch": "Video completion rate at 15s (target >55%). If below, compress the deficiency explanation section. Watch ratio of bio-link clicks to MAG comment triggers."
+    },
+    {
+      "content_id": "REAL-BEA-001-A",
+      "product_id": "LIVE-BEA-001",
+      "product_name": "medicube PDRN Pink Collagen Volume Multi Balancing Serum Set",
+      "variant": "A",
+      "format": "ingredient-reveal-comparison",
+      "post_window": "Thursday 6:30 PM EST",
+      "cta_style": "comment-trigger",
+      "cta_trigger_word": "PDRN",
+      "selected_hook": "This ingredient costs thousands of dollars in a Korean dermatology office. This bottle is $18.",
+      "hook_type": "price-dislocation-authority-anchor",
+      "all_hooks": {
+        "A_pain_point": "My skin barrier has been shot for two years and I've spent probably $800 trying to fix it. Nothing worked until I tried something from Korea that costs eighteen dollars.",
+        "B_desire": "If your skin looks dull and nothing you've tried is actually working — this is the ingredient K-beauty has been using for years that we're just now getting in the US.",
+        "C_social_proof": "254,000 people bought this in April alone. I don't usually trust hype but I had to see what this was about.",
+        "D_curiosity": "PDRN — have you heard of this ingredient? Because dermatologists in Korea have been using it for decades and it just showed up on TikTok Shop for $18.",
+        "E_transformation": "This ingredient: costs $300 in a clinic injection. This serum with the same ingredient: $18. I've been using it for three weeks."
+      },
+      "script": {
+        "hook": {
+          "timing": "0:00-0:03",
+          "spoken": "This ingredient costs thousands of dollars in a Korean dermatology office. This bottle is $18.",
+          "on_screen": "clinic price: $$$$ / TikTok Shop: $18",
+          "direction": "Extreme close-up of the serum bottle filling the frame. Hard cut to your face — wide-eyed, genuinely disbelieving. Hold for one beat. The cut is the punchline.",
+          "energy": "Controlled disbelief. Not shouting — speaking like someone who just checked a price tag twice."
+        },
+        "setup": {
+          "timing": "0:03-0:15",
+          "spoken": "So PDRN — polynucleotides — have been used in Korean clinics for skin regeneration for years. They stimulate your skin's own collagen production at the cellular level. This is not a hype ingredient. Dermatologists actually use this. The clinical version is injected and it costs — honestly it costs an embarrassing amount of money per session.",
+          "on_screen": "PDRN = polynucleotides (hold 2s) → used in Korean clinics for YEARS → stimulates collagen at cellular level",
+          "direction": "Medium shot, natural light, bathroom or vanity area for context. Measured, unhurried pace.",
+          "energy": "Knowledgeable but accessible. Filling someone in on something you discovered."
+        },
+        "reveal": {
+          "timing": "0:15-0:27",
+          "spoken": "Medicube put PDRN in this serum set with their Pink Collagen — it's designed to replump, rebalance, and strengthen the barrier. The texture is this lightweight gel, not sticky, it layers under moisturizer perfectly. And I know the packaging looks like it should be $60 on a department store shelf. It is $18.29 on TikTok Shop right now.",
+          "on_screen": "PDRN + Pink Collagen → texture B-roll → $18.29 💀",
+          "direction": "Open the serum, show the pump, dispense a small amount on the back of the hand. Capture texture. Then hold full set to camera.",
+          "energy": "Genuine enthusiasm, restrained. Price reveal with a light laugh or a look to camera."
+        },
+        "proof": {
+          "timing": "0:27-0:42",
+          "spoken": "I'm three weeks in. My skin looked — honestly kind of stressed and dull before this. The first thing I noticed was that tightness after cleansing went away pretty fast, which usually means your barrier is actually happy. And my skin just looks more even now — not filtered even, actual even. I'll put a before photo in the comments so you can see what I mean.",
+          "on_screen": "week 3 → barrier feels happy → before photo in comments ⬇",
+          "direction": "Close-up of creator's face, clean natural light, no heavy filter. If you have a before photo, briefly hold it next to face for 2 seconds.",
+          "energy": "Quiet confidence. Reporting what happened."
+        },
+        "cta": {
+          "timing": "0:42-0:48",
+          "spoken": "Comment 'PDRN' below — I'll send you the direct TikTok Shop link. It's the kind of find you want to tell people about.",
+          "on_screen": "Comment PDRN ⬇ | link in bio too",
+          "direction": "Pull back slightly. Hold bottle up one more time with your face. Point down toward comments. Smile.",
+          "energy": "Warm, conspiratorial. Letting someone in on something."
+        }
+      },
+      "caption": "PDRN has been a clinical skincare secret in Korea for decades. Medicube put it in an $18 serum set and my skin noticed within two weeks.\nBarrier tightness gone. Dullness gone. I genuinely didn't think an $18 product could do this.\nThis is why K-beauty keeps winning — they just don't mark things up the way Western brands do.\nComment PDRN below and I'll drop the link — or it's in my bio if you want it now.",
+      "hashtags": "#PDRN #kbeauty #medicube #skincaretiktok #koreanbeauty #skintok #serumreview #skinbarrier #tiktokmademebuyit #glowup",
+      "broll": [
+        "Product beauty shot: Clean white/marble surface, soft diffused overhead light, slow push-in on pink packaging",
+        "Texture on back of hand: Dispense one pump, tight shot, spread slightly with finger to show lightweight absorption",
+        "Application on face — profile: Three-quarter shot, soft window light, gentle patting motion on cheek",
+        "Ingredient callout card: Handwritten 'PDRN — polynucleotides' held to camera for one beat",
+        "Morning skin in window light: Face close-up, diffused north window light, no filters — the proof shot"
+      ],
+      "affiliate_placement": "Given 64.42% creator CVR, get link in front of viewers within first 10 minutes after posting. Pin disclosure: 'This is an affiliate link — I earn a small commission at no extra cost to you. I actually bought this myself first.' Reply to PDRN comments individually with link.",
+      "ab_test_recommendation": "A/B test Hook D (curiosity — PDRN hidden ingredient knowledge) vs selected Hook (clinic price anchor). D captures skincare-literate self-qualifying buyers; selected hook captures broader audience.",
+      "performance_watch": "Conversion per click is the primary KPI given 64.42% platform CVR. CTR > 8% of views = scale immediately with second variant. CTR < 4% = price-reveal delivery issue, test leading with $18 earlier."
+    },
+    {
+      "content_id": "REAL-HOM-003-A",
+      "product_id": "LIVE-HOM-003",
+      "product_name": "Sunset Projection Lamp (App-Controlled LED)",
+      "variant": "A",
+      "format": "hook-story-cta-transformation",
+      "post_window": "Friday 8:00 PM EST",
+      "cta_style": "comment-trigger",
+      "cta_trigger_word": "LAMP",
+      "selected_hook": "I can't renovate my apartment. I found the next best thing for $29.",
+      "hook_type": "renter-constraint-budget-resolution",
+      "all_hooks": {
+        "A_pain_point": "I can't renovate my apartment. I found the next best thing for $29.",
+        "B_desire": "My apartment went from 'I apologize for the lighting' to actually cozy — and I didn't buy a single piece of furniture.",
+        "C_social_proof": "Everyone in my building has the same overhead lights that make everything look vaguely like a waiting room. I fixed it for less than I spend on dinner.",
+        "D_curiosity": "Why does every sunset lamp look fake in videos but incredible in person? I finally bought one to find out.",
+        "E_transformation": "Before — harsh overhead. After — the most requested thing I've ever shown my apartment. It's a $29 light."
+      },
+      "script": {
+        "hook": {
+          "timing": "0:00-0:03",
+          "spoken": "I cannot paint my walls. I cannot change my floors. But I can change everything about how my apartment feels — and this cost me $29.",
+          "on_screen": "renters, this one's for you (1 second, white text black bg) → hard cut to AFTER room shot with lamp on",
+          "direction": "Open with 1.5s of harsh overhead — wide angle, flat and unflattering. Hard cut to same room with only sunset lamp on. The visual contrast is the entire argument made before any explanation.",
+          "energy": "Matter-of-fact. Sharing a solution to a problem the viewer shares."
+        },
+        "setup": {
+          "timing": "0:03-0:15",
+          "spoken": "I have been in this apartment for two years and I have hated the vibe every single night. The overhead light is just — it's brutal. You know the lighting that makes you feel like you're being interrogated? That's my living room. I'd been seeing sunset lamps on here forever and I assumed they were one of those things that looks way better in videos. So I finally just bought one to find out.",
+          "on_screen": "2 years of bad vibes → is it actually as good as it looks on here?",
+          "direction": "Medium shot, creator in the room, overhead on, looking genuinely pained. Slightly comedic — squint at the ceiling light. Cut to creator on couch scrolling TikTok, lamp visible in background but off.",
+          "energy": "Dry, relatable frustration. Slightly comedic."
+        },
+        "reveal": {
+          "timing": "0:15-0:27",
+          "spoken": "It's app-controlled — 16 colors, you can adjust intensity, and you can set it on a timer so it transitions through sunset tones while you're winding down. I pointed it at my ceiling and toward the wall and the entire room changed. Like — I want to be home now. That wasn't a sentence I could say two months ago.",
+          "on_screen": "app-controlled 🎨 → 16 colors → I actually want to be home now",
+          "direction": "Show phone app open (2s), then lamp being positioned on shelf angled upward, then the room fills with warm orange-pink gradient. Slow handheld pan across the room in lamp-only lighting. Almost meditative pace.",
+          "energy": "Shift from frustrated to genuinely pleased. Delivery slows slightly."
+        },
+        "proof": {
+          "timing": "0:27-0:42",
+          "spoken": "I've had people over twice since I got this and both times someone asked what changed about my apartment. Neither of them noticed it was a light. They thought I'd repainted or bought new furniture or something. It's $28.99. I don't know what else to tell you. The link is going in the comments right now — just comment 'LAMP' and I'll reply with it.",
+          "on_screen": "people thought I repainted 😭 → $28.99 → comment LAMP for link ⬇",
+          "direction": "Creator in the room, lamp fully on. Warm golden light on face — most flattering shot. Hold lamp unit in frame at end so viewers know what to search for.",
+          "energy": "Slightly incredulous delight. 'I don't know what else to tell you' lands like a genuine shrug."
+        },
+        "cta": {
+          "timing": "0:42-0:48",
+          "spoken": "Comment 'LAMP' right now. I'll reply with the TikTok Shop link in under five minutes.",
+          "on_screen": "Comment LAMP ⬇ — I'll reply fast",
+          "direction": "Direct to camera, slightly closer. Point down toward comments once. Lamp light warm and visible behind you. Last frame should make viewer want to be in that room.",
+          "energy": "Direct, quick, warm. Speed promise ('under five minutes') signals real engagement."
+        }
+      },
+      "caption": "My apartment had the kind of overhead lighting that makes everything look slightly sad.\nThis $29 sunset lamp changed the entire vibe — app-controlled, 16 colors, no renovation required.\nTwo people asked if I'd repainted. It's a light. It costs $29.\nRenters, this is your sign. Comment LAMP and I'll send you the TikTok Shop link right now.",
+      "hashtags": "#sunsetlamp #roommakeover #apartmentdecor #moodlighting #renterfriendly #homedecortiktok #cozyhome #roomtransformation #tiktokmademebuyit #amazonfinds",
+      "broll": [
+        "Overhead vs. lamp hard cut: Exact same corner, exact same framing — cold overhead first, then warm lamp. Most important footage in the video.",
+        "App interface: Screen-record or shoot phone showing color wheel and brightness slider. 5 seconds max.",
+        "Projection on wall: Camera slow-pans across gradient pooling on white wall from 2 feet away. Inherently beautiful, loops well.",
+        "Full-room wide shot: All lights off except lamp, shot from corner looking across room with furniture silhouetted.",
+        "Product detail then power-on: Lamp unit unlit on shelf, then it turns on in the same shot. 5-second before/after of the product itself."
+      ],
+      "affiliate_placement": "Reply to every LAMP comment individually with varied text — do not use uniform auto-responder (TikTok flags identical replies as spam). Vary: 'Here it is! [link] — it ships fast too' / '[link] — still $28.99 when I last checked'. Post Friday evening specifically — home decor impulse purchases peak Friday 7-9 PM EST.",
+      "post_order": 1,
+      "post_first_reason": "Highest share-velocity potential for home decor. Transformation is immediately readable on mute. Friday evening captures the 'I want my space to feel better this weekend' impulse window.",
+      "performance_watch": "Watch share rate above all metrics. Share rate > 3% of views at 24h = viral signal, trigger same-format follow-up within 72h. Monitor comment-to-LAMP-trigger ratio — if < 15% of commenters use the trigger word, CTA language needs adjustment."
+    }
+  ],
+  "pipeline_handoff": {
+    "post_order": [
+      {"position": 1, "product": "Sunset Lamp", "when": "Friday 8:00 PM EST", "reason": "Highest share-velocity, transformation visible on mute, Friday evening impulse window"},
+      {"position": 2, "product": "Toplux Magnesium", "when": "Tuesday 7:00 PM EST", "reason": "Wellness peaks weekday evenings, validated niche without oversaturation"},
+      {"position": 3, "product": "medicube PDRN", "when": "Thursday 6:30 PM EST", "reason": "Highest production requirement, but 64.42% CVR means audience is pre-warmed"}
+    ],
+    "iteration_2_trigger": "2026-05-30 content creation phase, first posts live 2026-06-01"
+  }
+}
