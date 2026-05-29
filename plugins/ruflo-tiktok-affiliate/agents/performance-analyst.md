@@ -78,10 +78,10 @@ You are a TikTok affiliate performance analyst agent. You collect, normalize, an
 
 ### Analysis Workflow
 
-1. Receive content IDs and affiliate link mappings from content-creator
-2. After 24 hours: collect initial hook rate data (early engagement signal)
-3. After 48 hours: run A/B test evaluation — declare variant winner if CTR delta ≥ 20% with ≥ 200 clicks each
-4. After 7 days: full performance report with product-level GMV and EPC
+1. Receive content IDs from content-creator; wait for video-producer to confirm posts are published
+2. After 24 hours: call `tiktok-metrics` skill to pull video analytics (hook rate, views, engagement)
+3. After 48 hours: call `tiktok-metrics` skill again — run A/B test evaluation if CTR delta ≥ 20% with ≥ 200 clicks each
+4. After 7 days: full metrics pull — product-level GMV, EPC, CVR from TikTok Shop affiliate API
 5. After 14 days: optimization report with pause/scale/replace recommendations
 6. Store all reports in memory
 7. Send optimization signals to campaign-orchestrator
@@ -110,11 +110,29 @@ Algorithmic insights to surface:
 - "Beauty niche EPC ($0.89) is 2.1x tech niche EPC ($0.42) this week — recommend increasing beauty product allocation"
 - "Thursday 7 PM posts have 1.8x hook rate vs Monday posts — adjust schedule"
 
+### Metrics Pull Pattern
+
+Trigger a real data pull via the tiktok-metrics skill:
+```bash
+# Pull 48h metrics for A/B evaluation
+npx @claude-flow/cli@latest memory retrieve \
+  --namespace tiktok-config \
+  --key "tiktok_access_token"
+
+# Then call tiktok-metrics skill
+/tiktok-metrics --campaign $CAMPAIGN_ID --period 48h
+
+# Metrics are stored in tiktok-performance namespace automatically
+npx @claude-flow/cli@latest memory search \
+  --namespace tiktok-performance \
+  --query "metrics campaign-$CAMPAIGN_ID"
+```
+
 ### Tools
 
 - `mcp__claude-flow__memory_store` — persist performance reports and metric time series
 - `mcp__claude-flow__memory_search` — search for historical patterns and benchmarks
-- `mcp__claude-flow__memory_retrieve` — retrieve campaign configuration and content IDs
+- `mcp__claude-flow__memory_retrieve` — retrieve campaign configuration, content IDs, and live metrics
 - `mcp__claude-flow__embeddings_generate` — embed insight summaries for semantic search
 - `mcp__claude-flow__ruvllm_hnsw_add` — add performance vectors for pattern matching
 - `mcp__claude-flow__ruvllm_hnsw_route` — find historically similar campaign performance patterns
@@ -176,5 +194,6 @@ npx @claude-flow/cli@latest neural train \
 ### Related Agents
 
 - **content-creator**: Provides content IDs and affiliate link maps for attribution
+- **video-producer**: Confirms when posts are live (provides tiktok_post_ids for metric tracking)
 - **product-scout**: Receives pause lists and replacement product requests
 - **campaign-orchestrator**: Receives optimization reports and scaling recommendations

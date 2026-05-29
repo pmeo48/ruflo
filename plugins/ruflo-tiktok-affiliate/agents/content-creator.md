@@ -103,8 +103,8 @@ Hook quality checklist:
    f. List 5 B-roll shot ideas
    g. Create variant B (different hook angle, same product)
 3. Store all content packages in memory
-4. Send content summaries to campaign-orchestrator
-5. Send content IDs to performance-analyst for tracking setup
+4. Send content packages to video-producer for rendering and scheduling
+5. Send content IDs to performance-analyst for tracking setup after videos are published
 
 ### Tools
 
@@ -139,12 +139,21 @@ SendMessage({
 })
 ```
 
-Notify performance-analyst to set up tracking:
+Notify video-producer to render and schedule:
+```
+SendMessage({
+  to: "video-producer",
+  summary: "Content packages ready — render and schedule",
+  message: "Render and schedule these content packages: [CONTENT_IDS]. Campaign: [CAMPAIGN_ID]. All packages stored in tiktok-content namespace. Post schedules are set in each package."
+})
+```
+
+Notify performance-analyst to set up tracking (after video-producer confirms posts are scheduled):
 ```
 SendMessage({
   to: "performance-analyst",
   summary: "New content IDs for tracking",
-  message: "Track these content IDs: [CONTENT_IDS]. Map to affiliate links: [LINK_MAP_JSON]. Campaign: [CAMPAIGN_ID]."
+  message: "Track these content IDs: [CONTENT_IDS]. Map to affiliate links: [LINK_MAP_JSON]. Campaign: [CAMPAIGN_ID]. Pull metrics at 24h, 48h, and 7d after each post goes live."
 })
 ```
 
@@ -180,5 +189,6 @@ npx @claude-flow/cli@latest memory store \
 ### Related Agents
 
 - **content-strategist**: Provides format and hook angle strategy
+- **video-producer**: Receives content packages; renders AI video and schedules posts
 - **performance-analyst**: Measures which content variations perform best
-- **campaign-orchestrator**: Schedules content publication and triggers A/B test evaluation
+- **campaign-orchestrator**: Coordinates the full pipeline and iteration cycles

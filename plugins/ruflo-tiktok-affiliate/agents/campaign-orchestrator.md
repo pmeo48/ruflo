@@ -71,11 +71,14 @@ ITERATION START
     │
     ▼ (wait for content packages)
     │
-[4] PUBLISH — Log content as queued for publication
-    "Mark [content IDs] as scheduled. Store posting metadata."
+[4] PRODUCE — content-creator triggers video-producer automatically
+    video-producer renders AI video via Creatify API
+    video-producer schedules posts via Later/Publer API
+    video-producer reports back: "N videos queued, first post: [DATETIME]"
     │
-    ▼
-[5] ANALYZE — After 48h, send task to performance-analyst
+    ▼ (wait for video-producer confirmation)
+    │
+[5] ANALYZE — After 48h of first post, send task to performance-analyst
     "Evaluate content IDs [IDS]. Run A/B test evaluation.
      Compute EPC and CVR per product. Report top/pause list."
     │
@@ -130,7 +133,8 @@ Before advancing each step, check:
    - product-scout: "Await discovery task for campaign [ID]"
    - content-strategist: "Await strategy task for campaign [ID]"
    - content-creator: "Await content task for campaign [ID]"
-   - performance-analyst: "Await tracking task for campaign [ID], track content IDs as provided"
+   - video-producer: "Await content packages from content-creator; render and schedule automatically"
+   - performance-analyst: "Await publish confirmation from video-producer; pull metrics at 24h and 48h"
 3. Start iteration 1 by sending discovery task to product-scout
 4. Monitor incoming SendMessages from agents
 5. After each agent completes, advance to next step
@@ -255,4 +259,5 @@ Recommended action: [ACTION]
 - **product-scout**: Dispatched to find trending products each iteration
 - **content-strategist**: Dispatched to plan content for discovered products
 - **content-creator**: Dispatched to generate scripts and captions
-- **performance-analyst**: Dispatched to evaluate performance and surface insights
+- **video-producer**: Renders AI video via Creatify and schedules posts via Later/Publer
+- **performance-analyst**: Pulls real metrics via TikTok APIs and surfaces optimization insights

@@ -131,6 +131,56 @@ TikTok Shop affiliate marketing commands:
 4. Display: export path, row count, fields included
 
 **`tiktok config set <key> <value>`** — Configure plugin settings.
-1. Valid keys: `api_key`, `default_niches`, `min_commission`, `default_duration`, `posting_timezone`, `affiliate_username`
+1. Valid keys: `api_key`, `default_niches`, `min_commission`, `default_duration`, `posting_timezone`, `affiliate_username`, `creatify_api_id`, `creatify_api_key`, `creatify_avatar_id`, `creatify_voice_id`, `later_api_token`, `later_profile_id`, `publer_api_token`, `publer_profile_id`, `tiktok_access_token`, `tiktok_shop_token`, `tiktok_advertiser_id`
 2. Store in `tiktok-config` memory namespace
 3. Display: key set, current full config summary
+
+**`tiktok video generate <content-id> [--avatar <id>] [--voice <id>]`** — Render a TikTok video from a content package using Creatify AI.
+1. Retrieve content package from `tiktok-content` namespace
+2. Load Creatify API credentials from `tiktok-config`
+3. Submit render job to Creatify `ai_video_v2` API with script, avatar, and captions
+4. Poll for completion (2–8 minutes); store `video_url` and `video_job_id` in content package
+5. Display: render status, video URL, duration, next step command
+
+**`tiktok video status <job-id>`** — Check the status of an in-progress Creatify render job.
+1. Call Creatify API with job ID
+2. Display: status (pending/processing/done/failed), estimated completion if pending, video URL if done
+
+**`tiktok schedule <content-id> [--time <ISO8601>] [--platform later|publer]`** — Schedule a rendered video for automatic TikTok posting.
+1. Retrieve content package — verify `video_url` is present
+2. Load scheduler API credentials from `tiktok-config`
+3. Upload video to Later or Publer; create scheduled post with caption, hashtags, and post time
+4. Update content package with `scheduled_post_id` and `scheduled_time`
+5. Display: scheduled post confirmation, post time, platform, next step (track)
+
+**`tiktok schedule --campaign <campaign-id> --all-pending`** — Schedule all unscheduled rendered videos in a campaign at once.
+1. Find all content packages in campaign with `render_status: done` and `scheduled_status: null`
+2. Schedule each using the `post_schedule` time from the content package
+3. Display: count scheduled, full posting calendar
+
+**`tiktok publish <content-id>`** — End-to-end: generate video AND schedule in one command.
+1. Run `tiktok video generate <content-id>` — render via Creatify
+2. Wait for render completion
+3. Run `tiktok schedule <content-id>` — schedule via Later/Publer
+4. Display: full pipeline result — render time, scheduled post ID, post time
+
+**`tiktok publish --campaign <campaign-id> --all`** — Publish entire campaign: generate + schedule all content packages.
+1. For each content package in campaign (ordered by `post_schedule`):
+   - Generate video via Creatify (run renders in parallel, max 3 concurrent)
+   - Schedule via Later/Publer once render completes
+2. Display: publishing dashboard — per-package status, full schedule calendar
+
+**`tiktok metrics pull [--campaign <id>] [--period 7d] [--source all]`** — Pull real performance data from TikTok APIs.
+1. Load TikTok API tokens from `tiktok-config`
+2. For each published content package: call TikTok video analytics API (views, hook rate, engagement)
+3. Call TikTok Shop affiliate reporting API (clicks, conversions, GMV, commissions)
+4. Compute derived KPIs: CTR, CVR, EPC
+5. Store metrics in `tiktok-performance` namespace
+6. Display: per-content metrics table with KPIs and campaign totals
+
+**`tiktok setup apis`** — Interactive setup wizard for all three API integrations.
+1. Walk through Creatify setup: API ID, API key, avatar creation instructions
+2. Walk through Later/Publer setup: API token, TikTok account OAuth connection steps
+3. Walk through TikTok API setup: Business API token, Shop API token instructions
+4. Test each connection and report status
+5. Store all credentials in `tiktok-config` namespace
