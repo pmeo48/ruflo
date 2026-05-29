@@ -43,12 +43,15 @@ export interface Signal {
   id: string;
   timestamp: number;
   marketId: string;
-  tokenId: string;
+  tokenId: string;       // YES token id
+  noTokenId: string;     // NO token id (used when direction === 'SELL')
   question: string;
   direction: 'BUY' | 'SELL';
-  edge: number;
-  fairValue: number;
-  marketPrice: number;
+  edge: number;          // fairValue - marketPrice  (positive → BUY YES, negative → BUY NO)
+  fairValue: number;     // our estimated YES probability
+  marketPrice: number;   // market's YES price
+  noFairValue: number;   // 1 - fairValue
+  noMarketPrice: number; // 1 - marketPrice
   confidence: number;
   asset: string;
   strikePrice: number;

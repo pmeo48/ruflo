@@ -83,8 +83,13 @@ export class ExecutionAgent {
   }
 
   private async executePaperTrade(signal: Signal, sizing: KellySizing): Promise<Trade | null> {
-    const entryPrice = signal.marketPrice * (1 + config.risk.slippagePct);
-    const fee        = sizing.positionSizeUsd * config.risk.feePct;
+    // BUY YES for positive edge; BUY NO for negative edge (SELL signal)
+    const isSell      = signal.direction === 'SELL';
+    const tokenId     = isSell ? signal.noTokenId    : signal.tokenId;
+    const rawPrice    = isSell ? signal.noMarketPrice : signal.marketPrice;
+    const outcome     = isSell ? 'NO' : 'YES';
+    const entryPrice  = rawPrice * (1 + config.risk.slippagePct);
+    const fee         = sizing.positionSizeUsd * config.risk.feePct;
     const effectiveCost = sizing.positionSizeUsd + fee;
 
     if (effectiveCost > this.portfolio.cash) {
@@ -96,9 +101,9 @@ export class ExecutionAgent {
       id:        generateId('paper'),
       timestamp: Date.now(),
       marketId:  signal.marketId,
-      tokenId:   signal.tokenId,
-      question:  signal.question,
-      side:      signal.direction,
+      tokenId,
+      question:  `${signal.question} [${outcome}]`,
+      side:      'BUY',  // always BUY the chosen token
       sizeUsd:   sizing.positionSizeUsd,
       shares:    sizing.shares,
       price:     entryPrice,
@@ -111,20 +116,20 @@ export class ExecutionAgent {
     this.portfolio.trades.push(trade);
 
     const position: Position = {
-      id:           generateId('pos'),
-      marketId:     signal.marketId,
-      tokenId:      signal.tokenId,
-      question:     signal.question,
-      asset:        signal.asset,
-      side:         'LONG',
-      sizeUsd:      sizing.positionSizeUsd,
-      shares:       sizing.shares,
+      id:            generateId('pos'),
+      marketId:      signal.marketId,
+      tokenId,
+      question:      `${signal.question} [${outcome}]`,
+      asset:         signal.asset,
+      side:          'LONG',
+      sizeUsd:       sizing.positionSizeUsd,
+      shares:        sizing.shares,
       entryPrice,
-      currentPrice: entryPrice,
+      currentPrice:  entryPrice,
       unrealizedPnl: 0,
-      realizedPnl:  0,
-      openedAt:     Date.now(),
-      status:       'open',
+      realizedPnl:   0,
+      openedAt:      Date.now(),
+      status:        'open',
     };
 
     this.portfolio.positions.set(position.id, position);
@@ -132,8 +137,8 @@ export class ExecutionAgent {
 
     eventBus.publish({ type: 'position_opened', timestamp: Date.now(), data: { trade, position } });
     console.log(
-      `[ExecutionAgent] PAPER ${signal.direction} ${signal.asset} $${signal.strikePrice} ` +
-      `size=$${sizing.positionSizeUsd.toFixed(2)} price=${entryPrice.toFixed(4)} shares=${sizing.shares.toFixed(2)}`
+      `[ExecutionAgent] PAPER BUY ${outcome} ${signal.asset} $${signal.strikePrice} ` +
+      `size=$${sizing.positionSizeUsd.toFixed(2)} price=${entryPrice.toFixed(4)} ${sizing.rationale}`
     );
 
     return trade;
@@ -154,12 +159,17 @@ export class ExecutionAgent {
       if (pos.status !== 'open') continue;
       if (!expiredIds.includes(pos.marketId)) continue;
 
-      const settlement = this.polymarket.settleMarket(pos.marketId);
-      if (settlement === null) continue;
+      const yesSettlement = this.polymarket.settleMarket(pos.marketId);
+      if (yesSettlement === null) continue;
+
+      // Determine if position holds YES or NO token
+      const isNoToken  = pos.tokenId.endsWith('-no');
+      const settlement = isNoToken ? 1 - yesSettlement : yesSettlement;
+      const outcome    = isNoToken ? 'NO' : 'YES';
 
       this.closePosition(pos.id, settlement);
       console.log(
-        `[ExecutionAgent] settled ${pos.asset} $${pos.question.match(/\$[\d,]+/)?.[0] ?? '?'} ` +
+        `[ExecutionAgent] settled ${outcome} ${pos.asset} ` +
         `→ ${settlement === 1 ? 'WON' : 'LOST'} PnL=$${pos.realizedPnl.toFixed(2)}`
       );
     }

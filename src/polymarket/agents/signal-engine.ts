@@ -49,23 +49,28 @@ export class SignalEngine {
       const market = this.scanner.getMarkets().find(m => m.id === fv.marketId);
       if (!market) continue;
 
-      // Positive edge: our fair value > market price → BUY YES token
-      // Negative edge: our fair value < market price → SELL YES token (or BUY NO)
+      // Positive edge → BUY YES token; negative edge → BUY NO token (labelled SELL)
       const direction: 'BUY' | 'SELL' = fv.edge > 0 ? 'BUY' : 'SELL';
 
+      const noToken = market.tokens.find(t => t.outcome.toLowerCase() === 'no')
+        ?? market.tokens.find(t => t.tokenId !== fv.tokenId);
+
       const signal: Signal = {
-        id:          `sig-${++this.signalCount}-${Date.now()}`,
-        timestamp:   Date.now(),
-        marketId:    fv.marketId,
-        tokenId:     fv.tokenId,
-        question:    market.question,
+        id:           `sig-${++this.signalCount}-${Date.now()}`,
+        timestamp:    Date.now(),
+        marketId:     fv.marketId,
+        tokenId:      fv.tokenId,
+        noTokenId:    noToken?.tokenId ?? `${fv.marketId}-no`,
+        question:     market.question,
         direction,
-        edge:        fv.edge,
-        fairValue:   fv.fairProbability,
-        marketPrice: fv.marketProbability,
-        confidence:  fv.confidence,
-        asset:       fv.asset,
-        strikePrice: fv.strikePrice,
+        edge:         fv.edge,
+        fairValue:    fv.fairProbability,
+        marketPrice:  fv.marketProbability,
+        noFairValue:  1 - fv.fairProbability,
+        noMarketPrice: noToken?.price ?? (1 - fv.marketProbability),
+        confidence:   fv.confidence,
+        asset:        fv.asset,
+        strikePrice:  fv.strikePrice,
         expiryDate:  fv.expiryDate,
       };
 
@@ -107,19 +112,22 @@ export class SignalEngine {
     if (Math.abs(fv.edge) < config.trading.signalThreshold) return null;
     const direction: 'BUY' | 'SELL' = fv.edge > 0 ? 'BUY' : 'SELL';
     return {
-      id:          `bt-${++this.signalCount}-${Date.now()}`,
-      timestamp:   Date.now(),
-      marketId:    fv.marketId,
-      tokenId:     fv.tokenId,
-      question:    market.question,
+      id:           `bt-${++this.signalCount}-${Date.now()}`,
+      timestamp:    Date.now(),
+      marketId:     fv.marketId,
+      tokenId:      fv.tokenId,
+      noTokenId:    `${fv.marketId}-no`,
+      question:     market.question,
       direction,
-      edge:        fv.edge,
-      fairValue:   fv.fairProbability,
-      marketPrice: fv.marketProbability,
-      confidence:  fv.confidence,
-      asset:       fv.asset,
-      strikePrice: fv.strikePrice,
-      expiryDate:  fv.expiryDate,
+      edge:         fv.edge,
+      fairValue:    fv.fairProbability,
+      marketPrice:  fv.marketProbability,
+      noFairValue:  1 - fv.fairProbability,
+      noMarketPrice: 1 - fv.marketProbability,
+      confidence:   fv.confidence,
+      asset:        fv.asset,
+      strikePrice:  fv.strikePrice,
+      expiryDate:   fv.expiryDate,
     };
   }
 }

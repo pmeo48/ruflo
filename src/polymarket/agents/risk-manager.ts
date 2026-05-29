@@ -76,31 +76,34 @@ export class RiskManager {
   }
 
   // Kelly Criterion for binary bet:
-  //   p  = our probability of winning (fairValue)
-  //   b  = net profit per unit if we win = (1 - entryPrice) / entryPrice
-  //   f* = (p*b - (1-p)) / b   = (p*(b+1) - 1) / b
+  //   f* = (p*(b+1) - 1) / b   where b = (1-price)/price (net profit odds)
+  //
+  // For BUY YES: p = fairValue,       price = marketPrice
+  // For SELL  (BUY NO): p = noFairValue, price = noMarketPrice
   kellySize(signal: Signal): KellySizing {
-    const p = signal.fairValue;
-    const entryPrice = signal.marketPrice;
+    const isSell = signal.direction === 'SELL';
+    const p          = isSell ? signal.noFairValue   : signal.fairValue;
+    const entryPrice = isSell ? signal.noMarketPrice : signal.marketPrice;
 
-    // For BUY: we pay `entryPrice` per share, profit `1 - entryPrice` per share
-    const b = (1 - entryPrice) / entryPrice;
-    const rawKelly = (p * (b + 1) - 1) / b;
-    const fracKelly = Math.max(rawKelly * config.risk.kellyFraction, 0);
+    if (entryPrice <= 0 || entryPrice >= 1) {
+      return { kellyFraction: 0, cappedFraction: 0, positionSizeUsd: 0, shares: 0, rationale: 'invalid price' };
+    }
 
-    // Cap at max position %
-    const cappedFraction = Math.min(fracKelly, config.risk.maxPositionPct);
+    const b          = (1 - entryPrice) / entryPrice;
+    const rawKelly   = (p * (b + 1) - 1) / b;
+    const fracKelly  = Math.max(rawKelly * config.risk.kellyFraction, 0);
+    const cappedFraction   = Math.min(fracKelly, config.risk.maxPositionPct);
+    const positionSizeUsd  = cappedFraction * this.portfolio.cash;
+    const effectiveEntry   = entryPrice * (1 + config.risk.slippagePct);
+    const shares           = effectiveEntry > 0 ? positionSizeUsd / effectiveEntry : 0;
 
-    // Apply to available cash
-    const positionSizeUsd = cappedFraction * this.portfolio.cash;
-    const shares = positionSizeUsd / (entryPrice * (1 + config.risk.slippagePct));
-
+    const tokenLabel = isSell ? 'NO' : 'YES';
     return {
       kellyFraction:  fracKelly,
       cappedFraction,
       positionSizeUsd: Math.max(positionSizeUsd, 0),
       shares:          Math.max(shares, 0),
-      rationale:       `Kelly=${(fracKelly * 100).toFixed(1)}% capped=${(cappedFraction * 100).toFixed(1)}% edge=${(signal.edge * 100).toFixed(1)}%`,
+      rationale: `${tokenLabel} Kelly=${(fracKelly*100).toFixed(1)}% capped=${(cappedFraction*100).toFixed(1)}% edge=${(signal.edge*100).toFixed(1)}%`,
     };
   }
 
