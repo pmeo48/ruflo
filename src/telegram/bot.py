@@ -36,6 +36,9 @@ async def send_report(
         logger.error("python-telegram-bot not installed. Run: pip install python-telegram-bot>=21.0")
         return False
 
+    # Normalize chat_id — Telegram accepts string or int
+    chat_id_norm = str(chat_id).strip()
+
     bot = Bot(token=bot_token)
     success_count = 0
 
@@ -47,10 +50,14 @@ async def send_report(
         logger.error("Telegram connection failed: %s", exc)
         return False
 
+    # Always send at least a fallback header so the user knows the bot is alive
+    if not report_chunks:
+        report_chunks = ["⚠️ <b>Betting Platform</b>\n\nNo qualifying bets found today. Markets analyzed — no positive EV opportunities met thresholds."]
+
     for i, chunk in enumerate(report_chunks):
         try:
             await bot.send_message(
-                chat_id=chat_id,
+                chat_id=chat_id_norm,
                 text=chunk,
                 parse_mode=ParseMode.HTML,
                 disable_web_page_preview=True,
@@ -90,7 +97,7 @@ async def send_alert(message: str, bot_token: str, chat_id: str) -> bool:
     try:
         bot = Bot(token=bot_token)
         await bot.send_message(
-            chat_id=chat_id,
+            chat_id=str(chat_id).strip(),
             text=f"⚠️ <b>Betting Platform Alert</b>\n\n{message}",
             parse_mode="HTML",
         )
