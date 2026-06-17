@@ -1,111 +1,122 @@
-import { TrendingUp, Users, DollarSign, Tag } from 'lucide-react'
+import { Search, TrendingUp, DollarSign, Users, ChevronUp, ChevronDown } from 'lucide-react'
 import { Header } from '@/components/layout/Header'
 import { Card, CardHeader, CardTitle } from '@/components/ui/Card'
 import { Badge } from '@/components/ui/Badge'
+import { MOCK_KEYWORDS } from '@/lib/mock-data'
 
-const MOCK_COMPETITORS = [
-  { shopName: 'DigitalDownloadPro', productTitle: 'AI Business Prompt Pack - 500+ ChatGPT Prompts for Entrepreneurs', price: 24.99, sales: 4230, rating: 4.9, tags: ['ai prompts', 'chatgpt', 'business', 'entrepreneur'] },
-  { shopName: 'NotionTemplateHub', productTitle: 'Ultimate Notion Business OS Template 2024', price: 47, sales: 2890, rating: 4.8, tags: ['notion template', 'business os', 'productivity', 'crm'] },
-  { shopName: 'AIToolsShop', productTitle: 'Complete AI Agency Toolkit - Launch Your Agency', price: 97, sales: 1240, rating: 4.7, tags: ['ai agency', 'consulting', 'business kit'] },
-  { shopName: 'SpreadsheetQueen', productTitle: 'Small Business Finance Tracker Bundle', price: 29, sales: 6700, rating: 4.9, tags: ['spreadsheet', 'finance tracker', 'small business'] },
-  { shopName: 'PromptLibrary', productTitle: 'Marketing AI Prompt Pack 300+ Prompts', price: 19.99, sales: 8900, rating: 4.8, tags: ['marketing prompts', 'ai writing', 'content creation'] },
+const COMPETITORS = [
+  { shop: 'AIPromptsShop', product: 'ChatGPT Business Prompts Pack 500+', price: 24, sales: 2840, rating: 4.9, tags: ['ChatGPT', 'AI prompts', 'business'], opportunity: 'high' as const },
+  { shop: 'DigitalTemplateHub', product: 'Notion Business OS Template', price: 39, sales: 1920, rating: 4.8, tags: ['Notion', 'business template', 'productivity'], opportunity: 'medium' as const },
+  { shop: 'ContentCreatorTools', product: 'AI Social Media Content Pack', price: 17, sales: 4200, rating: 4.7, tags: ['social media', 'content creation', 'AI'], opportunity: 'high' as const },
+  { shop: 'EntrepreneurVault', product: 'AI Agency Starter Bundle', price: 67, sales: 890, rating: 4.9, tags: ['AI agency', 'freelance', 'business'], opportunity: 'medium' as const },
+  { shop: 'FreelanceToolkit', product: 'Freelancer Client Templates Pack', price: 29, sales: 1560, rating: 4.6, tags: ['freelance', 'client templates', 'contracts'], opportunity: 'low' as const },
 ]
 
-const MARKET_INSIGHTS = [
-  { niche: 'AI Business Prompts', avgPrice: 27, topSales: 8900, competition: 'medium', opportunity: 'high' },
-  { niche: 'Notion Templates', avgPrice: 42, topSales: 6200, competition: 'high', opportunity: 'medium' },
-  { niche: 'Spreadsheet Trackers', avgPrice: 31, topSales: 12000, competition: 'high', opportunity: 'medium' },
-  { niche: 'PDF Business Guides', avgPrice: 24, topSales: 5400, competition: 'low', opportunity: 'high' },
-  { niche: 'Prompt Packs (Niche)', avgPrice: 22, topSales: 3200, competition: 'low', opportunity: 'high' },
+const RECOMMENDATIONS = [
+  'AI prompts market is growing 34% MoM — strong opportunity for prompt packs under $30',
+  'Notion templates priced $40-60 outperform lower-priced alternatives by 2.3x in revenue',
+  'Business bundles with 5+ products see 47% higher conversion than single products',
+  'Top sellers use all 13 Etsy tags with high-volume keywords in first 3 positions',
+  'Digital downloads with mockup images convert 38% better than text-only listings',
 ]
 
 export default function ResearchPage() {
   return (
     <div>
-      <Header title="Competitive Research" subtitle="Market intelligence and competitor analysis" />
-
+      <Header title="Market Research" subtitle="Competitor analysis and market positioning" />
       <div className="p-6 space-y-6">
-        {/* Market Overview */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { label: 'Market Size Est.', value: '$2.4M/mo', icon: <DollarSign className="w-4 h-4 text-green-600" />, bg: 'bg-green-50' },
-            { label: 'Avg Product Price', value: '$34.20', icon: <Tag className="w-4 h-4 text-blue-600" />, bg: 'bg-blue-50' },
-            { label: 'Top Seller Sales', value: '12,400', icon: <TrendingUp className="w-4 h-4 text-purple-600" />, bg: 'bg-purple-50' },
-            { label: 'Active Competitors', value: '847', icon: <Users className="w-4 h-4 text-orange-600" />, bg: 'bg-orange-50' },
-          ].map(({ label, value, icon, bg }) => (
-            <Card key={label}>
-              <div className="flex items-center gap-3">
-                <div className={`w-9 h-9 rounded-lg ${bg} flex items-center justify-center`}>{icon}</div>
-                <div>
-                  <p className="text-xs text-gray-500">{label}</p>
-                  <p className="text-lg font-bold text-gray-900">{value}</p>
-                </div>
-              </div>
-            </Card>
-          ))}
-        </div>
-
-        {/* Niche Opportunities */}
-        <Card>
-          <CardHeader><CardTitle>Niche Opportunity Analysis</CardTitle></CardHeader>
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead>
-                <tr className="bg-gray-50">
-                  <th className="text-left px-4 py-2 text-xs font-medium text-gray-500">Niche</th>
-                  <th className="text-right px-4 py-2 text-xs font-medium text-gray-500">Avg Price</th>
-                  <th className="text-right px-4 py-2 text-xs font-medium text-gray-500">Top Sales</th>
-                  <th className="text-center px-4 py-2 text-xs font-medium text-gray-500">Competition</th>
-                  <th className="text-center px-4 py-2 text-xs font-medium text-gray-500">Opportunity</th>
-                </tr>
-              </thead>
-              <tbody>
-                {MARKET_INSIGHTS.map((m) => (
-                  <tr key={m.niche} className="border-t border-gray-100 hover:bg-gray-50">
-                    <td className="px-4 py-3 font-medium text-gray-900">{m.niche}</td>
-                    <td className="px-4 py-3 text-right text-gray-600">${m.avgPrice}</td>
-                    <td className="px-4 py-3 text-right text-gray-600">{m.topSales.toLocaleString()}</td>
-                    <td className="px-4 py-3 text-center">
-                      <Badge variant={m.competition === 'low' ? 'green' : m.competition === 'medium' ? 'yellow' : 'red'}>
-                        {m.competition}
-                      </Badge>
-                    </td>
-                    <td className="px-4 py-3 text-center">
-                      <Badge variant={m.opportunity === 'high' ? 'green' : 'yellow'}>{m.opportunity}</Badge>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </Card>
-
-        {/* Top Competitors */}
-        <Card>
-          <CardHeader><CardTitle>Top Competitor Listings</CardTitle></CardHeader>
-          <div className="space-y-3">
-            {MOCK_COMPETITORS.map((c, i) => (
-              <div key={c.shopName} className="flex items-start gap-4 p-3 rounded-lg border border-gray-100 hover:border-indigo-100 hover:bg-indigo-50/20 transition-all">
-                <div className="w-6 h-6 rounded-full bg-gray-100 flex items-center justify-center text-xs font-bold text-gray-500 flex-shrink-0 mt-0.5">
-                  {i + 1}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-sm font-medium text-gray-900 line-clamp-1">{c.productTitle}</p>
-                  <p className="text-xs text-gray-500 mt-0.5">by {c.shopName} · ⭐ {c.rating} · {c.sales.toLocaleString()} sales</p>
-                  <div className="flex flex-wrap gap-1 mt-1.5">
-                    {c.tags.map(tag => (
-                      <span key={tag} className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded-full">{tag}</span>
-                    ))}
+            { label: 'Market Size', value: '$2.4M/mo', icon: DollarSign, color: 'bg-green-100 text-green-700' },
+            { label: 'Competitors', value: '340+', icon: Users, color: 'bg-blue-100 text-blue-700' },
+            { label: 'Avg Price', value: '$34.20', icon: Search, color: 'bg-purple-100 text-purple-700' },
+            { label: 'Growth', value: '+34% MoM', icon: TrendingUp, color: 'bg-yellow-100 text-yellow-700' },
+          ].map((stat) => {
+            const Icon = stat.icon
+            return (
+              <Card key={stat.label}>
+                <div className="flex items-center gap-3">
+                  <div className={`p-2 rounded-lg ${stat.color}`}><Icon className="w-5 h-5" /></div>
+                  <div>
+                    <div className="text-xs text-gray-500">{stat.label}</div>
+                    <div className="text-lg font-bold text-gray-900">{stat.value}</div>
                   </div>
                 </div>
-                <div className="text-right flex-shrink-0">
-                  <p className="font-bold text-gray-900">${c.price}</p>
-                  <p className="text-xs text-gray-500">${(c.price * c.sales).toLocaleString()} rev</p>
-                </div>
-              </div>
-            ))}
+              </Card>
+            )
+          })}
+        </div>
+
+        <Card className="p-0 overflow-hidden">
+          <div className="px-6 py-4 border-b border-gray-100">
+            <h3 className="font-semibold text-gray-900">Competitor Analysis</h3>
           </div>
+          <table className="w-full text-sm">
+            <thead>
+              <tr className="bg-gray-50">
+                <th className="text-left px-6 py-3 text-xs font-medium text-gray-500 uppercase">Shop</th>
+                <th className="text-left px-4 py-3 text-xs font-medium text-gray-500 uppercase">Product</th>
+                <th className="text-right px-4 py-3 text-xs font-medium text-gray-500 uppercase">Price</th>
+                <th className="text-right px-4 py-3 text-xs font-medium text-gray-500 uppercase">Sales</th>
+                <th className="text-center px-4 py-3 text-xs font-medium text-gray-500 uppercase">Rating</th>
+                <th className="text-center px-4 py-3 text-xs font-medium text-gray-500 uppercase">Opportunity</th>
+              </tr>
+            </thead>
+            <tbody>
+              {COMPETITORS.map((c, i) => (
+                <tr key={i} className="border-t border-gray-100 hover:bg-gray-50">
+                  <td className="px-6 py-3 font-medium text-gray-900">{c.shop}</td>
+                  <td className="px-4 py-3 text-gray-700 max-w-xs">
+                    <div className="truncate">{c.product}</div>
+                    <div className="flex gap-1 mt-1">
+                      {c.tags.slice(0, 2).map((t) => <span key={t} className="px-1.5 py-0.5 bg-gray-100 text-gray-500 rounded text-xs">{t}</span>)}
+                    </div>
+                  </td>
+                  <td className="px-4 py-3 text-right font-semibold text-gray-900">${c.price}</td>
+                  <td className="px-4 py-3 text-right text-gray-600">{c.sales.toLocaleString()}</td>
+                  <td className="px-4 py-3 text-center">
+                    <span className="text-yellow-500">&#9733;</span> {c.rating}
+                  </td>
+                  <td className="px-4 py-3 text-center">
+                    <Badge variant={c.opportunity === 'high' ? 'green' : c.opportunity === 'medium' ? 'yellow' : 'gray'}>{c.opportunity}</Badge>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </Card>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Card>
+            <CardHeader><CardTitle>AI Recommendations</CardTitle></CardHeader>
+            <ul className="space-y-3 mt-2">
+              {RECOMMENDATIONS.map((rec, i) => (
+                <li key={i} className="flex items-start gap-3 text-sm">
+                  <span className="w-5 h-5 rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">{i + 1}</span>
+                  <span className="text-gray-700">{rec}</span>
+                </li>
+              ))}
+            </ul>
+          </Card>
+
+          <Card>
+            <CardHeader><CardTitle>Keyword Volume Analysis</CardTitle></CardHeader>
+            <div className="space-y-3 mt-2">
+              {MOCK_KEYWORDS.map((kw) => (
+                <div key={kw.term} className="flex items-center justify-between">
+                  <div>
+                    <div className="text-sm font-medium text-gray-900">{kw.term}</div>
+                    <div className="text-xs text-gray-400">{kw.searchVolume.toLocaleString()} searches/mo</div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Badge variant={kw.competition === 'low' ? 'green' : kw.competition === 'medium' ? 'yellow' : 'red'}>{kw.competition}</Badge>
+                    {kw.trend === 'up' ? <ChevronUp className="w-4 h-4 text-green-500" /> : <ChevronDown className="w-4 h-4 text-red-500" />}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Card>
+        </div>
       </div>
     </div>
   )
