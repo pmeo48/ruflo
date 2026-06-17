@@ -1,0 +1,24 @@
+import { createServerClient } from '@supabase/ssr'
+import { cookies } from 'next/headers'
+
+export function createSupabaseServerClient() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
+  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+  if (!url || !key) return null
+
+  const cookieStore = cookies()
+  return createServerClient(url, key, {
+    cookies: {
+      get(name: string) { return cookieStore.get(name)?.value },
+      set() {},
+      remove() {},
+    },
+  })
+}
+
+export async function getSession() {
+  const supabase = createSupabaseServerClient()
+  if (!supabase) return null
+  const { data: { session } } = await supabase.auth.getSession()
+  return session
+}
