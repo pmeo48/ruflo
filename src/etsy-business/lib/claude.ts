@@ -1,21 +1,16 @@
 import Anthropic from '@anthropic-ai/sdk'
 
-export const anthropic = new Anthropic({
-  apiKey: process.env.ANTHROPIC_API_KEY || 'sk-ant-placeholder',
-})
+const apiKey = process.env.ANTHROPIC_API_KEY
 
-export async function generateWithClaude(prompt: string, systemPrompt?: string): Promise<string> {
-  if (!process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_API_KEY === 'sk-ant-placeholder') {
-    return 'AI generation requires a valid Anthropic API key. Configure ANTHROPIC_API_KEY in your environment.'
-  }
+export const anthropic = apiKey ? new Anthropic({ apiKey }) : null
 
+export async function generateWithClaude(systemPrompt: string, userPrompt: string, model = 'claude-haiku-4-5-20251001'): Promise<string> {
+  if (!anthropic) throw new Error('ANTHROPIC_API_KEY not configured')
   const response = await anthropic.messages.create({
-    model: 'claude-opus-4-5',
+    model,
     max_tokens: 2000,
-    system: systemPrompt || 'You are an expert Etsy digital product creator and business consultant.',
-    messages: [{ role: 'user', content: prompt }],
+    system: systemPrompt,
+    messages: [{ role: 'user', content: userPrompt }],
   })
-
-  const content = response.content[0]
-  return content.type === 'text' ? content.text : ''
+  return response.content[0].type === 'text' ? response.content[0].text : ''
 }
