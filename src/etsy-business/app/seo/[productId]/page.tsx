@@ -51,7 +51,7 @@ export default function ProductSEOPage({ params }: Props) {
         subtitle="Optimize for Etsy search visibility"
         actions={
           <div className="flex gap-2">
-            <Link href="/seo"><Button variant="outline" size="sm"><ArrowLeft className="w-4 h-4" />Back</Button></Link>
+            <Link href="/seo"><Button variant="secondary" size="sm"><ArrowLeft className="w-4 h-4" />Back</Button></Link>
             <Button onClick={handleGenerate} disabled={generating}>
               {generating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
               {generating ? 'Optimizing...' : 'AI Optimize'}

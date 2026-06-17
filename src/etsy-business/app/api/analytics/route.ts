@@ -1,29 +1,27 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { MOCK_ANALYTICS, MOCK_PRODUCTS, MOCK_DASHBOARD_STATS } from '@/lib/mock-data'
 
-export async function GET(request: NextRequest) {
-  try {
-    const { searchParams } = new URL(request.url)
-    const period = searchParams.get('period') || '30d'
-    const productId = searchParams.get('productId')
-
-    const days = period === '7d' ? 7 : period === '90d' ? 90 : 30
-    const analyticsData = MOCK_ANALYTICS.slice(-days)
-
-    const summary = {
-      totalRevenue: analyticsData.reduce((s, d) => s + d.revenue, 0),
-      totalOrders: analyticsData.reduce((s, d) => s + d.orders, 0),
-      totalViews: analyticsData.reduce((s, d) => s + d.views, 0),
-      avgConversionRate: analyticsData.reduce((s, d) => s + d.conversionRate, 0) / analyticsData.length,
-    }
-
-    return NextResponse.json({
-      data: analyticsData,
-      summary,
-      stats: MOCK_DASHBOARD_STATS,
-      products: productId ? MOCK_PRODUCTS.filter(p => p.id === productId) : MOCK_PRODUCTS,
-    })
-  } catch (error) {
-    return NextResponse.json({ error: 'Failed to fetch analytics' }, { status: 500 })
-  }
+export async function GET() {
+  return NextResponse.json({
+    revenue: {
+      daily: MOCK_DASHBOARD_STATS.todayRevenue,
+      weekly: MOCK_DASHBOARD_STATS.weeklyRevenue,
+      monthly: MOCK_DASHBOARD_STATS.monthlyRevenue,
+      annual: MOCK_DASHBOARD_STATS.annualRevenue,
+    },
+    products: MOCK_PRODUCTS.map(p => ({
+      id: p.id,
+      name: p.name,
+      revenue: p.revenue,
+      sales: p.sales,
+      views: p.views,
+      conversionRate: p.conversionRate,
+    })),
+    conversionRate: MOCK_DASHBOARD_STATS.avgConversionRate,
+    growth: {
+      revenue: MOCK_DASHBOARD_STATS.revenueGrowth,
+      sales: MOCK_DASHBOARD_STATS.salesGrowth,
+    },
+    timeSeries: MOCK_ANALYTICS,
+  })
 }

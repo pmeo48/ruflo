@@ -1,52 +1,37 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 import { MOCK_PRODUCTS } from '@/lib/mock-data'
-import { ExpansionVariant } from '@/lib/types'
 
-const NICHES = ['Healthcare', 'Real Estate', 'Legal', 'Finance', 'Education', 'E-commerce', 'SaaS', 'Coaching', 'Restaurant', 'Retail']
-const VARIANT_TYPES: Array<{ type: ExpansionVariant['type']; multiplier: number; suffix: string }> = [
-  { type: 'lite', multiplier: 0.4, suffix: 'Lite' },
-  { type: 'pro', multiplier: 1.8, suffix: 'Pro' },
-  { type: 'ultimate', multiplier: 3.2, suffix: 'Ultimate' },
-]
-
-export async function GET(request: NextRequest) {
+export async function POST(req: Request) {
   try {
-    const { searchParams } = new URL(request.url)
-    const productId = searchParams.get('productId')
+    const { productId } = await req.json()
+    const product = MOCK_PRODUCTS.find(p => p.id === productId) ?? MOCK_PRODUCTS[0]
+    const name = product.name.split(' ').slice(0, 2).join(' ')
 
-    const products = productId
-      ? MOCK_PRODUCTS.filter(p => p.id === productId)
-      : MOCK_PRODUCTS
+    const ideas = [
+      `${name} Lite Edition — Entry-level version`,
+      `${name} Pro Edition — Advanced features`,
+      `${name} Ultimate Bundle — Complete system`,
+      `${name} for Beginners — Starter pack`,
+      `${name} Industry Niche Edition`,
+      `${name} Team Collaboration Version`,
+      `${name} Done-For-You Templates`,
+      `${name} Video Tutorial Add-on`,
+      `${name} Swipe File Collection`,
+      `${name} Email Sequence Bundle`,
+      `${name} Social Proof Templates`,
+      `${name} Case Study Collection`,
+      `${name} ROI Calculator`,
+      `${name} Project Management Add-on`,
+      `${name} Client Onboarding Kit`,
+      `${name} Proposal & Contract Templates`,
+      `${name} Performance Tracker Dashboard`,
+      `${name} Weekly Planning System`,
+      `${name} Goal Setting Framework`,
+      `${name} Launch Checklist Bundle`,
+    ]
 
-    const expansions = products.flatMap(product => {
-      const variants: ExpansionVariant[] = [
-        ...VARIANT_TYPES.map(({ type, multiplier, suffix }) => ({
-          id: `${product.id}-${type}`,
-          parentProductId: product.id,
-          name: `${product.name} ${suffix}`,
-          type,
-          priceMultiplier: multiplier,
-          additionalFeatures: type === 'lite' ? ['Core prompts only'] : type === 'pro' ? ['Advanced prompts', 'Video walkthrough'] : ['Everything', 'Private 1-on-1 call'],
-          estimatedRevenue: Math.round(product.revenue * multiplier * 0.3),
-          status: 'suggested' as const,
-        })),
-        ...NICHES.slice(0, 5).map(niche => ({
-          id: `${product.id}-niche-${niche.toLowerCase()}`,
-          parentProductId: product.id,
-          name: `${product.name.split(' ').slice(0, 3).join(' ')} for ${niche}`,
-          type: 'niche' as const,
-          nicheTarget: niche,
-          priceMultiplier: 1.0,
-          additionalFeatures: [`${niche}-specific templates`, `${niche} use cases`, `${niche} examples`],
-          estimatedRevenue: Math.round(product.revenue * 0.4),
-          status: 'suggested' as const,
-        })),
-      ]
-      return variants
-    })
-
-    return NextResponse.json({ expansions, total: expansions.length })
-  } catch (error) {
-    return NextResponse.json({ error: 'Failed to fetch expansions' }, { status: 500 })
+    return NextResponse.json({ ideas, productId, baseName: product.name })
+  } catch {
+    return NextResponse.json({ error: 'Expansion generation failed' }, { status: 500 })
   }
 }

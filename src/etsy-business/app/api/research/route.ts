@@ -1,36 +1,21 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { ResearchData, Competitor } from '@/lib/types'
+import { NextResponse } from 'next/server'
 
-const MOCK_RESEARCH: ResearchData = {
-  keyword: 'AI business prompts',
-  competitors: [
-    { shopName: 'DigitalDownloadPro', productTitle: 'AI Business Prompt Pack - 500+ ChatGPT Prompts', price: 24.99, sales: 4230, rating: 4.9, tags: ['ai prompts', 'chatgpt', 'business'], listingUrl: 'https://etsy.com/listing/1' },
-    { shopName: 'NotionTemplateHub', productTitle: 'Ultimate Notion Business OS Template', price: 47, sales: 2890, rating: 4.8, tags: ['notion template', 'business os', 'productivity'], listingUrl: 'https://etsy.com/listing/2' },
-    { shopName: 'AIToolsShop', productTitle: 'Complete AI Agency Toolkit', price: 97, sales: 1240, rating: 4.7, tags: ['ai agency', 'consulting', 'business kit'], listingUrl: 'https://etsy.com/listing/3' },
-  ],
-  marketSize: 240000,
-  avgPrice: 34.20,
-  topTags: ['ai prompts', 'chatgpt', 'digital download', 'business templates', 'entrepreneur'],
-  opportunity: 'high',
-  recommendations: [
-    'Target long-tail keywords with lower competition',
-    'Price between $27-$47 for maximum conversion',
-    'Include "instant download" in title for 23% higher CTR',
-    'Add niche-specific tags to capture underserved markets',
-    'Offer a lite version at $9-$17 to capture price-sensitive buyers',
-  ],
-}
-
-export async function GET(request: NextRequest) {
-  try {
-    const { searchParams } = new URL(request.url)
-    const keyword = searchParams.get('keyword') || 'AI business prompts'
-
-    return NextResponse.json({
-      ...MOCK_RESEARCH,
-      keyword,
-    })
-  } catch (error) {
-    return NextResponse.json({ error: 'Failed to fetch research data' }, { status: 500 })
-  }
+export async function GET() {
+  return NextResponse.json({
+    marketSize: 2400000,
+    avgPrice: 34.20,
+    growthRate: 34,
+    competitors: [
+      { shop: 'AIPromptsShop', product: 'ChatGPT Business Prompts Pack', price: 24, sales: 2840, rating: 4.9, opportunity: 'high' },
+      { shop: 'DigitalTemplateHub', product: 'Notion Business OS Template', price: 39, sales: 1920, rating: 4.8, opportunity: 'medium' },
+      { shop: 'ContentCreatorTools', product: 'AI Social Media Content Pack', price: 17, sales: 4200, rating: 4.7, opportunity: 'high' },
+      { shop: 'EntrepreneurVault', product: 'AI Agency Starter Bundle', price: 67, sales: 890, rating: 4.9, opportunity: 'medium' },
+    ],
+    recommendations: [
+      'AI prompts market growing 34% MoM — strong opportunity',
+      'Notion templates $40-60 outperform lower-priced by 2.3x revenue',
+      'Bundles with 5+ products see 47% higher conversion',
+      'Top sellers use all 13 Etsy tags',
+    ],
+  })
 }

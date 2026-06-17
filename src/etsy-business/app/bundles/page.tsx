@@ -92,7 +92,7 @@ export default function BundlesPage() {
                       <div className="text-sm font-semibold text-gray-900">{bundle.sales}</div>
                     </div>
                   </div>
-                  <Button variant="outline" size="sm">Edit Bundle</Button>
+                  <Button variant="secondary" size="sm">Edit Bundle</Button>
                 </div>
               </Card>
             )

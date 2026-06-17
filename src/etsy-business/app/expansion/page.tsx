@@ -88,7 +88,7 @@ export default function ExpansionPage() {
                       <TrendingUp className="w-3 h-3" />
                       Est. ${Math.round(selectedProduct.revenue * v.multiplier * 0.3).toLocaleString()}/mo
                     </div>
-                    <Button variant="outline" size="sm" className="w-full mt-3">Create This</Button>
+                    <Button variant="secondary" size="sm" className="w-full mt-3">Create This</Button>
                   </div>
                 ))}
               </div>

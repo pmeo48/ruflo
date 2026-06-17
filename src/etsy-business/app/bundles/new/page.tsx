@@ -54,7 +54,7 @@ export default function NewBundlePage() {
         title="New Bundle"
         subtitle="Combine products for higher order value"
         actions={
-          <Link href="/bundles"><Button variant="outline" size="sm"><ArrowLeft className="w-4 h-4" />Back</Button></Link>
+          <Link href="/bundles"><Button variant="secondary" size="sm"><ArrowLeft className="w-4 h-4" />Back</Button></Link>
         }
       />
       <div className="p-6 max-w-4xl">

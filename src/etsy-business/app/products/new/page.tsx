@@ -57,7 +57,7 @@ export default function NewProductPage() {
         subtitle="AI-powered product builder"
         actions={
           <Link href="/products">
-            <Button variant="outline" size="sm"><ArrowLeft className="w-4 h-4" />Back</Button>
+            <Button variant="secondary" size="sm"><ArrowLeft className="w-4 h-4" />Back</Button>
           </Link>
         }
       />

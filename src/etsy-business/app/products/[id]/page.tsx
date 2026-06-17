@@ -29,10 +29,10 @@ export default function ProductDetailPage({ params }: Props) {
         subtitle={`Created ${new Date(product.createdAt).toLocaleDateString()}`}
         actions={
           <div className="flex items-center gap-2">
-            <Link href="/products"><Button variant="outline" size="sm"><ArrowLeft className="w-4 h-4" />Back</Button></Link>
+            <Link href="/products"><Button variant="secondary" size="sm"><ArrowLeft className="w-4 h-4" />Back</Button></Link>
             {product.etsyListingUrl && (
               <a href={product.etsyListingUrl} target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="sm"><ExternalLink className="w-4 h-4" />Etsy</Button>
+                <Button variant="secondary" size="sm"><ExternalLink className="w-4 h-4" />Etsy</Button>
               </a>
             )}
             <Link href={`/seo/${product.id}`}><Button size="sm">Optimize SEO</Button></Link>
@@ -192,7 +192,7 @@ export default function ProductDetailPage({ params }: Props) {
                   </div>
                 ))}
               </div>
-              <Link href="/expansion"><Button variant="outline" size="sm" className="w-full mt-3">View Expansions →</Button></Link>
+              <Link href="/expansion"><Button variant="secondary" size="sm" className="w-full mt-3">View Expansions →</Button></Link>
             </Card>
           </div>
         </div>

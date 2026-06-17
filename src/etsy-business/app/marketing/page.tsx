@@ -1,218 +1,101 @@
 'use client'
 
 import { useState } from 'react'
-import { Megaphone, Sparkles, Copy, Check, Image, FileText, Mail, Share2 } from 'lucide-react'
+import { Sparkles, Copy, Check, Loader2 } from 'lucide-react'
 import { Header } from '@/components/layout/Header'
 import { Button } from '@/components/ui/Button'
 import { Card, CardHeader, CardTitle } from '@/components/ui/Card'
-import { Badge } from '@/components/ui/Badge'
-import { Select } from '@/components/ui/Select'
 import { MOCK_PRODUCTS } from '@/lib/mock-data'
 
-const CONTENT_TYPES = [
-  { id: 'pinterest', label: 'Pinterest Pin', icon: <Image className="w-4 h-4" />, color: 'red' },
-  { id: 'blog', label: 'Blog Article', icon: <FileText className="w-4 h-4" />, color: 'blue' },
-  { id: 'email', label: 'Email Sequence', icon: <Mail className="w-4 h-4" />, color: 'green' },
-  { id: 'social', label: 'Social Post', icon: <Share2 className="w-4 h-4" />, color: 'purple' },
-]
+const TABS = ['Pinterest', 'Blog', 'Email', 'Social Media'] as const
+type Tab = typeof TABS[number]
 
-const MOCK_CONTENT: Record<string, string> = {
-  pinterest: `🤖 Stop doing this manually...
-
-Your [Product Name] can be on autopilot with AI.
-
-Inside: 200+ prompts that do the heavy lifting for you.
-
-✅ Save 10+ hours/week
-✅ Look like an expert instantly
-✅ Clients won't believe it's AI
-
-Link in bio → Digital download, instant access
-
-#AIBusiness #ChatGPT #Entrepreneur #SideHustle #DigitalDownload #PassiveIncome #BusinessTools #AIPrompts`,
-
-  blog: `# How AI is Transforming [Industry] Businesses in 2024
-
-The landscape of [industry] is changing faster than ever before. AI tools like ChatGPT and Claude are giving entrepreneurs and professionals unprecedented capabilities — but only if you know how to use them effectively.
-
-## The Problem Most [Industry] Professionals Face
-
-Most people spend 60-70% of their time on repetitive tasks that AI could handle in seconds. Writing emails, creating content, drafting proposals, managing client communication — all of these can be dramatically accelerated.
-
-## The Solution: AI Prompt Libraries
-
-That's exactly why we created our [Product Name]. Instead of spending weeks learning prompt engineering, you get 200+ battle-tested prompts ready to use today.
-
-## What You Get
-
-- **Instant Results**: Copy, paste, customize, done
-- **Professional Quality**: Every prompt refined for maximum output quality
-- **Industry-Specific**: Built specifically for [industry] professionals
-
-## How to Get Started
-
-1. Download the prompt library (instant access)
-2. Open ChatGPT or Claude
-3. Copy your first prompt
-4. Watch AI do the work
-
-**Ready to transform your business?** [Download Now →]`,
-
-  email: `**Email 1 (Day 0): Welcome + Quick Win**
-Subject: Your AI toolkit is ready (start here first)
-
-Hey [First Name],
-
-Your [Product Name] is ready! Before you dive in, here's the #1 prompt 99% of our customers use first:
-
-[FIRST QUICK WIN PROMPT]
-
-That's your homework for the next 10 minutes. Reply and tell me what AI generated for you!
-
-**Email 2 (Day 2): Social Proof**
-Subject: "[Name] made $X in her first week"
-
-Hey [First Name], I want to share a quick story...
-
-[CUSTOMER SUCCESS STORY]
-
-The difference? She used Prompt #47 from your toolkit.
-
-**Email 3 (Day 5): Advanced Tips**
-Subject: The "hidden" prompts most people miss
-
-Hey [First Name], most people start with the basics...
-
-But the REAL power is in the advanced section.
-
-Here are my top 3 underrated prompts: [TIPS]`,
-
-  social: `🚀 I saved 15 hours this week using AI.
-
-Here's exactly how:
-
-Monday: Used AI to write all 5 client proposals (2 hrs → 15 min)
-Tuesday: AI drafted my entire content calendar (3 hrs → 20 min)
-Wednesday: AI handled all my email follow-ups (2 hrs → 10 min)
-
-The secret? Having the RIGHT prompts.
-
-Not random ChatGPT tips from Twitter.
-
-Actual, tested prompts built for my specific business.
-
-That's what our [Product Name] gives you. 200+ prompts, ready to copy and paste.
-
-Link in bio → instant download
-
-What would YOU do with 15 extra hours? 👇`,
+const SAMPLE_CONTENT: Record<Tab, { title: string; content: string; hashtags?: string[] }[]> = {
+  Pinterest: [
+    { title: 'Pin: AI Toolkit Reveal', content: '5 AI tools that helped me make $4,320 on Etsy this month. The secret? This AI Insurance Agent Toolkit. Swipe to see what\'s inside...', hashtags: ['#aitools', '#etsyseller', '#passiveincome', '#digitalproducts', '#sidehustle'] },
+    { title: 'Story Pin: Before & After', content: 'Before AI: Spending 3 hours writing emails. After AI: 10 minutes with our prompt templates. Download now →', hashtags: ['#productivity', '#ChatGPT', '#entrepreneur'] },
+  ],
+  Blog: [
+    { title: 'How I Made $22,140 in 30 Days Selling AI Prompts on Etsy', content: 'In this post, I\'m going to share the exact strategy I used to build a passive income stream selling digital AI products on Etsy. From product research to SEO optimization, here\'s everything you need to know...\n\n## What Are AI Prompt Packs?\n\nAI prompt packs are collections of carefully crafted prompts for ChatGPT, Claude, and other AI tools...' },
+    { title: '10 Best-Selling Digital Products on Etsy in 2024 (with AI)', content: 'The digital product market on Etsy is booming. Here are the top 10 categories with the highest demand and lowest competition...' },
+  ],
+  Email: [
+    { title: 'Subject: I made $197 while sleeping (here\'s how)', content: 'Hey [First Name],\n\nYesterday morning I woke up to 3 new sales notifications.\n\n$197 in passive income while I slept.\n\nHere\'s the exact system I use:\n\n1. Create AI-powered digital products\n2. Optimize with the right keywords\n3. Let Etsy\'s search algorithm do the work\n\nWant the same system? Get the AI Business Growth Vault →\n\n[CTA BUTTON]\n\nBest,\n[Your Name]' },
+    { title: 'Subject: Limited time: 60% off ends tonight', content: 'Hi [First Name],\n\nJust a quick reminder that our Spring Sale ends at midnight.\n\nThe AI Business Growth Vault - everything you need to build a profitable Etsy business - is 60% off.\n\nRegular price: $497\nToday only: $197\n\nGrab it before midnight →' },
+  ],
+  'Social Media': [
+    { title: 'Twitter/X Thread', content: 'I quit my 9-5 using Etsy digital products. Here\'s the exact blueprint (thread 🧵):\n\n1/ First, I picked a niche: AI tools for business owners\n\n2/ Created 3 products in 1 weekend using AI\n\n3/ Optimized SEO with 13 power keywords\n\n4/ Month 1: $840\nMonth 2: $2,200\nMonth 3: $4,300\n\nFull system in bio 👇', hashtags: ['#entrepreneur', '#passiveincome', '#etsyseller'] },
+    { title: 'Instagram Caption', content: 'My Etsy dashboard at 7am on a Tuesday... 🔔\n\nPassive income from digital products hits different when you remember you made sales WHILE SLEEPING.\n\nThis AI toolkit is what got me here. Link in bio to get yours.', hashtags: ['#digitalproducts', '#passiveincome', '#etsyseller', '#sidehustle', '#workfromhome'] },
+  ],
 }
 
 export default function MarketingPage() {
+  const [activeTab, setActiveTab] = useState<Tab>('Pinterest')
   const [selectedProduct, setSelectedProduct] = useState(MOCK_PRODUCTS[0].id)
-  const [selectedTypes, setSelectedTypes] = useState<string[]>(['pinterest'])
-  const [isGenerating, setIsGenerating] = useState(false)
-  const [content, setContent] = useState<Record<string, string>>({})
-  const [copied, setCopied] = useState<string | null>(null)
+  const [generating, setGenerating] = useState(false)
+  const [copied, setCopied] = useState<number | null>(null)
 
-  const handleGenerate = async () => {
-    setIsGenerating(true)
-    await new Promise(r => setTimeout(r, 1800))
-    const generated: Record<string, string> = {}
-    selectedTypes.forEach(type => {
-      generated[type] = MOCK_CONTENT[type] || 'Content generated successfully!'
-    })
-    setContent(generated)
-    setIsGenerating(false)
-  }
+  const content = SAMPLE_CONTENT[activeTab]
 
-  const handleCopy = (type: string, text: string) => {
+  const copyContent = (text: string, i: number) => {
     navigator.clipboard.writeText(text)
-    setCopied(type)
+    setCopied(i)
     setTimeout(() => setCopied(null), 2000)
   }
 
-  const product = MOCK_PRODUCTS.find(p => p.id === selectedProduct)!
+  const handleGenerate = async () => {
+    setGenerating(true)
+    await new Promise(r => setTimeout(r, 1500))
+    setGenerating(false)
+  }
 
   return (
     <div>
-      <Header title="Content Marketing Hub" subtitle="Generate content across all platforms with AI" />
-
+      <Header title="Marketing Hub" subtitle="AI-generated content for every platform" />
       <div className="p-6 space-y-6">
-        {/* Generator */}
         <Card>
-          <CardHeader><CardTitle>AI Content Generator</CardTitle></CardHeader>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-            <div className="space-y-4">
-              <Select
-                label="Select Product"
-                value={selectedProduct}
-                onChange={e => setSelectedProduct(e.target.value)}
-                options={MOCK_PRODUCTS.map(p => ({ value: p.id, label: p.name }))}
-              />
-
-              <div>
-                <p className="text-sm font-medium text-gray-700 mb-2">Content Types</p>
-                <div className="space-y-2">
-                  {CONTENT_TYPES.map(({ id, label, icon }) => (
-                    <label key={id} className={`flex items-center gap-3 p-2.5 rounded-lg border cursor-pointer transition-colors ${selectedTypes.includes(id) ? 'border-indigo-300 bg-indigo-50' : 'border-gray-200 hover:border-gray-300'}`}>
-                      <input
-                        type="checkbox"
-                        checked={selectedTypes.includes(id)}
-                        onChange={() => setSelectedTypes(prev =>
-                          prev.includes(id) ? prev.filter(t => t !== id) : [...prev, id]
-                        )}
-                        className="rounded border-gray-300 text-indigo-600"
-                      />
-                      <span className="text-indigo-600">{icon}</span>
-                      <span className="text-sm font-medium text-gray-700">{label}</span>
-                    </label>
-                  ))}
-                </div>
-              </div>
-
-              <Button className="w-full" onClick={handleGenerate} isLoading={isGenerating} disabled={selectedTypes.length === 0}>
-                <Sparkles className="w-4 h-4" />
-                Generate Content
-              </Button>
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-2">
+              <select className="text-sm border border-gray-200 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                value={selectedProduct} onChange={(e) => setSelectedProduct(e.target.value)}>
+                {MOCK_PRODUCTS.map((p) => <option key={p.id} value={p.id}>{p.name}</option>)}
+              </select>
             </div>
+            <Button size="sm" onClick={handleGenerate} disabled={generating}>
+              {generating ? <Loader2 className="w-4 h-4 animate-spin" /> : <Sparkles className="w-4 h-4" />}
+              {generating ? 'Generating...' : 'Generate All Content'}
+            </Button>
+          </div>
 
-            <div className="lg:col-span-2">
-              {Object.keys(content).length > 0 ? (
-                <div className="space-y-4">
-                  {Object.entries(content).map(([type, text]) => {
-                    const typeConfig = CONTENT_TYPES.find(t => t.id === type)!
-                    return (
-                      <div key={type}>
-                        <div className="flex items-center justify-between mb-2">
-                          <div className="flex items-center gap-2">
-                            <span className="text-indigo-600">{typeConfig.icon}</span>
-                            <span className="text-sm font-semibold text-gray-900">{typeConfig.label}</span>
-                          </div>
-                          <button
-                            onClick={() => handleCopy(type, text)}
-                            className="flex items-center gap-1.5 text-xs text-gray-500 hover:text-gray-700 px-2 py-1 hover:bg-gray-100 rounded-lg transition-colors"
-                          >
-                            {copied === type ? <Check className="w-3.5 h-3.5 text-green-500" /> : <Copy className="w-3.5 h-3.5" />}
-                            {copied === type ? 'Copied!' : 'Copy'}
-                          </button>
-                        </div>
-                        <div className="bg-gray-50 rounded-xl p-4 text-sm text-gray-700 whitespace-pre-line leading-relaxed font-mono text-xs border border-gray-100">
-                          {text.replace('[Product Name]', product.name).replace('[product name]', product.name)}
-                        </div>
-                      </div>
-                    )
-                  })}
+          <div className="flex gap-1 border-b border-gray-200">
+            {TABS.map((tab) => (
+              <button key={tab} onClick={() => setActiveTab(tab)}
+                className={`px-4 py-2 text-sm font-medium border-b-2 transition-colors -mb-px ${activeTab === tab ? 'border-indigo-600 text-indigo-600' : 'border-transparent text-gray-500 hover:text-gray-700'}`}>
+                {tab}
+              </button>
+            ))}
+          </div>
+
+          <div className="mt-6 space-y-4">
+            {content.map((item, i) => (
+              <div key={i} className="p-4 bg-gray-50 rounded-lg">
+                <div className="flex items-center justify-between mb-2">
+                  <div className="font-medium text-sm text-gray-900">{item.title}</div>
+                  <button onClick={() => copyContent(item.content + (item.hashtags ? '\n\n' + item.hashtags.join(' ') : ''), i)}
+                    className="flex items-center gap-1 text-xs text-indigo-600 hover:underline">
+                    {copied === i ? <><Check className="w-3 h-3" />Copied!</> : <><Copy className="w-3 h-3" />Copy</>}
+                  </button>
                 </div>
-              ) : (
-                <div className="h-full flex items-center justify-center border-2 border-dashed border-gray-200 rounded-xl">
-                  <div className="text-center py-12">
-                    <Megaphone className="w-10 h-10 text-gray-300 mx-auto mb-3" />
-                    <p className="text-gray-500 text-sm">Select a product and content types, then click Generate</p>
+                <pre className="text-sm text-gray-700 whitespace-pre-wrap font-sans">{item.content}</pre>
+                {item.hashtags && (
+                  <div className="mt-3 flex flex-wrap gap-1">
+                    {item.hashtags.map((tag) => (
+                      <span key={tag} className="px-2 py-0.5 bg-indigo-100 text-indigo-700 rounded text-xs">{tag}</span>
+                    ))}
                   </div>
-                </div>
-              )}
-            </div>
+                )}
+              </div>
+            ))}
           </div>
         </Card>
       </div>

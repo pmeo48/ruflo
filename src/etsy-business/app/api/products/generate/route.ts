@@ -1,99 +1,53 @@
-import { NextRequest, NextResponse } from 'next/server'
-import { GenerateProductRequest } from '@/lib/types'
-import { buildProductGenerationPrompt, PRODUCT_TYPE_CONFIGS } from '@/lib/products'
+import { NextResponse } from 'next/server'
 
-// Mock AI responses for each product type when no API key is configured
-const MOCK_GENERATED_PRODUCTS: Record<string, any> = {
-  'prompt-pack': {
-    name: 'AI [Niche] Agent Toolkit - 200+ ChatGPT & Claude Prompts',
-    description: 'The complete prompt library for [niche] professionals. Save hours every week with battle-tested AI prompts for every task.',
-    tags: ['ai prompts', 'chatgpt prompts', 'claude prompts', 'business prompts', 'productivity', 'automation', 'ai tools', 'prompt pack', 'digital download', 'templates', 'business tools', 'entrepreneur', 'efficiency'],
-    contents: ['200+ AI Prompts', 'Quick Start Guide', 'Prompt Categories Index', 'Advanced Customization Guide', 'Bonus: Top 10 Power Prompts'],
-    price: 27,
-    category: 'Templates',
-    subcategory: 'Business Templates',
-    salesCopy: 'Stop spending hours on tasks AI can do in seconds. Get 200+ tested prompts for your specific industry today.',
-  },
+const PRODUCT_TEMPLATES: Record<string, { contents: string[]; chapters: string[] }> = {
   pdf: {
-    name: '[Niche] Business SOP Library - Complete Operations Manual',
-    description: 'Systemize your business with 50+ ready-to-use SOPs. Stop reinventing the wheel and start scaling.',
-    tags: ['sop templates', 'business operations', 'standard procedures', 'business system', 'process templates', 'small business', 'entrepreneur', 'business guide', 'operations manual', 'pdf download', 'business tools', 'management', 'efficiency'],
-    contents: ['50+ SOP Templates', 'Implementation Checklist', 'Team Training Guide', 'KPI Tracking Sheet', 'Process Flow Diagrams'],
-    chapters: ['Getting Started', 'Sales & Marketing SOPs', 'Operations SOPs', 'HR SOPs', 'Finance SOPs'],
-    price: 37,
-    category: 'Templates',
-    subcategory: 'Business Templates',
+    contents: ['Complete Strategy Guide', 'Step-by-Step Tutorials', 'Real-World Examples', 'Worksheets & Exercises', 'Resource Library', 'Quick Reference Sheets'],
+    chapters: ['Getting Started', 'Core Concepts', 'Advanced Strategies', 'Implementation Guide', 'Measuring Success'],
   },
   spreadsheet: {
-    name: '[Niche] Business Dashboard & CRM - Google Sheets Template',
-    description: 'All-in-one business management spreadsheet. Track clients, revenue, KPIs, and growth in one beautiful dashboard.',
-    tags: ['google sheets', 'spreadsheet template', 'business dashboard', 'crm template', 'kpi tracker', 'revenue tracker', 'business tools', 'excel template', 'data tracking', 'small business', 'entrepreneur', 'analytics', 'management'],
-    contents: ['CRM Database', 'Revenue Dashboard', 'KPI Tracker', 'Client Onboarding Sheet', 'Monthly Reports'],
-    price: 47,
-    category: 'Spreadsheets',
-    subcategory: 'Business & Finance',
+    contents: ['Main Tracking Dashboard', 'Auto-Calculation Formulas', 'Chart & Visualization Templates', 'Data Import Templates', 'Reporting Sheets', 'Instructions Tab'],
+    chapters: [],
   },
   notion: {
-    name: '[Niche] Notion Business OS - Complete Workspace Template',
-    description: 'Your entire business in one Notion workspace. CRM, projects, content, finances, and team wiki all connected.',
-    tags: ['notion template', 'business os', 'notion workspace', 'crm notion', 'project management', 'content calendar', 'business system', 'productivity', 'notion database', 'team wiki', 'digital planner', 'organization', 'workflow'],
-    contents: ['Client CRM', 'Project Tracker', 'Content Calendar', 'Financial Dashboard', 'Team Wiki', 'Goal Tracker', 'AI Prompt Library'],
-    price: 47,
-    category: 'Templates',
-    subcategory: 'Productivity Templates',
+    contents: ['Master Dashboard', 'Project Management Board', 'Database Templates', 'Content Calendar', 'Goal Tracking System', 'Resource Library', 'SOP Documentation'],
+    chapters: [],
   },
-  bundle: {
-    name: '[Niche] Complete AI Business Bundle - Ultimate Collection',
-    description: 'Everything you need to build and scale your [niche] business with AI. 5 complete systems in one discounted bundle.',
-    tags: ['business bundle', 'ai business', 'digital bundle', 'complete system', 'business kit', 'entrepreneur bundle', 'business templates', 'ai tools', 'chatgpt', 'productivity bundle', 'small business', 'digital products', 'starter kit'],
-    contents: ['AI Prompt Pack', 'Business SOP Library', 'Spreadsheet Dashboard', 'Marketing Templates', 'Quick Start Video Guide'],
-    price: 97,
-    category: 'Templates',
-    subcategory: 'Business Templates',
+  'prompt-pack': {
+    contents: ['250+ AI Prompts', 'Category Index', 'Usage Guide', 'Example Outputs', 'Prompt Customization Tips', 'Platform-Specific Versions'],
+    chapters: ['Quick Start Prompts', 'Core Business Prompts', 'Advanced Strategies', 'Niche-Specific Prompts', 'Bonus Prompt Formulas'],
   },
 }
 
-export async function POST(request: NextRequest) {
+export async function POST(req: Request) {
   try {
-    const body: GenerateProductRequest = await request.json()
-    const { type, niche, targetAudience, pricePoint, additionalContext } = body
+    const { productType, niche, title } = await req.json()
+    const template = PRODUCT_TEMPLATES[productType] ?? PRODUCT_TEMPLATES['prompt-pack']
 
-    // Try AI generation first
-    const apiKey = process.env.ANTHROPIC_API_KEY || process.env.OPENAI_API_KEY
-
-    if (apiKey && !apiKey.includes('placeholder')) {
-      // Real AI generation would happen here
-      const prompt = buildProductGenerationPrompt(body)
-      // In production: call Claude or OpenAI API
+    const nicheWords = niche.split(' ').map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+    const typeLabels: Record<string, string> = {
+      pdf: 'Complete Guide', spreadsheet: 'Spreadsheet System', notion: 'Notion Template', 'prompt-pack': 'AI Prompt Pack',
     }
 
-    // Use mock data with niche substitution
-    const mockProduct = MOCK_GENERATED_PRODUCTS[type] || MOCK_GENERATED_PRODUCTS['prompt-pack']
-    const nicheLabel = niche || 'Business'
+    const generatedName = title || `${nicheWords} AI ${typeLabels[productType] ?? 'Toolkit'}`
+    const prices: Record<string, number> = { pdf: 27, spreadsheet: 37, notion: 47, 'prompt-pack': 29 }
 
-    const product = {
-      ...mockProduct,
-      name: mockProduct.name.replace('[Niche]', nicheLabel),
-      description: mockProduct.description.replace('[Niche]', nicheLabel).replace('[niche]', nicheLabel.toLowerCase()),
-      salesCopy: mockProduct.salesCopy?.replace('[niche]', nicheLabel.toLowerCase()),
-      price: pricePoint || mockProduct.price,
-      type,
-      status: 'draft',
-      mockupUrls: [`https://placehold.co/600x400/6366f1/ffffff?text=${encodeURIComponent(nicheLabel + ' ' + type)}`],
-      id: Date.now().toString(),
-      revenue: 0,
-      sales: 0,
-      views: 0,
-      favorites: 0,
-      conversionRate: 0,
-      reviewCount: 0,
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
-    }
+    const tags = [
+      `${niche} tools`, `AI ${productType}`, `${niche} templates`, 'ChatGPT prompts', 'digital download',
+      `${niche} business`, 'AI tools', 'productivity templates', 'entrepreneur tools', 'passive income',
+      'digital products', 'business templates', 'etsy digital',
+    ].slice(0, 13)
 
-    return NextResponse.json({ product, generatedWith: apiKey ? 'ai' : 'mock' })
-  } catch (error) {
-    console.error('Product generation error:', error)
-    return NextResponse.json({ error: 'Failed to generate product' }, { status: 500 })
+    return NextResponse.json({
+      name: generatedName,
+      description: `Transform your ${niche} business with this comprehensive AI-powered toolkit. Designed specifically for ${niche} professionals, this ${typeLabels[productType]} includes everything you need to work smarter and grow faster.`,
+      contents: template.contents,
+      chapters: template.chapters,
+      tags,
+      price: prices[productType] ?? 29,
+      salesCopy: `The ultimate AI toolkit for ${niche} professionals. Save 10+ hours per week and grow your business with AI.`,
+    })
+  } catch {
+    return NextResponse.json({ error: 'Generation failed' }, { status: 500 })
   }
 }
