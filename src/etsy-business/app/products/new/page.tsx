@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Sparkles, FileText, Table2, Layout, MessageSquare, ArrowLeft, Loader2 } from 'lucide-react'
+import { ProductImageGenerator } from '@/components/products/ProductImageGenerator'
 import { Header } from '@/components/layout/Header'
 import { Button } from '@/components/ui/Button'
 import { Card, CardTitle } from '@/components/ui/Card'
@@ -98,6 +99,16 @@ export default function NewProductPage() {
             </Button>
           </div>
         </Card>
+
+        {generated && (
+          <div className="mb-6">
+            <ProductImageGenerator
+              productName={generated.name}
+              productType={selectedType}
+              niche={niche}
+            />
+          </div>
+        )}
 
         {generated && (
           <Card>
