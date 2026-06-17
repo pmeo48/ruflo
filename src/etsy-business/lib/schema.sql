@@ -120,6 +120,25 @@ CREATE TABLE automation_tasks (
   created_at TIMESTAMPTZ DEFAULT NOW()
 );
 
+-- Bundle products junction table
+CREATE TABLE IF NOT EXISTS bundle_products (
+  bundle_id UUID REFERENCES bundles(id) ON DELETE CASCADE,
+  product_id UUID REFERENCES products(id) ON DELETE CASCADE,
+  PRIMARY KEY (bundle_id, product_id)
+);
+
+-- Orders table (for analytics)
+CREATE TABLE IF NOT EXISTS orders (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  product_id UUID REFERENCES products(id),
+  bundle_id UUID REFERENCES bundles(id),
+  amount DECIMAL(10,2) NOT NULL,
+  status TEXT DEFAULT 'completed',
+  etsy_order_id TEXT,
+  user_id UUID REFERENCES auth.users(id),
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
 -- Row level security
 ALTER TABLE products ENABLE ROW LEVEL SECURITY;
 ALTER TABLE seo_data ENABLE ROW LEVEL SECURITY;
@@ -128,6 +147,8 @@ ALTER TABLE analytics ENABLE ROW LEVEL SECURITY;
 ALTER TABLE keywords ENABLE ROW LEVEL SECURITY;
 ALTER TABLE content_pieces ENABLE ROW LEVEL SECURITY;
 ALTER TABLE automation_tasks ENABLE ROW LEVEL SECURITY;
+ALTER TABLE bundle_products ENABLE ROW LEVEL SECURITY;
+ALTER TABLE orders ENABLE ROW LEVEL SECURITY;
 
 -- RLS Policies
 CREATE POLICY "Users can view own products" ON products FOR SELECT USING (auth.uid() = user_id);
