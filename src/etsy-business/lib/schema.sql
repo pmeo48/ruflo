@@ -155,3 +155,11 @@ CREATE POLICY "Users can view own products" ON products FOR SELECT USING (auth.u
 CREATE POLICY "Users can insert own products" ON products FOR INSERT WITH CHECK (auth.uid() = user_id);
 CREATE POLICY "Users can update own products" ON products FOR UPDATE USING (auth.uid() = user_id);
 CREATE POLICY "Users can delete own products" ON products FOR DELETE USING (auth.uid() = user_id);
+
+-- Stored procedure for atomic sales increment
+CREATE OR REPLACE FUNCTION increment_product_sales(p_id UUID)
+RETURNS void AS $$
+BEGIN
+  UPDATE products SET sales = sales + 1, revenue = revenue + (SELECT price FROM products WHERE id = p_id) WHERE id = p_id;
+END;
+$$ LANGUAGE plpgsql;
