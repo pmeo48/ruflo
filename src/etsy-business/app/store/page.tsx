@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useRef, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { MOCK_PRODUCTS } from '@/lib/mock-data'
 import { Product, ProductType } from '@/lib/types'
 import { ShoppingCart, Zap, Star, Shield, RefreshCw, Download } from 'lucide-react'
@@ -35,6 +36,7 @@ function ProductCard({ product }: { product: Product }) {
   const handleBuyNow = async () => {
     setLoading(true)
     try {
+      const affiliateCode = typeof window !== 'undefined' ? sessionStorage.getItem('affiliate_ref') : null
       const res = await fetch('/api/stripe/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -43,6 +45,7 @@ function ProductCard({ product }: { product: Product }) {
           productName: product.name,
           price: product.price,
           description: product.description,
+          ...(affiliateCode ? { affiliateCode } : {}),
         }),
       })
       const data = await res.json()
@@ -137,6 +140,28 @@ function ProductCard({ product }: { product: Product }) {
   )
 }
 
+function AffiliateTracker() {
+  const searchParams = useSearchParams()
+  const trackedRef = useRef(false)
+
+  useEffect(() => {
+    const ref = searchParams.get('ref')
+    if (ref && !trackedRef.current) {
+      trackedRef.current = true
+      if (typeof window !== 'undefined') {
+        sessionStorage.setItem('affiliate_ref', ref)
+      }
+      fetch('/api/affiliates/track', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code: ref }),
+      }).catch(() => {/* silent */})
+    }
+  }, [searchParams])
+
+  return null
+}
+
 export default function StorePage() {
   const [activeFilter, setActiveFilter] = useState<ProductType | 'all'>('all')
 
@@ -149,6 +174,7 @@ export default function StorePage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Suspense fallback={null}><AffiliateTracker /></Suspense>
       {/* Header */}
       <header className="bg-white border-b border-gray-100 sticky top-0 z-10">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
@@ -248,6 +274,7 @@ function FeaturedBuyButton({ product }: { product: Product }) {
   const handleBuy = async () => {
     setLoading(true)
     try {
+      const affiliateCode = typeof window !== 'undefined' ? sessionStorage.getItem('affiliate_ref') : null
       const res = await fetch('/api/stripe/checkout', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -256,6 +283,7 @@ function FeaturedBuyButton({ product }: { product: Product }) {
           productName: product.name,
           price: product.price,
           description: product.description,
+          ...(affiliateCode ? { affiliateCode } : {}),
         }),
       })
       const data = await res.json()

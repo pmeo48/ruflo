@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import { constructWebhookEvent } from '@/lib/stripe'
 import { supabase } from '@/lib/supabase'
 import { sendOrderConfirmationEmail } from '@/lib/email'
+import { recordCommission } from '@/lib/affiliates'
 
 export const dynamic = 'force-dynamic'
 
@@ -14,24 +15,33 @@ export async function POST(req: Request) {
 
     if (event.type === 'checkout.session.completed') {
       const session = event.data.object as {
-        metadata?: { productId?: string; productName?: string }
+        metadata?: { productId?: string; productName?: string; affiliateCode?: string }
         customer_email?: string
         amount_total?: number | null
         id: string
       }
-      const { productId } = session.metadata ?? {}
+      const { productId, affiliateCode } = session.metadata ?? {}
+      const saleAmount = (session.amount_total ?? 0) / 100
+      let orderId: string | undefined
 
       if (productId && supabase) {
         // Record the order
-        await supabase.from('orders').insert({
+        const { data: orderRow } = await supabase.from('orders').insert({
           product_id: productId,
-          amount: (session.amount_total ?? 0) / 100,
+          amount: saleAmount,
           status: 'completed',
           etsy_order_id: session.id,
-        })
+        }).select('id').single()
+
+        orderId = orderRow?.id
 
         // Increment sales count
         await supabase.rpc('increment_product_sales', { p_id: productId })
+      }
+
+      // Record affiliate commission if applicable
+      if (affiliateCode && orderId) {
+        await recordCommission(affiliateCode, orderId, saleAmount)
       }
 
       // Send order confirmation email

@@ -173,3 +173,50 @@ CREATE TABLE IF NOT EXISTS settings (
 
 ALTER TABLE settings ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Enable all for authenticated" ON settings FOR ALL USING (true);
+
+-- Affiliates table
+CREATE TABLE IF NOT EXISTS affiliates (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  name TEXT NOT NULL,
+  email TEXT NOT NULL UNIQUE,
+  code TEXT NOT NULL UNIQUE,
+  commission_rate DECIMAL(5,2) DEFAULT 30.00,
+  status TEXT DEFAULT 'active' CHECK (status IN ('active', 'paused', 'pending')),
+  total_clicks INTEGER DEFAULT 0,
+  total_conversions INTEGER DEFAULT 0,
+  total_earnings DECIMAL(10,2) DEFAULT 0,
+  unpaid_earnings DECIMAL(10,2) DEFAULT 0,
+  paid_earnings DECIMAL(10,2) DEFAULT 0,
+  paypal_email TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Affiliate clicks tracking
+CREATE TABLE IF NOT EXISTS affiliate_clicks (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  affiliate_id UUID REFERENCES affiliates(id) ON DELETE CASCADE,
+  product_id UUID REFERENCES products(id),
+  ip_hash TEXT,
+  user_agent TEXT,
+  referrer TEXT,
+  converted BOOLEAN DEFAULT FALSE,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+-- Affiliate commissions
+CREATE TABLE IF NOT EXISTS affiliate_commissions (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  affiliate_id UUID REFERENCES affiliates(id) ON DELETE CASCADE,
+  order_id UUID REFERENCES orders(id),
+  amount DECIMAL(10,2) NOT NULL,
+  commission DECIMAL(10,2) NOT NULL,
+  status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'approved', 'paid')),
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE affiliates ENABLE ROW LEVEL SECURITY;
+ALTER TABLE affiliate_clicks ENABLE ROW LEVEL SECURITY;
+ALTER TABLE affiliate_commissions ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Enable all" ON affiliates FOR ALL USING (true);
+CREATE POLICY "Enable all" ON affiliate_clicks FOR ALL USING (true);
+CREATE POLICY "Enable all" ON affiliate_commissions FOR ALL USING (true);
