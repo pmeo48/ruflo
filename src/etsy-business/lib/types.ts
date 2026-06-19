@@ -164,3 +164,36 @@ export interface ExpansionVariant {
   estimatedRevenue: number
   status: 'suggested' | 'in-progress' | 'created'
 }
+
+export type CouponType = 'percentage' | 'fixed' | 'free_shipping'
+export type CouponStatus = 'active' | 'paused' | 'expired'
+
+export interface Coupon {
+  id: string
+  code: string
+  description: string
+  type: CouponType
+  value: number
+  minOrderAmount?: number
+  maxUses?: number
+  usedCount: number
+  productIds?: string[]  // empty = applies to all
+  status: CouponStatus
+  expiresAt?: string
+  createdAt: string
+}
+
+export interface Review {
+  id: string
+  productId: string
+  productName: string
+  customerName: string
+  customerEmail?: string
+  rating: number  // 1-5
+  title?: string
+  body: string
+  verified: boolean
+  status: 'pending' | 'published' | 'rejected'
+  reply?: string
+  createdAt: string
+}

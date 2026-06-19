@@ -4,7 +4,7 @@ import { useState, useEffect, useRef, Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { MOCK_PRODUCTS } from '@/lib/mock-data'
 import { Product, ProductType } from '@/lib/types'
-import { ShoppingCart, Zap, Star, Shield, RefreshCw, Download } from 'lucide-react'
+import { ShoppingCart, Zap, Star, Shield, RefreshCw, Download, Ticket, CheckCircle } from 'lucide-react'
 
 const TYPE_LABELS: Record<ProductType, string> = {
   pdf: 'PDF Guide',
@@ -201,6 +201,9 @@ export default function StorePage() {
       </div>
 
       <div className="max-w-6xl mx-auto px-4 py-8">
+        {/* Coupon input */}
+        <CouponBanner />
+
         {/* Featured product */}
         {featuredProduct && (
           <div className="mb-10 bg-gradient-to-br from-indigo-900 via-purple-900 to-indigo-800 rounded-2xl p-6 md:p-8 text-white flex flex-col md:flex-row gap-6 items-start md:items-center">
@@ -264,6 +267,57 @@ export default function StorePage() {
           <span className="flex items-center gap-1.5"><RefreshCw className="w-3.5 h-3.5" />30-day guarantee</span>
         </div>
       </footer>
+    </div>
+  )
+}
+
+function CouponBanner() {
+  const [code, setCode] = useState('')
+  const [status, setStatus] = useState<'idle' | 'loading' | 'valid' | 'invalid'>('idle')
+  const [message, setMessage] = useState('')
+
+  async function handleApply() {
+    if (!code.trim()) return
+    setStatus('loading')
+    const res = await fetch('/api/coupons/validate', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ code, orderAmount: 50 }),
+    })
+    const data = await res.json()
+    if (data.valid) {
+      setStatus('valid')
+      setMessage(`${data.coupon.type === 'percentage' ? `${data.coupon.value}% off` : `$${data.coupon.value} off`} applied!`)
+      if (typeof window !== 'undefined') sessionStorage.setItem('coupon_code', code.toUpperCase())
+    } else {
+      setStatus('invalid')
+      setMessage(data.error || 'Invalid code')
+    }
+  }
+
+  return (
+    <div className="mb-6 flex items-center gap-3 bg-amber-50 border border-amber-200 rounded-xl px-4 py-3">
+      <Ticket className="w-4 h-4 text-amber-500 flex-shrink-0" />
+      <span className="text-sm text-amber-800 font-medium">Have a coupon?</span>
+      <input
+        value={code}
+        onChange={(e) => { setCode(e.target.value.toUpperCase()); setStatus('idle') }}
+        placeholder="Enter code"
+        className="border border-amber-300 bg-white rounded-lg px-3 py-1.5 text-sm font-mono uppercase w-36 focus:outline-none focus:ring-1 focus:ring-amber-400"
+      />
+      <button
+        onClick={handleApply}
+        disabled={status === 'loading'}
+        className="px-3 py-1.5 bg-amber-500 text-white rounded-lg text-sm font-semibold hover:bg-amber-600 transition-colors disabled:opacity-60"
+      >
+        {status === 'loading' ? '...' : 'Apply'}
+      </button>
+      {status === 'valid' && (
+        <span className="flex items-center gap-1 text-green-700 text-sm font-semibold">
+          <CheckCircle className="w-4 h-4" /> {message}
+        </span>
+      )}
+      {status === 'invalid' && <span className="text-red-600 text-sm">{message}</span>}
     </div>
   )
 }
