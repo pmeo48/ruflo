@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard, Package, Search, GitBranch, Layers,
-  BarChart2, Megaphone, Zap, Vault, TrendingUp, Bot, Star, ImageIcon, ShoppingBag, Store, Mail, Share2
+  BarChart2, Megaphone, Zap, Vault, TrendingUp, Bot, Star, ImageIcon, ShoppingBag, Store, Mail, Share2, Settings
 } from 'lucide-react'
 
 const navItems = [
@@ -23,6 +23,7 @@ const navItems = [
   { href: '/marketing', icon: Megaphone, label: 'Marketing' },
   { href: '/automation', icon: Zap, label: 'Automation' },
   { href: '/vault', icon: Star, label: 'Growth Vault' },
+  { href: '/settings', icon: Settings, label: 'Settings' },
 ]
 
 export function Sidebar() {

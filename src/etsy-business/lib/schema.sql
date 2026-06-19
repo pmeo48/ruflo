@@ -163,3 +163,13 @@ BEGIN
   UPDATE products SET sales = sales + 1, revenue = revenue + (SELECT price FROM products WHERE id = p_id) WHERE id = p_id;
 END;
 $$ LANGUAGE plpgsql;
+
+-- Settings table for runtime configuration
+CREATE TABLE IF NOT EXISTS settings (
+  key TEXT PRIMARY KEY,
+  value TEXT NOT NULL DEFAULT '',
+  updated_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE settings ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Enable all for authenticated" ON settings FOR ALL USING (true);
