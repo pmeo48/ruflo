@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard, Package, Search, GitBranch, Layers,
-  BarChart2, Megaphone, Zap, TrendingUp, Bot, Star, ImageIcon, ShoppingBag, Store, Mail, Share2, Settings, Users, Ticket, MessageSquare
+  BarChart2, Megaphone, Zap, TrendingUp, Bot, Star, ImageIcon, ShoppingBag, Store, Mail, Share2, Settings, Users, Ticket, MessageSquare, Receipt
 } from 'lucide-react'
 
 const navItems = [
@@ -13,6 +13,7 @@ const navItems = [
   { href: '/design', icon: ImageIcon, label: 'Design Studio' },
   { href: '/etsy', icon: ShoppingBag, label: 'Etsy Listings' },
   { href: '/store', icon: Store, label: 'Storefront' },
+  { href: '/orders', icon: Receipt, label: 'Orders' },
   { href: '/emails', icon: Mail, label: 'Email Center' },
   { href: '/pinterest', icon: Share2, label: 'Pinterest' },
   { href: '/affiliates', icon: Users, label: 'Affiliates' },
