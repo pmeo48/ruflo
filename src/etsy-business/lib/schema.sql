@@ -220,3 +220,41 @@ ALTER TABLE affiliate_commissions ENABLE ROW LEVEL SECURITY;
 CREATE POLICY "Enable all" ON affiliates FOR ALL USING (true);
 CREATE POLICY "Enable all" ON affiliate_clicks FOR ALL USING (true);
 CREATE POLICY "Enable all" ON affiliate_commissions FOR ALL USING (true);
+
+-- Coupons table
+CREATE TABLE IF NOT EXISTS coupons (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  code TEXT NOT NULL UNIQUE,
+  description TEXT NOT NULL DEFAULT '',
+  type TEXT NOT NULL CHECK (type IN ('percentage', 'fixed', 'free_shipping')),
+  value DECIMAL(10,2) NOT NULL DEFAULT 0,
+  min_order_amount DECIMAL(10,2) DEFAULT 0,
+  max_uses INTEGER,
+  used_count INTEGER DEFAULT 0,
+  product_ids UUID[] DEFAULT '{}',
+  status TEXT DEFAULT 'active' CHECK (status IN ('active', 'paused', 'expired')),
+  expires_at TIMESTAMPTZ,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE coupons ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Enable all for coupons" ON coupons FOR ALL USING (true);
+
+-- Reviews table
+CREATE TABLE IF NOT EXISTS reviews (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  product_id UUID REFERENCES products(id),
+  product_name TEXT NOT NULL,
+  customer_name TEXT NOT NULL,
+  customer_email TEXT,
+  rating INTEGER NOT NULL CHECK (rating BETWEEN 1 AND 5),
+  title TEXT,
+  body TEXT NOT NULL,
+  verified BOOLEAN DEFAULT FALSE,
+  status TEXT DEFAULT 'pending' CHECK (status IN ('pending', 'published', 'rejected')),
+  reply TEXT,
+  created_at TIMESTAMPTZ DEFAULT NOW()
+);
+
+ALTER TABLE reviews ENABLE ROW LEVEL SECURITY;
+CREATE POLICY "Enable all for reviews" ON reviews FOR ALL USING (true);
