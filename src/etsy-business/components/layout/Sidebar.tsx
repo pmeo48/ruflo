@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard, Package, Search, GitBranch, Layers,
-  BarChart2, Megaphone, Zap, TrendingUp, Bot, Star, ImageIcon, ShoppingBag, Store, Mail, Share2, Settings, Users, Ticket, MessageSquare, Receipt, DollarSign, PenLine, FlaskConical
+  BarChart2, Megaphone, Zap, TrendingUp, Bot, Star, ImageIcon, ShoppingBag, Store, Mail, Share2, Settings, Users, Ticket, MessageSquare, Receipt, DollarSign, PenLine, FlaskConical, UserCircle
 } from 'lucide-react'
 
 const navItems = [
@@ -15,6 +15,7 @@ const navItems = [
   { href: '/abtesting', icon: FlaskConical, label: 'A/B Testing' },
   { href: '/etsy', icon: ShoppingBag, label: 'Etsy Listings' },
   { href: '/store', icon: Store, label: 'Storefront' },
+  { href: '/customer', icon: UserCircle, label: 'Customer Portal' },
   { href: '/orders', icon: Receipt, label: 'Orders' },
   { href: '/emails', icon: Mail, label: 'Email Center' },
   { href: '/pinterest', icon: Share2, label: 'Pinterest' },

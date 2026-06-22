@@ -19,8 +19,11 @@ export async function middleware(request: NextRequest) {
 
   const { data: { session } } = await supabase.auth.getSession()
 
-  // Redirect to login if not authenticated and not already on login page
-  if (!session && !request.nextUrl.pathname.startsWith('/login')) {
+  // Public routes that don't require auth
+  const publicRoutes = ['/login', '/store', '/customer']
+  const isPublic = publicRoutes.some((r) => request.nextUrl.pathname === r || request.nextUrl.pathname.startsWith(r + '/'))
+
+  if (!session && !isPublic) {
     return NextResponse.redirect(new URL('/login', request.url))
   }
 

@@ -265,6 +265,10 @@ export default function StorePage() {
           <span className="flex items-center gap-1.5"><Shield className="w-3.5 h-3.5" />Secure checkout via Stripe</span>
           <span className="hidden sm:block opacity-30">•</span>
           <span className="flex items-center gap-1.5"><RefreshCw className="w-3.5 h-3.5" />30-day guarantee</span>
+          <span className="hidden sm:block opacity-30">•</span>
+          <a href="/customer" className="flex items-center gap-1.5 hover:text-indigo-600 transition-colors">
+            <Star className="w-3.5 h-3.5" />Access my purchases
+          </a>
         </div>
       </footer>
     </div>
