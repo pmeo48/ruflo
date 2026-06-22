@@ -4,11 +4,12 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import {
   LayoutDashboard, Package, Search, GitBranch, Layers,
-  BarChart2, Megaphone, Zap, TrendingUp, Bot, Star, ImageIcon, ShoppingBag, Store, Mail, Share2, Settings, Users, Ticket, MessageSquare, Receipt, DollarSign, PenLine, FlaskConical, UserCircle, Lightbulb, ClipboardCheck, KeyRound, Target, Rocket
+  BarChart2, Megaphone, Zap, TrendingUp, Bot, Star, ImageIcon, ShoppingBag, Store, Mail, Share2, Settings, Users, Ticket, MessageSquare, Receipt, DollarSign, PenLine, FlaskConical, UserCircle, Lightbulb, ClipboardCheck, KeyRound, Target, Rocket, Activity
 } from 'lucide-react'
 
 const navItems = [
   { href: '/', icon: LayoutDashboard, label: 'Dashboard' },
+  { href: '/health', icon: Activity, label: 'Shop Health' },
   { href: '/products', icon: Package, label: 'Products' },
   { href: '/design', icon: ImageIcon, label: 'Design Studio' },
   { href: '/copywriter', icon: PenLine, label: 'Copy Writer' },
